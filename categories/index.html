@@ -312,40 +312,6 @@
 </script>
 
 
-    
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-    <script>
-
-        var valine = new Valine();
-
-        function initValine(path) {
-            if (!path) path = window.location.pathname;
-            let language = 'zh-CN';
-            if (!language) {
-                language = 'en';
-            } else {
-                language = language.toLowerCase();
-            }
-            valine.init({
-                el: '#vcomments',
-                appId: 'uTFDEx4rD3KpCW5dlSXAl3JD-gzGzoHsz',
-                appKey: 'lnRdNC4MXcP5OPxH4IBHnsfy',
-                notify: 'false',
-                verify: 'false',
-                avatar: 'mp',
-                placeholder: 'Leave your throughs behind~',
-                visitor: 'true',
-                path: path,
-                lang: language
-            });
-        }
-
-        $(document).ready(function () {
-            initValine();
-        });
-    </script>
-
 
 
 </html>
