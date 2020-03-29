@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>post title with whitespace</title>
+      <link href="/2020/03/30/%E6%8A%98%E8%85%BE/"/>
+      <url>/2020/03/30/%E6%8A%98%E8%85%BE/</url>
+      
+        <content type="html"><![CDATA[<p>总应该表达点什么，对吧！</p><a id="more"></a><p>经过了一番折腾建立了这个blog，但是这期间竟然勾起了我学习编程的兴趣，希望能日后多加学习精进。</p><ul><li><input disabled="" type="checkbox"> Vue.js</li><li><input disabled="" type="checkbox"> Swift</li></ul><p>👨‍🚀或许我真正的编程之路就此开始了…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 初心 </tag>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Blog搭建全记录</title>
       <link href="/2020/03/22/Blog%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/"/>
       <url>/2020/03/22/Blog%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
@@ -13,14 +40,16 @@
       
       <categories>
           
-          <category> 博客 </category>
+          <category> 博客相关 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 初心 </tag>
+            <tag> Hexo </tag>
+            
+            <tag> Blog </tag>
             
         </tags>
       
@@ -38,7 +67,7 @@
       
       <categories>
           
-          <category> 一勺感想 </category>
+          <category> 博客相关 </category>
           
       </categories>
       
@@ -46,6 +75,8 @@
         <tags>
             
             <tag> 初心 </tag>
+            
+            <tag> 感想 </tag>
             
         </tags>
       
