@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jtf.im/"/>
-  <updated>2020-03-30T14:41:09.575Z</updated>
+  <updated>2020-03-30T17:45:05.547Z</updated>
   <id>https://jtf.im/</id>
   
   <author>
@@ -17,13 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>新冠疫情的这段日子</title>
+    <link href="https://jtf.im/2020/03/31/%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E7%9A%84%E8%BF%99%E6%AE%B5%E6%97%A5%E5%AD%90/"/>
+    <id>https://jtf.im/2020/03/31/%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E7%9A%84%E8%BF%99%E6%AE%B5%E6%97%A5%E5%AD%90/</id>
+    <published>2020-03-30T16:50:50.000Z</published>
+    <updated>2020-03-30T17:45:05.547Z</updated>
+    
+    <content type="html"><![CDATA[<p>新冠专治各种不服，我们唯独不能轻视它。</p><a id="more"></a><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>回想2020年初，到现在简直就跟一场梦一样，我是没有想到我们这个看似坚不可摧的世界，是这么脆弱。</p><p>时下被引用的可能就是<code>黑格尔</code>的那句话“人类从历史中学到的唯一教训，就是人类没有从历史中吸取任何教训。“</p><p>这个现象或许从生物学角度上可以得到很好的解释，那就是我们人类的寿命实在是太短暂了，长寿者也不过百年。即使长寿者也不能记住这一辈子的重要经历，所以寿命短造就了我们人类的擅长遗忘和注定的短视。</p><p>如果真的存在观察我们的更高级文明，或许看到人类这样真的会发笑，我们什么时候能认识到自己的渺小和平凡。</p><h2 id="一勺思考"><a href="#一勺思考" class="headerlink" title="一勺思考"></a>一勺思考</h2><p>自己在家隔离的这段日子，要说进步就是厨艺吧。每天逼着自己去做饭，做饭成了每天最有存在感的事情后才明白，曾经那些所谓的追求也不过是一口吃的。想想这就有点失落，谁小时候没有自命不凡呢，可是生活始终会告诉你真相，大多数人也注定平凡。</p><p>蛮多人还在这时候乐观的寻找机会，可是所有事实都说明新冠病毒还会陪伴我们一段时间。这或许因为每个人看待世界的不同，而这种不同的原因也都是因为各种媒体带来的偏差。</p><p>生于忧患，死于安乐。乱世出枭雄，我们这代人一定会孕育出一个伟大人物的，希望人类能在这次疫情过后能再<code>技术爆炸</code>一下，毕竟这才能让我们人类走向更遥远未来的根本。</p><h2 id="种族主义"><a href="#种族主义" class="headerlink" title="种族主义"></a>种族主义</h2><p>新冠病毒也让我们看到种族主义和本位主义在这个世界是多么的严重，傲慢的欧美人自以为的文明也不堪一击，大概他们忘了自己也是人。新冠病毒是无差别的攻击，而且还专治各种不服。这点在英美很多人身上显示的尤为深刻，很难想象《圣经》的启示录，并没有给他们任何启示。</p><p>我们也好不到哪里去，如同欧美一开始这只是会在亚洲爆发的病毒一样，现在轮到欧美大流行，很多人开始嘲笑他们来了，或许这是一种反击。可是我们又和他们有何不同呢？我们也忘记了我们都是人。欧美经济崩盘了还有人嘲笑，自以为我们就会趁此良机赶超他们，可是仔细想想，这现实吗…</p><h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>这个世界有很多受苦受难的人，他们的命运是与所有人紧密相连的，人类并不是孤立的存在于地球上，我们有责任互相互助，如果不能意识到这一点，那么人类的终点也就到了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新冠专治各种不服，我们唯独不能轻视它。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日常记录" scheme="https://jtf.im/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="心情" scheme="https://jtf.im/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Blog搭建全记录</title>
     <link href="https://jtf.im/2020/03/22/Blog%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/"/>
     <id>https://jtf.im/2020/03/22/Blog%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/</id>
     <published>2020-03-21T18:01:28.000Z</published>
-    <updated>2020-03-30T14:41:09.575Z</updated>
+    <updated>2020-03-30T17:00:26.100Z</updated>
     
-    <content type="html"><![CDATA[<p>不经一番寒彻骨，怎得梅花扑鼻香。</p><a id="more"></a><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>搞了几天的<code>Blog</code>终于算是确定下来了，这篇文章就尽量全程的记录一下我的这几天的搭建的经历吧，毕竟年纪大了，很多之前的事越发的容易遗忘了。</p><p>或许有人会有疑问为啥现在还要自己在建一个博客，而不是利用微信公众号、微博等自媒体平台呢？算了算从一开始搞公众号到现在也已经6年有余了，现在越来越觉得把我的内容放到公众号里不够踏实，我曾经以为这公众号就是我的，可是越来越发现它并不是我的，而内容的真正受益者是平台，而且内容需要接受其审查，慢慢的就越来越不想发文了。</p><p>和主流自媒体产生的内容不同，个人博客一般是自己的记录和分享以人为单位的。所以不必跟热点，能够更好的表达自我，当然这样带来的就是内容对于读者的喜好来讲参差不齐，而不是像算法投喂的那样，更多的是读者感兴趣的内容。</p><p>其实，我们这代人每个人都是开放互联网的受益者，每天都从网上获取别人分享的知识和经验，久而久之，我也想跟着前辈一样做一个属于自己的地方，记录我想记录的全部，而不是为了流量去大声的呐喊，更不是发完图文后焦虑关注的浏览量。</p><p>它更应该像一座宝藏，属于我的宝藏。</p><h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><p>我一开始纠结于用<code>VuePress</code>和<code>Hexo</code>，但都搭建成功后，纠结来纠结去最后还是选择用<code>Hexo</code>来搭建，因为对于我这种技术并不熟练的人来说比较简单，bug解决上教程比较多，还有就是比较多的网站主题可供选择。</p><h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p>由于我也是个初学者，所以我就不重复造轮子了，我就把我参考的教程列出来，下面是我在搭建<code>Hexo</code>时主要参考的教程。</p><h3 id="EasyHexo"><a href="#EasyHexo" class="headerlink" title="EasyHexo"></a>EasyHexo</h3><p>如同名字一样，<a href="https://easyhexo.com/" target="_blank" rel="noopener">EasyHexo</a>是让Hexo更容易上手的网站，从安装配置到主题插件应有尽有，对于第一次接触<code>Hexo</code>的人是一个非常好的入门网站。</p><h2 id="B站教程"><a href="#B站教程" class="headerlink" title="B站教程"></a>B站教程</h2><p><a href="https://www.bilibili.com/video/BV1Yb411a7ty?from=search&seid=15476649178782394273" target="_blank" rel="noopener">CodeSheep</a>的教程解决我在第一次创建时，对于<code>Unix</code>口令不熟悉的问题，一开始我就卡在了权限问题上，是在这个教程里看到如何用管理员权限。</p><p>看了以上教程我想从0到1搭建一个<code>Hexo</code>博客应该不成问题了，主题的话在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo</a>官网有很多可以选择，这个就看个人口味了，就不做推荐了。</p><h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p>我是部署在<code>GitHub</code>上的，所以我就买了一个<code>.im</code>的域名，虽然说<strong>github.io</strong>在国内访问不是很稳定，但是这样可以省去我备案的麻烦，毕竟现如今这个博客除了我自己也没几个人访问。</p><h1 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h1><p>搭建一个属于自己的博客会培养自己的编程兴趣，比如现在我就更了解Git了，由于是静态博客，GitHub上的贡献格子也可以更好的记录我的博客更新记录。</p><p><strong>人生似乎是一场不断给自己挖坑的过程，我们也在不断的填坑的过程中锻炼和成就了自我。</strong></p><p><strong>或许这就是生命的乐趣吧。</strong></p>]]></content>
+    <content type="html"><![CDATA[<p>不经一番寒彻骨，怎得梅花扑鼻香。</p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搞了几天的<code>Blog</code>终于算是确定下来了，这篇文章就尽量全程的记录一下我的这几天的搭建的经历吧，毕竟年纪大了，很多之前的事越发的容易遗忘了。</p><p>或许有人会有疑问为啥现在还要自己在建一个博客，而不是利用微信公众号、微博等自媒体平台呢？算了算从一开始搞公众号到现在也已经6年有余了，现在越来越觉得把我的内容放到公众号里不够踏实，我曾经以为这公众号就是我的，可是越来越发现它并不是我的，而内容的真正受益者是平台，而且内容需要接受其审查，慢慢的就越来越不想发文了。</p><p>和主流自媒体产生的内容不同，个人博客一般是自己的记录和分享以人为单位的。所以不必跟热点，能够更好的表达自我，当然这样带来的就是内容对于读者的喜好来讲参差不齐，而不是像算法投喂的那样，更多的是读者感兴趣的内容。</p><p>其实，我们这代人每个人都是开放互联网的受益者，每天都从网上获取别人分享的知识和经验，久而久之，我也想跟着前辈一样做一个属于自己的地方，记录我想记录的全部，而不是为了流量去大声的呐喊，更不是发完图文后焦虑关注的浏览量。</p><p>它更应该像一座宝藏，属于我的宝藏。</p><h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>我一开始纠结于用<code>VuePress</code>和<code>Hexo</code>，但都搭建成功后，纠结来纠结去最后还是选择用<code>Hexo</code>来搭建，因为对于我这种技术并不熟练的人来说比较简单，bug解决上教程比较多，还有就是比较多的网站主题可供选择。</p><h3 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h3><p>由于我也是个初学者，所以我就不重复造轮子了，我就把我参考的教程列出来，下面是我在搭建<code>Hexo</code>时主要参考的教程。</p><h4 id="EasyHexo"><a href="#EasyHexo" class="headerlink" title="EasyHexo"></a>EasyHexo</h4><p>如同名字一样，<a href="https://easyhexo.com/" target="_blank" rel="noopener">EasyHexo</a>是让Hexo更容易上手的网站，从安装配置到主题插件应有尽有，对于第一次接触<code>Hexo</code>的人是一个非常好的入门网站。</p><h3 id="B站教程"><a href="#B站教程" class="headerlink" title="B站教程"></a>B站教程</h3><p><a href="https://www.bilibili.com/video/BV1Yb411a7ty?from=search&seid=15476649178782394273" target="_blank" rel="noopener">CodeSheep</a>的教程解决我在第一次创建时，对于<code>Unix</code>口令不熟悉的问题，一开始我就卡在了权限问题上，是在这个教程里看到如何用管理员权限。</p><p>看了以上教程我想从0到1搭建一个<code>Hexo</code>博客应该不成问题了，主题的话在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo</a>官网有很多可以选择，这个就看个人口味了，就不做推荐了。</p><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>我是部署在<code>GitHub</code>上的，所以我就买了一个<code>.im</code>的域名，虽然说<strong>github.io</strong>在国内访问不是很稳定，但是这样可以省去我备案的麻烦，毕竟现如今这个博客除了我自己也没几个人访问。</p><h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>搭建一个属于自己的博客会培养自己的编程兴趣，比如现在我就更了解Git了，由于是静态博客，GitHub上的贡献格子也可以更好的记录我的博客更新记录。</p><p><strong>人生似乎是一场不断给自己挖坑的过程，我们也在不断的填坑的过程中锻炼和成就了自我。</strong></p><p><strong>或许这就是生命的乐趣吧。</strong></p>]]></content>
     
     <summary type="html">
     
@@ -32,7 +55,7 @@
     </summary>
     
     
-      <category term="博客相关" scheme="https://jtf.im/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+      <category term="博客" scheme="https://jtf.im/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
       <category term="Hexo" scheme="https://jtf.im/tags/Hexo/"/>
@@ -46,7 +69,7 @@
     <link href="https://jtf.im/2020/03/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
     <id>https://jtf.im/2020/03/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
     <published>2020-03-20T18:01:28.000Z</published>
-    <updated>2020-03-30T14:40:15.639Z</updated>
+    <updated>2020-03-30T17:00:22.421Z</updated>
     
     <content type="html"><![CDATA[<p>总应该表达点什么，对吧！</p><a id="more"></a><p>经过了一番折腾建立了这个blog，但是这期间竟然勾起了我学习编程的兴趣，希望能日后多加学习精进。</p><ul><li><input disabled="" type="checkbox"> Vue.js</li><li><input disabled="" type="checkbox"> Swift</li></ul><p>👨‍🚀或许我真正的编程之路就此开始了…</p>]]></content>
     
@@ -57,10 +80,10 @@
     </summary>
     
     
-      <category term="博客相关" scheme="https://jtf.im/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+      <category term="博客" scheme="https://jtf.im/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="心情" scheme="https://jtf.im/tags/%E5%BF%83%E6%83%85/"/>
+      <category term="表达" scheme="https://jtf.im/tags/%E8%A1%A8%E8%BE%BE/"/>
     
   </entry>
   
