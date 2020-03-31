@@ -43,12 +43,11 @@ article.post-view__article .article__content code.hljs {
 article.post-view__article .article__content code:not(.hljs) {
   color: $color-white;
   font-weight: bold;
-  background: $color-black-2;
+  background: $color-black-3;
   border-radius: 4px;
-  padding: 0 0.4em;
-  margin: 0.2em 0.4em;
-  vertical-align: middle;
-  display: inline-block;
+  padding: 0.1em 0.4em;
+  margin: 0 0.4em;
+  vertical-align: bottom;
 }
 article.post-view__article .article__content ul,
 article.post-view__article .article__content ol {
