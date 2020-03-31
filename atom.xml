@@ -40,17 +40,17 @@
   </entry>
   
   <entry>
-    <title>Blog搭建全记录</title>
-    <link href="https://jtf.im/2020/03/22/Blog%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/"/>
-    <id>https://jtf.im/2020/03/22/Blog%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/</id>
+    <title>为什么现在要做Blog</title>
+    <link href="https://jtf.im/2020/03/22/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%B0%E5%9C%A8%E8%A6%81%E5%81%9ABlog/"/>
+    <id>https://jtf.im/2020/03/22/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%B0%E5%9C%A8%E8%A6%81%E5%81%9ABlog/</id>
     <published>2020-03-21T18:01:28.000Z</published>
-    <updated>2020-03-30T20:21:53.625Z</updated>
+    <updated>2020-03-31T11:12:37.233Z</updated>
     
-    <content type="html"><![CDATA[<p>不经一番寒彻骨，怎得梅花扑鼻香。</p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搞了几天的<code>Blog</code>终于算是确定下来了，这篇文章就尽量全程的记录一下我的这几天的搭建的经历吧，毕竟年纪大了，很多之前的事越发的容易遗忘了。</p><p>或许有人会有疑问为啥现在还要自己在建一个博客，而不是利用微信公众号、微博等自媒体平台呢？算了算从一开始搞公众号到现在也已经6年有余了，现在越来越觉得把我的内容放到公众号里不够踏实，我曾经以为这公众号就是我的，可是越来越发现它并不是我的，而内容的真正受益者是平台，而且内容需要接受其审查，慢慢的就越来越不想发文了。</p><p>和主流自媒体产生的内容不同，个人博客一般是自己的记录和分享以人为单位的。所以不必跟热点，能够更好的表达自我，当然这样带来的就是内容对于读者的喜好来讲参差不齐，而不是像算法投喂的那样，更多的是读者感兴趣的内容。</p><p>其实，我们这代人每个人都是开放互联网的受益者，每天都从网上获取别人分享的知识和经验，久而久之，我也想跟着前辈一样做一个属于自己的地方，记录我想记录的全部，而不是为了流量去大声的呐喊，更不是发完图文后焦虑关注的浏览量。</p><p>它更应该像一座宝藏，属于我的宝藏。</p><h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>我一开始纠结于用<code>VuePress</code>和<code>Hexo</code>，但都搭建成功后，纠结来纠结去最后还是选择用<code>Hexo</code>来搭建，因为对于我这种技术并不熟练的人来说比较简单，bug解决上教程比较多，还有就是比较多的网站主题可供选择。</p><h3 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h3><p>由于我也是个初学者，所以我就不重复造轮子了，我就把我参考的教程列出来，下面是我在搭建<code>Hexo</code>时主要参考的教程。</p><h4 id="EasyHexo"><a href="#EasyHexo" class="headerlink" title="EasyHexo"></a>EasyHexo</h4><p>如同名字一样，<a href="https://easyhexo.com/" target="_blank" rel="noopener">EasyHexo</a>是让Hexo更容易上手的网站，从安装配置到主题插件应有尽有，对于第一次接触<code>Hexo</code>的人是一个非常好的入门网站。</p><h3 id="B站教程"><a href="#B站教程" class="headerlink" title="B站教程"></a>B站教程</h3><p><a href="https://www.bilibili.com/video/BV1Yb411a7ty?from=search&seid=15476649178782394273" target="_blank" rel="noopener">CodeSheep</a>的教程解决我在第一次创建时，对于<code>Unix</code>口令不熟悉的问题，一开始我就卡在了权限问题上，是在这个教程里看到如何用管理员权限。</p><p>看了以上教程我想从0到1搭建一个<code>Hexo</code>博客应该不成问题了，主题的话在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo</a>官网有很多可以选择，这个就看个人口味了，就不做推荐了。</p><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>我是部署在<code>GitHub</code>上的，所以我就买了一个<code>.im</code>的域名，虽然说<strong>github.io</strong>在国内访问不是很稳定，但是这样可以省去我备案的麻烦，毕竟现如今这个博客除了我自己也没几个人访问。</p><h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>搭建一个属于自己的博客会培养自己的编程兴趣，比如现在我就更了解Git了，由于是静态博客，GitHub上的贡献格子也可以更好的记录我的博客更新记录。</p><p><strong>人生似乎是一场不断给自己挖坑的过程，我们也在不断的填坑的过程中锻炼和成就了自我。</strong></p><p><strong>或许这就是生命的乐趣吧。</strong></p>]]></content>
+    <content type="html"><![CDATA[<p>它是一种反抗，对于如今信息孤岛的反抗。 </p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搞了几天的<code>Blog</code>终于算是确定下来了，这篇文章就说明一下为什么要做这个站点吧。我想没有一件事是毫无道理的，内心想做一件事的原因一定是积攒多年的爆发。</p><p>或许有人会有疑问为啥现在还要自己在建一个博客，而不是利用微信公众号、微博等自媒体平台呢？</p><h2 id="非自媒体"><a href="#非自媒体" class="headerlink" title="非自媒体"></a>非自媒体</h2><p>算了算从一开始搞公众号到现在也已经6年有余了，现在越来越觉得把一些内容放到公众号里不够踏实，我曾经以为这公众号就是我的，可是越来越发现它并不是我的，一些由于你我都懂的原因，蚕食那些少的可怜的表达欲。</p><p>和主流自媒体产生的内容不同，个人博客一般是自己的记录和分享以人为单位的。它不必跟热点，它更多的应该是自我的表达，当然这样带来的就是内容对于读者的喜好来讲参差不齐，而不是像算法投喂的那样，更多的是读者感兴趣的内容。所以在当下，它某种程度上是一种反抗。</p><p>我想，我们这代人每个人都是开放互联网的受益者，每天都从网上获取别人分享的知识和经验，久而久之，我也想跟着前辈一样做一个属于自己的地方，记录我想记录的全部，而不是为了流量去大声的呐喊，更不应是发完图文后焦虑的关注阅读量。</p><p>它更应该像一座宝藏，属于认可它的宝藏。</p><h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>以前我做Blog都是搭建在自己买的阿里云上，但是这次我选择部署在<code>GitHub</code>上的，虽然说<strong>github</strong>在国内访问不是很稳定，但毕竟这个Blog除了我自己也没几个人访问。这样做可以省去很多麻烦，Git也能管理程序的版本，方便做一些二次开发。</p><h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>搭建一个属于自己的博客会培养自己的编程兴趣，比如现在我就更了解Git了，由于是静态博客，GitHub上的贡献格子也可以更好的记录我的博客更新记录。</p><p><strong>人生似乎是一场不断给自己挖坑的过程，我们也在不断的填坑的过程中锻炼和成就了自我，或许这就是生命的乐趣吧。</strong></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;不经一番寒彻骨，怎得梅花扑鼻香。&lt;/p&gt;
+      &lt;p&gt;它是一种反抗，对于如今信息孤岛的反抗。 &lt;/p&gt;
     
     </summary>
     
