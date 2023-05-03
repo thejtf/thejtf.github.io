@@ -1,14 +1,8 @@
-# 📝 Jopus Blog - 基于 RaspberryPi 的 Vim 编辑 Blog
+# 📝 Jopus Blog
 
-这是一个基于树莓派 RaspberryPi 搭建部署在 GitHub 上的 Blog。它是作者通过 Vim 编辑器和树莓派的组合，重新塑造了写作的体验。
+这是一个基于树莓派 RaspberryPi 搭建部署在 GitHub 上的 Blog。它是通过 Vim 编辑器和树莓派的组合，重新塑造写作体验。
 
 ![](https://s2.loli.net/2023/05/03/kdAaL4cy3tfWHOU.png)
-
-## 💻 技术栈
-
-- RaspberryPi
-- Vim
-- GitHub
 
 ## 📚 重塑写作
 
@@ -26,4 +20,4 @@
 
 ## 📃 许可证
 
-本仓库使用 MIT License，请自由地享受和参与开源。
+本仓库使用 MIT License，请自由地享受和参与开源。	
