@@ -4,65 +4,27 @@
 
 1. ✅ Git 仓库已初始化
 2. ✅ 已连接到 GitHub 远程仓库：`https://github.com/thejtf/thejtf.github.io.git`
-3. ✅ 已创建 `source` 分支用于存储 Hexo 源代码
-4. ✅ Hexo 依赖已安装，项目可以正常运行
+3. ✅ SSH 认证已配置（使用 443 端口）
+4. ✅ 已创建 `source` 分支用于存储 Hexo 源代码
+5. ✅ 源代码已成功推送到 GitHub 的 `source` 分支
+6. ✅ Hexo 依赖已安装，项目可以正常运行
+7. ✅ 已从配置文件中移除敏感信息（Personal Access Token）
 
 ## 📋 分支说明
 
 - **`master` 分支**：存储生成的静态文件（用于 GitHub Pages）
 - **`source` 分支**：存储 Hexo 源代码（配置文件、文章、主题等）
 
-## 🔐 配置 Git 认证
+## 🔐 Git 认证状态
 
-在推送代码到 GitHub 之前，需要配置身份验证。有两种方式：
+✅ **SSH 认证已配置完成**
 
-### 方式 1：使用 SSH 密钥（推荐）
+- SSH 密钥已存在：`~/.ssh/id_ed25519`
+- 远程仓库已配置为 SSH：`git@github.com:thejtf/thejtf.github.io.git`
+- 已配置使用 GitHub 的 HTTPS 端口（443）进行 SSH 连接
+- 源代码已成功推送到 GitHub
 
-1. 检查是否已有 SSH 密钥：
-```bash
-ls -al ~/.ssh
-```
-
-2. 如果没有，生成新的 SSH 密钥：
-```bash
-ssh-keygen -t ed25519 -C "your_email@example.com"
-```
-
-3. 将公钥添加到 GitHub：
-```bash
-cat ~/.ssh/id_ed25519.pub
-```
-复制输出内容，在 GitHub 设置中添加 SSH 密钥。
-
-4. 更改远程仓库 URL 为 SSH：
-```bash
-git remote set-url origin git@github.com:thejtf/thejtf.github.io.git
-```
-
-### 方式 2：使用 Personal Access Token
-
-1. 在 GitHub 创建 Personal Access Token（Settings → Developer settings → Personal access tokens）
-2. 使用 token 推送：
-```bash
-git push -u origin source
-# 用户名：thejtf
-# 密码：输入你的 Personal Access Token
-```
-
-或者配置 credential helper：
-```bash
-git config --global credential.helper store
-git push -u origin source
-# 输入用户名和 token
-```
-
-## 🚀 推送源代码到 GitHub
-
-配置好认证后，执行：
-
-```bash
-git push -u origin source
-```
+如果需要重新配置，请参考下面的说明。
 
 ## 💻 本地运行 Hexo 博客
 
@@ -136,5 +98,31 @@ npm install
 
 ### 如果部署失败
 
-检查 `_config.yml` 中的部署配置，确保 GitHub token 有效（注意：token 可能已过期，需要更新）。
+`_config.yml` 中的部署配置已移除 token（出于安全考虑）。部署时需要使用以下方式之一：
+
+**方式 1：使用 SSH 部署（推荐）**
+
+修改 `_config.yml` 中的部署配置：
+```yaml
+deploy:
+  type: git
+  repo: git@github.com:thejtf/thejtf.github.io.git
+  branch: master
+```
+
+**方式 2：使用 Personal Access Token**
+
+1. 在 GitHub 创建 Personal Access Token（Settings → Developer settings → Personal access tokens）
+2. 修改 `_config.yml`：
+```yaml
+deploy:
+  type: git
+  repo: https://thejtf:YOUR_TOKEN@github.com/thejtf/thejtf.github.io.git
+  branch: master
+```
+⚠️ **注意**：不要将包含 token 的配置文件提交到 Git！
+
+**方式 3：使用环境变量**
+
+使用 `hexo-deployer-git` 的环境变量功能，避免在配置文件中存储 token。
 
