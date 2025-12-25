@@ -35,19 +35,27 @@ window.addEventListener('DOMContentLoaded', () => {
   // darkmode
   ;(() => {
     const darkmode = new Darkmode()
-    const { isDarkMode } = localStorage
     const checkbox = document.querySelector('input[name=mode]')
-    if (isDarkMode && JSON.parse(isDarkMode)) {
-      darkmode.turnOnDarkmode()
-      checkbox.checked = true
+    if (!checkbox) return
+    
+    try {
+      const isDarkMode = localStorage.getItem('isDarkMode')
+      if (isDarkMode && JSON.parse(isDarkMode)) {
+        darkmode.turnOnDarkmode()
+        checkbox.checked = true
+      }
+    } catch (e) {
+      // 如果 localStorage 值无效，忽略错误
+      console.warn('Failed to parse darkMode from localStorage:', e)
     }
+    
     checkbox.addEventListener('change', function() {
       if (this.checked) {
         darkmode.turnOnDarkmode()
-        localStorage.setItem('isDarkMode', true)
+        localStorage.setItem('isDarkMode', 'true')
       } else {
         darkmode.turnOffDarkmode()
-        localStorage.setItem('isDarkMode', false)
+        localStorage.setItem('isDarkMode', 'false')
       }
     })
   })()
@@ -67,4 +75,15 @@ window.addEventListener('DOMContentLoaded', () => {
       toggle = !toggle
     })
   })()
+
+  // weekday display - 动态显示当前星期几
+  // 获取星期几的函数，可以在需要的地方调用
+  // 使用方法：getWeekday() 返回 '周日'、'周一'、'周二'、'周三'、'周四'、'周五'、'周六'
+  window.getWeekday = function() {
+    const days = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    const today = new Date();
+    return days[today.getDay()];
+  }
+  
+  // 时间显示逻辑已移至 location-bar.pug 的内联脚本中，避免闪烁
 })

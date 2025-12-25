@@ -1,11 +1,61 @@
 if theme.google_analytics_id
   //- Global site tag (gtag.js) - Google Analytics
-  script(src=`https://www.googletagmanager.com/gtag/js?id=${theme.google_analytics_id}` async)
+  //- 只在非本地环境加载 Google Analytics（通过 JavaScript 运行时检测）
+  script(src=`https://www.googletagmanager.com/gtag/js?id=${theme.google_analytics_id}` async onerror="this.onerror=null;console.warn('Google Analytics script failed to load');")
   script.
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '#{theme.google_analytics_id}');
+    // 检测是否为本地开发环境
+    const isLocalhost = window.location.hostname === 'localhost' || 
+                        window.location.hostname === '127.0.0.1' ||
+                        window.location.hostname === '0.0.0.0' ||
+                        window.location.hostname === '';
+    
+    // 只在非本地环境初始化 Google Analytics
+    if (!isLocalhost) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // 添加错误处理，静默处理连接错误
+      try {
+        gtag('config', '#{theme.google_analytics_id}', {
+          // 使用 beacon 传输方式，更可靠
+          transport_type: 'beacon',
+          // 启用自动页面跟踪
+          send_page_view: true
+        });
+      } catch (e) {
+        // 静默处理错误，不影响用户体验
+        console.warn('Google Analytics initialization failed:', e);
+      }
+      
+      // 拦截 XMLHttpRequest 错误，避免在控制台显示
+      const originalXHROpen = XMLHttpRequest.prototype.open;
+      const originalXHRSend = XMLHttpRequest.prototype.send;
+      
+      XMLHttpRequest.prototype.open = function(method, url, ...args) {
+        this._gaUrl = url;
+        return originalXHROpen.apply(this, [method, url, ...args]);
+      };
+      
+      XMLHttpRequest.prototype.send = function(...args) {
+        if (this._gaUrl && typeof this._gaUrl === 'string' && this._gaUrl.includes('google-analytics.com')) {
+          this.addEventListener('error', function(e) {
+            // 静默处理 Google Analytics 请求错误
+            e.stopPropagation();
+          }, true);
+          this.addEventListener('abort', function(e) {
+            // 静默处理请求中止
+            e.stopPropagation();
+          }, true);
+        }
+        return originalXHRSend.apply(this, args);
+      };
+    } else {
+      // 本地环境：创建空的 gtag 函数以避免错误
+      window.gtag = function() {
+        // 静默忽略本地环境的分析请求
+      };
+    }
 
 
 

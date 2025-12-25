@@ -27,9 +27,11 @@ html(lang=config.language)
         sky: "#9be3de",
         sun: "#ffa259",
         sea: "#46b3e6",
-        red: "#FF585B"
+        gray: "#cccccc",
+        red: "#FF585B",
+        black: "#333333"
       }
-    meta(name="theme-color" content=colorMap[theme.main_color])
+    meta(name="theme-color" content=colorMap[theme.main_color] || colorMap.default)
     title=getPageTitle()
 
     //- inline the critical font
