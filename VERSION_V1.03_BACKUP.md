@@ -249,7 +249,7 @@ git checkout -b restore-v1.03 v1.03
 
 - **备份文档**: `VERSION_V1.03_BACKUP.md`（本文件）
 - **Git标签**: `v1.03`
-- **压缩包备份**: `Blog_V1.03_Backup_20251225.tar.gz`（如已创建）
+- **压缩包备份**: `/home/jopus/Backup/Blog_V1.03_Backup_20251225.tar.gz`（已创建）
 
 ---
 
