@@ -49,8 +49,7 @@ include ../mixins/horizontalLine.pug
                 var weekday = weekdays[now.getDay()];
                 var month = months[now.getMonth()];
                 var day = now.getDate();
-                var year = now.getFullYear();
-                var timeString = weekday + ' ' + month + ' ' + day + ' ' + year;
+                var timeString = weekday + ' ' + month + ' ' + day;
                 if (locationText) {
                   locationText.textContent = timeString;
                 }
