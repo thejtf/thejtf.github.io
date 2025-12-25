@@ -93,6 +93,10 @@ include:
 exclude:
 ignore:
 
+# Scripts directory (for custom Hexo scripts)
+scripts:
+  - scripts/copy-workflow.js
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
