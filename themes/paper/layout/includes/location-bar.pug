@@ -12,12 +12,60 @@ include ../mixins/horizontalLine.pug
 -   return location
 - }
 
+- let getWeekday = function() {
+-   const days = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+-   const today = new Date();
+-   return days[today.getDay()];
+- }
+
 .location-bar
   .line-1
     +horizontalLine('3px')
   .line-2
     +horizontalLine('1px')
-  p.text= getLocation()
+  p.text#location-text= getLocation()
+  script.
+    (function() {
+      try {
+        // 使用 ID 选择器，更可靠
+        var locationText = document.getElementById('location-text');
+        if (!locationText) {
+          // 如果 ID 选择器失败，尝试其他方法
+          locationText = document.currentScript ? document.currentScript.previousElementSibling : null;
+          if (!locationText || !locationText.classList || !locationText.classList.contains('text')) {
+            locationText = document.querySelector('.location-bar .text');
+          }
+        }
+        if (locationText) {
+          var currentText = locationText.textContent.trim();
+          var weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+          // 如果是首页，显示当前日期
+          if (currentText === '首页' || weekdays.indexOf(currentText) !== -1) {
+            function updateTime() {
+              try {
+                var now = new Date();
+                var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                var weekday = weekdays[now.getDay()];
+                var month = months[now.getMonth()];
+                var day = now.getDate();
+                var year = now.getFullYear();
+                var timeString = weekday + ' ' + month + ' ' + day + ' ' + year;
+                if (locationText) {
+                  locationText.textContent = timeString;
+                }
+              } catch(e) {
+                // 静默处理错误
+              }
+            }
+            updateTime();
+            setInterval(updateTime, 1000);
+          }
+        }
+      } catch(e) {
+        // 静默处理错误
+      }
+    })();
   include ./switch-button
   .line-3
     +horizontalLine('1px')
