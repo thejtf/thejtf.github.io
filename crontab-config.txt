@@ -1,0 +1,23 @@
+# Hexo 博客每日自动重建任务
+# 每天凌晨 2:00 自动重新生成静态文件，确保主题色与当前日期一致
+
+# 使用方法：
+# 1. 查看当前 crontab: crontab -l
+# 2. 编辑 crontab: crontab -e
+# 3. 添加以下行（取消注释）：
+# 0 2 * * * /home/jopus/Blog/daily-rebuild.sh
+
+# 或者使用以下命令直接添加：
+# (crontab -l 2>/dev/null; echo "0 2 * * * /home/jopus/Blog/daily-rebuild.sh") | crontab -
+
+# 时间格式说明：
+# 分钟 小时 日 月 星期
+# 0 2 * * * 表示每天凌晨 2:00 执行
+
+# 如果需要每天多次执行，可以添加多个任务：
+# 0 2 * * * /home/jopus/Blog/daily-rebuild.sh   # 凌晨 2:00
+# 0 12 * * * /home/jopus/Blog/daily-rebuild.sh  # 中午 12:00
+# 0 18 * * * /home/jopus/Blog/daily-rebuild.sh  # 下午 6:00
+
+# 如果还需要自动部署，可以使用 daily-rebuild-and-deploy.sh 脚本
+

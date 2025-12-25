@@ -19,10 +19,16 @@ else if hexo-config("main_color") == "gray"
   $color-main = #cccccc
 else if hexo-config("main_color") == "red"
   $color-main = #FF585B
-else if hexo-config("main_color") == "black"
-  $color-main = #333333
 
 $color-auxiliary = lighten($color-main, 85%)
+
+// CSS variables for dynamic theme color switching
+// Note: --color-main and --color-auxiliary are set by JavaScript based on date
+// Set a default value here to prevent FOUC (Flash of Unstyled Content)
+// The default value will be overridden by JavaScript immediately
+:root
+  --color-main: #cccccc  // Default to gray color, will be overridden by JS
+  --color-auxiliary: lighten(#cccccc, 85%)
 
 $color-black = #222222
 $color-black-2 = #333333

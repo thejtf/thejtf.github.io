@@ -32,7 +32,7 @@ social:
 # tags: false
 
 # theme color
-main_color: default # forest | grass | sky | sun | sea | gray | default | red | black |
+main_color: red # forest | grass | sky | sun | sea | gray | default | red
 
 # google Analytics
 google_analytics_id: G-Y6V8LR8RMR

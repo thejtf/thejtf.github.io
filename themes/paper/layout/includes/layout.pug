@@ -28,8 +28,7 @@ html(lang=config.language)
         sun: "#ffa259",
         sea: "#46b3e6",
         gray: "#cccccc",
-        red: "#FF585B",
-        black: "#333333"
+        red: "#FF585B"
       }
     meta(name="theme-color" content=colorMap[theme.main_color] || colorMap.default)
     title=getPageTitle()
@@ -53,8 +52,79 @@ html(lang=config.language)
 
     link(rel="shortcut icon" href= config.favicon || "/favicon.ico")
 
+    //- 根据日期动态切换主题色（使用 document.write 在 HTML 解析时立即写入样式）
+    script.
+      !function(){var e=function(){var t=new Date,n=t.getMonth()+1,o=t.getDate(),r=t.getDay(),a=[{month:4,date:4},{month:4,date:5},{month:9,date:18},{month:12,date:13}];if(a.some(function(e){return e.month===n&&e.date===o}))return"#cccccc";var i={1:"#ebc65a",2:"#9dab86",3:"#6ba8a9",4:"#9be3de",5:"#46b3e6",6:"#FF585B",0:"#ffa259"};return i[r]||i[1]}(),n='<style id="dynamic-theme-color-early">:root{--color-main:'+e+'!important}</style>';document.write(n);fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout.pug:early-script:documentWrite',message:'Style written via document.write',data:{themeColor:e},timestamp:Date.now(),sessionId:'debug-session',runId:'run9',hypothesisId:'O'})}).catch(function(){})}();
+    
     //- this stylesheet mush (download -> parse) before any scripts
     link(rel="stylesheet" href="/css/index.css")
+    
+    //- 继续设置 CSS 变量和 meta（在 CSS 加载后）
+    script.
+      (function() {
+        // #region agent log
+        fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout.pug:early-script:start',message:'Early script execution started',data:{timestamp:Date.now()},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+        // #endregion
+        
+        function getThemeColorByDate() {
+          const now = new Date();
+          const month = now.getMonth() + 1;
+          const date = now.getDate();
+          const dayOfWeek = now.getDay();
+          
+          // #region agent log
+          fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout.pug:getThemeColorByDate',message:'Date calculation',data:{month:month,date:date,dayOfWeek:dayOfWeek},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+          // #endregion
+          
+          // 特殊纪念日：4月4日、4月5日、9月18日、12月13日
+          const memorialDays = [
+            { month: 4, date: 4 },
+            { month: 4, date: 5 },
+            { month: 9, date: 18 },
+            { month: 12, date: 13 }
+          ];
+          
+          if (memorialDays.some(day => day.month === month && day.date === date)) {
+            // #region agent log
+            fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout.pug:getThemeColorByDate',message:'Memorial day detected',data:{color:'#cccccc'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+            // #endregion
+            return '#cccccc'; // gray
+          }
+          
+          // 根据星期几返回对应的主题色
+          const weekdayColorMap = {
+            1: '#ebc65a',   // Monday - default
+            2: '#9dab86',   // Tuesday - grass
+            3: '#6ba8a9',   // Wednesday - forest
+            4: '#9be3de',   // Thursday - sky
+            5: '#46b3e6',   // Friday - sea
+            6: '#FF585B',   // Saturday - red
+            0: '#ffa259'    // Sunday - sun
+          };
+          
+          const color = weekdayColorMap[dayOfWeek] || weekdayColorMap[1];
+          // #region agent log
+          fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout.pug:getThemeColorByDate',message:'Theme color determined',data:{dayOfWeek:dayOfWeek,color:color},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+          // #endregion
+          return color;
+        }
+        
+        const themeColor = getThemeColorByDate();
+        
+        // 在 CSS 加载后设置 CSS 变量和 meta
+        if (typeof document !== 'undefined' && document.documentElement) {
+          document.documentElement.style.setProperty('--color-main', themeColor);
+          
+          // #region agent log
+          fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout.pug:post-css-script',message:'CSS variable set after CSS load',data:{themeColor:themeColor},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'H'})}).catch(()=>{});
+          // #endregion
+          
+          const metaThemeColor = document.querySelector('meta[name=theme-color]');
+          if (metaThemeColor) {
+            metaThemeColor.setAttribute('content', themeColor);
+          }
+        }
+      })();
 
     //- scripts list from _config.yml
     if theme.scripts_defer && theme.scripts_defer.length > 0
