@@ -12,7 +12,7 @@ stylesheets:
 
 stylesheets_preload:
 - https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css # for highlight
-- https://fonts.googleapis.com/css?family=Noto+Serif+SC:500,700|Abril+Fatface&display=swap # for font
+# 字体加载已优化到 layout.pug 中，使用预连接和预加载策略
 
 # scripts loaded in the end of the body
 scripts_defer:
