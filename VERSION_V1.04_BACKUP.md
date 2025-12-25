@@ -196,44 +196,24 @@
 
 如需恢复到 V1.04 版本，请按以下步骤操作：
 
-### 1. 恢复依赖版本
+### 方法1: 使用压缩包恢复（推荐，最完整）
 
 ```bash
-# 删除 node_modules 和 package-lock.json
-rm -rf node_modules package-lock.json
+# 1. 解压备份压缩包
+tar -xzf Blog_V1.04_Backup_20251226.tar.gz
 
-# 使用备份的 package.json 重新安装依赖
+# 2. 安装依赖
 npm install
-```
 
-### 2. 恢复配置文件
-
-```bash
-# 恢复主配置文件
-# 将备份的 _config.yml 内容复制到项目根目录
-# 特别注意：date_format 应设置为 dddd MMMM D YYYY
-
-# 恢复主题配置文件
-# 将备份的 themes/paper/_config.yml 内容复制到对应位置
-
-# 恢复 location-bar.pug
-# 将备份的 themes/paper/layout/includes/location-bar.pug 内容复制到对应位置
-```
-
-### 3. 验证配置
-
-```bash
-# 清理缓存
+# 3. 清理并重新生成
 npx hexo clean
-
-# 生成静态文件
 npx hexo generate
 
-# 启动本地服务器验证
+# 4. 启动服务器验证
 npx hexo server
 ```
 
-### 4. 使用Git标签恢复（推荐）
+### 方法2: 使用Git标签恢复
 
 ```bash
 # 查看所有标签
@@ -244,6 +224,36 @@ git checkout v1.04
 
 # 或者创建新分支基于V1.04
 git checkout -b restore-v1.04 v1.04
+
+# 安装依赖
+npm install
+
+# 清理并重新生成
+npx hexo clean
+npx hexo generate
+```
+
+### 方法3: 手动恢复配置文件
+
+```bash
+# 1. 恢复依赖版本
+rm -rf node_modules package-lock.json
+npm install
+
+# 2. 恢复主配置文件
+# 将备份的 _config.yml 内容复制到项目根目录
+# 特别注意：date_format 应设置为 dddd MMMM D YYYY
+
+# 3. 恢复主题配置文件
+# 将备份的 themes/paper/_config.yml 内容复制到对应位置
+
+# 4. 恢复 location-bar.pug
+# 将备份的 themes/paper/layout/includes/location-bar.pug 内容复制到对应位置
+
+# 5. 验证配置
+npx hexo clean
+npx hexo generate
+npx hexo server
 ```
 
 ---
@@ -268,16 +278,33 @@ git checkout -b restore-v1.04 v1.04
 - ✅ 部署相关配置
 - ✅ Node.js和npm版本信息
 - ✅ 日期格式配置（dddd MMMM D YYYY）
+- ✅ 压缩包备份（包含所有源文件和配置文件）
 
-**建议**: 在升级到新版本前，请确保已保存此备份文档和Git标签，以便需要时能够快速恢复到 V1.04 版本。
+**建议**: 在升级到新版本前，请确保已保存此备份文档、Git标签和压缩包备份，以便需要时能够快速恢复到 V1.04 版本。
+
+### 压缩包内容说明
+
+压缩包 `Blog_V1.04_Backup_20251226.tar.gz` 包含以下内容：
+- ✅ `source/` - 所有源文件（文章、页面等）
+- ✅ `themes/` - 完整主题文件
+- ✅ `scaffolds/` - 模板文件
+- ✅ `_config.yml` - 主配置文件
+- ✅ `package.json` - 依赖配置
+- ✅ 所有版本备份文档
+
+**排除内容**（可通过命令重新生成）：
+- ❌ `node_modules/` - 可通过 `npm install` 重新安装
+- ❌ `public/` - 可通过 `hexo generate` 重新生成
+- ❌ `.git/` - 版本控制信息（建议使用Git标签恢复）
+- ❌ `db.json` - Hexo缓存文件
 
 ---
 
 ## 🗂️ 备份文件位置
 
 - **备份文档**: `VERSION_V1.04_BACKUP.md`（本文件）
-- **Git标签**: `v1.04`（建议创建）
-- **压缩包备份**: `Blog_V1.04_Backup_20251226.tar.gz`（如已创建）
+- **Git标签**: `v1.04`（已创建）
+- **压缩包备份**: `Blog_V1.04_Backup_20251226.tar.gz`（已创建，158KB，包含114个文件/目录）
 
 ---
 
