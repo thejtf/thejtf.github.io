@@ -204,8 +204,9 @@
 ### 方法1: 使用压缩包恢复（推荐，最完整）
 
 ```bash
-# 1. 解压备份压缩包
-tar -xzf Blog_V1.05_Backup_20251226.tar.gz
+# 1. 解压备份压缩包（从 /home/jopus 目录）
+cd /home/jopus/Blog
+tar -xzf /home/jopus/Blog_V1.05_Backup_20251226.tar.gz
 
 # 2. 安装依赖
 npm install
@@ -289,7 +290,7 @@ npx hexo server
 
 ### 压缩包内容说明
 
-压缩包 `Blog_V1.05_Backup_20251226.tar.gz` 包含以下内容：
+压缩包 `/home/jopus/Blog_V1.05_Backup_20251226.tar.gz` 包含以下内容：
 - ✅ `source/` - 所有源文件（文章、页面等）
 - ✅ `themes/` - 完整主题文件
 - ✅ `scaffolds/` - 模板文件
@@ -309,7 +310,7 @@ npx hexo server
 
 - **备份文档**: `VERSION_V1.05_BACKUP.md`（本文件）
 - **Git标签**: `v1.05`（已创建）
-- **压缩包备份**: `Blog_V1.05_Backup_20251226.tar.gz`（已创建，159KB，包含115个文件/目录）
+- **压缩包备份**: `/home/jopus/Blog_V1.05_Backup_20251226.tar.gz`（已创建，159KB，包含115个文件/目录）
 
 ---
 
