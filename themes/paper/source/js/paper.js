@@ -87,19 +87,11 @@ window.addEventListener('DOMContentLoaded', () => {
   
   // 根据日期动态切换主题色
   ;(() => {
-    // #region agent log
-    fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:DOMContentLoaded:start',message:'DOMContentLoaded theme color handler started',data:{timestamp:Date.now()},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
-    
     function getThemeColorByDate() {
       const now = new Date();
       const month = now.getMonth() + 1; // 0-11 -> 1-12
       const date = now.getDate();
       const dayOfWeek = now.getDay(); // 0=Sunday, 1=Monday, ..., 6=Saturday
-      
-      // #region agent log
-      fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:getThemeColorByDate',message:'Date calculation in DOMContentLoaded',data:{month:month,date:date,dayOfWeek:dayOfWeek},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
       
       // 特殊纪念日：4月4日、4月5日、9月18日、12月13日
       const memorialDays = [
@@ -134,10 +126,6 @@ window.addEventListener('DOMContentLoaded', () => {
     function applyThemeColor(themeColor) {
       const colorMain = themeColor.color;
       
-      // #region agent log
-      fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:applyThemeColor',message:'Before applying theme color',data:{colorMain:colorMain,hasEarlyStyle:!!document.getElementById('dynamic-theme-color-early')},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
-      
       // 更新 CSS 变量
       document.documentElement.style.setProperty('--color-main', colorMain);
       
@@ -162,9 +150,6 @@ window.addEventListener('DOMContentLoaded', () => {
       const earlyStyle = document.getElementById('dynamic-theme-color-early');
       if (earlyStyle) {
         earlyStyle.remove();
-        // #region agent log
-        fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:applyThemeColor',message:'Removed early style',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-        // #endregion
       }
       
       // 通过动态样式更新所有使用主题色的元素
@@ -178,7 +163,7 @@ window.addEventListener('DOMContentLoaded', () => {
           background: ${colorMain} !important;
         }
         .sidebar__button {
-          background: ${colorMain} !important;
+          background-color: ${colorMain} !important;
         }
         .sidebar {
           border-color: ${colorMain} !important;
@@ -228,19 +213,11 @@ window.addEventListener('DOMContentLoaded', () => {
       if (oldStyle) oldStyle.remove();
       
       document.head.appendChild(style);
-      
-      // #region agent log
-      fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:applyThemeColor',message:'Dynamic style applied',data:{colorMain:colorMain,styleId:style.id},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
     }
     
     // 应用主题色
     const themeColor = getThemeColorByDate();
     applyThemeColor(themeColor);
-    
-    // #region agent log
-    fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:DOMContentLoaded:end',message:'DOMContentLoaded theme color handler completed',data:{themeColor:themeColor.color},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
   })()
   
   // 时间显示逻辑已移至 location-bar.pug 的内联脚本中，避免闪烁
