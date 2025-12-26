@@ -126,6 +126,10 @@ window.addEventListener('DOMContentLoaded', () => {
     function applyThemeColor(themeColor) {
       const colorMain = themeColor.color;
       
+      // #region agent log
+      fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:127',message:'Theme color calculated',data:{themeColorName:themeColor.name,colorMain:colorMain},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+      // #endregion
+      
       // 更新 CSS 变量
       document.documentElement.style.setProperty('--color-main', colorMain);
       
@@ -164,9 +168,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         .sidebar__button {
           background-color: ${colorMain} !important;
-        }
-        .sidebar {
-          border-color: ${colorMain} !important;
         }
         .paginator .extend {
           background: ${colorMain} !important;
@@ -213,6 +214,19 @@ window.addEventListener('DOMContentLoaded', () => {
       if (oldStyle) oldStyle.remove();
       
       document.head.appendChild(style);
+      
+      // #region agent log
+      setTimeout(() => {
+        const sidebar = document.querySelector('.sidebar');
+        const horizontalLine = document.querySelector('.horizontal-line');
+        if (sidebar) {
+          const sidebarStyle = window.getComputedStyle(sidebar);
+          const sidebarBorderColor = sidebarStyle.borderLeftColor;
+          const sidebarBorderWidth = sidebarStyle.borderLeftWidth;
+          fetch('http://localhost:7245/ingest/5d94b100-e12a-4321-900b-603cc60d9f37',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paper.js:216',message:'Sidebar and horizontal-line colors comparison',data:{sidebarBorderColor:sidebarBorderColor,sidebarBorderWidth:sidebarBorderWidth,appliedColorMain:colorMain,horizontalLineBackground:horizontalLine?window.getComputedStyle(horizontalLine).backgroundColor:'not found'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+        }
+      }, 100);
+      // #endregion
     }
     
     // 应用主题色
