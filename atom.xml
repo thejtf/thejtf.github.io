@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Jopus</title>
-  
+  <title>Jopus的博客</title>
+  <icon>https://jopus.cn/favicon.ico</icon>
   <subtitle>用文字来感受世界</subtitle>
   <link href="http://thejtf.github.io/atom.xml" rel="self"/>
   
@@ -481,3 +481,4 @@
   </entry>
   
 </feed>
+
