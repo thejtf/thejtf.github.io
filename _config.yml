@@ -109,4 +109,12 @@ deploy:
   repo: git@github.com:thejtf/thejtf.github.io.git
   branch: master
 
+# Feed generator (RSS)
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  title: Jopus的博客
+  icon: https://jopus.cn/favicon.ico
+  template: ./source/_atom.xml
 
