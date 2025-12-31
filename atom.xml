@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Jopus的博客</title>
   <icon>https://jopus.cn/favicon.ico</icon>
-  <subtitle>用文字来感受世界</subtitle>
+  <subtitle>生活即创造</subtitle>
   <link href="http://thejtf.github.io/atom.xml" rel="self"/>
   
   <link href="http://thejtf.github.io/"/>
@@ -481,4 +481,6 @@
   </entry>
   
 </feed>
+
+
 
