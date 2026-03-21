@@ -3,11 +3,58 @@ include ./mixins/postItem.pug
 include ./mixins/horizontalLine.pug
 
 block content
-  .page
-    include ./includes/location-bar.pug
-    .main__2-col
-      article.post-view__article
-        .article__content
-          != page.content
-      .post-view__sidebar
-        include includes/sidebar.pug
+  if page.type === 'note'
+    //- Note 页面：显示 _notes 目录的文章列表
+    .archive-view
+      include includes/location-bar.pug
+      .main
+        .main__2-col
+          .posts
+            if pageNotes && pageNotes.length > 0
+              each post in pageNotes
+                .posts-item
+                  h2.posts-item__title
+                    a(href=url_for(post.path)) #{post.title}
+                  if post.date
+                    span.post__date #{date(post.date, date_format)}
+            else if notes && notes.length > 0
+              each post in notes
+                .posts-item
+                  h2.posts-item__title
+                    a(href=url_for(post.path)) #{post.title}
+                  if post.date
+                    span.post__date #{date(post.date, date_format)}
+          include includes/sidebar.pug
+      if notePagination && notePagination.total > 1
+        .horizontal-line(style="height: 1px")
+        .main__bottom
+          .paginator
+            if notePagination.current > 1
+              a.extend.prev(rel="prev" href=url_for(notePagination.current === 2 ? '/note/' : '/note/page/' + (notePagination.current - 1) + '/')) 上一页
+            - var start = Math.max(1, notePagination.current - 2)
+            - var end = Math.min(notePagination.total, notePagination.current + 2)
+            if start > 1
+              a.page-number(href=url_for('/note/')) 1
+              if start > 2
+                span.space …
+            - for (var i = start; i <= end; i++)
+              if i === notePagination.current
+                span.page-number.current= i
+              else
+                a.page-number(href=url_for(i === 1 ? '/note/' : '/note/page/' + i + '/'))= i
+            if end < notePagination.total
+              if end < notePagination.total - 1
+                span.space …
+              a.page-number(href=url_for('/note/page/' + notePagination.total + '/'))= notePagination.total
+            if notePagination.current < notePagination.total
+              a.extend.next(rel="next" href=url_for('/note/page/' + (notePagination.current + 1) + '/')) 下一页
+  else
+    //- 普通页面
+    .page
+      include ./includes/location-bar.pug
+      .main__2-col
+        article.post-view__article
+          .article__content
+            != page.content
+        .post-view__sidebar
+          include includes/sidebar.pug

@@ -6,6 +6,7 @@ language: zh
 menu:
   Home: /
   About: /about
+  Note: /note
 
 # stylesheets loaded in the <head>
 stylesheets:
@@ -21,8 +22,8 @@ scripts_defer:
 
 
 social:
+  公开笔记: /note
   RSS 订阅: https://jopus.cn/atom.xml
-  公开笔记: https://notes.jopus.cn
   # and more, you can add other link by the same way
 # Uncomment to disable sidebar
 # toc: false

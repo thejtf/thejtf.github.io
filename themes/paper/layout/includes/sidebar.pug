@@ -1,6 +1,6 @@
 .sidebar
-  //- 默认参数 true
-  if !page.posts && (theme.toc === undefind || theme.toc === true)
+  //- 默认参数 true，note 页面不显示 Toc
+  if !page.posts && page.type !== 'note' && (theme.toc === undefind || theme.toc === true)
     include ./toc
 
   if theme.link === undefind || theme.link === true
