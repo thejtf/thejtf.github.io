@@ -1,14 +1,14 @@
-# 项目版本备份文档 - V1.09
+# 项目版本备份文档 - V1.10
 
-**备份日期**: 2025年12月26日  
-**项目版本**: V1.09  
+**备份日期**: 2025年12月27日  
+**项目版本**: V1.10  
 **项目类型**: Hexo 静态博客
 
 ---
 
 ## 📋 版本信息
 
-- **项目版本**: V1.09
+- **项目版本**: V1.10
 - **Hexo 版本**: 6.3.0
 - **Node.js 环境**: v20.19.6
 - **npm 版本**: 10.8.2
@@ -81,10 +81,10 @@
 - **分页目录**: page
 
 #### 日期/时间格式
-- **日期格式**: `YYYY-MM-DD` (例如: 2025-12-26) - 用于文章列表中的日期显示
+- **日期格式**: `YYYY-MM-DD` (例如: 2025-12-27) - 用于文章列表中的日期显示
 - **时间格式**: `HH:mm:ss`
 - **更新选项**: mtime
-- **注意**: location-bar 中的日期显示使用 JavaScript 动态计算，格式为 `Friday December 26`（不含年份）
+- **注意**: location-bar 中的日期显示使用 JavaScript 动态计算，格式为 `Friday December 27`（不含年份）
 
 #### 主题
 - **当前主题**: paper
@@ -164,6 +164,31 @@
 ---
 
 ## 📝 版本历史
+
+### V1.10 主要更新（2025年12月27日）
+
+#### 1. 侧边栏边框样式统一
+- ✅ **修复侧边栏边框颜色**: 将侧边栏左侧边框颜色从主题色（动态颜色）改为与文章列表项（posts-item）下边框一致的浅灰色
+- ✅ **移除JavaScript覆盖**: 移除了 `paper.js` 中对侧边栏边框颜色的主题色覆盖，让CSS样式生效
+- ✅ **样式统一**: 侧边栏左侧边框现在使用 `1px solid lighten($color-gray, 70%)`，与 `posts-item` 的下边框样式完全一致
+- ✅ **视觉效果**: 侧边栏边框不再随日期变化而改变颜色，保持与文章列表一致的视觉风格
+
+**修改前**：
+- 侧边栏边框：`1px solid $color-black-2`（`#333333`，深灰色）
+- JavaScript 动态覆盖：使用主题色（如 `#FF585B` 红色等）覆盖边框颜色
+
+**修改后**：
+- 侧边栏边框：`1px solid lighten($color-gray, 70%)`（浅灰色，与 posts-item 下边框一致）
+- JavaScript 不再覆盖侧边栏边框颜色
+
+**修改文件**：
+- `themes/paper/source/css/includes/_sidebar.styl` - 修改边框颜色（第6行）
+- `themes/paper/source/js/paper.js` - 移除侧边栏边框颜色的动态样式覆盖（删除第172-174行的 `.sidebar { border-color: ${colorMain} !important; }`）
+
+**技术细节**：
+- CSS 修改：`border-left: 1px solid $color-black-2` → `border-left: 1px solid lighten($color-gray, 70%)`
+- JavaScript 修改：移除 `.sidebar { border-color: ${colorMain} !important; }` 样式规则
+- 颜色值：`lighten($color-gray, 70%)` 其中 `$color-gray = #929292`，变亮70%后为浅灰色
 
 ### V1.09 主要更新（2025年12月26日）
 
@@ -312,14 +337,14 @@
 
 ## 🔄 恢复步骤
 
-如需恢复到 V1.09 版本，请按以下步骤操作：
+如需恢复到 V1.10 版本，请按以下步骤操作：
 
 ### 方法1: 使用压缩包恢复（推荐，最完整）
 
 ```bash
 # 1. 解压备份压缩包（从 /home/jopus/Backup 目录）
 cd /home/jopus/Blog
-tar -xzf /home/jopus/Backup/Blog_V1.09_Backup_20251226.tar.gz
+tar -xzf /home/jopus/Backup/Blog_V1.10_Backup_20251227.tar.gz
 
 # 2. 安装依赖
 npm install
@@ -338,11 +363,11 @@ npx hexo server
 # 查看所有标签
 git tag
 
-# 切换到V1.09标签
-git checkout v1.09
+# 切换到V1.10标签
+git checkout v1.10
 
-# 或者创建新分支基于V1.09
-git checkout -b restore-v1.09 v1.09
+# 或者创建新分支基于V1.10
+git checkout -b restore-v1.10 v1.10
 
 # 安装依赖
 npm install
@@ -374,7 +399,12 @@ npm install
 # - 异步加载字体样式表
 # - noscript 回退方案
 
-# 5. 验证配置
+# 5. 恢复侧边栏边框样式
+# 确保 themes/paper/source/css/includes/_sidebar.styl 第6行为：
+# border-left: 1px solid lighten($color-gray, 70%)
+# 确保 themes/paper/source/js/paper.js 中不包含对 .sidebar 边框颜色的动态样式覆盖
+
+# 6. 验证配置
 npx hexo clean
 npx hexo generate
 npx hexo server
@@ -389,36 +419,38 @@ npx hexo server
 3. **Git 仓库**: 恢复后检查 Git 远程仓库配置是否正确
 4. **主题文件**: 确保 `themes/paper` 主题文件完整
 5. **日期格式**: 
-   - location-bar（首页日期）: `Friday December 26` - JavaScript 动态计算，不含年份
-   - post__date（文章日期）: `2025-12-26` - 使用 `YYYY-MM-DD` 格式（与 V1.03 及之前版本一致）
+   - location-bar（首页日期）: `Friday December 27` - JavaScript 动态计算，不含年份
+   - post__date（文章日期）: `2025-12-27` - 使用 `YYYY-MM-DD` 格式（与 V1.03 及之前版本一致）
 6. **JavaScript 日期显示**: location-bar 中的日期显示已更新为不含年份的英文格式
 7. **Favicon 文件**: 确保 `themes/paper/source/favicon.ico` 文件存在且为最新版本
 8. **侧边栏按钮**: 确保动态样式使用 `background-color` 而非 `background`，避免覆盖背景图片
 9. **字体加载**: 字体加载已从 `_config.yml` 移动到 `layout.pug`，使用优化的预连接和预加载策略
+10. **侧边栏边框**: 侧边栏左侧边框使用浅灰色（`lighten($color-gray, 70%)`），与文章列表项下边框样式一致，不再随主题色变化
 
 ---
 
 ## 📌 版本快照说明
 
-此文档记录了项目在 V1.09 版本时的完整配置状态，包括：
+此文档记录了项目在 V1.10 版本时的完整配置状态，包括：
 - ✅ 所有依赖包的版本号
 - ✅ 主要配置文件的参数设置
 - ✅ 主题配置信息
 - ✅ 部署相关配置
 - ✅ Node.js和npm版本信息
-- ✅ 日期格式配置（post__date 使用 YYYY-MM-DD，location-bar 使用 JavaScript 显示 Friday December 26）
+- ✅ 日期格式配置（post__date 使用 YYYY-MM-DD，location-bar 使用 JavaScript 显示 Friday December 27）
 - ✅ Favicon 文件更新
 - ✅ 侧边栏按钮UI修复
 - ✅ 字体加载优化（预连接、预加载、异步加载）
+- ✅ 侧边栏边框样式统一（与文章列表项下边框一致）
 - ✅ 压缩包备份（包含所有源文件和配置文件）
 
-**建议**: 在升级到新版本前，请确保已保存此备份文档、Git标签和压缩包备份，以便需要时能够快速恢复到 V1.09 版本。
+**建议**: 在升级到新版本前，请确保已保存此备份文档、Git标签和压缩包备份，以便需要时能够快速恢复到 V1.10 版本。
 
 ### 压缩包内容说明
 
-压缩包 `/home/jopus/Backup/Blog_V1.09_Backup_20251226.tar.gz` 包含以下内容：
+压缩包 `/home/jopus/Backup/Blog_V1.10_Backup_20251227.tar.gz` 包含以下内容：
 - ✅ `source/` - 所有源文件（文章、页面等）
-- ✅ `themes/` - 完整主题文件（包含动态主题色功能、更新的 favicon.ico、侧边栏按钮修复和字体加载优化）
+- ✅ `themes/` - 完整主题文件（包含动态主题色功能、更新的 favicon.ico、侧边栏按钮修复、字体加载优化和侧边栏边框样式统一）
 - ✅ `scaffolds/` - 模板文件
 - ✅ `_config.yml` - 主配置文件
 - ✅ `package.json` - 依赖配置
@@ -438,56 +470,51 @@ npx hexo server
 
 ## 🗂️ 备份文件位置
 
-- **备份文档**: `VERSION_V1.09_BACKUP.md`（本文件）
-- **Git标签**: `v1.09`（待创建）
-- **压缩包备份**: `/home/jopus/Backup/Blog_V1.09_Backup_20251226.tar.gz`（待创建）
+- **备份文档**: `VERSION_V1.10_BACKUP.md`（本文件）
+- **Git标签**: `v1.10`（待创建）
+- **压缩包备份**: `/home/jopus/Backup/Blog_V1.10_Backup_20251227.tar.gz`（待创建）
 
 ---
 
-## 🔍 V1.09 关键变更详情
+## 🔍 V1.10 关键变更详情
 
-### 字体加载优化
+### 侧边栏边框样式统一
 
-#### 优化前（V1.08）
-- 配置位置：`themes/paper/_config.yml` 的 `stylesheets_preload`
-- API 格式：旧的 `/css?` API
-- 加载方式：通过主题的通用 preload 机制
-- 优化策略：无预连接、无预加载、无异步加载
+#### 修改前（V1.09）
+- 侧边栏边框：`1px solid $color-black-2`（`#333333`，深灰色）
+- JavaScript 动态覆盖：使用主题色（如 `#FF585B` 红色等）覆盖边框颜色
+- 视觉效果：侧边栏边框颜色随日期变化而改变（周一金黄色、周二草绿色、周六红色等）
 
-#### 优化后（V1.09）
-- 配置位置：`themes/paper/layout/includes/layout.pug` 的 `<head>` 中
-- API 格式：新的 `/css2?` API，支持子集化
-- 加载方式：直接在 HTML head 中，精确控制
-- 优化策略：
-  1. **预连接（Preconnect）**: 提前建立与 `fonts.googleapis.com` 和 `fonts.gstatic.com` 的连接
-  2. **预加载（Preload）**: 提前下载字体 CSS 文件，高优先级加载
-  3. **异步加载**: 使用 `media="print" onload="this.media='all'"` 技巧，不阻塞页面渲染
-  4. **回退方案**: 添加 `<noscript>` 标签，确保无 JavaScript 时也能加载字体
+#### 修改后（V1.10）
+- 侧边栏边框：`1px solid lighten($color-gray, 70%)`（浅灰色，与 posts-item 下边框一致）
+- JavaScript 不再覆盖侧边栏边框颜色
+- 视觉效果：侧边栏边框保持浅灰色，与文章列表项下边框样式完全一致，不再随主题色变化
 
 #### 技术细节
-- **API 升级**: `/css?family=Noto+Serif+SC:500,700|Abril+Fatface` → `/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap&subset=chinese-simplified`
-- **字体字重**: 从 `500,700` 扩展为 `400,500,700`（Regular, Medium, Bold）
-- **字体子集**: 添加 `subset=chinese-simplified`，只加载简体中文字符，减少文件大小
-- **字体 CDN**: 使用 Google Fonts CDN（`fonts.googleapis.com` 和 `fonts.gstatic.com`）
+- **CSS 修改**：`border-left: 1px solid $color-black-2` → `border-left: 1px solid lighten($color-gray, 70%)`
+- **JavaScript 修改**：移除 `.sidebar { border-color: ${colorMain} !important; }` 样式规则
+- **颜色值**：`lighten($color-gray, 70%)` 其中 `$color-gray = #929292`，变亮70%后为浅灰色
+- **样式统一**：与 `posts-item` 的下边框样式 `border-bottom: 1px solid lighten($color-gray, 70%)` 完全一致
 
-#### 预期效果
-- **首次访问**: 闪烁时间从 200-300ms 减少到 50-100ms（预期）
-- **后续访问**: 浏览器缓存后几乎无闪烁
-- **加载速度**: 预连接和预加载可提升 20-30%
-
-#### 测试结果
-在本地网络环境下测试了多个 CDN 的响应速度：
-- **Google Fonts**: 0.248秒（最快，已采用）
-- **gfonts.aby.pub**: 0.755秒
-- **fonts.loli.net**: 1.212秒（最慢）
-
-因此最终选择使用 Google Fonts CDN，虽然在国内访问可能较慢，但在当前网络环境下表现最好。
+#### 修改原因
+- 用户要求侧边栏左侧边框样式与文章列表项（posts-item）的下侧边框样式保持一致
+- 移除主题色对侧边栏边框的影响，保持视觉一致性
 
 ---
 
-## 🎯 V1.09 核心功能
+## 🎯 V1.10 核心功能
 
-### 字体加载优化（V1.09 新增）
+### 侧边栏边框样式统一（V1.10 新增）
+
+1. **样式统一**：
+   - 侧边栏左侧边框与文章列表项下边框使用相同的浅灰色
+   - 保持整体视觉一致性
+
+2. **移除动态覆盖**：
+   - JavaScript 不再动态覆盖侧边栏边框颜色
+   - 边框颜色保持稳定，不受主题色变化影响
+
+### 字体加载优化（继承自 V1.09）
 
 1. **预连接优化**：
    - 提前建立与 Google Fonts 的连接
@@ -527,6 +554,8 @@ npx hexo server
    - JavaScript 动态计算和注入
    - 早期样式注入防止闪烁
 
+**注意**：侧边栏边框不再受主题色影响，保持浅灰色。
+
 ### 自动化部署（继承自 V1.06）
 
 1. **GitHub Actions**：每天 UTC 16:10（北京时间 0:10）自动重建并部署
@@ -547,11 +576,9 @@ npx hexo server
 
 ---
 
-**文档创建时间**: 2025年12月26日  
-**最后更新**: 2025年12月26日  
-**版本**: V1.09
-
-
+**文档创建时间**: 2025年12月27日  
+**最后更新**: 2025年12月27日  
+**版本**: V1.10
 
 
 
