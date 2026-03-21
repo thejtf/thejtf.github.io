@@ -21,9 +21,21 @@
     h2 Categories
     .sidebar__categories
       != list_categories({show_count: false})
+      //- 显示 notes 的分类
+      if noteCategories && noteCategories.length > 0
+        ul.category-list
+          each cat in noteCategories
+            li.category-list-item
+              a.category-list-link(href=url_for(cat.path)) #{cat.name}
 
   if theme.tags === undefind || theme.tags === true
     h2 Tags
     .sidebar__tags
       != list_tags({show_count: false})
+      //- 显示 notes 的标签
+      if noteTags && noteTags.length > 0
+        ul.tag-list
+          each tag in noteTags
+            li.tag-list-item
+              a.tag-list-link(href=url_for(tag.path)) #{tag.name}
 

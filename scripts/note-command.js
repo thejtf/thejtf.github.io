@@ -13,12 +13,17 @@ hexo.extend.console.register('note', 'Create a new note', {
 
   const formatDate = (d) => {
     const pad = (n) => n.toString().padStart(2, '0');
-    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   };
 
+  // 与 hexo new 保持一致的 front matter 格式
   const content = `---
 title: ${title}
 date: ${formatDate(date)}
+tags:
+categories:
+photos:
+top: false
 ---
 
 `;

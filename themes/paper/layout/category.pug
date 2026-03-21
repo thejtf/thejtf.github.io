@@ -1,5 +1,23 @@
 extends ./includes/layout.pug
+include ./mixins/postItem.pug
+include ./mixins/horizontalLine.pug
 
 block content
   .category-view
-    include includes/main.pug
+    include includes/location-bar.pug
+    .main__2-col
+      .posts
+        if page._noteCategory
+          //- notes 分类页面
+          if page.posts && page.posts.toArray
+            each post in page.posts.toArray()
+              .posts-item
+                h2.posts-item__title
+                  a(href=url_for(post.path)) #{post.title}
+                if post.date
+                  span.post__date #{date(post.date, date_format)}
+        else
+          //- 普通分类页面
+          each post in page.posts.toArray()
+            +postItem(post)
+      include includes/sidebar.pug
