@@ -12,30 +12,47 @@
             li
               a(href=url_for(url)) #{label}
 
+  //- 判断是否为 note 相关页面
+  - var _isNotePage = page.type === 'note' || page._note || page._noteCategory || page._noteTag || page._noteArchive
+
   if theme.archives === undefind || theme.archives === true
     h2 Archives
     .sidebar__archives
-      != list_archives({type:"yearly", format: "YYYY", show_count: false})
+      if _isNotePage
+        //- note 页面只显示 notes 的归档
+        if noteArchives && noteArchives.length > 0
+          ul.archive-list
+            each archive in noteArchives
+              li.archive-list-item
+                a.archive-list-link(href=url_for(archive.path)) #{archive.name}
+      else
+        //- 普通页面只显示 posts 的归档
+        != list_archives({type:"yearly", format: "YYYY", show_count: false})
 
   if theme.categories === undefind || theme.categories === true
     h2 Categories
     .sidebar__categories
-      != list_categories({show_count: false})
-      //- 显示 notes 的分类
-      if noteCategories && noteCategories.length > 0
-        ul.category-list
-          each cat in noteCategories
-            li.category-list-item
-              a.category-list-link(href=url_for(cat.path)) #{cat.name}
+      if _isNotePage
+        //- note 页面只显示 notes 的分类
+        if noteCategories && noteCategories.length > 0
+          ul.category-list
+            each cat in noteCategories
+              li.category-list-item
+                a.category-list-link(href=url_for(cat.path)) #{cat.name}
+      else
+        //- 普通页面只显示 posts 的分类
+        != list_categories({show_count: false})
 
   if theme.tags === undefind || theme.tags === true
     h2 Tags
     .sidebar__tags
-      != list_tags({show_count: false})
-      //- 显示 notes 的标签
-      if noteTags && noteTags.length > 0
-        ul.tag-list
-          each tag in noteTags
-            li.tag-list-item
-              a.tag-list-link(href=url_for(tag.path)) #{tag.name}
-
+      if _isNotePage
+        //- note 页面只显示 notes 的标签
+        if noteTags && noteTags.length > 0
+          ul.tag-list
+            each tag in noteTags
+              li.tag-list-item
+                a.tag-list-link(href=url_for(tag.path)) #{tag.name}
+      else
+        //- 普通页面只显示 posts 的标签
+        != list_tags({show_count: false})

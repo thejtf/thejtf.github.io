@@ -1,6 +1,19 @@
 extends ./includes/layout.pug
+include ./mixins/postItem.pug
+include ./mixins/horizontalLine.pug
 
 block content
   .archive-view
-    include includes/main.pug
-  
+    include includes/location-bar.pug
+    .main
+      .main__2-col
+        .posts
+          if page._noteArchive
+            //- notes 归档页面
+            if page.posts && page.posts.toArray
+              each post in page.posts.toArray()
+                +postItem(post)
+          else
+            //- 普通归档页面
+            include ./includes/posts.pug
+        include includes/sidebar.pug

@@ -94,14 +94,32 @@ hexo.extend.filter.register('template_locals', function(locals) {
     locals.noteCategories = Array.from(categoryMap.entries()).map(([name, posts]) => ({
       name,
       posts: { toArray: () => posts },
-      path: `categories/${name}/`
+      path: `notes/categories/${name}/`
     }));
 
     locals.noteTags = Array.from(tagMap.entries()).map(([name, posts]) => ({
       name,
       posts: { toArray: () => posts },
-      path: `tags/${name}/`
+      path: `notes/tags/${name}/`
     }));
+
+    // 处理归档（按年份分组）
+    const archiveMap = new Map();
+    posts.forEach(post => {
+      const year = new Date(post.date).getFullYear();
+      if (!archiveMap.has(year)) {
+        archiveMap.set(year, []);
+      }
+      archiveMap.get(year).push(post);
+    });
+
+    locals.noteArchives = Array.from(archiveMap.entries())
+      .sort((a, b) => b[0] - a[0]) // 按年份倒序
+      .map(([year, posts]) => ({
+        name: year.toString(),
+        posts: { toArray: () => posts },
+        path: `notes/archives/${year}/`
+      }));
   }
 
   return locals;
@@ -179,10 +197,25 @@ hexo.extend.generator.register('notes', function(locals) {
         }
       });
     }
+  });
 
-    // 生成文章页面
+  // 按日期排序所有文章
+  allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // 为每篇文章设置 prev 和 next
+  allPosts.forEach((post, index) => {
+    if (index > 0) {
+      post.prev = allPosts[index - 1];
+    }
+    if (index < allPosts.length - 1) {
+      post.next = allPosts[index + 1];
+    }
+  });
+
+  // 生成文章页面（带 prev/next）
+  allPosts.forEach(postData => {
     results.push({
-      path: `notes/${file.replace('.md', '')}/index.html`,
+      path: `notes/${postData.source.replace('.md', '')}/index.html`,
       data: postData,
       layout: 'post'
     });
@@ -209,7 +242,7 @@ hexo.extend.generator.register('notes-taxonomy', function(locals) {
   // 生成分类页面
   categories.forEach((posts, catName) => {
     results.push({
-      path: `categories/${catName}/index.html`,
+      path: `notes/categories/${catName}/index.html`,
       data: {
         name: catName,
         posts: { toArray: () => posts },
@@ -222,13 +255,47 @@ hexo.extend.generator.register('notes-taxonomy', function(locals) {
   // 生成标签页面
   tags.forEach((posts, tagName) => {
     results.push({
-      path: `tags/${tagName}/index.html`,
+      path: `notes/tags/${tagName}/index.html`,
       data: {
         name: tagName,
         posts: { toArray: () => posts },
         _noteTag: true
       },
       layout: 'tag'
+    });
+  });
+
+  return results;
+});
+
+// 生成笔记的归档页面
+hexo.extend.generator.register('notes-archives', function(locals) {
+  const notesData = hexo.locals.get('notesData');
+  if (!notesData) return [];
+
+  const results = [];
+  const { posts } = notesData;
+
+  // 按年份分组
+  const archiveMap = new Map();
+  posts.forEach(post => {
+    const year = new Date(post.date).getFullYear();
+    if (!archiveMap.has(year)) {
+      archiveMap.set(year, []);
+    }
+    archiveMap.get(year).push(post);
+  });
+
+  // 生成每年归档页面
+  archiveMap.forEach((yearPosts, year) => {
+    results.push({
+      path: `notes/archives/${year}/index.html`,
+      data: {
+        name: year.toString(),
+        posts: { toArray: () => yearPosts },
+        _noteArchive: true
+      },
+      layout: 'archive'
     });
   });
 
