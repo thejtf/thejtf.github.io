@@ -9,7 +9,108 @@ const KINDLE_PATH = '/media/jopus/Kindle';
 const CLIPPINGS_FILE = '/media/jopus/Kindle/documents/My Clippings.txt';
 const READS_DIR = path.join(__dirname, '../source/_reads');
 
-// 书籍分类映射表
+// DeepSeek API 配置
+const DEEPSEEK_API_KEY = 'sk-19899c785b184543b25e82482d296267';
+const DEEPSEEK_API_URL = 'api.deepseek.com';
+
+// 分类缓存文件路径
+const CACHE_FILE = path.join(__dirname, '../.kindle-category-cache.json');
+
+// 加载分类缓存
+function loadCache() {
+  try {
+    if (fs.existsSync(CACHE_FILE)) {
+      return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8'));
+    }
+  } catch (e) {}
+  return { categories: {}, tags: {} };
+}
+
+// 保存分类缓存
+function saveCache(cache) {
+  try {
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
+  } catch (e) {}
+}
+
+// 调用 DeepSeek API 进行分类
+function aiClassifyBook(bookTitle, summary) {
+  return new Promise((resolve) => {
+    const prompt = `你是一个图书分类专家。请根据以下书籍信息，判断其分类和阅读价值。
+
+书名：${bookTitle}
+简介：${summary || '无'}
+
+分类标准（只能选一个）：
+- 文学：小说、诗歌、散文、戏剧、童话、古典文学
+- 社科：历史、哲学、政治、经济、法律、社会学、心理学
+- 科技：数理化、生物、医学、计算机、工程、科普
+- 艺术：绘画、音乐、摄影、设计、建筑、影视
+- 实用：生活、健身、烹饪、育儿、理财、旅行、工具书
+
+标签标准（只能选一个）：
+- 经典：值得反复读的传世之作
+- 必读：对自己很重要的书
+- 泛读：随便翻翻即可
+- 参考：工具书、资料类，按需查阅
+
+请只返回JSON格式，不要其他内容：
+{"category": "分类", "tag": "标签"}`;
+
+    const body = JSON.stringify({
+      model: 'deepseek-chat',
+      messages: [
+        { role: 'user', content: prompt }
+      ],
+      temperature: 0.1,
+      max_tokens: 100
+    });
+
+    const options = {
+      hostname: DEEPSEEK_API_URL,
+      port: 443,
+      path: '/chat/completions',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const json = JSON.parse(data);
+          const content = json.choices[0].message.content.trim();
+          // 提取JSON
+          const jsonMatch = content.match(/\{[^}]+\}/);
+          if (jsonMatch) {
+            const result = JSON.parse(jsonMatch[0]);
+            resolve({
+              category: result.category || '社科',
+              tag: result.tag || '泛读'
+            });
+          } else {
+            resolve({ category: '社科', tag: '泛读' });
+          }
+        } catch (e) {
+          resolve({ category: '社科', tag: '泛读' });
+        }
+      });
+    });
+
+    req.on('error', () => {
+      resolve({ category: '社科', tag: '泛读' });
+    });
+
+    req.write(body);
+    req.end();
+  });
+}
+
+// 书籍分类映射表（手动维护的优先级最高）
 // 分类标准：文学、社科、科技、艺术、实用
 const BOOK_CATEGORIES = {
   // 文学：小说、诗歌、散文、戏剧、童话、古典文学
@@ -65,14 +166,14 @@ const BOOK_TAGS = {
   // 泛读（默认，随便翻翻即可）
 };
 
-// 根据书名获取分类
-function getBookCategory(bookTitle) {
-  // 精确匹配
+// 根据书名获取分类（优先映射表，其次AI）
+async function getBookCategoryAsync(bookTitle, summary) {
+  // 精确匹配映射表
   if (BOOK_CATEGORIES[bookTitle]) {
     return BOOK_CATEGORIES[bookTitle];
   }
 
-  // 模糊匹配（处理书名可能有细微差异的情况）
+  // 模糊匹配映射表
   const normalizedTitle = bookTitle.replace(/[：:]/g, '').toLowerCase();
   for (const [key, category] of Object.entries(BOOK_CATEGORIES)) {
     const normalizedKey = key.replace(/[：:]/g, '').toLowerCase();
@@ -81,18 +182,32 @@ function getBookCategory(bookTitle) {
     }
   }
 
-  // 默认分类
-  return '社科';
+  // 检查缓存
+  const cache = loadCache();
+  if (cache.categories[bookTitle]) {
+    return cache.categories[bookTitle];
+  }
+
+  // 调用 AI 分类
+  console.log(`  🤖 AI分析中...`);
+  const result = await aiClassifyBook(bookTitle, summary);
+
+  // 保存到缓存
+  cache.categories[bookTitle] = result.category;
+  cache.tags[bookTitle] = result.tag;
+  saveCache(cache);
+
+  return result.category;
 }
 
-// 根据书名获取标签
-function getBookTag(bookTitle) {
-  // 精确匹配
+// 根据书名获取标签（优先映射表，其次AI）
+async function getBookTagAsync(bookTitle, summary) {
+  // 精确匹配映射表
   if (BOOK_TAGS[bookTitle]) {
     return BOOK_TAGS[bookTitle];
   }
 
-  // 模糊匹配
+  // 模糊匹配映射表
   const normalizedTitle = bookTitle.replace(/[：:]/g, '').toLowerCase();
   for (const [key, tag] of Object.entries(BOOK_TAGS)) {
     const normalizedKey = key.replace(/[：:]/g, '').toLowerCase();
@@ -101,8 +216,19 @@ function getBookTag(bookTitle) {
     }
   }
 
-  // 默认标签
-  return '泛读';
+  // 检查缓存
+  const cache = loadCache();
+  if (cache.tags[bookTitle]) {
+    return cache.tags[bookTitle];
+  }
+
+  // 如果分类也没在缓存里，调用AI（分类函数会同时保存标签）
+  const result = await aiClassifyBook(bookTitle, summary);
+  cache.categories[bookTitle] = result.category;
+  cache.tags[bookTitle] = result.tag;
+  saveCache(cache);
+
+  return result.tag;
 }
 
 // 搜索豆瓣图书
@@ -344,7 +470,7 @@ function parseChineseDate(dateStr) {
 }
 
 // 生成 markdown 文件内容
-function generateMarkdown(book, bookInfo) {
+async function generateMarkdown(book, bookInfo) {
   const highlights = book.highlights;
 
   // 找到最新的时间
@@ -415,9 +541,9 @@ function generateMarkdown(book, bookInfo) {
     return val;
   };
 
-  // 获取书籍分类和标签
-  const category = getBookCategory(pureBookTitle);
-  const tag = getBookTag(pureBookTitle);
+  // 获取书籍分类和标签（异步，可能调用AI）
+  const category = await getBookCategoryAsync(pureBookTitle, bookInfo.summary);
+  const tag = await getBookTagAsync(pureBookTitle, bookInfo.summary);
 
   const content = `---
 title: ${yamlValue(pureBookTitle)}
@@ -515,7 +641,7 @@ async function syncKindle() {
     const summaryPreview = bookInfo.summary !== '待补充' ? '已获取简介' : '无简介';
     console.log(` ${summaryPreview}`);
 
-    const { filename, content: mdContent, title } = generateMarkdown(book, bookInfo);
+    const { filename, content: mdContent, title } = await generateMarkdown(book, bookInfo);
     const filePath = path.join(READS_DIR, filename);
 
     if (!fs.existsSync(filePath)) {

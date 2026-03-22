@@ -5,4 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
-_multiconfig.yml
+_multiconfig.yml.kindle-category-cache.json
+
+.kindle-category-cache.json
