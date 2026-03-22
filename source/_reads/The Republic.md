@@ -5,7 +5,7 @@ categories:
   - 社科
 tags:
   - 读书
-  - The Republic
+  - 经典
 ---
 
 #### 内容简介

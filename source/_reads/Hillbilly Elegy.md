@@ -5,7 +5,7 @@ categories:
   - 社科
 tags:
   - 读书
-  - Hillbilly Elegy
+  - 泛读
 ---
 
 #### 内容简介

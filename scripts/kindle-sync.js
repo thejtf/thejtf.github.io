@@ -43,6 +43,28 @@ const BOOK_CATEGORIES = {
   'Why Has Nobody Told Me This Before?': '实用',
 };
 
+// 书籍标签映射表
+// 标签标准：经典、必读、泛读、参考
+const BOOK_TAGS = {
+  // 经典（值得反复读的传世之作）
+  '百年孤独': '经典',
+  '耿济之译卡拉马佐夫兄弟': '经典',
+  'Pride And Prejudice': '经典',
+  'The Republic': '经典',
+
+  // 必读（对自己很重要的书）
+  '中国历代政治得失': '必读',
+  '可能性的艺术：比较政治学30讲': '必读',
+  'Chip War: The Fight for the World\'s Most Critical Technology': '必读',
+  '梁宁·产品思维30讲': '必读',
+  '工作、消费主义和新穷人': '必读',
+
+  // 参考（工具书、资料类）
+  // 暂无
+
+  // 泛读（默认，随便翻翻即可）
+};
+
 // 根据书名获取分类
 function getBookCategory(bookTitle) {
   // 精确匹配
@@ -61,6 +83,26 @@ function getBookCategory(bookTitle) {
 
   // 默认分类
   return '社科';
+}
+
+// 根据书名获取标签
+function getBookTag(bookTitle) {
+  // 精确匹配
+  if (BOOK_TAGS[bookTitle]) {
+    return BOOK_TAGS[bookTitle];
+  }
+
+  // 模糊匹配
+  const normalizedTitle = bookTitle.replace(/[：:]/g, '').toLowerCase();
+  for (const [key, tag] of Object.entries(BOOK_TAGS)) {
+    const normalizedKey = key.replace(/[：:]/g, '').toLowerCase();
+    if (normalizedTitle.includes(normalizedKey) || normalizedKey.includes(normalizedTitle)) {
+      return tag;
+    }
+  }
+
+  // 默认标签
+  return '泛读';
 }
 
 // 搜索豆瓣图书
@@ -373,8 +415,9 @@ function generateMarkdown(book, bookInfo) {
     return val;
   };
 
-  // 获取书籍分类
+  // 获取书籍分类和标签
   const category = getBookCategory(pureBookTitle);
+  const tag = getBookTag(pureBookTitle);
 
   const content = `---
 title: ${yamlValue(pureBookTitle)}
@@ -383,7 +426,7 @@ categories:
   - ${category}
 tags:
   - 读书
-  - ${yamlValue(pureBookTitle)}
+  - ${tag}
 ---
 
 #### 内容简介

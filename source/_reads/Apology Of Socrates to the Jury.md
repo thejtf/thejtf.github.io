@@ -5,7 +5,7 @@ categories:
   - 文学
 tags:
   - 读书
-  - "Apology: Of Socrates to the Jury"
+  - 泛读
 ---
 
 #### 内容简介

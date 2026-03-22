@@ -5,7 +5,7 @@ categories:
   - 实用
 tags:
   - 读书
-  - Mindset
+  - 泛读
 ---
 
 #### 内容简介

@@ -5,7 +5,7 @@ categories:
   - 社科
 tags:
   - 读书
-  - "Chip War: The Fight for the World's Most Critical Technology"
+  - 必读
 ---
 
 #### 内容简介
