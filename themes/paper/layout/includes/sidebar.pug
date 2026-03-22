@@ -1,6 +1,6 @@
 .sidebar
-  //- 默认参数 true，note 页面不显示 Toc
-  if !page.posts && page.type !== 'note' && (theme.toc === undefind || theme.toc === true)
+  //- 默认参数 true，note/read 页面不显示 Toc
+  if !page.posts && page.type !== 'note' && page.type !== 'read' && (theme.toc === undefind || theme.toc === true)
     include ./toc
 
   if theme.link === undefind || theme.link === true
@@ -15,6 +15,9 @@
   //- 判断是否为 note 相关页面
   - var _isNotePage = page.type === 'note' || page._note || page._noteCategory || page._noteTag || page._noteArchive
 
+  //- 判断是否为 read 相关页面
+  - var _isReadPage = page.type === 'read' || page._read || page._readCategory || page._readTag || page._readArchive
+
   if theme.archives === undefind || theme.archives === true
     h2 Archives
     .sidebar__archives
@@ -23,6 +26,13 @@
         if noteArchives && noteArchives.length > 0
           ul.archive-list
             each archive in noteArchives
+              li.archive-list-item
+                a.archive-list-link(href=url_for(archive.path)) #{archive.name}
+      else if _isReadPage
+        //- read 页面只显示 reads 的归档
+        if readArchives && readArchives.length > 0
+          ul.archive-list
+            each archive in readArchives
               li.archive-list-item
                 a.archive-list-link(href=url_for(archive.path)) #{archive.name}
       else
@@ -39,6 +49,13 @@
             each cat in noteCategories
               li.category-list-item
                 a.category-list-link(href=url_for(cat.path)) #{cat.name}
+      else if _isReadPage
+        //- read 页面只显示 reads 的分类
+        if readCategories && readCategories.length > 0
+          ul.category-list
+            each cat in readCategories
+              li.category-list-item
+                a.category-list-link(href=url_for(cat.path)) #{cat.name}
       else
         //- 普通页面只显示 posts 的分类
         != list_categories({show_count: false})
@@ -51,6 +68,13 @@
         if noteTags && noteTags.length > 0
           ul.tag-list
             each tag in noteTags
+              li.tag-list-item
+                a.tag-list-link(href=url_for(tag.path)) #{tag.name}
+      else if _isReadPage
+        //- read 页面只显示 reads 的标签
+        if readTags && readTags.length > 0
+          ul.tag-list
+            each tag in readTags
               li.tag-list-item
                 a.tag-list-link(href=url_for(tag.path)) #{tag.name}
       else

@@ -1,0 +1,13 @@
+[Unit]
+Description=Kindle Highlights Watch Service
+After=network.target
+
+[Service]
+Type=simple
+User=jopus
+ExecStart=/home/jopus/Blog/kindle/kindle-watch.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

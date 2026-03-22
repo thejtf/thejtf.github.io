@@ -48,6 +48,56 @@ block content
               a.page-number(href=url_for('/note/page/' + notePagination.total + '/'))= notePagination.total
             if notePagination.current < notePagination.total
               a.extend.next(rel="next" href=url_for('/note/page/' + (notePagination.current + 1) + '/')) 下一页
+  else if page.type === 'read'
+    //- Read 页面：显示 _reads 目录的文章列表
+    .archive-view
+      include includes/location-bar.pug
+      .main
+        .main__2-col
+          .posts
+            //- 显示页面内容
+            if page.content
+              .posts-intro
+                != page.content
+            //- 显示文章列表
+            if pageReads && pageReads.length > 0
+              each post in pageReads
+                .posts-item
+                  h2.posts-item__title
+                    a(href=url_for(post.path)) #{post.title}
+                  if post.date
+                    span.post__date #{date(post.date, date_format)}
+            else if reads && reads.length > 0
+              each post in reads
+                .posts-item
+                  h2.posts-item__title
+                    a(href=url_for(post.path)) #{post.title}
+                  if post.date
+                    span.post__date #{date(post.date, date_format)}
+          include includes/sidebar.pug
+      if readPagination && readPagination.total > 1
+        .horizontal-line(style="height: 1px")
+        .main__bottom
+          .paginator
+            if readPagination.current > 1
+              a.extend.prev(rel="prev" href=url_for(readPagination.current === 2 ? '/read/' : '/read/page/' + (readPagination.current - 1) + '/')) 上一页
+            - var start = Math.max(1, readPagination.current - 2)
+            - var end = Math.min(readPagination.total, readPagination.current + 2)
+            if start > 1
+              a.page-number(href=url_for('/read/')) 1
+              if start > 2
+                span.space …
+            - for (var i = start; i <= end; i++)
+              if i === readPagination.current
+                span.page-number.current= i
+              else
+                a.page-number(href=url_for(i === 1 ? '/read/' : '/read/page/' + i + '/'))= i
+            if end < readPagination.total
+              if end < readPagination.total - 1
+                span.space …
+              a.page-number(href=url_for('/read/page/' + readPagination.total + '/'))= readPagination.total
+            if readPagination.current < readPagination.total
+              a.extend.next(rel="next" href=url_for('/read/page/' + (readPagination.current + 1) + '/')) 下一页
   else
     //- 普通页面
     .page

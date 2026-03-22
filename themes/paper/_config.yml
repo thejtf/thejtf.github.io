@@ -7,6 +7,7 @@ menu:
   Home: /
   Readme: /readme
   Note: /note
+  Read: /read
 
 # stylesheets loaded in the <head>
 stylesheets:
@@ -23,6 +24,7 @@ scripts_defer:
 
 social:
   公开笔记: /note
+  读书笔记: /read
   Readme: /readme
   RSS 订阅: https://jopus.cn/atom.xml
   # and more, you can add other link by the same way
