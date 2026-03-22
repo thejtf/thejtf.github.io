@@ -2,10 +2,10 @@
 title: Why Has Nobody Told Me This Before?
 date: 2024-09-22T00:00:00
 categories:
-  - Why Has Nobody Told Me This Before?
+  - 实用
 tags:
   - 读书
-  - 书摘
+  - "Why Has Nobody Told Me This Before?"
 ---
 
 #### 内容简介

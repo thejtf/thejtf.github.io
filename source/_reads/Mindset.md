@@ -2,10 +2,10 @@
 title: Mindset
 date: 2024-08-11T00:00:00
 categories:
-  - Mindset
+  - 实用
 tags:
   - 读书
-  - 书摘
+  - Mindset
 ---
 
 #### 内容简介

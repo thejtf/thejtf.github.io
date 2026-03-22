@@ -2,10 +2,10 @@
 title: The Republic
 date: 2024-09-06T00:00:00
 categories:
-  - The Republic
+  - 社科
 tags:
   - 读书
-  - 书摘
+  - The Republic
 ---
 
 #### 内容简介

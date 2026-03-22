@@ -2,10 +2,10 @@
 title: Pride And Prejudice
 date: 2024-10-07T00:00:00
 categories:
-  - Pride And Prejudice
+  - 文学
 tags:
   - 读书
-  - 书摘
+  - Pride And Prejudice
 ---
 
 #### 内容简介

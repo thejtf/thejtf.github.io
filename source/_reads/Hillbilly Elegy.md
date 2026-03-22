@@ -2,10 +2,10 @@
 title: Hillbilly Elegy
 date: 2024-08-09T00:00:00
 categories:
-  - Hillbilly Elegy
+  - 社科
 tags:
   - 读书
-  - 书摘
+  - Hillbilly Elegy
 ---
 
 #### 内容简介

@@ -9,6 +9,60 @@ const KINDLE_PATH = '/media/jopus/Kindle';
 const CLIPPINGS_FILE = '/media/jopus/Kindle/documents/My Clippings.txt';
 const READS_DIR = path.join(__dirname, '../source/_reads');
 
+// 书籍分类映射表
+// 分类标准：文学、社科、科技、艺术、实用
+const BOOK_CATEGORIES = {
+  // 文学：小说、诗歌、散文、戏剧、童话、古典文学
+  '百年孤独': '文学',
+  '包法利夫人': '文学',
+  '耿济之译卡拉马佐夫兄弟': '文学',
+  '紫禁城的黄昏': '文学',
+  'Pride And Prejudice': '文学',
+  'Pride and Prejudice': '文学',
+  '重返狼群': '文学',
+  'The Woman in Me': '文学',
+
+  // 社科：历史、哲学、政治、经济、法律、社会学、心理学
+  '中国历代政治得失': '社科',
+  '可能性的艺术：比较政治学30讲': '社科',
+  '乡下人的悲歌': '社科',
+  'Hillbilly Elegy': '社科',
+  'Chip War: The Fight for the World\'s Most Critical Technology': '社科',
+  '金融炼金术': '社科',
+  '征服市场的人：西蒙斯传': '社科',
+  '工作、消费主义和新穷人': '社科',
+  '阅读经典：美国大学的人文教育': '社科',
+  '自由：回憶錄1954-2021': '社科',
+  'The Republic': '社科',
+  'Apology: Of Socrates to the Jury': '社科',
+  'Elon Musk': '社科',
+
+  // 实用：生活、健身、理财、成长、工具书
+  '梁宁·产品思维30讲': '实用',
+  'Mindset': '实用',
+  'Why Has Nobody Told Me This Before?': '实用',
+};
+
+// 根据书名获取分类
+function getBookCategory(bookTitle) {
+  // 精确匹配
+  if (BOOK_CATEGORIES[bookTitle]) {
+    return BOOK_CATEGORIES[bookTitle];
+  }
+
+  // 模糊匹配（处理书名可能有细微差异的情况）
+  const normalizedTitle = bookTitle.replace(/[：:]/g, '').toLowerCase();
+  for (const [key, category] of Object.entries(BOOK_CATEGORIES)) {
+    const normalizedKey = key.replace(/[：:]/g, '').toLowerCase();
+    if (normalizedTitle.includes(normalizedKey) || normalizedKey.includes(normalizedTitle)) {
+      return category;
+    }
+  }
+
+  // 默认分类
+  return '社科';
+}
+
 // 搜索豆瓣图书
 function searchDouban(bookTitle, author) {
   return new Promise((resolve) => {
@@ -319,14 +373,17 @@ function generateMarkdown(book, bookInfo) {
     return val;
   };
 
+  // 获取书籍分类
+  const category = getBookCategory(pureBookTitle);
+
   const content = `---
 title: ${yamlValue(pureBookTitle)}
 date: ${formatDate(latestTime)}
 categories:
-  - ${yamlValue(pureBookTitle)}
+  - ${category}
 tags:
   - 读书
-  - 书摘
+  - ${yamlValue(pureBookTitle)}
 ---
 
 #### 内容简介

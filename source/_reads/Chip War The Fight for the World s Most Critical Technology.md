@@ -2,10 +2,10 @@
 title: "Chip War: The Fight for the World's Most Critical Technology"
 date: 2024-09-18T00:00:00
 categories:
-  - "Chip War: The Fight for the World's Most Critical Technology"
+  - 社科
 tags:
   - 读书
-  - 书摘
+  - "Chip War: The Fight for the World's Most Critical Technology"
 ---
 
 #### 内容简介

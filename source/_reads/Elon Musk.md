@@ -2,10 +2,10 @@
 title: Elon Musk
 date: 2024-08-09T00:00:00
 categories:
-  - Elon Musk
+  - 社科
 tags:
   - 读书
-  - 书摘
+  - Elon Musk
 ---
 
 #### 内容简介
