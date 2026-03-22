@@ -1,8 +1,8 @@
 ---
-title: Apology: Of Socrates to the Jury
+title: "Apology: Of Socrates to the Jury"
 date: 2024-08-09T00:00:00
 categories:
-  - Apology: Of Socrates to the Jury
+  - "Apology: Of Socrates to the Jury"
 tags:
   - 读书
   - 书摘

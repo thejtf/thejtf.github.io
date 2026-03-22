@@ -311,11 +311,19 @@ function generateMarkdown(book, bookInfo) {
   // 用清理后的书名生成文件名（特殊字符替换成空格，合并多个空格）
   const safeTitle = pureBookTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
 
+  // YAML 值需要引号包裹的情况（包含冒号等特殊字符）
+  const yamlValue = (val) => {
+    if (val && /[:{}[\],&*#?|\-<>=!%@`]/.test(val)) {
+      return `"${val.replace(/"/g, '\\"')}"`;
+    }
+    return val;
+  };
+
   const content = `---
-title: ${pureBookTitle}
+title: ${yamlValue(pureBookTitle)}
 date: ${formatDate(latestTime)}
 categories:
-  - ${pureBookTitle}
+  - ${yamlValue(pureBookTitle)}
 tags:
   - 读书
   - 书摘
