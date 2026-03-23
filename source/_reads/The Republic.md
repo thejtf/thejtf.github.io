@@ -9,7 +9,7 @@ tags:
 ---
 
 #### 内容简介
-"The Republic" is Plato's discussion of the nature and meanin g of justice and of the ideal state and its ruler. All subsequent European thinking about these subjects owes its character, directly or indirectly, to this most famous, and most accessible of the Platonic dialogues.
+The Greek philosopher Plato was born in Athens in 428 B.C. He created dramatic dialogues, probably intended for oral performance, but seldom presented in that format until Agora Publications launched this series of dramatizations in 1994. The Republic explores most of the fundamental questions of philosophy, beginning with a search for how to define justice, moving to a quest for a model of the best possible human community, and concluding with reflections on the immortality of the soul.
 
 #### 书摘
 
