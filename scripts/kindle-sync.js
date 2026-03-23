@@ -578,11 +578,8 @@ function needsUpdate(filePath, newContent) {
 
   const existingContent = fs.readFileSync(filePath, 'utf-8');
 
-  // 比较高亮数量
-  const existingCount = (existingContent.match(/> /g) || []).length;
-  const newCount = (newContent.match(/> /g) || []).length;
-
-  return newCount > existingCount;
+  // 比较文件内容长度（新内容更长说明有新增高亮）
+  return newContent.length > existingContent.length;
 }
 
 // 主同步函数（异步）
