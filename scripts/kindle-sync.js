@@ -460,7 +460,29 @@ function parseClippings(content) {
 function parseChineseDate(dateStr) {
   if (!dateStr) return new Date();
 
-  // 匹配 "2024年7月24日星期三 下午9:44:51" 格式
+  // 匹配 "2024年7月24日星期三 下午9:44:51" 或 "2024年7月24日星期三 上午9:44:51" 格式
+  const fullMatch = dateStr.match(/(\d{4})年(\d{1,2})月(\d{1,2})日[^ ]*\s*(上午|下午)?(\d{1,2}):(\d{2}):?(\d{2})?/);
+  if (fullMatch) {
+    const year = parseInt(fullMatch[1]);
+    const month = parseInt(fullMatch[2]) - 1;
+    const day = parseInt(fullMatch[3]);
+    let hour = parseInt(fullMatch[5]);
+    const minute = parseInt(fullMatch[6]);
+    const second = fullMatch[7] ? parseInt(fullMatch[7]) : 0;
+
+    // 处理下午时间（+12小时，除非是12点）
+    if (fullMatch[4] === '下午' && hour !== 12) {
+      hour += 12;
+    }
+    // 处理上午12点（凌晨）
+    if (fullMatch[4] === '上午' && hour === 12) {
+      hour = 0;
+    }
+
+    return new Date(year, month, day, hour, minute, second);
+  }
+
+  // 兼容只匹配年月日的情况
   const match = dateStr.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
   if (match) {
     return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
