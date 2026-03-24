@@ -1,6 +1,6 @@
 ---
 title: OKR：做最重要的事
-date: 2026-03-24T00:08:43
+date: 2026-03-24 00:08:43
 categories:
   - 实用
 tags:
