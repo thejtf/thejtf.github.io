@@ -609,13 +609,13 @@ async function syncKindle() {
   // 检查 Kindle 是否连接
   if (!fs.existsSync(KINDLE_PATH)) {
     console.log('Kindle 未连接');
-    return false;
+    return { success: false };
   }
 
   // 检查 My Clippings.txt 是否存在
   if (!fs.existsSync(CLIPPINGS_FILE)) {
     console.log('My Clippings.txt 文件不存在');
-    return false;
+    return { success: false };
   }
 
   // 确保 _reads 目录存在
@@ -678,14 +678,30 @@ async function syncKindle() {
   }
 
   console.log(`\n同步完成: 创建 ${created} 篇，更新 ${updated} 篇，跳过 ${skipped} 篇`);
-  return true;
+  return { success: true, created, updated };
 }
 
 // Hexo 命令注册
 hexo.extend.console.register('kindle-sync', 'Sync Kindle highlights', async function(args) {
   const result = await syncKindle();
-  if (!result) {
+  if (!result || !result.success) {
     hexo.log.info('请连接 Kindle 后重试');
+    return;
+  }
+
+  // 如果有创建或更新，自动部署
+  if (result.created > 0 || result.updated > 0) {
+    hexo.log.info('检测到新内容，开始自动部署...');
+
+    // 清理并重新生成
+    await hexo.call('clean');
+    await hexo.call('generate');
+
+    // 部署
+    await hexo.call('deploy');
+    hexo.log.info('自动部署完成！');
+  } else {
+    hexo.log.info('无新内容，跳过部署');
   }
 });
 
