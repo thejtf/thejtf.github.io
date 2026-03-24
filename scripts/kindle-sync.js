@@ -501,10 +501,10 @@ async function generateMarkdown(book, bookInfo) {
     return hTime > latest ? hTime : latest;
   }, new Date(0));
 
-  // 格式化日期
+  // 格式化日期（格式：2018-12-17 22:14:34）
   const formatDate = (d) => {
     const pad = (n) => n.toString().padStart(2, '0');
-    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   };
 
   // 提取作者名（从括号中获取，去掉国籍等方括号内容）
