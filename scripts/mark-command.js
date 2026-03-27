@@ -138,10 +138,12 @@ ${content}
           }
         }
 
-        // 在插入位置前添加新内容（空一行再加内容）
+        // 在插入位置前添加新内容
+        // 确保格式正确：内容前空一行，内容后空一行
         const newLines = [
           '',
-          content
+          content,
+          ''
         ];
 
         lines.splice(insertIndex, 0, ...newLines);
