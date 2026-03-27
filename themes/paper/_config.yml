@@ -24,6 +24,7 @@ scripts_defer:
 
 social:
   公开笔记: /note
+  思考马克: /think
   读书笔记: /read
   Readme: /readme
   RSS 订阅: https://jopus.cn/atom.xml

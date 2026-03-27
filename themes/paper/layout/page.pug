@@ -98,6 +98,51 @@ block content
               a.page-number(href=url_for('/read/page/' + readPagination.total + '/'))= readPagination.total
             if readPagination.current < readPagination.total
               a.extend.next(rel="next" href=url_for('/read/page/' + (readPagination.current + 1) + '/')) 下一页
+  else if page.type === 'think'
+    //- Think 页面：显示 _thinks 目录的文章列表
+    .archive-view
+      include includes/location-bar.pug
+      .main
+        .main__2-col
+          .posts
+            if pageThinks && pageThinks.length > 0
+              each post in pageThinks
+                .posts-item
+                  h2.posts-item__title
+                    a(href=url_for(post.path)) #{post.title}
+                  if post.date
+                    span.post__date #{date(post.date, date_format)}
+            else if thinks && thinks.length > 0
+              each post in thinks
+                .posts-item
+                  h2.posts-item__title
+                    a(href=url_for(post.path)) #{post.title}
+                  if post.date
+                    span.post__date #{date(post.date, date_format)}
+          include includes/sidebar.pug
+      if thinkPagination && thinkPagination.total > 1
+        .horizontal-line(style="height: 1px")
+        .main__bottom
+          .paginator
+            if thinkPagination.current > 1
+              a.extend.prev(rel="prev" href=url_for(thinkPagination.current === 2 ? '/think/' : '/think/page/' + (thinkPagination.current - 1) + '/')) 上一页
+            - var start = Math.max(1, thinkPagination.current - 2)
+            - var end = Math.min(thinkPagination.total, thinkPagination.current + 2)
+            if start > 1
+              a.page-number(href=url_for('/think/')) 1
+              if start > 2
+                span.space …
+            - for (var i = start; i <= end; i++)
+              if i === thinkPagination.current
+                span.page-number.current= i
+              else
+                a.page-number(href=url_for(i === 1 ? '/think/' : '/think/page/' + i + '/'))= i
+            if end < thinkPagination.total
+              if end < thinkPagination.total - 1
+                span.space …
+              a.page-number(href=url_for('/think/page/' + thinkPagination.total + '/'))= thinkPagination.total
+            if thinkPagination.current < thinkPagination.total
+              a.extend.next(rel="next" href=url_for('/think/page/' + (thinkPagination.current + 1) + '/')) 下一页
   else
     //- 普通页面
     .page
