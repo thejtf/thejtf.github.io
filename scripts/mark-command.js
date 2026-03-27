@@ -60,9 +60,8 @@ hexo.extend.console.register('mark', 'Add a thinking mark entry', {
   function containsCurrentMonth(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const monthPattern = new RegExp(`${currentYear}年${monthNames[currentMonth - 1]}月记录`);
-    const monthPattern2 = new RegExp(`${monthNames[currentMonth - 1]}月\\d+日`);
-    const monthPattern3 = new RegExp(`${currentYear}年${currentMonth}月\\d+日`);
-    return monthPattern.test(fileContent) || monthPattern2.test(fileContent) || monthPattern3.test(fileContent);
+    const monthPattern2 = new RegExp(`#### ${currentMonth}月\\d+日`);
+    return monthPattern.test(fileContent) || monthPattern2.test(fileContent);
   }
 
   // 获取当前月份标题
@@ -93,7 +92,7 @@ tags:
 
 ### **${monthTitle}**
 
-${currentMonth}月${currentDay}日
+#### ${currentMonth}月${currentDay}日
 
 ${content}
 
@@ -111,8 +110,8 @@ ${content}
   function appendToArticle(filePath) {
     let fileContent = fs.readFileSync(filePath, 'utf-8');
 
-    // 检查是否已有今天的记录
-    const todayPattern = new RegExp(`${currentMonth}月${currentDay}日`);
+    // 检查是否已有今天的记录 (使用四级标题格式 #### 3月27日)
+    const todayPattern = new RegExp(`#### ${currentMonth}月${currentDay}日`);
 
     if (todayPattern.test(fileContent)) {
       // 找到文件中今天日期的最后一次出现位置，在其内容块末尾追加
@@ -132,14 +131,14 @@ ${content}
         let insertIndex = lines.length;
 
         for (let i = lastTodayIndex + 1; i < lines.length; i++) {
-          // 检查是否是新的日期条目（如 "3月28日" 或空行后跟日期）
-          if (lines[i].match(/^\d+月\d+日/)) {
+          // 检查是否是新的日期条目（如 "#### 3月28日"）
+          if (lines[i].match(/^#### \d+月\d+日/)) {
             insertIndex = i;
             break;
           }
         }
 
-        // 在插入位置前添加新内容
+        // 在插入位置前添加新内容（空一行再加内容）
         const newLines = [
           '',
           content
@@ -159,11 +158,11 @@ ${content}
 
     if (!monthTitlePattern.test(fileContent)) {
       // 添加新的月份标题
-      fileContent += `\n\n### **${monthTitle}**\n\n`;
+      fileContent += `\n### **${monthTitle}**\n`;
     }
 
-    // 添加日期和内容（添加到文件末尾）
-    fileContent += `\n${currentMonth}月${currentDay}日\n\n${content}\n\n`;
+    // 添加日期和内容（使用四级标题格式）
+    fileContent += `\n#### ${currentMonth}月${currentDay}日\n\n${content}\n`;
 
     fs.writeFileSync(filePath, fileContent);
     return path.basename(filePath);
