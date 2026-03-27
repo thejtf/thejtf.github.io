@@ -1,0 +1,467 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><meta name="description" content="Jopus的博客"><meta name="theme-color" content="#FF585B"><title>Jopus的博客</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&amp;display=swap&amp;subset=chinese-simplified" as="style"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&amp;display=swap&amp;subset=chinese-simplified" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&amp;display=swap&amp;subset=chinese-simplified"></noscript><style>@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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BL3+M1K+NfPvjlJEHZTOrkYvtdprqx0Hka+W/IhsQoUJE0jsPVOhV2itgp3Wame8dsB73DeCOfp+FMSxp2At3aozP1zVQ/tmEpXdveum7kat3CaLXRcmTZHmOveMiqxSteCZOrGKmscOa9WycTUXtRFabrtts1Nb3e5qHtqWPMWtuEkMSdydcarhKoTcVXtBgujKwULbPFJvqywIzBjboUacECG6ajlIews5dBUMkJ/LYHa12gpRLEsBDAAA6raxOaTnbx4GG5J6hdn4twxT1DRvEQZvD6banOa3BbstVh48efHmw5cffwECBQkWIvK/LTbhIkSKEi1GrDjxEiRKkixFqjTpMmTKki1Hrjz5ChQqUqxEqTLlKlSqUq2e+hpoqJHGmmiqmeZhWGKoYfaZ7qXhxhtjnlWWxsBotw0xxWdfjDPDSEfc98l8q33z1XeLrXPKCeu10NJErZzR2kmnXXDWOee90sYVF12yQVsfTXLdVde088Y7o3TQXkedddLFQnb/qVGrq24cuuvhtZ5666WPfvraaZEB+htokLfe2+1GBDbalARuuueWzbbYboejttrmmBHW2O+AvUmRDMb6EEUsHHQoDskRjxRIiVRILev2qn1oaGpomZOB2z/jmn/eUk6tvaZda/5znbhPCguQ7wsEvd1strBI3OYR8ye01+ZO0jbH36oqKm37w90hl2v/wO5o3vIjtpoZx20H) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style><link rel="shortcut icon" href="/favicon.ico"><script>(function(){var e=function(){var t=new Date,n=t.getMonth()+1,o=t.getDate(),r=t.getDay(),a=[{month:4,date:4},{month:4,date:5},{month:9,date:18},{month:12,date:13}];if(a.some(function(e){return e.month===n&&e.date===o}))return"#cccccc";var i={1:"#ebc65a",2:"#9dab86",3:"#6ba8a9",4:"#9be3de",5:"#46b3e6",6:"#FF585B",0:"#ffa259"};return i[r]||i[1]}();if(typeof document!=="undefined"&&document.documentElement){document.documentElement.style.setProperty("--color-main",e,"important");var s=document.createElement("style");s.id="dynamic-theme-color-early";s.textContent=":root{--color-main:"+e+"!important}";(document.head||document.getElementsByTagName("head")[0]).appendChild(s);}})();
+</script><link rel="stylesheet" href="/css/index.css"><script>(function() {
+  function getThemeColorByDate() {
+    const now = new Date();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+    const dayOfWeek = now.getDay();
+    
+    // 特殊纪念日：4月4日、4月5日、9月18日、12月13日
+    const memorialDays = [
+      { month: 4, date: 4 },
+      { month: 4, date: 5 },
+      { month: 9, date: 18 },
+      { month: 12, date: 13 }
+    ];
+    
+    if (memorialDays.some(day => day.month === month && day.date === date)) {
+      return '#cccccc'; // gray
+    }
+    
+    // 根据星期几返回对应的主题色
+    const weekdayColorMap = {
+      1: '#ebc65a',   // Monday - default
+      2: '#9dab86',   // Tuesday - grass
+      3: '#6ba8a9',   // Wednesday - forest
+      4: '#9be3de',   // Thursday - sky
+      5: '#46b3e6',   // Friday - sea
+      6: '#FF585B',   // Saturday - red
+      0: '#ffa259'    // Sunday - sun
+    };
+    
+    const color = weekdayColorMap[dayOfWeek] || weekdayColorMap[1];
+    return color;
+  }
+  
+  const themeColor = getThemeColorByDate();
+  
+  // 在 CSS 加载后设置 CSS 变量和 meta
+  if (typeof document !== 'undefined' && document.documentElement) {
+    document.documentElement.style.setProperty('--color-main', themeColor);
+    
+    const metaThemeColor = document.querySelector('meta[name=theme-color]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', themeColor);
+    }
+  }
+})();
+</script><script src="https://cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js" defer></script><script src="/js/paper.js" defer></script><script src="https://www.googletagmanager.com/gtag/js?id=G-Y6V8LR8RMR" async onerror="this.onerror=null;console.warn('Google Analytics script failed to load');"></script><script>// 检测是否为本地开发环境
+const isLocalhost = window.location.hostname === 'localhost' || 
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.hostname === '0.0.0.0' ||
+                    window.location.hostname === '';
+
+// 只在非本地环境初始化 Google Analytics
+if (!isLocalhost) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  // 添加错误处理，静默处理连接错误
+  try {
+    gtag('config', 'G-Y6V8LR8RMR', {
+      // 使用 beacon 传输方式，更可靠
+      transport_type: 'beacon',
+      // 启用自动页面跟踪
+      send_page_view: true
+    });
+  } catch (e) {
+    // 静默处理错误，不影响用户体验
+    console.warn('Google Analytics initialization failed:', e);
+  }
+  
+  // 拦截 XMLHttpRequest 错误，避免在控制台显示
+  const originalXHROpen = XMLHttpRequest.prototype.open;
+  const originalXHRSend = XMLHttpRequest.prototype.send;
+  
+  XMLHttpRequest.prototype.open = function(method, url, ...args) {
+    this._gaUrl = url;
+    return originalXHROpen.apply(this, [method, url, ...args]);
+  };
+  
+  XMLHttpRequest.prototype.send = function(...args) {
+    if (this._gaUrl && typeof this._gaUrl === 'string' && this._gaUrl.includes('google-analytics.com')) {
+      this.addEventListener('error', function(e) {
+        // 静默处理 Google Analytics 请求错误
+        e.stopPropagation();
+      }, true);
+      this.addEventListener('abort', function(e) {
+        // 静默处理请求中止
+        e.stopPropagation();
+      }, true);
+    }
+    return originalXHRSend.apply(this, args);
+  };
+} else {
+  // 本地环境：创建空的 gtag 函数以避免错误
+  window.gtag = function() {
+    // 静默忽略本地环境的分析请求
+  };
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: '.toc__content',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: '.article__content',
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: true,
+    orderedList: false,
+    collapseDepth: 2,
+  });
+})</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
+</head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">首页</p><script>(function() {
+  try {
+    // 使用 ID 选择器，更可靠
+    var locationText = document.getElementById('location-text');
+    if (!locationText) {
+      // 如果 ID 选择器失败，尝试其他方法
+      locationText = document.currentScript ? document.currentScript.previousElementSibling : null;
+      if (!locationText || !locationText.classList || !locationText.classList.contains('text')) {
+        locationText = document.querySelector('.location-bar .text');
+      }
+    }
+    if (locationText) {
+      var currentText = locationText.textContent.trim();
+      var weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+      // 如果是首页，显示当前日期
+      if (currentText === '首页' || weekdays.indexOf(currentText) !== -1) {
+        function updateTime() {
+          try {
+            var now = new Date();
+            var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var weekday = weekdays[now.getDay()];
+            var month = months[now.getMonth()];
+            var day = now.getDate();
+            var timeString = weekday + ' ' + month + ' ' + day;
+            if (locationText) {
+              locationText.textContent = timeString;
+            }
+          } catch(e) {
+            // 静默处理错误
+          }
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+      }
+    }
+  } catch(e) {
+    // 静默处理错误
+  }
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·20年至23年</a></h2><span class="post__date">2023-11-15</span></div></div><div class="article__content"><h1 id="20年至23年"><a href="#20年至23年" class="headerlink" title="20年至23年"></a>20年至23年</h1><p>2023年11月28日<br>我们总应该在这无尽无意义的旅途中找点存在下去的理由：丰富这个旅程，大胆的去尝试。</p>
+<p>2023年11月27日<br>人可以不必追求深刻，但望你们快乐。</p>
+<p>2023年11月08日<br>限制创造的方式越来越不是工具了，审美创新才是。现在已经不是 AI 有没有智慧的问题了，而是作为人类自身，有没有智慧能在这个变化的时代快速迭代适应的问题了。</p>
+<p>2023年10月26日<br>再读读西方哲学史吧，到底什么能抵挡住岁月的消磨…</p>
+<p>2023年10月24日<br>语言是上帝。</p>
+<p>2023年10月24日<br>任何生命的意义都不在于被他人观赏。</p>
+<p>2023年10月24日<br>投喂是最虚伪的爱。</p>
+<p>2023年10月22日<br>“人不是一下子死掉的，人是一点点死掉的。你离开时是一个秋天，如今又是一个秋天。”</p>
+<p>2023年10月21日<br>欲望是自我保存的冲动——斯宾诺莎</p>
+<p>2023年10月20日<br>麻园终于火了，乐夏的版本都不错，喜欢。</p>
+<p>2023年10月18日<br>苟全性命于乱世，不求闻达于诸侯。</p>
+<p>2023年10月16日<br>未来和过去其实是同时发生的，怀疑一旦产生，罪名便成立。所以人性不能去试探，因为一旦介入观察，未来就会坍缩成唯一的结果，这就导致了倒果为因。</p>
+<p>2023年10月13日<br>原来不是所有人都遗忘了，只是大家都不愿意再提起。</p>
+<p>2023年10月10日<br>刀可伤人，甲可诛心。冷漠是一件铠甲，只有你穿上它时，你才是一名真正的战士。</p>
+<p>2023年10月10日<br>人类永远都愿意为稀少的东西而进行溢价支付。</p>
+<p>2023年10月09日<br>一个什么都想被人管的人不配拥有自由，只有勇敢的人才会享受自由。</p>
+<p>2023年10月05日<br>工作应该培养人，但工作从来不培养人，工作从来都是筛选人。考试应该筛选人，但考试从来不是筛选人，而是培养对试题满分答案的规训。历史更是如此，它从来都是筛选出那些能适应时代的分子。</p>
+<p>2023年10月05日<br>尽可能优雅明确的表达你所相信的一切。</p>
+<p>2023年10月04日<br>成功最难的不是吃苦，而是怎么抗住失败。九死一生的命运里，人们总是看到了那10%的成功而忽略了大多数的失败。</p>
+<p>2023年10月03日<br>傲慢和无知一样，让人生厌。</p>
+<p>2023年10月03日<br>一些历史或者一些书籍之所以看不懂是因为没法共情，伟大的作品需要理解它的人，厄运和苦难从来都是优秀作品的注解。</p>
+<p>2023年10月03日<br>阅读，真的是一个人的避难所。</p>
+<p>2023年10月03日<br>人生没有终点，但永远都有下一站。</p>
+<p>2023年10月02日<br>忽然发现，最近的自己的判断能力非常的差。</p>
+<p>2023年09月23日<br>拿着维特根斯坦是一点没看进去，打开豆瓣搜到鲁迅，再看他百年前的文字，五味杂陈。</p>
+<p>2023年09月16日<br>让人真正改变的从来不是知识而是见识。</p>
+<p>2023年05月10日<br>有时候，对一件事过于的热爱与执着，就会让人变得狭隘。因此就无法在某些事上接受多元和不同。</p>
+<p>2023年04月24日<br>知道再怎么努力都改变不了命运却依然要努力，或许这才是真正的英雄主义。</p>
+<p>2023年04月15日<br>他们没有看到，凡是理由，若不在极端的情事上有效，就不会在任何事上奏效。如果一个意见，不允许别人质难，必达不到真理。</p>
+<p>2023年04月14日<br>做人做事需要手段，但手段不应成为目的。</p>
+<p>2023年03月18日<br>省钱是个伪需求，省钱是没有意义的。</p>
+<p>2023年03月18日<br>人对落伍的恐惧感是非常大的。</p>
+<p>2023年03月18日<br>伟大的产品应该满足人的情感需求，而不是单单寻求功利上的好处。</p>
+<p>2023年02月26日<br>虽天道酬勤，坚持长期主义，但也别忘了最后的“大力出奇迹”。如果一切的坚持没有这把奇迹，那么鲜有人会认可你的坚韧。或许从某种程度上说，一切的忍耐都是为了这把奇迹。只有让人看到了成果，人们才会相信坚持的意义。</p>
+<p>2023年02月21日<br>需要保持独立思考，但是也要紧跟趋势。快速获取到一手权威的信息很重要，所以学好语言非常重要。独立思考的目的不是产生比旁人强的优越感，而是让我们脱离群体的盲目性，更是警惕自身的局限性。</p>
+<p>2023年02月19日<br>我们绝不能用流量多少来评价一个内容的好坏。那我们该如何评价一个内容的好坏呢？这是一个值得人深思的问题。</p>
+<p>2023年02月18日<br>评价看一个产品好坏，要去看看它有没有API文档，以及官方API文档的维护情况。</p>
+<p>2023年02月16日<br>AI扒掉了人类的底裤，社会的很多工作就不该由人来做。</p>
+<p>2023年02月16日<br>In a world where almost no one takes a truly long-term view, the market richly rewards those who do.Trust the exponential, be patient, and be pleasantly surprised.——Sam Altman</p>
+<p>2023年02月15日<br>你在凝视着ChatGPT，ChatGPT也在凝视着你。</p>
+<p>2023年02月14日<br>永远别忘了ChatGPT是一个语言模型。</p>
+<p>2023年02月13日<br>和语言模型学语言是个好用法，用语言模型去润色语言也是个好用法。</p>
+<p>2023年02月12日<br>库克曾经在MIT说过，他不担心AI像人类一样思考，他更担心人类会像计算机那样进行没有价值观、没有同情心和不计后果的思考。科学是人类在黑暗中进行的探索，而人文精神则是照亮前方危险的一盏烛光。</p>
+<p>2023年02月12日<br>这个时代别说深刻，哪怕就连长一点的内容大家都看不进去了。信息过载的时代下大家变得没有耐心是可以预见的，只是没想到它来的如此之快。大家热衷于二手书籍知识、二手剧情讲解，在这个简化又简化的时代里，我们收获了什么呢？我们又遗忘了什么…</p>
+<p>2023年02月10日<br>可怕的不是人们不想结婚、不愿意生育，而是女性和男性之间越拉越大的价值观鸿沟。</p>
+<p>2023年02月04日<br>以后没有创新能力的人要被AI给淘汰了，目前体验ChatGPT来看那些之前的一些所谓的靠混经验的工作，它都能及格的完成，虽然谈不上出色。当一个新东西新趋势出现了，我们当然可以质疑它，但我们更应该欣然的接受它。因为你不接受它，未来就有可能会成为失败的一方。历史趋势不会因为个人的质疑它就不会发 …全文</p>
+<p>2023年02月03日<br>既然命运不让我在眼前苟且，那就树立远大理想吧。</p>
+<p>2023年02月03日<br>认知虽有差距，但思维并无高低。</p>
+<p>2023年02月02日<br>一开始吸引人的是理念，后来留住人的是体验。</p>
+<p>2023年02月02日<br>两种东西最吸引我：一个是科技的最前沿，一个是复古的玩意儿。前者代表最先进的产品和理念，后者则经过了历史和时间的沉淀。</p>
+<p>2023年01月31日<br>#Mark一下# 我问ChatGPT如何学习英语，它做了如下回答：1.Practice speaking and writing regularly2.Surround yourself with the language by reading, watching movies, and listening to music3.Study grammar and vocabulary4.Join a class or hire a tutor5.Immerse yourself in an English- …全文</p>
+<p>2023年01月30日<br>这个世界可能并不是按照我们每个人的想法运行的，但不妨碍我们把它变得更美好一点。</p>
+<p>2023年01月30日<br>从来不假思索自我道德标准对错的人，是最没有道德的人。</p>
+<p>2023年01月30日<br>容忍更多后，最后人们会觉得你软弱而不是豁达。但我们从小就被教育要豁达，PUA自己的思想原来早已经被植入我们的思想中了。存天理灭人欲，灭的从来都是社会底层的人欲，更可悲的是底层最后会自相PUA。他们的目的达到了，我们死死的束缚在他们建构的奴役我们的逻辑中。</p>
+<p>2023年01月30日<br>做一个人们喜欢的东西是难的，因为人们并不知道自己真正喜欢的是什么。喜欢是感性的，人们只会告诉你他们并不喜欢什么。就像智慧一样，佛祖也只会告诉我们菩提不是什么。</p>
+<p>2023年01月29日<br>未来的AI一定会把每个人都鼓励成一个大傻逼。</p>
+<p>2023年01月28日<br>众人皆醉我独醒不仅给不了人优越感，反而给人带来更多的痛苦。</p>
+<p>2023年01月27日<br>取舍才是读书的目的，知识不是。</p>
+<p>2023年01月25日<br>汉奸比列强更懂如何压迫人民。</p>
+<p>2023年01月25日<br>爱国从来都是社会底层人互相慰藉的良药，精英们从来都是现实的。</p>
+<p>2023年01月24日<br>一边说养孩子防老，一边不相信孩子的照料，一边说要有知识文化，一边却只相信自己的旧习惯。孩子的孝顺得是「薛定谔式孝顺」，只有父母觉得你孝顺才是真孝顺，哪怕一点违背父母认知的都是你不孝。很多事都无力改变，人终究只相信自己愿意相信的，就像诗人西川所说，所谓未来，不过是往昔，所谓希望 …全文</p>
+<p>2023年01月24日<br>我讨厌成长，讨厌它让你看清了很多东西，讨厌它让你不再对一件事情深深的迷恋，讨厌它带给你很多你本不想要的东西。但能因为讨厌就不去成长吗？又不能。我们不能整天活在自己的世界里，虽然这没什么不好。人是一座自我的牢笼，人也是人们彼此的罪人。</p>
+<p>2023年01月23日<br>所谓未来，不过是往昔，所谓希望，不过是命运。——西川</p>
+<p>2023年01月23日<br>没有谁会是永远的赢家，所以胜利者要保持宽容，失败者要保持耐心。否则人类的灾祸无法避免。</p>
+<p>2023年01月22日<br>There are 3 basic rules to life:Don’t promise when you’re happy,Don’t reply when you’re angry,And don’t decide when you’re sad.</p>
+<p>2023年01月22日<br>沉默的螺旋：对于一个有争议的议题，人们就会形成有关自己身边“意见气候”的认识，同时判断自己的意见是否属于“多数意见”，当人们感觉到自己的意见属于“多数”或处于“优势”的时候，便倾向于大胆地表达这种意见；当发觉自己的意见属于“少数”或处于“劣势”的时候，遇到公开发表的机会，可能会为 …全文</p>
+<p>2023年01月22日<br>有时正是人们无法理解和想象之人，才能做出超乎想象之事。</p>
+<p>2023年01月22日<br>文明是个人的终极课题</p>
+<p>2023年01月22日<br>林中有两条岔开的小路，而我选择了那人迹罕至的一条，于是一切都不一样了。</p>
+<p>2023年01月21日<br>最难发挥的莫过于恶毒的咒骂和除夕祝福语，前者需要下流到极致，后者则需要了解全部禁忌。但最难发挥之处便最能体现水平，所以除夕祝福语能写好并能与众不同才更显高水平。 附图：今年看到最好的除夕祝福语。</p>
+<p>2023年01月21日<br>偏见比无知更可怕。</p>
+<p>2023年01月21日<br>什么事儿都需要理由，过年就是最好的理由。</p>
+<p>2023年01月20日<br>为什么要去登山？因为山就在那里。</p>
+<p>2023年01月20日<br>现代社会，穷是一种审判。</p>
+<p>2023年01月19日<br>认识论源自于人的感官。这个世界不存在客观规律，人无法理解自己无法理解的东西。我们所说的“客观”终究逃脱不了人的“主观”，某种程度上说这个世界所有的规律都是“主观规律”，所有事实也都是“主观事实”。正如《金刚经》所言，凡所有相，皆是虚妄。若见诸相非相，即见如来。</p>
+<p>2023年01月19日<br>如果一个议题一边倒的支持或者一边倒的反对，这样的议题就没有讨论价值，因为只有争论才能让人们开始思考自己信奉的东西竟然还有这那么多傻叉有不一样的想法。让人们意识到还有不一样的人的存在就是争论的价值和意义所在。争论的目的不是说服对方而是证明彼此的存在。在争论中寻找认同，在争论中表达 …全文</p>
+<p>2023年01月18日<br>宇宙的边界就是我们灵魂的边界。</p>
+<p>2023年01月18日<br>事实上，人们可能根本没有那么渴望事实、真相、真理…很多时候，人们更渴望的，可能是认同，是夸奖，是彼此的存在感。</p>
+<p>2023年01月18日<br>解决社会矛盾的根本是创新和把蛋糕做大，而不是天天纠结着如何公平的分配蛋糕，当出现「不患寡而患不均」议题的时候就说明只有存量市场了，那么这个时候便只能是你死我活。没有容忍差异性的极端平均主义的社会是一个死气沉沉的社会，要发挥人的能动性的前提是容忍和承认人的差异性，才能让更多人自由发 …全文</p>
+<p>2023年01月17日<br>谁又心甘情愿拿安稳换波澜。</p>
+<p>2023年01月17日<br>我喜欢年轻人们的困惑，有意思，那是欲望的困惑。如果年轻人还有欲望，那这个国家就还会有希望。</p>
+<p>2023年01月16日<br>我们仍然要心怀希望，但这希望并不能放在别人身上，而要放在自己身上。人生要学着去做到三点：生活和读书、在不懂中领会、在限制之中自由。能做到这些，就是普通人的英雄之举。如果还能找到彼此，那我们的存在本身可能对另一个人来说就是希望。</p>
+<p>2023年01月15日<br>人丑就要多读书，没钱就要多读书，这是新时代我听过最多劝学的话了。读书被我们焦虑的社会搞的背负了太多东西和被太多人误解了，人丑你就去学化妆美容啊，没钱你就去搞钱啊。这些都跟读书不沾边，更多时候其是反过来的。人漂亮了多读点书可以增添气质，富有了多读点书可以提高审美鉴赏水平。读书可不能 …全文</p>
+<p>2023年01月15日<br>最快的挣钱方式就是让别人相信你超级有钱。</p>
+<p>2023年01月15日<br>奴隶不是从出生的第一天就成为奴隶的，是他自我甘愿成为奴隶的那一天才开始成为奴隶的。</p>
+<p>2023年01月15日<br>为什么有些人总是需要别人管呢，别人管好我们了吗？还管下去能变的更好吗？我们干嘛不相信我们自己呢？总是把希望寄托于别人干嘛呢，温室里的花朵是挺美好，但是它能走出温室嘛？成长总是需要付出代价的，你没有成为代价是因为有的人成为了代价。</p>
+<p>2023年01月15日<br>人和人的人生是不同的，所以人们越来越讨厌说教。这是一种进步，自己的人生自己感受，我们不是机器人，没必要要别人成为你，自己更没必要成为别人。人们所处的时代是不同的，所以我们自认为对的经验其实并不适合别人，尊重人的多样性和差异性才是社会进步的表现，这样才不会限制他人的自由发展。但是我 …全文</p>
+<p>2023年01月15日<br>要相信自己的第一判断。</p>
+<p>2023年01月15日<br>Never be a prisoner of your past. It was just a lesson, not a life sentence.不要成为你过往的囚徒，它只是一个教训，不是无期徒刑。</p>
+<p>2023年01月14日<br>时刻谨记：完成比完美更重要。</p>
+<p>2023年01月13日<br>能输出不一定是懂了，但不能输出一定是不懂的。</p>
+<p>2023年01月13日<br>你看得见什么，你就会成为什么。</p>
+<p>2023年01月13日<br>要么再勇敢一点，要么就再木讷一点。</p>
+<p>2023年01月12日<br>一年有四季，但只有春天过春节。</p>
+<p>2023年01月11日<br>限制人眼界和格局的更多的是人的生存方式。</p>
+<p>2023年01月08日<br>我们需要有意识的训练社交平台的推荐算法，而不是习惯于被机器喂养。让机器以为他们很了解我们，这是现代人用社交平台需要的一点智慧，人类相比AI我们目前的唯一优势是我们比他们更会撒谎和伪装。我们是机器的主人，而不是机器主宰我们。</p>
+<p>2023年01月07日<br>在现代世界，我们原来就是活的一个社交账号。如果不用更新任何社交媒体，不用任何社交平台，人们还知道我们存在过吗？我们的这些所谓的“数字资产”真的是属于我们自己吗？</p>
+<p>2023年01月07日<br>做人民喜欢的东西。</p>
+<p>2023年01月05日<br>有时候“无为”比乱作为更需要勇气和智慧，从历史上看大多数时候总是越管越遭。多少好东西和创造力都是被我们的管教而毁于一旦。一个政策的制定和执行是有很多不确定性因素的，从理性角度看人工干预后一件事变的更糟的概率总是大于变得更好。所以在没有十足把握和已经变得非常糟而不得不去做之前，我们 …全文</p>
+<p>2023年01月05日<br>一个产品变得大众了，就难逃平庸。并不是这个产品变了，而是人多了就会变得不酷了。所以说要变的酷和与众不同就要远离人群。亚里士多德说过，离群索居者，不是野兽，便是神灵。</p>
+<p>2023年01月05日<br>讨好人的算法，正在消解异见信息带给人类的智慧。 人们对不喜欢的观点和事物的容忍度一再下降。当人类不再包容，我们便会失去曾经拥有的自由与契约。科技是进步了，但人类的文明在一点点趋于保守和退步。让我们沉沦的，终究是我们所热爱的东西。 说到这里想起来北岛那句诗，这是五千年的象形文字，这是 …全文</p>
+<p>2023年01月05日<br>当你尝试去试探人们的道德底线的时候，你会发现没有最低只有更低，所以千万不要去试探自己的底线。如果说人类的文明是建立在人的虚伪之上的，那我们应该保持恰当的虚伪。真实有时候很美，有时候很丑陋。</p>
+<p>2023年01月04日<br>要想了解社会，你需要了解经济，因为经济是基础。要了解经济，你需要了解政治，因为政治是上层建筑。要了解政治，你需要知道历史，因为历史是个循环，我们可以在历史中发现政治规律。世界就是这样普遍联系的，每一个时代的每一个人都在浑然不觉的发挥着蝴蝶效应。</p>
+<p>2023年01月04日<br>秦灭六国，二世而亡。走向大一统并不是秦兵力强盛，是历史趋势，是民意使然。但秦作为最后一个贵族政府依然失败了。秦打破了封建制的进步不可否认，甚至可以说是超越了时代的进步。秦2000万人口，强征30万去修长城，70万去修阿房宫，国家能力很强大，纵贯中外古今鲜有企及，但现实是除了始皇嬴政本人没 …全文</p>
+<p>2023年01月02日<br>如果我们民族每个人的“岁月静好”是建立在压迫剥削甚至是侵犯他人或某个群体的基本权益的基础上的，那么我对我们这种所谓的“文明发展”和“公平平等”感到耻辱。 其他民族亦是。</p>
+<p>2023年01月02日<br>买东西能让人获得可控的快乐。</p>
+<p>2022年12月31日<br>智慧的人总是很犹疑，而无知的人总是很自信。</p>
+<p>2022年12月31日<br>全球分工的社会和被异化的人们，真的存在所谓的自由嘛。 我们自以为的自我独特性或许只是现代社会的附属品罢了。 一种自以为是的异化，也许只是一种新型的社会控制。 我们一直在建造封闭自我的牢笼，什么才是真的重要的呢？ 或许我们从未思考过…</p>
+<p>2022年12月29日<br>忽略是最好的反驳沉默是最高的轻蔑</p>
+<p>2022年12月27日<br>我们需要在过量与不足两个极端之间寻找恰如其分的德性，在大是大非面前辨别是非曲直明辨真理。而事实是，我们经常在大是大非面前谈道德，在过量与不足之间谈公平。在该用法治的时候谈道德，在该用道德的时候谈公平。</p>
+<p>2022年12月27日<br>人们并非不能接受现实，而是接受不了这种被“粉饰的荒诞的现实”。</p>
+<p>2022年12月21日<br>亲戚或余悲，他人亦已歌。</p>
+<p>2022年12月21日<br>圣人论迹不论心，不能因为你好心办坏事，别人就应该去理解你。坏事就是坏事，正因如此，我们才要更慎重地处理很多两难问题，也更应该认识到自我的有限性。</p>
+<p>2022年11月18日<br>很多feature都是我们一厢情愿，用户只在乎核心需求好不好用，回归内容本身，回归价值本身才能不被淘汰。一个产品要加多少功能才能让用户抛弃原有习惯变成一个烂产品，一个非核心功能多到让用户不厌其烦的产品迟早会被用户丢进历史的垃圾桶。#用户需求#</p>
+<p>2022年10月11日<br>是你感受到了世界，还是世界让你感受到了自己?海德格尔说，它们必定同时成立</p>
+<p>2022年06月04日<br>如今你的气质里，藏着你走过的路，读过的书和爱过的人。</p>
+<p>2022年06月04日<br>创造有趣事物的前提是你得对一些事物感兴趣。</p>
+<p>2022年06月01日<br>圣洁总会遇到卑鄙，而卑鄙总是振振有词。</p>
+<p>2022年05月29日<br>焦虑——不确定性的恐惧。</p>
+<p>2022年05月24日<br>事实阻碍了真理，事实并不能为我们提供答案。正是对事实的阐释而非事实本身，才是我们真正需要的东西。</p>
+<p>2022年04月16日<br>人生还是要树立远大的理想的，这样就不会为眼前的苟且而难过了。</p>
+<p>2022年04月16日<br>祈求大多数人理解是贪婪的，能力和想法不匹配是不幸的。</p>
+<p>2022年04月09日<br>如果你没有得到你想要的东西，你会痛苦；如果你得到了不想得到的东西，你会痛苦；如果你得到了想要的东西，你还是会痛苦；因为你无法拥有它，你的思想就是你的困境。</p>
+<p>2022年04月05日<br>当一件事到了要用舆论进行审判的时候，就注定了没有人是赢家。</p>
+<p>2022年04月01日<br>世间最大的不幸或许是想法和能力不匹配。</p>
+<p>2022年03月30日<br>从书中得到的知识相比在实践中体察到的经验它总是显得廉价的。一个人从书中看到的道理和真的体会到的绝不是一件东西。就如同一句话在年轻人和老者口中说出来是不一样的，因为你永远无法理解后者到底为此付出了多少代价。</p>
+<p>2022年03月16日<br>国际政治的进攻性现实主义：1.生存是大国的首要目标2.国际体系处于无政府状态3.大国本身具备用于进攻的军事力量4.国家永远无法把握其他国家的意图5.大国是理性的行动体</p>
+<p>2022年03月03日<br>AI告诉我们一个深刻的道理——勤能补拙。只要数据够多、时间够久，胜利终将属于机器。</p>
+<p>2022年02月23日<br>个人的理想，经济学的预期，社会学的预言的自我实现，其实都是在说同一件事。如果个人或者群体真的笃定一件事，那么这件事就极大可能会变成现实。而那些真的可以称得上领袖的人就是能把国家集体的理想和个人的理想相结合。无数历史证明，只要你敢忽悠什么奇迹都可能发生。但前提是你自己真的笃定而不 …全文</p>
+<p>2022年02月05日<br>一旦开始怀疑他人做事的动机，那就不可避免的掉入到意识形态的陷阱里。人性是复杂的，人的智能性就在于人的虚伪性。但一旦怀疑他人的动机，我们就会对显而易见的东西看不见，而我们看不见自己看不见。</p>
+<p>2022年01月10日<br>一个认为所有政策决策都轻而易举或利弊分明的经济学家是不值得信任的经济学家。</p>
+<p>2021年11月30日<br>生命以负熵为食，生命是一个美好的巧合，是宇宙在奔向熵最大的死寂过程中，为自己创造的观众。</p>
+<p>2021年11月23日<br>我们要做的事让自己的行为摆脱企图，顺应世界。只有在超然的奉献中行动，才可以在充满痛苦的世界中生存，而不遭受折磨。要修炼自己的心智，感受一切，但不对任何感受和欲望产生依附。</p>
+<p>2021年11月13日<br>Don’t cling to things, because everything is impermanent.</p>
+<p>2021年11月06日<br>历史是由人组成的，而人是有人性的。</p>
+<p>2021年11月06日<br>慢慢来，才是最快的方法。</p>
+<p>2021年10月30日<br>真理永远存在于自明的东西之中，正因它过于普通故隐秘的最好。就如同世上有一个最值得讨论但往往被忽略的问题“死亡问题”，面对死亡我们不能随波逐流，它没有经验可谈且必须要独自面对。To be or not to be - that is the question.</p>
+<p>2021年07月23日<br>把你自己這塊材料鑄造成器。</p>
+<p>2021年07月14日<br>资本主义是符合人性的是熵增的，社会主义是反人性的是负熵的。资本主义鼓励人贪婪，社会主义鼓励人奉献。资本主义社会长久发展会走向混乱和系统性崩溃，所以资本主义需要新教去制约去减缓熵增。社会的幸福是大家齐心协力有组织的最大多数的最大幸福，而不是个人和既得利益集团的垄断而形成的马太效应， …全文</p>
+<p>2021年07月09日<br>政治家的科学在于长期致力于寻找幸福和自由的真谛。那些发现了如何用最少的国家代价换来最大的个人幸福的政体的人，值得世世代代人们的尊敬和感激。</p>
+<p>2021年07月06日<br>是什么让成年人失去了儿时强烈的求知欲？</p>
+<p>2021年06月28日<br>变聪明是一个物理变化。</p>
+<p>2021年06月25日<br>冷知识：很多人都相信代议制度是大众争取的结果，但事实上在英国的例子里，它是由精英设计的，而且设计这个制度的主要目的并不在于张扬最底层人的权力，而是在于解决社会冲突。</p>
+<p>2021年06月23日<br>文明是人的生存方式。</p>
+<p>2021年06月15日<br>如果用现代的眼光去评判过去的社会显然不够客观公正的，文化是派生的，我们享受现代生活的方便的时候很难去思考过去为什么会形成那样的礼教，并不是我们比古人聪明，而是生产方式的转变。</p>
+<p>2021年06月09日<br>意识有物质基础</p>
+<p>2021年06月09日<br>冥想可以改变基因表达</p>
+<p>2021年06月02日<br>现代个人的理性在千百万年千百万人总结的经验面前必须保持谦卑。</p>
+<p>2021年06月02日<br>普遍承认的事往往枯燥无味，挑衅认知的事让人们争相批判、引起思考，产生价值。一味灌输最可怕的地方就在于令万事乏味…</p>
+<p>2021年05月31日<br>经常能听到父母说你几岁开始懂事了，我常常觉得这个概念很模糊。我也渐渐忘却了儿时的记忆。直到读到存在主义，才明白所谓的“懂事儿”就是人逐渐意识到自我存在了。存在先于本质，我们凭借对于自我存在的意识才成为了人。</p>
+<p>2021年05月30日<br>低级快乐得到后的感觉是空虚，高级快乐得到后的感觉是满足。</p>
+<p>2021年05月29日<br>以前束缚人们的是封建礼教，现在束缚我们的是什么呢？</p>
+<p>2021年05月29日<br>讨好人的算法，正在消解不同信息与观点带给人类的智慧。</p>
+<p>2021年05月29日<br>道德作为自律的时候，才是自由。</p>
+<p>2021年05月29日<br>我们从未见识到世界本来的样子。</p>
+<p>2021年05月27日<br>社会学的使命就是解读我们无意识的遵守的规则是在何时何地基于谁的标准而产生的和确立的，以及这些规则有利于谁、又制约了谁。</p>
+<p>2021年05月27日<br>每次社会变革前都会爆发战争或者瘟疫，新冠的产生是人类社会即将发生变革的前夜。当人的生存发生障碍时人才会真正思考世界该去往何方。</p>
+<p>2021年05月27日<br>构成社会的基本单位不是人而是沟通。</p>
+<p>2021年05月24日<br>在人类社会中，当越来越多人相信了预言，那么预言本身就会自我实现。</p>
+<p>2021年05月19日<br>历史是史学家的历史，历史是成功者的历史。失败者要么被钉在历史的耻辱柱上，要么就好似根本没存在过。</p>
+<p>2021年05月18日<br>西方理论学的越多，我越觉得老祖宗留下来的东西挺牛的。西方理论说了一大堆的东西，子曰四个字就能搞定。</p>
+<p>2021年05月11日<br>有的人因缺乏起碼的生存條件而陷入貧困，有的人因不能進行更奢侈消費的煩惱。人有滿足需要的權利，社會有幫助人們滿足正當需要的責任。</p>
+<p>2021年05月08日<br>On the left angry critics, on the right stupid supporters, and in the middle,as usual ,the majority of earnest people trying to get on in life.</p>
+<p>2021年05月05日<br>人的永恒命题：群己关系</p>
+<p>2021年05月05日<br>做人要明白道理，做事要懂得权变。</p>
+<p>2021年05月04日<br>孔曰成仁，孟曰取义，惟其义尽，所以仁至。读圣贤书，所学何事，而今而后，庶几无愧。</p>
+<p>2021年05月01日<br>绝大多数道德问题是即时满足和延迟满足之间的矛盾问题。</p>
+<p>2021年04月29日<br>有些事看似偶然，其实是一种必然。有些事我以为是必然，其实是偶然。</p>
+<p>2021年04月25日<br>1秒不是很短，100年也不是很长。</p>
+<p>2021年04月22日<br>场域里并不存在永远的秩序，一切的秩序都是暂时的。</p>
+<p>2021年04月22日<br>当一个“AI”开始尝试理解它是怎么创造的时候，我们应该称之为“AI哲学”。人工智能有一天真的能破解自己的出身嘛？我们允许它有这种能力吗？</p>
+<p>2021年04月22日<br>场域是中心化的，不代表场域本身就是中心。</p>
+<p>2021年04月15日<br>扎根于泥土里，才能向上生长。</p>
+<p>2021年04月14日<br>不管我们想要的是什么，一旦到手，我们便又会想要其他的。</p>
+<p>2021年04月13日<br>升维思考，降维打击。</p>
+<p>2021年04月12日<br>哲学是人生的开发者选项。</p>
+<p>2021年04月10日<br>思想革命者，都不是从天上掉下来的。他们都是专制制度自己培养出来的。</p>
+<p>2021年04月10日<br>人的自由源自于人的无知。</p>
+<p>2021年04月10日<br>也许贫困才是人类的富足，也许失去才是人类的得到。</p>
+<p>2021年04月08日<br>人是自身目的，而不是工具。人是自己立法，自己遵守的自由人。将他人作为手段来利用的行为，是否定了他人的自由的行为。如果要让自己成为自由的存在，就不得不同时也将他人作为一个自由的存在来对待。人也是自然的立法者，自由和道德是同一回事。</p>
+<p>2021年04月07日<br>让中国变好的从来都不是那些赞颂者，更不会是那些反对派。一个是为了赞颂而赞颂，一个是为了反对而反对。二者都没有实事求是的革命精神，一件事走向极端就假了，真实是会给人力量，虚伪会令人生厌。</p>
+<p>2021年04月06日<br>深刻的东西并不容易被大众接受，流行的东西越来越粗鄙化。</p>
+<p>2021年04月05日<br>佛法在世间不离世间觉离世求菩提犹如觅兔角</p>
+<p>2021年04月05日<br>不要在春风得意时骄傲自满，更不要在人生失意时萎靡不振。福祸相倚顺境逆境都是对你我的磨炼，生命的意义是成为更好的自己，壮志在胸，何惧当下。</p>
+<p>2021年04月05日<br>我不是喜欢过去，我只是喜欢追忆过去。其实过去并没有我想象的那么美好，记忆是会骗人的。</p>
+<p>2021年04月04日<br>命运由你对待命运的方式决定</p>
+<p>2021年04月03日<br>良知也是</p>
+<p>2021年04月02日<br>汝以不得第为耻，吾以不得第动心而为耻。</p>
+<p>2021年03月31日<br>弱小和无知从来都不是生存的障碍，傲慢才是。</p>
+<p>2021年03月31日<br>安心立命。</p>
+<p>2021年03月29日<br>真理永远在自身的实力范围内。</p>
+<p>2021年03月29日<br>政治是一个平衡的艺术。</p>
+<p>2021年03月29日<br>人可以自私，但把自私的行为说的大义凛然又加以道德绑架别人，这如何能追求到真理，又如何能追寻到自由。真实并不容易被接受，但虚伪的面具是最令人生厌。</p>
+<p>2021年03月26日<br>人是无法抗拒权力的诱惑的，哪怕只是对一条内容的审判权。</p>
+<p>2021年03月26日<br>人生就像一段封装好的记忆，过去是已知记忆，未来是未知记忆。如果我们只活在当下，那么一切都是确定好的。记忆是可以更改的，回到过去才能改变未来，提升维度才能改变命运。</p>
+<p>2021年03月25日<br>萧瑟秋风今又是，换了人间。</p>
+<p>2021年03月21日<br>你哭泣不是因为你难过，你难过是因为你在哭泣。</p>
+<p>2021年03月14日<br>做因果推断的最理想的工具是时光机。</p>
+<p>2021年03月13日<br>人生应该花更多的时间思考，自己真正想要的是什么。乱花渐欲迷人眼，我们总是走着走着就迷失了方向。专注一件事，心外无理，真正的自由，永远都是在内心深处，而不在这大千世界中。</p>
+<p>2021年03月09日<br>中国年轻一代的西方古典音乐启蒙几乎都是《猫和老鼠》</p>
+<p>2021年03月09日<br>为而不争，功成不必在我。</p>
+<p>2021年03月08日<br>人为了生存，难免要追求一些金钱、名利、社会地位。不过，有的人是在“良知”的指导下追寻这些，有的人却只是一门心思地追求外物。心外无理，心外无物，因此心一直在动，那必然会导致焦虑得死去活来。</p>
+<p>2021年03月06日<br>因为人有了智慧便有了烦恼，也因有了烦恼便新生了更多智慧。</p>
+<p>2021年03月05日<br>人要是没有信仰终究会走向虚无主义，信仰并非只限于宗教，更多的是自己的处世哲学。</p>
+<p>2021年02月25日<br>反者道之动，弱者道之用。</p>
+<p>2021年02月25日<br>困难是我们的恩人，敌人是我们的老师。</p>
+<p>2021年02月24日<br>人当下的意识能够影响未来，并不是因为未来是不确定的，而是因为未来是确定的。</p>
+<p>2021年02月24日<br>未来是确定的，在意识层面是结果决定原因。</p>
+<p>2021年02月24日<br>我为什么这么喜欢哲学？就是因为我知道我智慧不够。</p>
+<p>2021年02月24日<br>人是目的而不是手段，吉凶不是结果而是过程。</p>
+<p>2021年02月22日<br>求则得之，舍则失之；是求有益于得也，求在我者也。求之有道，得之有命，是求无益于得也，求在外者也。——孟子 《尽心上》</p>
+<p>2021年02月19日<br>有时候表达也是一种表演，是浮躁的一种表现。所以我越来越克制表达了。但我不应该因羞怯表达而不去记录来自生活的灵感和点点滴滴。</p>
+<p>2021年02月19日<br>重力可以穿透一切事物。</p>
+<p>2021年02月19日<br>很多我们认为很荒谬的事情，正在变为可能。</p>
+<p>2021年02月04日<br>你要克服的是你的虚荣心，你的炫耀欲和时刻想要冲出来想要出风头的小聪明。</p>
+<p>2021年02月04日<br>prejudice is farther from the truth than ignorance</p>
+<p>2021年01月27日<br>积善之家，必有余庆。</p>
+<p>2021年01月25日<br>极端就是恶。</p>
+<p>2021年01月18日<br>可怕的不是这个社会只有一种声音，而是越来越多人认为只有一种声音是正常的。</p>
+<p>2021年01月17日<br>现在的年轻人的个体性太强了，以至于他们的世界里容不下对他人的感知，他人只能是对于自我的一种工具。</p>
+<p>2021年01月09日<br>学到的知识没让我们豁达，反而让人的优越感爆棚了。</p>
+<p>2021年01月08日<br>应追求内心宁静，不以物喜，不以己悲。</p>
+<p>2021年01月06日<br>什么是好，什么是不好？我们需要别人来告诉我们答案吗？</p>
+<p>2021年01月01日<br>我常常想是什么导致了当今世界的“极端民粹主义”？我认为可能是言论表达的“平民化”，科技进步让每一个人都有机会站在“舞台上表达”，也让所有人都成为了可投票的“看客”。这促成了舆论的温床，社交媒体优先推荐热门，而极端的言论和思想历来是最容易俘获人心的。科技进步带来的不仅是社交 …全文</p>
+<p>2020年12月27日<br>恶魔总是藏在细节里没有行动的梦想就是白日梦</p>
+<p>2020年12月24日<br>情感是高级的。</p>
+<p>2020年12月20日<br>社交密度+物质丰富&#x3D;行为沉沦。</p>
+<p>2020年12月19日<br>行为沉沦：一旦满足就意味着毁灭。</p>
+<p>2020年12月16日<br>print(“这个世界会好的！”)</p>
+<p>2020年12月14日<br>Make something people want</p>
+<p>2020年12月13日<br>我亦他无，惟手熟尔。</p>
+<p>2020年12月10日<br>科学的最终目的是创造神。</p>
+<p>2020年12月10日<br>时间是主观存在，是意识本身，我们就是时间。</p>
+<p>2020年12月06日<br>如无必要，不要在线下实体店买电子产品。</p>
+<p>2020年11月27日<br>霍曼斯可能不会想到，他的社会交换理论后来会成为上瘾算法的基础理论。人是感性动物，但更多时候人会本能的做出趋利避害的选择。虽然现在看来有些短视，但在远古时期可能这才是活下去不被淘汰的生存算法，最优解早已深入骨髓，就在我们的基因里。我们都是“困在算法里人”。</p>
+<p>2020年11月25日<br>模式不等于经验，那些模仿别人模式成功的一定是有自己的思考和理解，毕竟有很多模仿别人没成功的。借鉴可以，但不能没有灵魂。好的艺术家抄袭，伟大的艺术家剽窃。</p>
+<p>2020年11月19日<br>进入凡人生活的一切强大之物，无不具有弊端。——索福克勒斯</p>
+<p>2020年11月18日<br>如果你没有花钱买产品，那么你自己就是产品。</p>
+<p>2020年11月14日<br>Always bear in mind that your own resolution to succeed is more important than any other.</p>
+<p>2020年11月14日<br>语言要务虚，行动要务实。</p>
+<p>2020年11月13日<br>#macOS Big Sur# Hello Big Sur.</p>
+<p>2020年11月13日<br>自由开放的社会一大弱点是社会舆论极容易被极少数狂热极端分子劫持。</p>
+<p>2020年11月12日<br>什么是美？1.美是统一2.美是反差</p>
+<p>2020年11月10日<br>有时候会看到有些人看一个故事就感动的不行，有时候你又能看到有些人因为一个故事会对人造成人身攻击甚至嘲讽。</p>
+<p>2020年11月02日<br>知行合一真的很难，因为人性擅长双标。</p>
+<p>2020年10月31日<br>很多时候人们总是把“老天爷赏的饭”，伪装成自己的实力去证明自己，更有甚者拿此去教导他人。个人努力固然重要，但是很多事能成并不主要取决于个人能力。它是天赐良机是人生中的机遇，不要过于神化自己更不要过于相信神化后的他人。</p>
+<p>2020年10月29日<br>当一个人（或事儿）用某某平台或某某title来证明自己多牛叉或者靠谱时，就足以说明这人（或事儿）不牛叉不靠谱了。</p>
+<p>2020年10月28日<br>总有些不办人事的，说的还特别好。听其言观其行，博弈论告诫我们与人相处最佳策略就是以其人之道，还治其人之身。等你用他的处事策略跟他相处后，你会发现他会质问你，你怎么这样？害，咋不反思反思自己。</p>
+<p>2020年10月27日<br>天机不可泄露。</p>
+<p>2020年10月27日<br>中年时应该多一点理想主义，青年时应该多一些现实主义。</p>
+<p>2020年10月26日<br>人这一辈子总是在跟人性中的“恶”作斗争。和他人作斗争，也和自己作斗争。生活的意义是修行，更是自我的救赎。</p>
+<p>2020年10月20日<br>天予不取，必受其害。</p>
+<p>2020年10月18日<br>人的天性会对“故事”感兴趣，人类喜欢故事，这是一个保持了数万年的兴趣。故事造就人类社会，讲故事是人类在面对大自然和社会复杂情况时所需要的生存本能，但是故事不单是满足我们猎奇心理的廉价娱乐，它也是对社会和世界的仿真模拟。</p>
+<p>2020年10月15日<br>我曾幻想达到一目标后的惊喜与喜悦，可是结果并非如此，远没有“那种想象的快乐”，反而带来的是没有目标的虚无和迷茫。人是欲望的奴隶，贪婪乃吾之本性。</p>
+<p>2020年10月15日<br>如果把文字、图片和视频内容放到一个信息流里，文字内容不管怎么调整形式都不如后两者吸睛。视频社区就应该专注视频，图片社区就应该专注图片，文字社区就应该专注纯文字，这样每条内容才能够平等的竞争流量。</p>
+<p>2020年10月15日<br>如果我足够快，你就看不见我了。</p>
+<p>2020年10月14日<br>每个人的成功或多或少都有“狗屎运”的成分，但如果坚持努力就会大大提高偶遇“狗屎运”的概率。我们既是主宰历史的一方，也是被历史主宰的一方。是我们自己改变了世界吗？也可能是上帝借你我之手改变了世界。</p>
+<p>2020年10月11日<br>读圣贤书所谓何事啊，读圣贤书就是要把自己摆在里外不是人的位置，挑战当下内部和外部的政治正确，否则所谓的读书便失去了意义。</p>
+<p>2020年10月09日<br>今年朋友圈结婚的特别多，一开始还有疑问，2020怎么回事儿？后来转念一想我们这代人是到了适婚年龄了，圈层效应特别明显。不要过高标榜人生的意义，其实人们活着的终极意义就是基因繁殖，谁也逃脱不了，不论男女选择配偶都是人生最重大的事情，因为这决定了后辈几代人的基因组成。</p>
+<p>2020年10月09日<br>或许这一切都是被安排好的，一切的周遭都是在逼迫着我走向那个我本来就会走向的地方，但是结果到来的快慢便取决于我的个人能动性。</p>
+<p>2020年10月09日<br>学会道理容易，放下我执最难。</p>
+<p>2020年10月09日<br>大智或者大愚的人更容易成事儿。因为一个是真懂了，一个是真没懂。最怕就是自己没懂以为懂了，这样才最害人。</p>
+<p>2020年10月09日<br>从个体来看，道德是约束自身的而不是约束他人的。而法律才是规范他人的，故法律通常要低于一个民族的道德水平。不要讲我有道德你没道德因为那样就显得你也不够有道德，毕竟道德是自己的底裤。</p>
+<p>2020年10月05日<br>这个世界是表面的男权社会，但实质却是女性的星球，因为大多数的配偶选择权是在于女性，现在全世界大多数男人的基因都是由女性选择的，只有那些被女性青睐的基因得以流传下来。</p>
+<p>2020年10月05日<br>对已知社会学最好的实践就是做一款当代的社交产品。</p>
+<p>2020年10月05日<br>每一个活着的人都是那条漫长且绵延不断的成功择偶链的后裔。无论外表光辉闪耀还是令人不安，人类的择偶心理都根深蒂固于社会结构之中，我们都在参与一个配偶竞争的游戏。</p>
+<p>2020年09月18日<br>对人性的理解是每一位社会学家的必备素质之一。</p>
+<p>2020年09月15日<br>纪念第 1 次使用TNT。</p>
+<p>2020年09月14日<br>当今社会学研究最顶尖的地方并非在于大学的研究所里，而在那些大数据喂养起来的推荐算法越来越强的科技公司里。</p>
+<p>2020年09月14日<br>人性和光子一样，一旦介入观察后数据就会产生变化，如果有一门人性学的学科，我肯定会去学。或许它只会存在于非人的外星文明之中。</p>
+<p>2020年09月04日<br>已经发生过的，就一定会发生。</p>
+<p>2020年09月01日<br>客观事实无法脱离人们所附加的主观意义所孤立存在，人们所经历的日常现实不简单是面对事实和物体，同时它也是被社会建构出来的。</p>
+<p>2020年08月25日<br>个体满足欲望的努力推进了群体文明的升级。</p>
+<p>2020年08月22日<br>Murphy’s law doesn’t mean that something bad will happen. It means that whatever can happen, will happen.</p>
+<p>2020年08月18日<br>What is dead may never die,But rises again harder and stronger.</p>
+<p>2020年08月15日<br>个人认为资本主义更像是一个企业管理方式，共产主义更像是一个企业的最终愿景和目标。在没有达到目标之前用最有效率的方式提高生产效率，我们是他们最好的“学生”，而西方这位“老师”却在搞意识形态对立…</p>
+<p>2020年08月15日<br>我们中国人敢想敢做敢于把目标定为实现共产主义，而昂格鲁撒克逊们只寄希望于死后上天堂。从这点看我们的目标就是星辰大海，而他们更像是懦夫，让他们害怕的是我们大力出奇迹的规模化的发展方式，资本主义和共产主义本不应该成为意识形态对立，但我们的存在就是对他们构成了威胁。</p>
+<p>2020年08月15日<br>马克思·韦伯写出了《新教伦理与资本主义精神》这么经典的著作，我们却没写出《中华文明与共产主义追求》，这值得我们深思……</p>
+<p>2020年08月15日<br>我们未达到共产主义，物质需求并不是必要条件，人性里的贪嗔痴慢疑才是让我们达不到共产主义的根本问题。但物质需要的极大满足后能减轻人性里竞争意识，所以在没有达到物质极大丰富之前，市场经济是最佳管理人性提高生产效率的最佳办法。</p>
+<p>2020年08月15日<br>新教徒追求的天堂，佛教徒追求的极乐世界，和我们追求的共产主义，其实是同一样东西。</p>
+<p>2020年08月15日<br>什么是真理？人就是真理。</p>
+<p>2020年08月03日<br>不要共情，不要有带入感，不要太在乎别人的评价。</p>
+<p>2020年08月01日<br>第一性原理。</p>
+<p>2020年08月01日<br>在不确定性下行动。</p>
+<p>2020年08月01日<br>尝试理解而不是判断。</p>
+<p>2020年07月27日<br>了解事实真相总是需要付出一些观察思考的智力成本的，但带节奏不用，只需要危言耸听就够了。</p>
+<p>2020年07月24日<br>Our ultimate aim is to realize communism.</p>
+<p>2020年07月24日<br>视频权重&#x3D;硬币x0.4+收藏x0.3+弹幕x0.4+评论x0.4+播放x0.25+点赞x0.4+分享x0.6， 最新视频（一天内发布）提权[总值*1.5]</p>
+<p>2020年07月19日<br>人类之所以伟大是‮为因‬有的人富有同情心，‮得懂‬怜悯。人之所有丑陋是因为人的‮伪虚‬贪婪和对他人所处痛苦的讥讽。爱抽象的人类很容易，爱具体的人需要付出更多的‮ 。代价</p>
+<p>2020年07月19日<br>不要把自己太当回事，更不要把别人太当回事。</p>
+<p>2020年07月18日<br>人心真的深不见底。</p>
+<p>2020年07月13日<br>耐得跨下辱，方成自由人。</p>
+<p>2020年07月08日<br>已有之事，后必再有；已行之事，后必再行。日光之下，并无新事。</p>
+<p>2020年07月08日<br>我这么一个不爱social的人，竟然天天学sociology，这大概就是宿命吧。</p>
+<p>2020年07月07日<br>我们很容易轻易对他人进行道德上的谴责，因为这能够满足我们想象中的道德优越感，甚至可以掩盖我们事实上的道德败坏。</p>
+<p>2020年07月07日<br>在任何情况下，立法都要适应一国当时的道德水平。如果社会没有毫不含糊地谴责某事，那么你不可能对它进行惩罚，不然必会“引起严重的虚伪和公愤”。公正的法律惩罚必须取得在道德上占压倒优势的多数支持，因为“法律不可能比它的民族更优秀，尽管它能够随着标准的提高而日趋严谨”。</p>
+<p>2020年07月07日<br>对未来的合理预期是所有生物存活下的基本条件。</p>
+<p>2020年06月28日<br>我们要尊重舆论的感性表达，但同时我们也要超越舆论的偏见与盲目，防止多数人的暴政。</p>
+<p>2020年06月27日<br>伪善最喜欢崇高的思辨，因为它从不打算跨越到思辨的界限之外，它无须付出任何代价就能把自己装点得庄严高尚。——伯克</p>
+<p>2020年06月27日<br>个体的认识能力是有限的，有许多隐秘的事情我们并不知晓，因此个人对于正义的理解一定是片面的。</p>
+</div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书笔记</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B720%E5%B9%B406%E6%9C%88%E8%87%B323%E5%B9%B411%E6%9C%88%E8%AE%B0%E5%BD%95/">思考马克·20年06月至23年11月记录</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%B8%89/">思考马克·十三</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>
