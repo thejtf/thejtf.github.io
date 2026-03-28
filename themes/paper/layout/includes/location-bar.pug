@@ -4,6 +4,8 @@ include ../mixins/horizontalLine.pug
 -   let location = '首页'
 -   if (is_page()) location = page.title
 -   if (is_post()) location = page.title
+-   // 处理 note/think/read 文章页面
+-   if (page._note || page._think || page._read) location = page.title
 -   if (is_archive()) location = 'Archive'
 -   if (is_year()) location += ': ' + page.year
 -   if (is_month()) location += ': ' + page.month + '/' + page.year
