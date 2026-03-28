@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·十六</p><script>(function() {
   try {
@@ -164,31 +161,19 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十六</a></h2><span class="post__date">2024-02-15</span></div></div><div class="article__content"><h1 id="思考马克·十六"><a href="#思考马克·十六" class="headerlink" title="思考马克·十六"></a><strong>思考马克·十六</strong></h1><h3 id="2024年二月记录"><a href="#2024年二月记录" class="headerlink" title="2024年二月记录"></a><strong>2024年二月记录</strong></h3><p>2月11日</p>
-<p>在一个信奉社会达尔文主义的社会里，你的容忍会被人视为软弱，你的让步会让你堕入万丈深渊。所以我看到很多人变得冷漠，变得不择手段，我能理解每个人的自私，因为人之间的利益本就不一致。可惜，这是我花了好久才懂得的道理。</p>
-<p>2月16日</p>
-<p>理想主义的人都应该读读马基雅维利。</p>
-<p>2月18日</p>
-<p>已知的东西不等于学问，除非把它记录下来。</p>
-<p>2月20日</p>
-<p>看来我必须学会弄脏自己的双手，纯洁是僧侣的理想，为了胜利我们应该学会必须去做必须要做的事情。</p>
-<p>2月21日</p>
-<p>理想是一个旗帜，它是给外人看的，不应该天天在家里插着观赏。</p>
-<p>2月22日</p>
-<p>一个人的强大是内心的强大。</p>
-<p>2月23日</p>
-<p>就像尼采说的，形而上学会让人变得虚无。</p>
-<p>2月25日</p>
-<p>创业的核心不是创新而是成本。</p>
-<p>2月26日</p>
-<p>没有结果的努力都是不努力。挺悲哀的，让我想起了未发迹之前的苏秦，几千年来这个思想都未曾改变。人这一生，真正关心你的人非常少。很多人只看结果不问原因，所以不要指望别人会多么认真地关心你，即使是非常欣赏你的人。所以要学会理解别人，要学会不抱怨。人性的弱点就是只看结果，不问原因。</p>
-<p>2月27日</p>
-<p>三荆欢同株，四鸟悲异林。</p>
-<p>2月28日</p>
-<p>中国历史上历来不缺少枯木逢春，老来发迹的例子。大器晚成的人，他没有年少轻狂，没有少不更事。年轮的重叠，使他们更加珍视机遇，岁月的磨砺，让他们世事洞明，人情练达。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十六</a></h2><span class="post__date">2024-02-15</span></div></div><div class="article__content"><h1 id="思考马克·十六"><a href="#思考马克·十六" class="headerlink" title="思考马克·十六"></a>思考马克·十六</h1><h2 id="2024年二月记录"><a href="#2024年二月记录" class="headerlink" title="2024年二月记录"></a><strong>2024年二月记录</strong></h2><h3 id="2月11日"><a href="#2月11日" class="headerlink" title="2月11日"></a>2月11日</h3><p>在一个信奉社会达尔文主义的社会里，你的容忍会被人视为软弱，你的让步会让你堕入万丈深渊。所以我看到很多人变得冷漠，变得不择手段，我能理解每个人的自私，因为人之间的利益本就不一致。可惜，这是我花了好久才懂得的道理。</p>
+<h3 id="2月16日"><a href="#2月16日" class="headerlink" title="2月16日"></a>2月16日</h3><p>理想主义的人都应该读读马基雅维利。</p>
+<h3 id="2月18日"><a href="#2月18日" class="headerlink" title="2月18日"></a>2月18日</h3><p>已知的东西不等于学问，除非把它记录下来。</p>
+<h3 id="2月20日"><a href="#2月20日" class="headerlink" title="2月20日"></a>2月20日</h3><p>看来我必须学会弄脏自己的双手，纯洁是僧侣的理想，为了胜利我们应该学会必须去做必须要做的事情。</p>
+<h3 id="2月21日"><a href="#2月21日" class="headerlink" title="2月21日"></a>2月21日</h3><p>理想是一个旗帜，它是给外人看的，不应该天天在家里插着观赏。</p>
+<h3 id="2月22日"><a href="#2月22日" class="headerlink" title="2月22日"></a>2月22日</h3><p>一个人的强大是内心的强大。</p>
+<h3 id="2月23日"><a href="#2月23日" class="headerlink" title="2月23日"></a>2月23日</h3><p>就像尼采说的，形而上学会让人变得虚无。</p>
+<h3 id="2月25日"><a href="#2月25日" class="headerlink" title="2月25日"></a>2月25日</h3><p>创业的核心不是创新而是成本。</p>
+<h3 id="2月26日"><a href="#2月26日" class="headerlink" title="2月26日"></a>2月26日</h3><p>没有结果的努力都是不努力。挺悲哀的，让我想起了未发迹之前的苏秦，几千年来这个思想都未曾改变。人这一生，真正关心你的人非常少。很多人只看结果不问原因，所以不要指望别人会多么认真地关心你，即使是非常欣赏你的人。所以要学会理解别人，要学会不抱怨。人性的弱点就是只看结果，不问原因。</p>
+<h3 id="2月27日"><a href="#2月27日" class="headerlink" title="2月27日"></a>2月27日</h3><p>三荆欢同株，四鸟悲异林。</p>
+<h3 id="2月28日"><a href="#2月28日" class="headerlink" title="2月28日"></a>2月28日</h3><p>中国历史上历来不缺少枯木逢春，老来发迹的例子。大器晚成的人，他没有年少轻狂，没有少不更事。年轮的重叠，使他们更加珍视机遇，岁月的磨砺，让他们世事洞明，人情练达。</p>
 <p>人一旦飞黄腾达，是睚眦必报还是既往不咎，考验的是一个人的气量。但是在冥冥之中，似乎也牵引着个体命运的轨迹，人还是应当做的大度一点为好。</p>
 <p>人生是一个漫长和艰辛的接力赛，有时领先有时落后，但是你只要在路上，你就有机会。</p>
 <p>及时行乐就像一只兴奋剂，它能够点燃你幸福的华彩，但也能加速你生命的衰败，所以人还是应当有一些节制。</p>
-<p>2月29日</p>
-<p>人是用脚投票的，而不是用嘴投票的。所以孔子说要“听其言观其行”，这个世界该怎么样和这个世界是什么样之间、人们崇高的意图和现实的后果之间，本就存在着巨大的鸿沟。不要看人们说了什么，而要看他们最后做了什么。</p>
+<h3 id="2月29日"><a href="#2月29日" class="headerlink" title="2月29日"></a>2月29日</h3><p>人是用脚投票的，而不是用嘴投票的。所以孔子说要“听其言观其行”，这个世界该怎么样和这个世界是什么样之间、人们崇高的意图和现实的后果之间，本就存在着巨大的鸿沟。不要看人们说了什么，而要看他们最后做了什么。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%B8%83/">思考马克·十七</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%BA%94/">思考马克·十五</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

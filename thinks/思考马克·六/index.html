@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·六</p><script>(function() {
   try {
@@ -164,61 +161,40 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·六</a></h2><span class="post__date">2023-03-15</span></div></div><div class="article__content"><h1 id="思考马克·六"><a href="#思考马克·六" class="headerlink" title="思考马克·六"></a>思考马克·六</h1><h3 id="2023年三月记录"><a href="#2023年三月记录" class="headerlink" title="2023年三月记录"></a>2023年三月记录</h3><p>3月6日</p>
-<p>人生就像大语言模型，有好的语料输入才能有好的输出，有好的 prompt 才能引导模型稳定发挥能力。我们学习了什么、经历过什么、见识了什么以及阅读了什么很重要，历尽千帆后人生的目标选择指引也很重要。</p>
-<p>3月7日</p>
-<p>希望有一天社会能真正为了女性权益呼喊，而不是所有节日都诱导女性消费。</p>
-<p>3月8日</p>
-<p>无论大家在网上吵的多么起劲，当你逛逛 Shopping Mall 你就会发现，消费主义终将取得胜利。从某种程度上说，或许消费主义又没什么不好，讨好女性也没什么不好，起码它能带给女性一些可控的快乐。我们或许不该把消费主义和女性主义对立，因为只有商家才会平等的对待消费者。或许错的不是消费主义，不是商家想抠出消费者身上的最后一枚铜板，而是一年365天只有一天3.8节。希望有一天“性别”不再是标签，不再被强调。不存在一天专门去强调女性生而平等自由，因为它本该属于“她们”。</p>
-<p>3月10日</p>
-<p>征服人的心智很重要，人们虽然盲从，但你想说服别人认同你，需要的不仅仅是热情，更多时候是需要你了解他们胜过自己。不能用批判的视角去看待不懂的东西，要学会敬畏，要去了解去体会。永远铭记，对他人的百般注解和识读，并不构成万分之一的他们，而是一览无余的你自己。</p>
-<p>3月13日</p>
-<p>好的商业模式永远都是——利他主义。要琢磨能给别人带来什么价值，人都是自私的都更加在乎自身能从中得到多少价值。这样才能获得别人信任，占领人的心智。</p>
-<p>3月14日</p>
-<p>人类只所以有理有权可以各别地或集体地对其中任何分子的行动自由进行干涉，唯一的目的只能是自我防卫。对于文明群体中的任何一员，能够施用一种权力意志而不失为恰当，唯一的目的只能是防止对他人的伤害。人不能强迫一个人去做一件事或者不做一件事是出于对他人的好，假借这种理由对他人进行强迫是不正当的。任何人有且只有涉及本人的那部分的独立性在权利上才是绝对的。</p>
-<p>3月15日</p>
-<p>做运营无外乎两种底层逻辑：一个是用户逻辑，一个是平台逻辑。前者是让用户爽，后者是让平台从中谋利。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·六</a></h2><span class="post__date">2023-03-15</span></div></div><div class="article__content"><h1 id="思考马克·六"><a href="#思考马克·六" class="headerlink" title="思考马克·六"></a>思考马克·六</h1><h2 id="2023年三月记录"><a href="#2023年三月记录" class="headerlink" title="2023年三月记录"></a><strong>2023年三月记录</strong></h2><h3 id="3月6日"><a href="#3月6日" class="headerlink" title="3月6日"></a>3月6日</h3><p>人生就像大语言模型，有好的语料输入才能有好的输出，有好的 prompt 才能引导模型稳定发挥能力。我们学习了什么、经历过什么、见识了什么以及阅读了什么很重要，历尽千帆后人生的目标选择指引也很重要。</p>
+<h3 id="3月7日"><a href="#3月7日" class="headerlink" title="3月7日"></a>3月7日</h3><p>希望有一天社会能真正为了女性权益呼喊，而不是所有节日都诱导女性消费。</p>
+<h3 id="3月8日"><a href="#3月8日" class="headerlink" title="3月8日"></a>3月8日</h3><p>无论大家在网上吵的多么起劲，当你逛逛 Shopping Mall 你就会发现，消费主义终将取得胜利。从某种程度上说，或许消费主义又没什么不好，讨好女性也没什么不好，起码它能带给女性一些可控的快乐。我们或许不该把消费主义和女性主义对立，因为只有商家才会平等的对待消费者。或许错的不是消费主义，不是商家想抠出消费者身上的最后一枚铜板，而是一年365天只有一天3.8节。希望有一天“性别”不再是标签，不再被强调。不存在一天专门去强调女性生而平等自由，因为它本该属于“她们”。</p>
+<h3 id="3月10日"><a href="#3月10日" class="headerlink" title="3月10日"></a>3月10日</h3><p>征服人的心智很重要，人们虽然盲从，但你想说服别人认同你，需要的不仅仅是热情，更多时候是需要你了解他们胜过自己。不能用批判的视角去看待不懂的东西，要学会敬畏，要去了解去体会。永远铭记，对他人的百般注解和识读，并不构成万分之一的他们，而是一览无余的你自己。</p>
+<h3 id="3月13日"><a href="#3月13日" class="headerlink" title="3月13日"></a>3月13日</h3><p>好的商业模式永远都是——利他主义。要琢磨能给别人带来什么价值，人都是自私的都更加在乎自身能从中得到多少价值。这样才能获得别人信任，占领人的心智。</p>
+<h3 id="3月14日"><a href="#3月14日" class="headerlink" title="3月14日"></a>3月14日</h3><p>人类只所以有理有权可以各别地或集体地对其中任何分子的行动自由进行干涉，唯一的目的只能是自我防卫。对于文明群体中的任何一员，能够施用一种权力意志而不失为恰当，唯一的目的只能是防止对他人的伤害。人不能强迫一个人去做一件事或者不做一件事是出于对他人的好，假借这种理由对他人进行强迫是不正当的。任何人有且只有涉及本人的那部分的独立性在权利上才是绝对的。</p>
+<h3 id="3月15日"><a href="#3月15日" class="headerlink" title="3月15日"></a>3月15日</h3><p>做运营无外乎两种底层逻辑：一个是用户逻辑，一个是平台逻辑。前者是让用户爽，后者是让平台从中谋利。</p>
 <p>GPT-4来了，科技创新就是这样，如果一步落后了，就步步赶不上…</p>
 <p>刚才跟我妈语音讲了一下 StableDiffusion Midjourney 和 GPT-4 是啥样的都能干什么了。我妈虽然不懂啥是 AI ，但我妈说了一句“太厉害了”。</p>
-<p>3月16日</p>
-<p>事物不是在我们心灵里的一幅图像，事物显现的方式就是事物存在方式的一部分。事物如其存在那般显现，而且它们如其显现那般存在。</p>
+<h3 id="3月16日"><a href="#3月16日" class="headerlink" title="3月16日"></a>3月16日</h3><p>事物不是在我们心灵里的一幅图像，事物显现的方式就是事物存在方式的一部分。事物如其存在那般显现，而且它们如其显现那般存在。</p>
 <p>产品是进化来的而非规划来的。</p>
-<p>3月17日</p>
-<p>理想不会吸引理想，但苦难会吸引苦难。</p>
-<p>3月18日</p>
-<p>十年前《Her》上映，十年后 AI 真的就实现了。最近的 AIGC 类产品每天都给人惊喜，语言是上帝，当机器真的开始理解人类语言，那我们确实离硅基生物体不远了。</p>
+<h3 id="3月17日"><a href="#3月17日" class="headerlink" title="3月17日"></a>3月17日</h3><p>理想不会吸引理想，但苦难会吸引苦难。</p>
+<h3 id="3月18日"><a href="#3月18日" class="headerlink" title="3月18日"></a>3月18日</h3><p>十年前《Her》上映，十年后 AI 真的就实现了。最近的 AIGC 类产品每天都给人惊喜，语言是上帝，当机器真的开始理解人类语言，那我们确实离硅基生物体不远了。</p>
 <p>伟大的产品应该满足人的情感需求，而不是单单寻求功利上的好处。让用户爽，满足用户的情感需求好过帮用户省钱，省钱是个伪需求。能让用户心甘付费的产品才是好产品，而不是帮人省钱。省钱都有一个大前提就是并不那么喜欢或者有替代品。好玩儿有趣、让人感动、令人气愤、优越感、鄙视链总是形成传播的大前提。</p>
 <p>能做好产品的都是懒人，因为大多数人都懒。如果你能做出一款只给人带来娱乐不给人带来压力的产品（或内容），大家就会爱上你的产品。</p>
-<p>3月19日</p>
-<p>排除一切不可能，剩下的就算是太荒谬也是真相。</p>
-<p>3月20日</p>
-<p>亲测，用 Figma 做海报设计、商品详情页和PPT，将是降维打击，要是引入 stable diffusion 等 AI 绘画，那就不堪设想了。</p>
-<p>3月21日</p>
-<p>如果一个内容，不能让用户在马桶上看完或者读完，那就是太长了。</p>
-<p>3月22日</p>
-<p>专注比勤奋重要，选择比努力重要。</p>
+<h3 id="3月19日"><a href="#3月19日" class="headerlink" title="3月19日"></a>3月19日</h3><p>排除一切不可能，剩下的就算是太荒谬也是真相。</p>
+<h3 id="3月20日"><a href="#3月20日" class="headerlink" title="3月20日"></a>3月20日</h3><p>亲测，用 Figma 做海报设计、商品详情页和PPT，将是降维打击，要是引入 stable diffusion 等 AI 绘画，那就不堪设想了。</p>
+<h3 id="3月21日"><a href="#3月21日" class="headerlink" title="3月21日"></a>3月21日</h3><p>如果一个内容，不能让用户在马桶上看完或者读完，那就是太长了。</p>
+<h3 id="3月22日"><a href="#3月22日" class="headerlink" title="3月22日"></a>3月22日</h3><p>专注比勤奋重要，选择比努力重要。</p>
 <p>有些人只配娱乐至死，因为他不喜欢争论，总觉得别人负能量，对不认同的内容甚至他人的苦难总认为是戾气重。这个世界似乎每个人都向往自由，但不是每个人都能容忍别人不同的观点。又想起了柏拉图在《理想国》中的洞穴之喻，囚徒看到真实世界后不是欣喜而是会不适应。但不论适应与否，他都会返回洞穴，他要么被同伴视为疯子被绑架被杀死，要么是继续回去甘愿当一个没有见过真实世界的囚徒。</p>
-<p>3月23日</p>
-<p>虽然这个世界无法做到过程公平，但所幸它始终是结果公平的。</p>
+<h3 id="3月23日"><a href="#3月23日" class="headerlink" title="3月23日"></a>3月23日</h3><p>虽然这个世界无法做到过程公平，但所幸它始终是结果公平的。</p>
 <p>人永远无法用AI创造出自己认知之外的东西，就像人也无法赚到认知以外的钱一样。AI时代拼的终究是最最最底层的东西——认知和想象力。</p>
-<p><br>3月24日</p>
-<p>新时代的“超市排队领鸡蛋”就是每天申请各种 AI 新产品的 waitlist …</p>
-<p>2月25日</p>
-<p>人只有不爽的时候，才能写出好玩意儿。人只有在有情绪、有激情、有不爽的时候，才能产出好的作品而非理性。人要么被世界改变，要么去改变世界。</p>
-<p>3月26日</p>
-<p>你可怜他们，他们反而抽刀向你。你帮助他们，他们反而更憎恨的是你。弱小并不渺小与可怕，弱小互相攻击才可怕。你们不应该把你们的不满抽刀向强者吗？他们就在那里，你们怎么不敢去呢？我不想承认《君主论》是正确的，但每次都证明让别人畏惧比让别人爱戴安全得多。</p>
+<p>\</p>
+<h3 id="3月24日"><a href="#3月24日" class="headerlink" title="3月24日"></a>3月24日</h3><p>新时代的“超市排队领鸡蛋”就是每天申请各种 AI 新产品的 waitlist …</p>
+<h3 id="2月25日"><a href="#2月25日" class="headerlink" title="2月25日"></a>2月25日</h3><p>人只有不爽的时候，才能写出好玩意儿。人只有在有情绪、有激情、有不爽的时候，才能产出好的作品而非理性。人要么被世界改变，要么去改变世界。</p>
+<h3 id="3月26日"><a href="#3月26日" class="headerlink" title="3月26日"></a>3月26日</h3><p>你可怜他们，他们反而抽刀向你。你帮助他们，他们反而更憎恨的是你。弱小并不渺小与可怕，弱小互相攻击才可怕。你们不应该把你们的不满抽刀向强者吗？他们就在那里，你们怎么不敢去呢？我不想承认《君主论》是正确的，但每次都证明让别人畏惧比让别人爱戴安全得多。</p>
 <p>怒其不争，哀其不幸。什么都指着别人，最后的结局也只能如此了…</p>
 <p>虽是一本小册子，但真的受益良多。这两年微信不像以前那么风光了，但 Allen Zhang 依然是中国最有调性的产品经理。</p>
-<p>3月29日</p>
-<p>你成功了叫专注，不成功就会被人说是走不出舒适区。这世间中的万千道理永远都是成功者赢。历史永远是成功者书写的，失败者成为了代价，成为了历史的牺牲品。</p>
+<h3 id="3月29日"><a href="#3月29日" class="headerlink" title="3月29日"></a>3月29日</h3><p>你成功了叫专注，不成功就会被人说是走不出舒适区。这世间中的万千道理永远都是成功者赢。历史永远是成功者书写的，失败者成为了代价，成为了历史的牺牲品。</p>
 <p>让我记住的不是敌人的攻击，而是朋友的沉默。</p>
-<p>4月1日</p>
-<p>好东西从来都不应该用流行去评价。</p>
-<p>4月2日</p>
-<p>在这个乏于笃定而怖于怀疑的时代里，在这个不允许有思想的中文圈子里，造就了劣币驱逐良币，没有了共享精神，只能娱乐至死。语料的凋敝终成了我们杀死简中大语言模型的罪魁祸首。我们再一次搬起了石头砸中自己的脚。</p>
+<h3 id="4月1日"><a href="#4月1日" class="headerlink" title="4月1日"></a>4月1日</h3><p>好东西从来都不应该用流行去评价。</p>
+<h3 id="4月2日"><a href="#4月2日" class="headerlink" title="4月2日"></a>4月2日</h3><p>在这个乏于笃定而怖于怀疑的时代里，在这个不允许有思想的中文圈子里，造就了劣币驱逐良币，没有了共享精神，只能娱乐至死。语料的凋敝终成了我们杀死简中大语言模型的罪魁祸首。我们再一次搬起了石头砸中自己的脚。</p>
 <p>用所谓的结果正义来掩盖过程不正义，到头来他们真正在乎的并非正义而是私欲。</p>
-<p>4月3日</p>
-<p>人可以选择平庸，但不能自甘堕落。人可以走向极端，但万不能笃定阴谋。</p>
-<p>在一种疏离感中获得意外的自由，人生大抵如此吧，理解本身也可能会是另外一种误解。<br><br>4月4日</p>
-<p>自从周末去看了思嘉，就爱上了她。以至于每天都想，世间怎么会有这么可爱的生物。</p>
+<h3 id="4月3日"><a href="#4月3日" class="headerlink" title="4月3日"></a>4月3日</h3><p>人可以选择平庸，但不能自甘堕落。人可以走向极端，但万不能笃定阴谋。</p>
+<p>在一种疏离感中获得意外的自由，人生大抵如此吧，理解本身也可能会是另外一种误解。<br>\</p>
+<h3 id="4月4日"><a href="#4月4日" class="headerlink" title="4月4日"></a>4月4日</h3><p>自从周末去看了思嘉，就爱上了她。以至于每天都想，世间怎么会有这么可爱的生物。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%83/">思考马克·七</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%94/">思考马克·五</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

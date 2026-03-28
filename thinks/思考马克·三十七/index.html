@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·三十七</p><script>(function() {
   try {
@@ -164,15 +161,15 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十七</a></h2><span class="post__date">2026-03-15</span></div></div><div class="article__content"><h1 id="思考马克·三十七"><a href="#思考马克·三十七" class="headerlink" title="思考马克·三十七"></a>思考马克·三十七</h1><h3 id="2026年三月记录"><a href="#2026年三月记录" class="headerlink" title="2026年三月记录"></a><strong>2026年三月记录</strong></h3><h4 id="3月1日"><a href="#3月1日" class="headerlink" title="3月1日"></a>3月1日</h4><p>伊朗人迎来了一个可能几代人都不曾遇到的机会，但机会抓不抓得住，得看伊朗人自己。衷心祝愿伊朗人民的明天更好，愿他们明天的自由与幸福，对得起他们昨日为之付出的——泪水、苦难、鲜血与勇气。</p>
-<h4 id="3月2日"><a href="#3月2日" class="headerlink" title="3月2日"></a>3月2日</h4><p>一代人有一代人的QQ农场，Agent时代的「QQ农场」就是养一只专属于你自己的龙虾🦞</p>
-<h4 id="3月3日"><a href="#3月3日" class="headerlink" title="3月3日"></a>3月3日</h4><p>人的惯性就是人的SOP。</p>
-<h4 id="3月4日"><a href="#3月4日" class="headerlink" title="3月4日"></a>3月4日</h4><p>世界由你看待世界的方式而定。</p>
-<h4 id="3月5日"><a href="#3月5日" class="headerlink" title="3月5日"></a>3月5日</h4><p>小红书杀死了很多社区产品，AI杀死了很多软件产品。网络效应还在加剧，人的注意力有限，已经被人类开发殆尽，所以Agent大有可为，以后产品首先服务于Agent其次服务于人。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十七</a></h2><span class="post__date">2026-03-15</span></div></div><div class="article__content"><h1 id="思考马克·三十七"><a href="#思考马克·三十七" class="headerlink" title="思考马克·三十七"></a>思考马克·三十七</h1><h2 id="2026年三月记录"><a href="#2026年三月记录" class="headerlink" title="2026年三月记录"></a><strong>2026年三月记录</strong></h2><h3 id="3月1日"><a href="#3月1日" class="headerlink" title="3月1日"></a>3月1日</h3><p>伊朗人迎来了一个可能几代人都不曾遇到的机会，但机会抓不抓得住，得看伊朗人自己。衷心祝愿伊朗人民的明天更好，愿他们明天的自由与幸福，对得起他们昨日为之付出的——泪水、苦难、鲜血与勇气。</p>
+<h3 id="3月2日"><a href="#3月2日" class="headerlink" title="3月2日"></a>3月2日</h3><p>一代人有一代人的QQ农场，Agent时代的「QQ农场」就是养一只专属于你自己的龙虾🦞</p>
+<h3 id="3月3日"><a href="#3月3日" class="headerlink" title="3月3日"></a>3月3日</h3><p>人的惯性就是人的SOP。</p>
+<h3 id="3月4日"><a href="#3月4日" class="headerlink" title="3月4日"></a>3月4日</h3><p>世界由你看待世界的方式而定。</p>
+<h3 id="3月5日"><a href="#3月5日" class="headerlink" title="3月5日"></a>3月5日</h3><p>小红书杀死了很多社区产品，AI杀死了很多软件产品。网络效应还在加剧，人的注意力有限，已经被人类开发殆尽，所以Agent大有可为，以后产品首先服务于Agent其次服务于人。</p>
 <p>人总是在走了一些弯路后才能找到正确的道路。</p>
-<h4 id="3月9日"><a href="#3月9日" class="headerlink" title="3月9日"></a>3月9日</h4><p>不要考验人性，要设计环境。不要比拼意志力，要比拼设计环境。</p>
-<h4 id="3月27日"><a href="#3月27日" class="headerlink" title="3月27日"></a>3月27日</h4><p>张雪峰的离世，仿佛就像照妖镜一样，每个人都在其离世中，看见了自己本就愿信的东西，所以还是不要成为一个名人的好。他的离世已经不再是他个人、家庭以及公司的私事了，这才是这件事最令人悲哀与心寒的地方。悠悠众口之下，试问这世间又有谁能经得起舆论这般的鞭尸与审判呢？</p>
+<h3 id="3月9日"><a href="#3月9日" class="headerlink" title="3月9日"></a>3月9日</h3><p>不要考验人性，要设计环境。不要比拼意志力，要比拼设计环境。</p>
+<h3 id="3月27日"><a href="#3月27日" class="headerlink" title="3月27日"></a>3月27日</h3><p>张雪峰的离世，仿佛就像照妖镜一样，每个人都在其离世中，看见了自己本就愿信的东西，所以还是不要成为一个名人的好。他的离世已经不再是他个人、家庭以及公司的私事了，这才是这件事最令人悲哀与心寒的地方。悠悠众口之下，试问这世间又有谁能经得起舆论这般的鞭尸与审判呢？</p>
 <p>以前遇到需求第一时间是想去找有没有现成的软件方案，现在遇到需求第一时间打开ClaudeCode，这大概就是软件行业变天的感受吧。以前羡慕做工具的，真的很多时候是躺赚，Naval曾说软件是杠杆，但现在这杆杠杆正在被AI Coding重塑。每个人都可以用AI手搓软件的时刻，软件公司的护城河又是什么呢？</p>
 <p>正如王尔德的那句话，把人分成好和坏的是荒谬的。人要么是迷人的，或者乏味的…</p>
-<h4 id="3月28日"><a href="#3月28日" class="headerlink" title="3月28日"></a>3月28日</h4><p>我已经开始怀念那个没有AI时代的社交媒体了，现在社交媒体上随便一滑都能看到AI生成的垃圾内容。AI应该用来写代码，替代重复性劳动，也该给创作者赋能做出更多有趣的东西出来，但不应该像现在一群人在用AI生产垃圾内容来灌满本就劣质的社交媒体信息流，让其变得更加劣质了。未来如果有一天人类真的能穿越了，估计他们会想穿越到没有AI生成内容的时代吧，就像我们会在无数个日夜怀念2019年之前的黄金时代。AI越发达，社交媒体的内容就会变得越垃圾。</p>
+<h3 id="3月28日"><a href="#3月28日" class="headerlink" title="3月28日"></a>3月28日</h3><p>我已经开始怀念那个没有AI时代的社交媒体了，现在社交媒体上随便一滑都能看到AI生成的垃圾内容。AI应该用来写代码，替代重复性劳动，也该给创作者赋能做出更多有趣的东西出来，但不应该像现在一群人在用AI生产垃圾内容来灌满本就劣质的社交媒体信息流，让其变得更加劣质了。未来如果有一天人类真的能穿越了，估计他们会想穿越到没有AI生成内容的时代吧，就像我们会在无数个日夜怀念2019年之前的黄金时代。AI越发达，社交媒体的内容就会变得越垃圾。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button">没有更多</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD/">思考马克·三十六</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

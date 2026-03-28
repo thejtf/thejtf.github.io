@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·十</p><script>(function() {
   try {
@@ -164,28 +161,20 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十</a></h2><span class="post__date">2023-07-15</span></div></div><div class="article__content"><h1 id="思考马克·十"><a href="#思考马克·十" class="headerlink" title="思考马克·十"></a>思考马克·十</h1><h3 id="2023年七月记录"><a href="#2023年七月记录" class="headerlink" title="2023年七月记录"></a>2023年七月记录</h3><p>7月1日</p>
-<p>别人家的世界，五彩缤纷。肉身化妆上慈悲为怀，皮囊装扮上仁义礼智信。彩色的，男盗女娼，鸡鸣狗盗。而肚财们的世界，却只有黑白。</p>
-<p>7月2日</p>
-<p>只要内容一上深度，你就会发现评论区就集体沉默了。只要一谈论男女问题，那就得吵的不可开交。所以想要大多数人闭嘴，就得走的比别人更远。这样你的世界就清净了，他们便不再能够对你指指点点。同样，能够让你舒服的也是少走人的路，千军万马闯的独木桥不是你死就是我活的，就很难能保持体面。即使你在这样的竞争中取胜了，你也终将成为恶龙。你心底被伤的多深，或许只有你自己知道。</p>
-<p>7月3日</p>
-<p>增长才是社交平台的核心，没有新人进来的圈子迟早是要灭亡的。</p>
-<p><br>7月4日</p>
-<p>每一个用户在系统内都是有成长周期的。</p>
-<p>7月6日</p>
-<p>真正能够衡量一个东西价值的，是想得到它你所必需花费的时间。</p>
-<p>7月7日</p>
-<p>媒体像是一块抹布，会碰到人性阴暗的一面，会碰到社会阴暗角落，但只有媒体脏了，社会才会干净。新闻已死，所以才要搞新闻。</p>
-<p><br>7月8日</p>
-<p>- 保持小规模，降低成本，以现有的资源来解决问题，不要盲目扩张。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十</a></h2><span class="post__date">2023-07-15</span></div></div><div class="article__content"><h1 id="思考马克·十"><a href="#思考马克·十" class="headerlink" title="思考马克·十"></a>思考马克·十</h1><h2 id="2023年七月记录"><a href="#2023年七月记录" class="headerlink" title="2023年七月记录"></a><strong>2023年七月记录</strong></h2><h3 id="7月1日"><a href="#7月1日" class="headerlink" title="7月1日"></a>7月1日</h3><p>别人家的世界，五彩缤纷。肉身化妆上慈悲为怀，皮囊装扮上仁义礼智信。彩色的，男盗女娼，鸡鸣狗盗。而肚财们的世界，却只有黑白。</p>
+<h3 id="7月2日"><a href="#7月2日" class="headerlink" title="7月2日"></a>7月2日</h3><p>只要内容一上深度，你就会发现评论区就集体沉默了。只要一谈论男女问题，那就得吵的不可开交。所以想要大多数人闭嘴，就得走的比别人更远。这样你的世界就清净了，他们便不再能够对你指指点点。同样，能够让你舒服的也是少走人的路，千军万马闯的独木桥不是你死就是我活的，就很难能保持体面。即使你在这样的竞争中取胜了，你也终将成为恶龙。你心底被伤的多深，或许只有你自己知道。</p>
+<h3 id="7月3日"><a href="#7月3日" class="headerlink" title="7月3日"></a>7月3日</h3><p>增长才是社交平台的核心，没有新人进来的圈子迟早是要灭亡的。</p>
+<p>\</p>
+<h3 id="7月4日"><a href="#7月4日" class="headerlink" title="7月4日"></a>7月4日</h3><p>每一个用户在系统内都是有成长周期的。</p>
+<h3 id="7月6日"><a href="#7月6日" class="headerlink" title="7月6日"></a>7月6日</h3><p>真正能够衡量一个东西价值的，是想得到它你所必需花费的时间。</p>
+<h3 id="7月7日"><a href="#7月7日" class="headerlink" title="7月7日"></a>7月7日</h3><p>媒体像是一块抹布，会碰到人性阴暗的一面，会碰到社会阴暗角落，但只有媒体脏了，社会才会干净。新闻已死，所以才要搞新闻。</p>
+<p>\</p>
+<h3 id="7月8日"><a href="#7月8日" class="headerlink" title="7月8日"></a>7月8日</h3><p>- 保持小规模，降低成本，以现有的资源来解决问题，不要盲目扩张。</p>
 <p>- 基于现有的利润做决定，而不是预期的利润。</p>
 <p>- 对别人期待的事或者对你毫无用处的机会说不。</p>
-<p>7月9日</p>
-<p>怀着老板是赏赐给你一份工作的思维不可取，没有哪个企业不再为追逐利益最大化而去做慈善。员工之于老板本就是对立面上的两个阶级。</p>
-<p>7月10日</p>
-<p>是为了解决机会平等还是结果平等，还是为了公平解决系统性障碍。</p>
-<p>7月11日</p>
-<p>知识的特点：</p>
+<h3 id="7月9日"><a href="#7月9日" class="headerlink" title="7月9日"></a>7月9日</h3><p>怀着老板是赏赐给你一份工作的思维不可取，没有哪个企业不再为追逐利益最大化而去做慈善。员工之于老板本就是对立面上的两个阶级。</p>
+<h3 id="7月10日"><a href="#7月10日" class="headerlink" title="7月10日"></a>7月10日</h3><p>是为了解决机会平等还是结果平等，还是为了公平解决系统性障碍。</p>
+<h3 id="7月11日"><a href="#7月11日" class="headerlink" title="7月11日"></a>7月11日</h3><p>知识的特点：</p>
 <p>•知识是互相连接的。</p>
 <p>•知识应当是公开共享的。</p>
 <p>•知识是通过碰撞才产生新的知识的。</p>
@@ -197,28 +186,19 @@ if (!isLocalhost) {
 <p>•这个世界上没有一本《未曾记录下来的观念百科全书》，也没有一本《没有写出来的知识全史》。</p>
 <p>•知识的输入是为了输出。说出来，写出来，演出来，就是不能存起来。</p>
 <p>•知识有快速汲取的办法，那就是快速输出。</p>
-<p>7月17日</p>
-<p>工作应该培养人，但工作从来不培养人，工作从来都是筛选人。考试应该筛选人，但考试从来不是筛选人，而是培养对试题满分答案的规训。</p>
-<p><br>7月18日</p>
-<p>让我们认识到工具的重要性，我们才能忍受那漫长的、难熬的、延迟满足的学习过程。</p>
-<p>7月21日</p>
-<p>练习造就完美。</p>
+<h3 id="7月17日"><a href="#7月17日" class="headerlink" title="7月17日"></a>7月17日</h3><p>工作应该培养人，但工作从来不培养人，工作从来都是筛选人。考试应该筛选人，但考试从来不是筛选人，而是培养对试题满分答案的规训。</p>
+<p>\</p>
+<h3 id="7月18日"><a href="#7月18日" class="headerlink" title="7月18日"></a>7月18日</h3><p>让我们认识到工具的重要性，我们才能忍受那漫长的、难熬的、延迟满足的学习过程。</p>
+<h3 id="7月21日"><a href="#7月21日" class="headerlink" title="7月21日"></a>7月21日</h3><p>练习造就完美。</p>
 <p>Practice makes perfect.</p>
-<p>7月24日</p>
-<p>真正赚钱都是在你最懒的时候，而真正赔钱都是在你最勤奋的时候。</p>
-<p>7月25日</p>
-<p>奇怪，人听音乐久了尚能忍耐，但噪音听多了就会要发疯。</p>
-<p>7月26日</p>
-<p>一开始我以为所有事都和我无关，后来发现每一件事其实都和我息息相关。可我真的不想再去关心他人，我劝自己说人各有命，看懂的不用劝，看不懂的你再悲伤也无用。成年人的世界里或许就没有纯粹二字，佛祖也只度有缘人不是嘛。很多东西或许都不是培养出来的，而是筛选出来的。或者说，一切都是命运的安排。</p>
-<p>7月27日</p>
-<p>为别人打抱不平之前，一定要保护好自身利益。这是成年人世界里的常识，不要觉得善良就理应会到好报，大多数情况下你的善良会被利用。所以，善良的前提是要学会把自己武装到牙齿。当然，不要习惯了黑暗为黑暗辩护，更不要为自己的苟且而得意。因为天变暗了，是所有人的责任。历史趋势不是一两个人能改变的，而是一群人的一同奔赴。</p>
-<p>7月28日</p>
-<p>人只有自己才能拯救自己，自己治愈自己，不存在被别人拯救的可能。你遇到的事碰见的人很多都是你自己选择的或者是你本有选择，是你自己选择了忍受、选择了同流合污。</p>
+<h3 id="7月24日"><a href="#7月24日" class="headerlink" title="7月24日"></a>7月24日</h3><p>真正赚钱都是在你最懒的时候，而真正赔钱都是在你最勤奋的时候。</p>
+<h3 id="7月25日"><a href="#7月25日" class="headerlink" title="7月25日"></a>7月25日</h3><p>奇怪，人听音乐久了尚能忍耐，但噪音听多了就会要发疯。</p>
+<h3 id="7月26日"><a href="#7月26日" class="headerlink" title="7月26日"></a>7月26日</h3><p>一开始我以为所有事都和我无关，后来发现每一件事其实都和我息息相关。可我真的不想再去关心他人，我劝自己说人各有命，看懂的不用劝，看不懂的你再悲伤也无用。成年人的世界里或许就没有纯粹二字，佛祖也只度有缘人不是嘛。很多东西或许都不是培养出来的，而是筛选出来的。或者说，一切都是命运的安排。</p>
+<h3 id="7月27日"><a href="#7月27日" class="headerlink" title="7月27日"></a>7月27日</h3><p>为别人打抱不平之前，一定要保护好自身利益。这是成年人世界里的常识，不要觉得善良就理应会到好报，大多数情况下你的善良会被利用。所以，善良的前提是要学会把自己武装到牙齿。当然，不要习惯了黑暗为黑暗辩护，更不要为自己的苟且而得意。因为天变暗了，是所有人的责任。历史趋势不是一两个人能改变的，而是一群人的一同奔赴。</p>
+<h3 id="7月28日"><a href="#7月28日" class="headerlink" title="7月28日"></a>7月28日</h3><p>人只有自己才能拯救自己，自己治愈自己，不存在被别人拯救的可能。你遇到的事碰见的人很多都是你自己选择的或者是你本有选择，是你自己选择了忍受、选择了同流合污。</p>
 <p>底层永远互斗，上层更多是互捧。因为底层更多是竞争关系，上层更多是利益合作。</p>
 <p>这个世界的底层逻辑一直是马太效应，所以去中心化才难能可贵。</p>
-<p>7月29日</p>
-<p>某些群体总是对自我认知不明显，明明自己就是一坨屎，却总认为臭的是别人。瞧不起他人，却又表现一副厌恶争执的模样，明明是自己用脚投的票，却又一直鄙视现实。是自己逃脱不了欲望的枷锁，却又装作比谁都高尚。《圣经的故事》中上帝要毁掉一座城时一个先知问这里那么多无辜的人为何要跟着一起死？天使的回答很振聋发聩，这座城市里竟没有一个人手上不沾满罪恶。</p>
-<p>7月30日</p>
-<p>历史似乎从来不培养人，而是筛选出那些能审时度势能力的人。</p>
+<h3 id="7月29日"><a href="#7月29日" class="headerlink" title="7月29日"></a>7月29日</h3><p>某些群体总是对自我认知不明显，明明自己就是一坨屎，却总认为臭的是别人。瞧不起他人，却又表现一副厌恶争执的模样，明明是自己用脚投的票，却又一直鄙视现实。是自己逃脱不了欲望的枷锁，却又装作比谁都高尚。《圣经的故事》中上帝要毁掉一座城时一个先知问这里那么多无辜的人为何要跟着一起死？天使的回答很振聋发聩，这座城市里竟没有一个人手上不沾满罪恶。</p>
+<h3 id="7月30日"><a href="#7月30日" class="headerlink" title="7月30日"></a>7月30日</h3><p>历史似乎从来不培养人，而是筛选出那些能审时度势能力的人。</p>
 <p>理解他人的复杂，坚守自我的原则。做完美的事，做简单的人。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%B8%80/">思考马克·十一</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B9%9D/">思考马克·九</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

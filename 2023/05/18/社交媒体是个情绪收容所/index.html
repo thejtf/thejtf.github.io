@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">社交媒体是个情绪收容所</p><script>(function() {
   try {

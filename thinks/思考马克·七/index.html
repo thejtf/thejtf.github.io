@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·七</p><script>(function() {
   try {
@@ -164,65 +161,42 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·七</a></h2><span class="post__date">2023-04-15</span></div></div><div class="article__content"><h1 id="思考马克·七"><a href="#思考马克·七" class="headerlink" title="思考马克·七"></a>思考马克·七</h1><h3 id="2023年四月记录"><a href="#2023年四月记录" class="headerlink" title="2023年四月记录"></a>2023年四月记录</h3><p>4月4日</p>
-<p>凡是可以说的东西都可以说得清楚，对于不能谈论的东西必须保持沉默。via维特根斯坦</p>
-<p>4月7日</p>
-<p>恶的一大根源是人狂热的坚持自己的偏见。</p>
-<p>4月8日</p>
-<p>“一种凋零，一种盛开；一种绝望，一种欲望；一种决绝的告别，一种竭力的获取。但似乎，又总有种不可言说的底色和失去，是所有人共通的。”</p>
-<p>4月9日</p>
-<p>每到有自杀类新闻，就不由想起涂尔干的经典著作《自杀论》，社会一直都有促使人自杀的力量。人一旦和自己原有的价值观和社会联系解体，那“生命的意义是什么”这类哲学问题就重重的摆在了每个人的面前，而真正严肃的哲学问题只有一个，那就是自杀。</p>
-<p>4月10日</p>
-<p>认识世界最好的方式就是去参与创造。</p>
-<p>4月11日</p>
-<p>“叙述越是平淡无奇，越是直击人心，我的眼泪哗哗地流。那年我22岁，突然就懂了王小波。”</p>
-<p>4月13日</p>
-<p>人有很多不同的方式去存在，会用很多不同的方式表达对生命的感激之情。但我相信，创造出美好事物并将其呈现给大众，是一种很好的表达方式。你永远不会见到一些人，不会和他们握手，不会听到他们的故事或者跟他们讲述你自己的故事。但在用心和爱创造出一件美好的事物的过程中，一些东西被传递了出去。所以最重要的是我们要忠于自己，铭记那些对我们真正重要的事情。via乔布斯</p>
-<p>4月14日</p>
-<p>做人做事需要手段，但手段不应成为目的。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·七</a></h2><span class="post__date">2023-04-15</span></div></div><div class="article__content"><h1 id="思考马克·七"><a href="#思考马克·七" class="headerlink" title="思考马克·七"></a>思考马克·七</h1><h2 id="2023年四月记录"><a href="#2023年四月记录" class="headerlink" title="2023年四月记录"></a><strong>2023年四月记录</strong></h2><h3 id="4月4日"><a href="#4月4日" class="headerlink" title="4月4日"></a>4月4日</h3><p>凡是可以说的东西都可以说得清楚，对于不能谈论的东西必须保持沉默。via维特根斯坦</p>
+<h3 id="4月7日"><a href="#4月7日" class="headerlink" title="4月7日"></a>4月7日</h3><p>恶的一大根源是人狂热的坚持自己的偏见。</p>
+<h3 id="4月8日"><a href="#4月8日" class="headerlink" title="4月8日"></a>4月8日</h3><p>“一种凋零，一种盛开；一种绝望，一种欲望；一种决绝的告别，一种竭力的获取。但似乎，又总有种不可言说的底色和失去，是所有人共通的。”</p>
+<h3 id="4月9日"><a href="#4月9日" class="headerlink" title="4月9日"></a>4月9日</h3><p>每到有自杀类新闻，就不由想起涂尔干的经典著作《自杀论》，社会一直都有促使人自杀的力量。人一旦和自己原有的价值观和社会联系解体，那“生命的意义是什么”这类哲学问题就重重的摆在了每个人的面前，而真正严肃的哲学问题只有一个，那就是自杀。</p>
+<h3 id="4月10日"><a href="#4月10日" class="headerlink" title="4月10日"></a>4月10日</h3><p>认识世界最好的方式就是去参与创造。</p>
+<h3 id="4月11日"><a href="#4月11日" class="headerlink" title="4月11日"></a>4月11日</h3><p>“叙述越是平淡无奇，越是直击人心，我的眼泪哗哗地流。那年我22岁，突然就懂了王小波。”</p>
+<h3 id="4月13日"><a href="#4月13日" class="headerlink" title="4月13日"></a>4月13日</h3><p>人有很多不同的方式去存在，会用很多不同的方式表达对生命的感激之情。但我相信，创造出美好事物并将其呈现给大众，是一种很好的表达方式。你永远不会见到一些人，不会和他们握手，不会听到他们的故事或者跟他们讲述你自己的故事。但在用心和爱创造出一件美好的事物的过程中，一些东西被传递了出去。所以最重要的是我们要忠于自己，铭记那些对我们真正重要的事情。via乔布斯</p>
+<h3 id="4月14日"><a href="#4月14日" class="headerlink" title="4月14日"></a>4月14日</h3><p>做人做事需要手段，但手段不应成为目的。</p>
 <p>AutoGPT 才是 AI 产品的发展方向，而不是简单的套壳。让 AI 自己分析问题并解决问题，这才是人们真正需要的。人是懒惰的，prompt engineering 都不应该被存在。下图是我问它“人是否应该自杀”，它自己 prompt 的过程，思考过程非常令人兴奋。</p>
-<p>4月15日</p>
-<p>以前宇宙尽头在五道口，现在宇宙尽头在直播间。</p>
-<p>4月17日</p>
-<p>他们没有看到，凡是理由，若不在极端的情事上有效，就不会在任何事上奏效。如果一个意见，不允许别人质难，必达不到真理。</p>
-<p>4月18日</p>
-<p>人是情绪的奴隶，谁驾驭了情绪谁就驾驭了人。这种驾驭并非是掩盖情绪，而是能在恰当的时间做好恰当的表达，这样才能引导观众。任何时候这种能力都非常重要。</p>
-<p>4月19日</p>
-<p>让人们生活变好的，不是政治家们心中的“理想国”，而是技术创新。每一次生产方式的变革对于大多数普通人来说都是一次改变处境的绝佳机会。让人们穿的更好的是第一次工业革命，给人们自由的终究是生产技术的变革。</p>
-<p><br>4月20日</p>
-<p>学习成本高的，操作成本都很低。</p>
+<h3 id="4月15日"><a href="#4月15日" class="headerlink" title="4月15日"></a>4月15日</h3><p>以前宇宙尽头在五道口，现在宇宙尽头在直播间。</p>
+<h3 id="4月17日"><a href="#4月17日" class="headerlink" title="4月17日"></a>4月17日</h3><p>他们没有看到，凡是理由，若不在极端的情事上有效，就不会在任何事上奏效。如果一个意见，不允许别人质难，必达不到真理。</p>
+<h3 id="4月18日"><a href="#4月18日" class="headerlink" title="4月18日"></a>4月18日</h3><p>人是情绪的奴隶，谁驾驭了情绪谁就驾驭了人。这种驾驭并非是掩盖情绪，而是能在恰当的时间做好恰当的表达，这样才能引导观众。任何时候这种能力都非常重要。</p>
+<h3 id="4月19日"><a href="#4月19日" class="headerlink" title="4月19日"></a>4月19日</h3><p>让人们生活变好的，不是政治家们心中的“理想国”，而是技术创新。每一次生产方式的变革对于大多数普通人来说都是一次改变处境的绝佳机会。让人们穿的更好的是第一次工业革命，给人们自由的终究是生产技术的变革。</p>
+<p>\</p>
+<h3 id="4月20日"><a href="#4月20日" class="headerlink" title="4月20日"></a>4月20日</h3><p>学习成本高的，操作成本都很低。</p>
 <p>学习成本低的，操作成本反而高。</p>
-<p>4月21日</p>
-<p>中世纪的信众走进西斯廷教堂，欣赏拉斐尔的绘画，他们并不需要向教堂付钱，拉斐尔也不从门票中抽成，美帝奇家族自然会为这事儿埋单。他们愿意供养拉斐尔、米开朗基罗以及达芬奇，因为他们足够优秀。写作也好、短视频也好、艺术也罢，都是一种复杂的回报系统。你免费分享创造的越多，你得到的也就愈多。你成就了别人，也自然成就了自己。</p>
+<h3 id="4月21日"><a href="#4月21日" class="headerlink" title="4月21日"></a>4月21日</h3><p>中世纪的信众走进西斯廷教堂，欣赏拉斐尔的绘画，他们并不需要向教堂付钱，拉斐尔也不从门票中抽成，美帝奇家族自然会为这事儿埋单。他们愿意供养拉斐尔、米开朗基罗以及达芬奇，因为他们足够优秀。写作也好、短视频也好、艺术也罢，都是一种复杂的回报系统。你免费分享创造的越多，你得到的也就愈多。你成就了别人，也自然成就了自己。</p>
 <p>美第奇效应（Medici Effect）是指在思想、观念和文化的交汇点上爆发灵感。这个概念来自约翰松的《美第奇效应》一书。美第奇效应描述的是不同领域、学科、文化的人经互相交流，在交叉点上进行联系，产生一些新想法的现象。不同领域交会的地方叫做异域碰撞点（Intersection），而异场域碰撞所爆发出来的惊人创新，称为美第奇效应。在文艺复兴时期，美第奇家族把很多不同领域的顶级专家都集中到佛罗伦萨，他们相互启发，产生了比之前更高的成就——我们称为美第奇效应。</p>
 <p>第一原理起源于哲学概念，由亚里士多德提出。在论文《形而上学》中，亚里士多德不光创造和讨论了所谓“在物理之后”（meta + physics）的“形而上学”（metaphysics），还提出了“第一原理”这一对后世产生深远影响的思维方式。第一原理在他的定义里是那些无法再分、无法证明且不证自明的命题。也就是今天我们在数学、物理里所说的公理。</p>
-<p>4月23日</p>
-<p>世界读书日？不对，以后应该叫做“AI读书日”。</p>
+<h3 id="4月23日"><a href="#4月23日" class="headerlink" title="4月23日"></a>4月23日</h3><p>世界读书日？不对，以后应该叫做“AI读书日”。</p>
 <p>很多时候</p>
 <p>你说话得罪了人</p>
 <p>不是因为你说错话了</p>
 <p>而是因为你说了真话</p>
-<p>4月24日</p>
-<p>知道再怎么努力都改变不了命运却依然要努力，或许这才是普通人的英雄主义。</p>
+<h3 id="4月24日"><a href="#4月24日" class="headerlink" title="4月24日"></a>4月24日</h3><p>知道再怎么努力都改变不了命运却依然要努力，或许这才是普通人的英雄主义。</p>
 <p>什么时候有些人能意识到这个世界不是被他们管理好的，而是源自人们的创造力。我们需要追求秩序，但不应该疯狂的追求秩序。</p>
-<p>4月25日</p>
-<p>对于美的判断要出于纯粹的欣赏，当我们欣赏某物&#x2F;人是自由且没有目的的适快时，我们才可以说，我们具备了审美能力。AutoGPT 向我们阐明了一个道理：任何难题（或者宏大的Goal）都可以通过拆解成无数个小问题（或Prompt ）去解决。</p>
-<p>4月26日</p>
-<p>我们和一个行业的距离是我们和该行业SOP的距离。</p>
+<h3 id="4月25日"><a href="#4月25日" class="headerlink" title="4月25日"></a>4月25日</h3><p>对于美的判断要出于纯粹的欣赏，当我们欣赏某物&#x2F;人是自由且没有目的的适快时，我们才可以说，我们具备了审美能力。AutoGPT 向我们阐明了一个道理：任何难题（或者宏大的Goal）都可以通过拆解成无数个小问题（或Prompt ）去解决。</p>
+<h3 id="4月26日"><a href="#4月26日" class="headerlink" title="4月26日"></a>4月26日</h3><p>我们和一个行业的距离是我们和该行业SOP的距离。</p>
 <p>永远记得大家上网是看乐子来的，而不是来被别人教育的。</p>
-<p>4月27日</p>
-<p>存在先于本质。</p>
+<h3 id="4月27日"><a href="#4月27日" class="headerlink" title="4月27日"></a>4月27日</h3><p>存在先于本质。</p>
 <p>互联网是人性的放大器，谁抓住了人性，谁就抓住了互联网。但也别忘了你凝视着深渊，深渊也在凝视着你。我们既不能凡事都要上升到道德正确的层面，但也不能一味的追求数据而忽略了人文关怀。</p>
-<p>4月28日</p>
-<p>人是会死的，这正是这个世界的希望所在。一代人正老去，但总有正年轻。</p>
-<p>4月29日</p>
-<p>要表达而非寒暄，寒暄不是表达。</p>
+<h3 id="4月28日"><a href="#4月28日" class="headerlink" title="4月28日"></a>4月28日</h3><p>人是会死的，这正是这个世界的希望所在。一代人正老去，但总有正年轻。</p>
+<h3 id="4月29日"><a href="#4月29日" class="headerlink" title="4月29日"></a>4月29日</h3><p>要表达而非寒暄，寒暄不是表达。</p>
 <p>写作需要情绪，产品需要摇滚。</p>
-<p>5月1日</p>
-<p>财富永远都是通向自由之路。</p>
-<p>5月3日</p>
-<p>人的情绪起落是与事实的感知程度成反比的，你对事实了解的越多，你就越不容易被感动。知道的越多，越趋于沉默。经历的越多，越趋于平静。理性的最后结果是变得虚无，人世间的万事万物都经不起推敲。via罗素</p>
+<h3 id="5月1日"><a href="#5月1日" class="headerlink" title="5月1日"></a>5月1日</h3><p>财富永远都是通向自由之路。</p>
+<h3 id="5月3日"><a href="#5月3日" class="headerlink" title="5月3日"></a>5月3日</h3><p>人的情绪起落是与事实的感知程度成反比的，你对事实了解的越多，你就越不容易被感动。知道的越多，越趋于沉默。经历的越多，越趋于平静。理性的最后结果是变得虚无，人世间的万事万物都经不起推敲。via罗素</p>
 <p>用所谓的结果正义来掩盖过程不正义，到头来他们真正在乎的并非正义而是私欲。</p>
-<p>5月4日</p>
-<p>陈独秀的《敬告青年》如今看来依然振聋发聩，就知道百年五四并没有改变什么…</p>
+<h3 id="5月4日"><a href="#5月4日" class="headerlink" title="5月4日"></a>5月4日</h3><p>陈独秀的《敬告青年》如今看来依然振聋发聩，就知道百年五四并没有改变什么…</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%85%AB/">思考马克·八</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%85%AD/">思考马克·六</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

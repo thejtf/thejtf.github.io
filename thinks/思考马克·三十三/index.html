@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·三十三</p><script>(function() {
   try {
@@ -164,67 +161,46 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十三</a></h2><span class="post__date">2025-10-15</span></div></div><div class="article__content"><h1 id="思考马克·三十三"><a href="#思考马克·三十三" class="headerlink" title="思考马克·三十三"></a><strong>思考马克·三十三</strong></h1><h3 id="2025年十月记录"><a href="#2025年十月记录" class="headerlink" title="2025年十月记录"></a><strong>2025年十月记录</strong></h3><p>10月2日</p>
-<p>记录能抵抗熵增。至于认同嘛，交给时间。一切都是要交给时间这个审判官，毕竟历史永远正确。</p>
-<p>10月3日</p>
-<p>贪慧、过度的求知欲本身也是一种纵欲过度，不要贪慧，慧极必伤，对自我成长和强大的欲望也不能用力过猛。</p>
-<p><br>10月5日</p>
-<p>如果一件事或者一个人得到了就祛魅了，那是不是说明那个人或那件事本身就没有什么魅力可言呢？</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十三</a></h2><span class="post__date">2025-10-15</span></div></div><div class="article__content"><h1 id="思考马克·三十三"><a href="#思考马克·三十三" class="headerlink" title="思考马克·三十三"></a>思考马克·三十三</h1><h2 id="2025年十月记录"><a href="#2025年十月记录" class="headerlink" title="2025年十月记录"></a><strong>2025年十月记录</strong></h2><h3 id="10月2日"><a href="#10月2日" class="headerlink" title="10月2日"></a>10月2日</h3><p>记录能抵抗熵增。至于认同嘛，交给时间。一切都是要交给时间这个审判官，毕竟历史永远正确。</p>
+<h3 id="10月3日"><a href="#10月3日" class="headerlink" title="10月3日"></a>10月3日</h3><p>贪慧、过度的求知欲本身也是一种纵欲过度，不要贪慧，慧极必伤，对自我成长和强大的欲望也不能用力过猛。</p>
+<p>\</p>
+<h3 id="10月5日"><a href="#10月5日" class="headerlink" title="10月5日"></a>10月5日</h3><p>如果一件事或者一个人得到了就祛魅了，那是不是说明那个人或那件事本身就没有什么魅力可言呢？</p>
 <p>视觉让一切粗鄙化。</p>
 <p>社会的良好运行从来不在“绝对平等”而在于是否公平公正。《资治通鉴》在开篇就不断强调“天子之职莫大于礼”。一个社会能良好运行不在于绝对平等而在于权责分明尊卑有序。世界的底层逻辑之一是帕累托法则，最重要的部分只占20%而那多数的80%都是次要的。在资源稀缺的客观现实下，不平等就会是一个社会的通则，而维持社会平稳运行的只能是“尊卑有序”。所以四海之广，兆民之众，受制于一人，非有绝伦之力，高世之智，而在于纲纪也。</p>
-<p>10月6日</p>
-<p>愿你我都看着月亮，愿我们都善良正直，愿彼此永不相忘。</p>
-<p>10月7日</p>
-<p>降噪耳机是人类最伟大的发明。</p>
-<p>10月8日</p>
-<p>有太多个人好恶的人会受很多苦。</p>
-<p>10月10日</p>
-<p>神太无聊了，发明了人类。人类太无聊了，发明了机器。</p>
-<p>10月11日</p>
-<p>比信息茧房更可怕的是，长久失去共鸣后，渐渐变得的沉默。</p>
+<h3 id="10月6日"><a href="#10月6日" class="headerlink" title="10月6日"></a>10月6日</h3><p>愿你我都看着月亮，愿我们都善良正直，愿彼此永不相忘。</p>
+<h3 id="10月7日"><a href="#10月7日" class="headerlink" title="10月7日"></a>10月7日</h3><p>降噪耳机是人类最伟大的发明。</p>
+<h3 id="10月8日"><a href="#10月8日" class="headerlink" title="10月8日"></a>10月8日</h3><p>有太多个人好恶的人会受很多苦。</p>
+<h3 id="10月10日"><a href="#10月10日" class="headerlink" title="10月10日"></a>10月10日</h3><p>神太无聊了，发明了人类。人类太无聊了，发明了机器。</p>
+<h3 id="10月11日"><a href="#10月11日" class="headerlink" title="10月11日"></a>10月11日</h3><p>比信息茧房更可怕的是，长久失去共鸣后，渐渐变得的沉默。</p>
 <p>很多字加了一个“好”字就会变味，这真是一个奇怪的语言规律。</p>
-<p>10月12日</p>
-<p>用最欢快的节奏，唱着最绝望的现实。这种毁灭感，这种呐喊，大概就是摇滚吸引人的地方吧。</p>
+<h3 id="10月12日"><a href="#10月12日" class="headerlink" title="10月12日"></a>10月12日</h3><p>用最欢快的节奏，唱着最绝望的现实。这种毁灭感，这种呐喊，大概就是摇滚吸引人的地方吧。</p>
 <p>治愈人的从来不是感官体验，而是内心的平静。</p>
 <p>人的知觉范围是个菱形，太熟悉的东西不想知道，根本不熟悉的东西也不想知道。我们最想知道的是有点知道又有点不知道的东西。</p>
-<p>10月14日</p>
-<p>如果一切都注定都会消失，那什么是值得追求的呢？佛说缘起性空，一切有为法。那我们注定能得到的也只能是体验。这个世界没有永恒不变的秩序，那我们就该悲伤的时候悲伤，该快乐的时候快乐。然后慨叹说人生只不过是梦一场。就像马尔克斯说的，生命中所有的灿烂，终将要用寂寞来偿还。</p>
-<p>10月15日</p>
-<p>越来喜欢草东了，不是因为我成熟了，而是我对这个世界越来越失望了……</p>
+<h3 id="10月14日"><a href="#10月14日" class="headerlink" title="10月14日"></a>10月14日</h3><p>如果一切都注定都会消失，那什么是值得追求的呢？佛说缘起性空，一切有为法。那我们注定能得到的也只能是体验。这个世界没有永恒不变的秩序，那我们就该悲伤的时候悲伤，该快乐的时候快乐。然后慨叹说人生只不过是梦一场。就像马尔克斯说的，生命中所有的灿烂，终将要用寂寞来偿还。</p>
+<h3 id="10月15日"><a href="#10月15日" class="headerlink" title="10月15日"></a>10月15日</h3><p>越来喜欢草东了，不是因为我成熟了，而是我对这个世界越来越失望了……</p>
 <p>不要成为被大众情绪裹挟的载体，因为他们吹捧你，诋毁你，都是大家的欲望。一旦成为“神”，如何定义神就由不得神自己了。</p>
-<p>10月16日</p>
-<p>以前听不懂刺猬的《白日梦蓝》，后来慢慢就听懂了。室友说我比上学时喜欢听的歌越来越暗黑了，这倒是一点不假的。生存竞争让我们渐渐羞于谈理想了，更不要说什么美好的热爱了。就像《诗经》的那句：靡不有初，鲜克有终。也如同黑塞在《悉达多》中所描写的那样：一切都是欺骗，散发着恶臭，谎言的恶臭。一切欲望、幸福和优美皆为虚幻。一切都在腐朽。世界是苦涩的。生活即折磨。</p>
-<p>10月18日</p>
-<p>小的时候我父母经常给亲戚们说媒，我就非常的反对，毕竟小夫妻恩爱并不会多感激，但每次吵架必会遭人嫌弃，甚至我父母还包售后还得劝架去。但时间真的是一个圆，现在我也开始干这样的事儿了。区别我这是赛博说媒……做*和做媒真的是人的两个基本欲望。</p>
-<p>10月19日</p>
-<p>流行音乐是人群中最大公约数的情绪共鸣。</p>
-<p>10月21日</p>
-<p>技术像做鱼具的，产品经理像做鱼竿的，运营像投放饵料的。整个产品就是一套垂钓系统，用户就像那条鱼，好的产品就是能单位时间内稳定上鱼。</p>
-<p>10月26日</p>
-<p>情感理性和行动理性哪个更重要？理论是灰色的，生活之树常青。知其不可为而为之，超越理性之爱才是宝贵的。钱权色不是永恒不变的，所以高尚的友谊并不由此产生，美好的品德才是人类一直追寻的。</p>
+<h3 id="10月16日"><a href="#10月16日" class="headerlink" title="10月16日"></a>10月16日</h3><p>以前听不懂刺猬的《白日梦蓝》，后来慢慢就听懂了。室友说我比上学时喜欢听的歌越来越暗黑了，这倒是一点不假的。生存竞争让我们渐渐羞于谈理想了，更不要说什么美好的热爱了。就像《诗经》的那句：靡不有初，鲜克有终。也如同黑塞在《悉达多》中所描写的那样：一切都是欺骗，散发着恶臭，谎言的恶臭。一切欲望、幸福和优美皆为虚幻。一切都在腐朽。世界是苦涩的。生活即折磨。</p>
+<h3 id="10月18日"><a href="#10月18日" class="headerlink" title="10月18日"></a>10月18日</h3><p>小的时候我父母经常给亲戚们说媒，我就非常的反对，毕竟小夫妻恩爱并不会多感激，但每次吵架必会遭人嫌弃，甚至我父母还包售后还得劝架去。但时间真的是一个圆，现在我也开始干这样的事儿了。区别我这是赛博说媒……做*和做媒真的是人的两个基本欲望。</p>
+<h3 id="10月19日"><a href="#10月19日" class="headerlink" title="10月19日"></a>10月19日</h3><p>流行音乐是人群中最大公约数的情绪共鸣。</p>
+<h3 id="10月21日"><a href="#10月21日" class="headerlink" title="10月21日"></a>10月21日</h3><p>技术像做鱼具的，产品经理像做鱼竿的，运营像投放饵料的。整个产品就是一套垂钓系统，用户就像那条鱼，好的产品就是能单位时间内稳定上鱼。</p>
+<h3 id="10月26日"><a href="#10月26日" class="headerlink" title="10月26日"></a>10月26日</h3><p>情感理性和行动理性哪个更重要？理论是灰色的，生活之树常青。知其不可为而为之，超越理性之爱才是宝贵的。钱权色不是永恒不变的，所以高尚的友谊并不由此产生，美好的品德才是人类一直追寻的。</p>
 <p>我还是喜欢左派掌控的世界，右派只会让这个世界更糟。就如同我喜欢鲍勃·迪伦、约翰·列侬、平克·弗洛伊德、刘森、李志……一样。他们喜欢通过文艺作品来表达对社会对个体的关心，但这样的人越来越少了，人们习惯自私了，我们不再幻想蛋糕能做大了，左派的理想主义幻灭了，世界又回到不是你死就是我活的常态了。</p>
 <p>前几年我对意见不同的用户从来都是包容理解，更多时候是让自己内耗。好处是那个时代人们也总是能理解彼此的不同，知道参差多态乃是幸福之本源。即便是身处疫情的时候，大家也能相互体谅。但最近两年舆论场的生态则不然，一群人总是带着恶意去看待一切，动不动就阴谋论。我也只能选择拉黑处理了。这种撕裂，不知道是经济下行导致的人之堕落还是其人本就如此。但一次次的“清朗行动”并没有让这群人变少，反而变本加厉。似乎严苛的管理并不是解决一切问题的办法，大众舆论从来都是经济问题的晴雨表。我们都知道问题出在哪里了不是嘛？明天没有了，未来不确定，那么每个人都可能会成为叶文洁的粉丝。就像3I&#x2F;ATLAS一样，它是不是星际飞船已经不那么重要了，但由此产生的末日崇拜现象，远比世界末日可怕的多……</p>
 <p>经常骗人的人会觉得全世界都是骗子。</p>
-<p>10月27日</p>
-<p>我特别讨厌一切唯流量论的用户，我该如何证明我不是为了流量？难道用大家都不感兴趣的内容证明，那样他也不会刷到，甚至很多人都不愿意点开。流量是双刃剑也是反光镜，反射的是人本身的欲望。你要证明我是错的，你最好证明你是对的。你当然可以怀疑他人做事的动机，但如果把任何事的讨论都归因于动机不纯，终究会掉进自己给自己编织的幻象中。</p>
-<p>10月28日</p>
-<p>越来越觉得这个世界是匹配的游戏，而不是改变的游戏。</p>
-<p>10月29日</p>
-<p>《一战再战》简直是本年度最佳。它嘲讽了左派的软弱、右派的扭曲、革命的背叛、恰到好处的配乐诉说着性与暴力场面。在人性面前，任何性取向、种族、身份认同、政治立场，都是毫无意义的标签。最终拯救世界的还得是拉美人民游刃有余从从容容的游击斗争，Power To The People.</p>
-<p><br>10月30日</p>
-<p>七年之后攻守易形了，川普也开始说G2了。川普告诉我们一个朴素的道理，不要做一个软弱的人，要做一个强者。这世界始终是一个强者收割弱者的游戏。人可以选择善良，但这种善良不应该乞求来自他人的施舍。而是我有能力消灭你，但我选择不那么做。</p>
-<p><br>11月1日</p>
-<p>20后是通过屏幕认识世界的。</p>
-<p><br>11月2日</p>
-<p>在当今社会，感情是最廉价的东西，也是最奢侈的东西。</p>
-<p>11月3日</p>
-<p>一想到未来人类都是在消费 AI 生产的内容就难过，我们离全预制内容越来越近了。</p>
+<h3 id="10月27日"><a href="#10月27日" class="headerlink" title="10月27日"></a>10月27日</h3><p>我特别讨厌一切唯流量论的用户，我该如何证明我不是为了流量？难道用大家都不感兴趣的内容证明，那样他也不会刷到，甚至很多人都不愿意点开。流量是双刃剑也是反光镜，反射的是人本身的欲望。你要证明我是错的，你最好证明你是对的。你当然可以怀疑他人做事的动机，但如果把任何事的讨论都归因于动机不纯，终究会掉进自己给自己编织的幻象中。</p>
+<h3 id="10月28日"><a href="#10月28日" class="headerlink" title="10月28日"></a>10月28日</h3><p>越来越觉得这个世界是匹配的游戏，而不是改变的游戏。</p>
+<h3 id="10月29日"><a href="#10月29日" class="headerlink" title="10月29日"></a>10月29日</h3><p>《一战再战》简直是本年度最佳。它嘲讽了左派的软弱、右派的扭曲、革命的背叛、恰到好处的配乐诉说着性与暴力场面。在人性面前，任何性取向、种族、身份认同、政治立场，都是毫无意义的标签。最终拯救世界的还得是拉美人民游刃有余从从容容的游击斗争，Power To The People.</p>
+<p>\</p>
+<h3 id="10月30日"><a href="#10月30日" class="headerlink" title="10月30日"></a>10月30日</h3><p>七年之后攻守易形了，川普也开始说G2了。川普告诉我们一个朴素的道理，不要做一个软弱的人，要做一个强者。这世界始终是一个强者收割弱者的游戏。人可以选择善良，但这种善良不应该乞求来自他人的施舍。而是我有能力消灭你，但我选择不那么做。</p>
+<p>\</p>
+<h3 id="11月1日"><a href="#11月1日" class="headerlink" title="11月1日"></a>11月1日</h3><p>20后是通过屏幕认识世界的。</p>
+<p>\</p>
+<h3 id="11月2日"><a href="#11月2日" class="headerlink" title="11月2日"></a>11月2日</h3><p>在当今社会，感情是最廉价的东西，也是最奢侈的东西。</p>
+<h3 id="11月3日"><a href="#11月3日" class="headerlink" title="11月3日"></a>11月3日</h3><p>一想到未来人类都是在消费 AI 生产的内容就难过，我们离全预制内容越来越近了。</p>
 <p>笔记软件加开屏广告实在是太恶心了，对，我说的就是锤子便签——老罗最后的裤衩。</p>
-<p>11月8日</p>
-<p>内容市场如同消费市场。人不仅以食物为食，人还以信息为食。大众口味是会变化的，甚至大众也会跟风去吃一件东西。</p>
-<p><br>11月10日</p>
-<p>经济下行，让人堕落。孔子说，富贵不能淫，贫贱不能移，威武不能屈。其实孔子的很多教诲都是要反着听的。也就是说，人穷容易丧志，人富容易淫乱，为官者容易躺平。人在没有希望的时候，心理和行为上会容易产生沉沦。就像草东唱的，社会是个染缸，缸里有梦想，缸底有烂账。只是看谁先游向欲望……</p>
+<h3 id="11月8日"><a href="#11月8日" class="headerlink" title="11月8日"></a>11月8日</h3><p>内容市场如同消费市场。人不仅以食物为食，人还以信息为食。大众口味是会变化的，甚至大众也会跟风去吃一件东西。</p>
+<p>\</p>
+<h3 id="11月10日"><a href="#11月10日" class="headerlink" title="11月10日"></a>11月10日</h3><p>经济下行，让人堕落。孔子说，富贵不能淫，贫贱不能移，威武不能屈。其实孔子的很多教诲都是要反着听的。也就是说，人穷容易丧志，人富容易淫乱，为官者容易躺平。人在没有希望的时候，心理和行为上会容易产生沉沦。就像草东唱的，社会是个染缸，缸里有梦想，缸底有烂账。只是看谁先游向欲望……</p>
 <p>做无聊的事，就是有趣的人。</p>
-<p>11月11日</p>
-<p>要到有鱼的地方去钓鱼。</p>
+<h3 id="11月11日"><a href="#11月11日" class="headerlink" title="11月11日"></a>11月11日</h3><p>要到有鱼的地方去钓鱼。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E5%9B%9B/">思考马克·三十四</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%BA%8C/">思考马克·三十二</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

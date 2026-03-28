@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·二十二</p><script>(function() {
   try {
@@ -164,40 +161,22 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·二十二</a></h2><span class="post__date">2024-08-15</span></div></div><div class="article__content"><h1 id="思考马克·二十二"><a href="#思考马克·二十二" class="headerlink" title="思考马克·二十二"></a><strong>思考马克·二十二</strong></h1><h3 id="2024年八月记录"><a href="#2024年八月记录" class="headerlink" title="2024年八月记录"></a><strong>2024年八月记录</strong></h3><p>8月18日</p>
-<p>consistency+discipline+patience&#x3D; mindset</p>
-<p>8月21日</p>
-<p>青年人看不到希望，只能发泄在网上。互联网是他们为数不多可以寻求个人存在感的地方了。可悲吗？当然，但是他们又能怎么样呢…</p>
-<p>8月22日</p>
-<p>钱从某种程度上说也是一种选票，所以成功的商人也能变为成功的政治家。但成功的政治家在伦理角度上讲并不被允许成为成功的商人。权力和金钱本是一体两面。</p>
-<p>8月23日</p>
-<p>太笨的人能力不行，太聪明的人又总想走捷径，只有不太笨又偏执的人才能做出优秀的产品。</p>
-<p>8月26日</p>
-<p>《悉达多》被推荐种草了好久，今天一口气读完。黑塞把佛陀分成乔达摩和悉达多两人，用前后各种因果轮回对比，用悉达多年轻的傲慢和年老的宁静做对比，写作手法确实非常独特。感觉这故事很多都源自《金刚经》等佛教哲学经典，就像书中最后表达悉达多的若见诸相非相，也就成佛了。人需要在自我否定后，去认识人生，去认识世界，去认识自我。当你觉得“我”不是我，Being不是真的存在后，才能真正的认识自我。也就是《金刚经》的三句义：佛说世界，即非世界，是名世界。</p>
-<p>8月27日</p>
-<p>人必须保持持续进步，否则就会被经验捆绑，成为过往的囚徒。</p>
-<p>8月29日</p>
-<p>猫猫才是掌握进化精髓的动物，这或许才是进化的意义，人类终究是走错了方向。</p>
-<p>8月31日</p>
-<p>没有人能看清他者的路，无数的历史表明，十恶不赦的人或许通向神圣，善良的人或许最终走进苦难。人独自行过生命，蒙受玷污，承担罪过，然后再苦苦寻觅出路。有些人就算再怎么努力挣扎，也不能扭转命运的一丝一毫。接受这个世界的荒谬，远比改变它更为艰难。</p>
-<p>9月1日</p>
-<p>有时候其实大家不是多希望小红书赢，是受够了互联网下半场的悲观预期。</p>
-<p>9月2日</p>
-<p>良心经常以沉默的方式来表达。</p>
-<p>9月5日</p>
-<p>秩序感是国人骨子里的基因，即便是一个当代标榜自由的中国人也很难接受一个自由无序混乱的社会。或许是人口众多的原因，人们骨子里会讨厌不遵守规则的人。中国人的自由观是一种秩序之下的自由，侧面来讲人们也不喜欢“真实”，人们喜欢听赞美的话，听阿谀奉承的话。人之情多矫，世之俗多伪。</p>
-<p>9月6日</p>
-<p>如果一个时代往上走，民众就会努力让自己进步而不是被落下；但如果一个时代往下走，民众就特别钟爱坑蒙拐骗偷的无下限套路。社会是个有机整体，集体潜意识决定了未来，信心是比黄金更为珍贵的东西。</p>
-<p>9月7日</p>
-<p>一旦思维得到扩展，思想就再也无法回到原本狭小的领域了。这是阅读的好处，也是阅读的坏处。理解了社会与人的复杂，理解了自我认知的局限后，会感到快乐，但同时也会得到更多痛苦。就像那个经典的哲学问题，你是想做一个快乐的猪还是痛苦的人？或许喜欢阅读的人都有着某种“受虐倾向”吧，他们明知山有虎，却偏向虎山行。</p>
-<p>9月9日</p>
-<p>一个观察不一定对，近半年舆论的崩坏程度已经逼近疫情那三年了。未来将会有更多网红“翻车”，这当然并不是因为这些网红之前不存在些问题，而是仇视心理放大了群体不满。至于为什么戾气变重了？口袋里没钱了或是收入不及预期，不能靠消费购买到可控的快乐了，所以上网更多是发泄。群体情绪是经济的晴雨表。</p>
-<p>9月10日</p>
-<p>我们总是有一种不可抑制的冲动，就是对每件事情归因，追求秩序性和可预见性。人需要找到生活的自洽逻辑，生命是荒谬的，人生是不平等的，但意义感却是自己给的。</p>
-<p>9月11日</p>
-<p>首先人应该善良，其次应该诚实，但最重要的是不要相互遗忘。陀思妥耶夫斯基的这句话很有力量，但又谈何容易呢？</p>
-<p>9月12日</p>
-<p>身为东北人竟然没有看过东北文学，羞愧。</p>
-<p>9月14日</p>
-<p>穷人的善良是“廉价”的，它就跟穷小子的爱一样无人在意。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·二十二</a></h2><span class="post__date">2024-08-15</span></div></div><div class="article__content"><h1 id="思考马克·二十二"><a href="#思考马克·二十二" class="headerlink" title="思考马克·二十二"></a>思考马克·二十二</h1><h2 id="2024年八月记录"><a href="#2024年八月记录" class="headerlink" title="2024年八月记录"></a><strong>2024年八月记录</strong></h2><h3 id="8月18日"><a href="#8月18日" class="headerlink" title="8月18日"></a>8月18日</h3><p>consistency+discipline+patience&#x3D; mindset</p>
+<h3 id="8月21日"><a href="#8月21日" class="headerlink" title="8月21日"></a>8月21日</h3><p>青年人看不到希望，只能发泄在网上。互联网是他们为数不多可以寻求个人存在感的地方了。可悲吗？当然，但是他们又能怎么样呢…</p>
+<h3 id="8月22日"><a href="#8月22日" class="headerlink" title="8月22日"></a>8月22日</h3><p>钱从某种程度上说也是一种选票，所以成功的商人也能变为成功的政治家。但成功的政治家在伦理角度上讲并不被允许成为成功的商人。权力和金钱本是一体两面。</p>
+<h3 id="8月23日"><a href="#8月23日" class="headerlink" title="8月23日"></a>8月23日</h3><p>太笨的人能力不行，太聪明的人又总想走捷径，只有不太笨又偏执的人才能做出优秀的产品。</p>
+<h3 id="8月26日"><a href="#8月26日" class="headerlink" title="8月26日"></a>8月26日</h3><p>《悉达多》被推荐种草了好久，今天一口气读完。黑塞把佛陀分成乔达摩和悉达多两人，用前后各种因果轮回对比，用悉达多年轻的傲慢和年老的宁静做对比，写作手法确实非常独特。感觉这故事很多都源自《金刚经》等佛教哲学经典，就像书中最后表达悉达多的若见诸相非相，也就成佛了。人需要在自我否定后，去认识人生，去认识世界，去认识自我。当你觉得“我”不是我，Being不是真的存在后，才能真正的认识自我。也就是《金刚经》的三句义：佛说世界，即非世界，是名世界。</p>
+<h3 id="8月27日"><a href="#8月27日" class="headerlink" title="8月27日"></a>8月27日</h3><p>人必须保持持续进步，否则就会被经验捆绑，成为过往的囚徒。</p>
+<h3 id="8月29日"><a href="#8月29日" class="headerlink" title="8月29日"></a>8月29日</h3><p>猫猫才是掌握进化精髓的动物，这或许才是进化的意义，人类终究是走错了方向。</p>
+<h3 id="8月31日"><a href="#8月31日" class="headerlink" title="8月31日"></a>8月31日</h3><p>没有人能看清他者的路，无数的历史表明，十恶不赦的人或许通向神圣，善良的人或许最终走进苦难。人独自行过生命，蒙受玷污，承担罪过，然后再苦苦寻觅出路。有些人就算再怎么努力挣扎，也不能扭转命运的一丝一毫。接受这个世界的荒谬，远比改变它更为艰难。</p>
+<h3 id="9月1日"><a href="#9月1日" class="headerlink" title="9月1日"></a>9月1日</h3><p>有时候其实大家不是多希望小红书赢，是受够了互联网下半场的悲观预期。</p>
+<h3 id="9月2日"><a href="#9月2日" class="headerlink" title="9月2日"></a>9月2日</h3><p>良心经常以沉默的方式来表达。</p>
+<h3 id="9月5日"><a href="#9月5日" class="headerlink" title="9月5日"></a>9月5日</h3><p>秩序感是国人骨子里的基因，即便是一个当代标榜自由的中国人也很难接受一个自由无序混乱的社会。或许是人口众多的原因，人们骨子里会讨厌不遵守规则的人。中国人的自由观是一种秩序之下的自由，侧面来讲人们也不喜欢“真实”，人们喜欢听赞美的话，听阿谀奉承的话。人之情多矫，世之俗多伪。</p>
+<h3 id="9月6日"><a href="#9月6日" class="headerlink" title="9月6日"></a>9月6日</h3><p>如果一个时代往上走，民众就会努力让自己进步而不是被落下；但如果一个时代往下走，民众就特别钟爱坑蒙拐骗偷的无下限套路。社会是个有机整体，集体潜意识决定了未来，信心是比黄金更为珍贵的东西。</p>
+<h3 id="9月7日"><a href="#9月7日" class="headerlink" title="9月7日"></a>9月7日</h3><p>一旦思维得到扩展，思想就再也无法回到原本狭小的领域了。这是阅读的好处，也是阅读的坏处。理解了社会与人的复杂，理解了自我认知的局限后，会感到快乐，但同时也会得到更多痛苦。就像那个经典的哲学问题，你是想做一个快乐的猪还是痛苦的人？或许喜欢阅读的人都有着某种“受虐倾向”吧，他们明知山有虎，却偏向虎山行。</p>
+<h3 id="9月9日"><a href="#9月9日" class="headerlink" title="9月9日"></a>9月9日</h3><p>一个观察不一定对，近半年舆论的崩坏程度已经逼近疫情那三年了。未来将会有更多网红“翻车”，这当然并不是因为这些网红之前不存在些问题，而是仇视心理放大了群体不满。至于为什么戾气变重了？口袋里没钱了或是收入不及预期，不能靠消费购买到可控的快乐了，所以上网更多是发泄。群体情绪是经济的晴雨表。</p>
+<h3 id="9月10日"><a href="#9月10日" class="headerlink" title="9月10日"></a>9月10日</h3><p>我们总是有一种不可抑制的冲动，就是对每件事情归因，追求秩序性和可预见性。人需要找到生活的自洽逻辑，生命是荒谬的，人生是不平等的，但意义感却是自己给的。</p>
+<h3 id="9月11日"><a href="#9月11日" class="headerlink" title="9月11日"></a>9月11日</h3><p>首先人应该善良，其次应该诚实，但最重要的是不要相互遗忘。陀思妥耶夫斯基的这句话很有力量，但又谈何容易呢？</p>
+<h3 id="9月12日"><a href="#9月12日" class="headerlink" title="9月12日"></a>9月12日</h3><p>身为东北人竟然没有看过东北文学，羞愧。</p>
+<h3 id="9月14日"><a href="#9月14日" class="headerlink" title="9月14日"></a>9月14日</h3><p>穷人的善良是“廉价”的，它就跟穷小子的爱一样无人在意。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81%E4%B8%89/">思考马克·二十三</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81%E4%B8%80/">思考马克·二十一</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

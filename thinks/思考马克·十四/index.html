@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·十四</p><script>(function() {
   try {
@@ -164,62 +161,36 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十四</a></h2><span class="post__date">2023-12-15</span></div></div><div class="article__content"><h1 id="思考马克·十四"><a href="#思考马克·十四" class="headerlink" title="思考马克·十四"></a><strong>思考马克·十四</strong></h1><h3 id="2023年十二月记录"><a href="#2023年十二月记录" class="headerlink" title="2023年十二月记录"></a><strong>2023年十二月记录</strong></h3><p>11月15日</p>
-<p>我们曾问过一个因纳粹屠杀逃出欧洲的富有企业主，为什么他的所有成年子女都是个体经营的专业人士。他回答道：他们可以没收你的企业，但不能没收你的知识！——《邻家的百万富翁》</p>
-<p>11月16日</p>
-<p>Society is better when people have access to knowledge.</p>
-<p>11月18日</p>
-<p>Every day you can feel the technological change. But you can also feel that the world is getting worse.</p>
-<p>11月24日</p>
-<p>这个世界不怕左派多，更不怕右派抬头。怕的越来越多的左倾右翼，不分是非黑白。在我之上人人平等，在我之下层次分明。没知识，多情绪，站立场。当越来越多人无法独立思考，留下的只能是一地鸡毛。</p>
-<p>11月25日</p>
-<p>现代人的实用主义大概就是，你不需要弄懂很多原理，会使用前人发明的工具就已经足够了。你不需要懂底层原理或许能更好的利用工具，懂了也不代表你能用它们实现什么更伟大的创造。世界在变得越来越复杂，复杂到人脑已经无法分辨哪些是真相，甚至进化出了大脑的自我欺骗。</p>
-<p>11月26日</p>
-<p>搞内容社区的本质就如同充气娃娃一样，就是给人家泄欲的。没给上面兜好底人家不爽搞你一下，观众老爷们没看爽也会冲你发泄一下。需要你的时候，大家都想抚摸你甚至觉得你不可或缺。不需要你的时候，就会觉得你真恶心会像垃圾一样无情丢弃。永远都不要成为别人的泄欲工具，虽然被需要，但是没前途。</p>
-<p>11月28日</p>
-<p>As Stephen Kosslyn notably says, The first maxim is “Think it through.” The key idea is very simple: the more you think something through, paying attention to what you are doing, the more likely you are to remember it.</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十四</a></h2><span class="post__date">2023-12-15</span></div></div><div class="article__content"><h1 id="思考马克·十四"><a href="#思考马克·十四" class="headerlink" title="思考马克·十四"></a>思考马克·十四</h1><h2 id="2023年十二月记录"><a href="#2023年十二月记录" class="headerlink" title="2023年十二月记录"></a><strong>2023年十二月记录</strong></h2><h3 id="11月15日"><a href="#11月15日" class="headerlink" title="11月15日"></a>11月15日</h3><p>我们曾问过一个因纳粹屠杀逃出欧洲的富有企业主，为什么他的所有成年子女都是个体经营的专业人士。他回答道：他们可以没收你的企业，但不能没收你的知识！——《邻家的百万富翁》</p>
+<h3 id="11月16日"><a href="#11月16日" class="headerlink" title="11月16日"></a>11月16日</h3><p>Society is better when people have access to knowledge.</p>
+<h3 id="11月18日"><a href="#11月18日" class="headerlink" title="11月18日"></a>11月18日</h3><p>Every day you can feel the technological change. But you can also feel that the world is getting worse.</p>
+<h3 id="11月24日"><a href="#11月24日" class="headerlink" title="11月24日"></a>11月24日</h3><p>这个世界不怕左派多，更不怕右派抬头。怕的越来越多的左倾右翼，不分是非黑白。在我之上人人平等，在我之下层次分明。没知识，多情绪，站立场。当越来越多人无法独立思考，留下的只能是一地鸡毛。</p>
+<h3 id="11月25日"><a href="#11月25日" class="headerlink" title="11月25日"></a>11月25日</h3><p>现代人的实用主义大概就是，你不需要弄懂很多原理，会使用前人发明的工具就已经足够了。你不需要懂底层原理或许能更好的利用工具，懂了也不代表你能用它们实现什么更伟大的创造。世界在变得越来越复杂，复杂到人脑已经无法分辨哪些是真相，甚至进化出了大脑的自我欺骗。</p>
+<h3 id="11月26日"><a href="#11月26日" class="headerlink" title="11月26日"></a>11月26日</h3><p>搞内容社区的本质就如同充气娃娃一样，就是给人家泄欲的。没给上面兜好底人家不爽搞你一下，观众老爷们没看爽也会冲你发泄一下。需要你的时候，大家都想抚摸你甚至觉得你不可或缺。不需要你的时候，就会觉得你真恶心会像垃圾一样无情丢弃。永远都不要成为别人的泄欲工具，虽然被需要，但是没前途。</p>
+<h3 id="11月28日"><a href="#11月28日" class="headerlink" title="11月28日"></a>11月28日</h3><p>As Stephen Kosslyn notably says, The first maxim is “Think it through.” The key idea is very simple: the more you think something through, paying attention to what you are doing, the more likely you are to remember it.</p>
 <p>When we read, another person thinks for us: we merely repeat his mental process. … For the more one reads the fewer are the traces left of what one has read; the mind is like a tablet that has been written over and over. Hence it is impossible to reflect; and it is only by reflection that one can assimilate what one has read if one reads straight ahead without pondering over it later, what has been read does not take root, but is for the most part lost. Indeed, it is the same with mental as with bodily food: scarcely the fifth part of what a man takes is assimilated; the remainder passes off in evaporation, respiration, and the like.—— Schopenhauer</p>
 <p>我们总应该在这无尽无意义的旅途中找点存在下去的理由：丰富这个旅程，大胆的去尝试。</p>
-<p>11月30日</p>
-<p>永远都是少数精英在掌握着话语权，边缘化的群体好似都不存在过。人类一直在为少数东西在进行着溢价支付，所以进入名校圈子，进入这个话语体系就变得非常重要。</p>
-<p>12月1日</p>
-<p>如果所有的教育是把一个正常人规训成一个“合格的奴才”，那这样的教育不接受也罢。从古至今，从不缺少奴才不是嘛。小到一个家庭、一家公司、大到一个社会，其实我们和大清并不遥远，百年轮回，我们有了更好的物质生活，然后呢？剩下只有感恩，谢主隆恩。就像鲁迅先生说的，我们极容易变成奴隶，而且变了之后会万分喜欢。</p>
-<p>12月3日</p>
-<p>我们应当如何生活，我们又应当如何死去，这两者同等重要。你活过，你死了，却和大多数人的活法和死法都不一样。我们似乎都走过一样艰难曲折的人生道路，如今我们仍然活在你思想的遗产里，很多人也都过上了你理想中的生活。但我们都不敢忘记，你曾经来过﹝1﹞。</p>
-<p>12月6日</p>
-<p>Prompt 最好的中文翻译不是提示词，而是咒语。</p>
-<p>12月7日</p>
-<p>教育的古怪之处在于，如果把学生当做天才去教育，学生几乎注定不会成为天才，因为天才是靠自学的；但是，如果把学生当做弱智去教育，那学生肯定会变成弱智──因为人傻是被教出来的。</p>
+<h3 id="11月30日"><a href="#11月30日" class="headerlink" title="11月30日"></a>11月30日</h3><p>永远都是少数精英在掌握着话语权，边缘化的群体好似都不存在过。人类一直在为少数东西在进行着溢价支付，所以进入名校圈子，进入这个话语体系就变得非常重要。</p>
+<h3 id="12月1日"><a href="#12月1日" class="headerlink" title="12月1日"></a>12月1日</h3><p>如果所有的教育是把一个正常人规训成一个“合格的奴才”，那这样的教育不接受也罢。从古至今，从不缺少奴才不是嘛。小到一个家庭、一家公司、大到一个社会，其实我们和大清并不遥远，百年轮回，我们有了更好的物质生活，然后呢？剩下只有感恩，谢主隆恩。就像鲁迅先生说的，我们极容易变成奴隶，而且变了之后会万分喜欢。</p>
+<h3 id="12月3日"><a href="#12月3日" class="headerlink" title="12月3日"></a>12月3日</h3><p>我们应当如何生活，我们又应当如何死去，这两者同等重要。你活过，你死了，却和大多数人的活法和死法都不一样。我们似乎都走过一样艰难曲折的人生道路，如今我们仍然活在你思想的遗产里，很多人也都过上了你理想中的生活。但我们都不敢忘记，你曾经来过﹝1﹞。</p>
+<h3 id="12月6日"><a href="#12月6日" class="headerlink" title="12月6日"></a>12月6日</h3><p>Prompt 最好的中文翻译不是提示词，而是咒语。</p>
+<h3 id="12月7日"><a href="#12月7日" class="headerlink" title="12月7日"></a>12月7日</h3><p>教育的古怪之处在于，如果把学生当做天才去教育，学生几乎注定不会成为天才，因为天才是靠自学的；但是，如果把学生当做弱智去教育，那学生肯定会变成弱智──因为人傻是被教出来的。</p>
 <p>——李笑来</p>
-<p>12月10日</p>
-<p>所有的内容社区最后都会沦为情绪的放大器。秀无知，秀下限。不要问为什么，因为真正“有趣的人”已经默不作声了。</p>
-<p>12月11日</p>
-<p>生物之间的根本区别是获取以及处理信息方式，所以读书等能让人涨见识的可以让人明智。但这有个大前提是你得获取到优质的信息，悲哀之处在于很多人并不希望人们轻易平等的获取到优质信息。他们一直在尝试用垃圾信息灌满人们的脑子，我们并非天生愚蠢和偏见，更多是乱花渐欲迷人眼，让人们迷失了生的方向。</p>
-<p>12月16日</p>
-<p>曾经那些镶着金边的，有关汗水的承诺，而今都已然变成了一种对个体毫无意义的剥削，一种企业为了降本增效所炮制出来的精致谎言。</p>
-<p>12月17日</p>
-<p>Things should be made as simple as possible, but not any simpler.</p>
-<p>12月18日</p>
-<p>他们从来只会逼好人，而对那些杀他父母的人却从来都是怯懦的。他们从来都是自以为是的勇敢，因为他们根本不想付出任何代价。</p>
+<h3 id="12月10日"><a href="#12月10日" class="headerlink" title="12月10日"></a>12月10日</h3><p>所有的内容社区最后都会沦为情绪的放大器。秀无知，秀下限。不要问为什么，因为真正“有趣的人”已经默不作声了。</p>
+<h3 id="12月11日"><a href="#12月11日" class="headerlink" title="12月11日"></a>12月11日</h3><p>生物之间的根本区别是获取以及处理信息方式，所以读书等能让人涨见识的可以让人明智。但这有个大前提是你得获取到优质的信息，悲哀之处在于很多人并不希望人们轻易平等的获取到优质信息。他们一直在尝试用垃圾信息灌满人们的脑子，我们并非天生愚蠢和偏见，更多是乱花渐欲迷人眼，让人们迷失了生的方向。</p>
+<h3 id="12月16日"><a href="#12月16日" class="headerlink" title="12月16日"></a>12月16日</h3><p>曾经那些镶着金边的，有关汗水的承诺，而今都已然变成了一种对个体毫无意义的剥削，一种企业为了降本增效所炮制出来的精致谎言。</p>
+<h3 id="12月17日"><a href="#12月17日" class="headerlink" title="12月17日"></a>12月17日</h3><p>Things should be made as simple as possible, but not any simpler.</p>
+<h3 id="12月18日"><a href="#12月18日" class="headerlink" title="12月18日"></a>12月18日</h3><p>他们从来只会逼好人，而对那些杀他父母的人却从来都是怯懦的。他们从来都是自以为是的勇敢，因为他们根本不想付出任何代价。</p>
 <p>好人要经历九九八十一难才能成佛，而坏人只需要放下屠刀。君子只要一件事没有做好就会背上一世骂名，而小人常戚戚改过了就可以自新。管理预期真的很重要，预期是美好的最大杀手。</p>
-<p>12月20日</p>
-<p>地球是一个摇篮，但是我们不能永远呆在摇篮里。</p>
-<p>12月21日</p>
-<p>以前觉得互联网时代最不容易给人洗脑，后来发现没有哪个时代比这个时代更容易给人们灌输某种情绪和概念。甚至很多时候现象级的火爆内容都带有一种抽象，似乎没人能解释明白。相反越是这样，大家越愿意讨好某种流行的话语。以前的集体性是被迫的，现在的集体性是自发的。</p>
-<p>12月24日</p>
-<p>我们要做的不是惧怕风险，对于大多数普通人来说跨越阶层的唯一办法就是要去勇敢“冒险”。重要的根本不在于如何避免问题，而是去找到问题，并尝试用新方法去解决问题。</p>
+<h3 id="12月20日"><a href="#12月20日" class="headerlink" title="12月20日"></a>12月20日</h3><p>地球是一个摇篮，但是我们不能永远呆在摇篮里。</p>
+<h3 id="12月21日"><a href="#12月21日" class="headerlink" title="12月21日"></a>12月21日</h3><p>以前觉得互联网时代最不容易给人洗脑，后来发现没有哪个时代比这个时代更容易给人们灌输某种情绪和概念。甚至很多时候现象级的火爆内容都带有一种抽象，似乎没人能解释明白。相反越是这样，大家越愿意讨好某种流行的话语。以前的集体性是被迫的，现在的集体性是自发的。</p>
+<h3 id="12月24日"><a href="#12月24日" class="headerlink" title="12月24日"></a>12月24日</h3><p>我们要做的不是惧怕风险，对于大多数普通人来说跨越阶层的唯一办法就是要去勇敢“冒险”。重要的根本不在于如何避免问题，而是去找到问题，并尝试用新方法去解决问题。</p>
 <p>现在看来马斯克判断对了，OpenAI 确实是一点都不 Open ，人工智能的未来不应该被某一家公司或者某个人控制，这对人类文明来说将是巨大的威胁。</p>
-<p>12月26日</p>
-<p>天赋是一种下意识，是与生俱来的算法。</p>
-<p>12月27日</p>
-<p>我们总是喜欢用旧经验去解释新现象，这或许是想象力受限的原因。如果我们想要创造一个新世界，那我们真正需要遵守的就是最基本的原理。受限于物理定律的规则，才是我们真正需要遵守的规则。我们需要的是一个新秩序，所以其他的只能是建议。</p>
-<p>12月28日</p>
-<p>Back to the beginning, interpret the future.</p>
+<h3 id="12月26日"><a href="#12月26日" class="headerlink" title="12月26日"></a>12月26日</h3><p>天赋是一种下意识，是与生俱来的算法。</p>
+<h3 id="12月27日"><a href="#12月27日" class="headerlink" title="12月27日"></a>12月27日</h3><p>我们总是喜欢用旧经验去解释新现象，这或许是想象力受限的原因。如果我们想要创造一个新世界，那我们真正需要遵守的就是最基本的原理。受限于物理定律的规则，才是我们真正需要遵守的规则。我们需要的是一个新秩序，所以其他的只能是建议。</p>
+<h3 id="12月28日"><a href="#12月28日" class="headerlink" title="12月28日"></a>12月28日</h3><p>Back to the beginning, interpret the future.</p>
 <p>“神”是不是一位程序员，创世纪的前几天一直在创造变量和参数（日月山川），直到他开发完了这个系统（宇宙）。最后他创造了这个可以给万物命名的生物——人类，命名一直是人的特权，但却没有明确声明。关于上帝是什么，或许就一直藏在人类的语言之中，我们同样也在模仿上帝用语言在创造更多的“小宇宙”。</p>
-<p>12月29日</p>
-<p>我遇到的所有最酷的人，都是通过我写的东西我做的产品找到我的人。</p>
-<p>12月30日</p>
-<p>敢于冒险，哪怕是付出生命的代价。</p>
-<p>12月31日</p>
-<p>有时候，正是那些人们认为的无用之人，成就了无人所成之事。</p>
+<h3 id="12月29日"><a href="#12月29日" class="headerlink" title="12月29日"></a>12月29日</h3><p>我遇到的所有最酷的人，都是通过我写的东西我做的产品找到我的人。</p>
+<h3 id="12月30日"><a href="#12月30日" class="headerlink" title="12月30日"></a>12月30日</h3><p>敢于冒险，哪怕是付出生命的代价。</p>
+<h3 id="12月31日"><a href="#12月31日" class="headerlink" title="12月31日"></a>12月31日</h3><p>有时候，正是那些人们认为的无用之人，成就了无人所成之事。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%BA%94/">思考马克·十五</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B720%E5%B9%B406%E6%9C%88%E8%87%B323%E5%B9%B411%E6%9C%88%E8%AE%B0%E5%BD%95/">思考马克·20年06月至23年11月记录</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

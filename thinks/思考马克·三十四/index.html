@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·三十四</p><script>(function() {
   try {
@@ -164,59 +161,34 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十四</a></h2><span class="post__date">2025-11-15</span></div></div><div class="article__content"><h3 id="2025年十一月记录"><a href="#2025年十一月记录" class="headerlink" title="2025年十一月记录"></a><strong>2025年十一月记录</strong></h3><p>11月14日</p>
-<p>我给他们争取了自由，他们却用自由做了些什么呢？</p>
-<p>11月15日</p>
-<p>人总是要经历点遗憾和刻苦铭心，才能写出那么多感人至深的话。</p>
-<p>11月16日</p>
-<p>在互联网社交媒体高度发达的今天，拥抱高质量小共同体、远比亲近低质量混沌的大空间要好。远离大众自古以来都是一种睿智的自我保护生存策略。这样不仅能活得开心，其次还因注意力宝贵，没必要把生命浪费在跟无关人的辩驳上。人从来都不可能因为他人的几句话就能被改变的，每个人都有自己的命数，改变别人干嘛呢？不要天真的以为改变别人，别人就会感激你。最重要的是要减少招致他人怨恨，而取悦他人，是最好的方式。但如若不想说假话，那最好的方式就是保持沉默。</p>
-<p>11月18日</p>
-<p>毛的实践论是我目前看到的对知行合一最好的、最全面的、最透彻的分析。王阳明和毛都意识到了，如果想要做成事，就必须去实践和认识相结合。仅有经验是不够的，要把感性的经验抽象成方法论，然后用这个方法论去继续指导实践，继而修正迭代方法论。人很难仅通过理论去实现理想，也不能仅通过做事而无方法的去盲目实践，当知和行达到统一后，方能说接近了真理，这就是辩证唯物的认识论。</p>
-<p>11月19日</p>
-<p>推荐有价值的内容和推荐有流量的内容是两个逻辑。热闹吸睛并不等于价值。真正的价值在于人们是否愿意掏真金白银，用钱投票才是真需求。</p>
-<p>11月20日</p>
-<p>女性天生比男性共情能力要强，所以在这个信息爆炸、充满负面戾气和焦虑的时代，女性要比男性痛苦很多。女性更愿意阅读文字而不是通过视觉化去感受世界。这或许生物演化因素有关，女性常活在“幻想”里，而男性则能活在“视觉”里。英雄难过美人关，女性需要更多安全感。而如今大家越来越没有阅读的耐心了……注意力稀缺的时代，人类终究进入到了属于我们的“25号宇宙”时刻。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十四</a></h2><span class="post__date">2025-11-15</span></div></div><div class="article__content"><h2 id="2025年十一月记录"><a href="#2025年十一月记录" class="headerlink" title="2025年十一月记录"></a><strong>2025年十一月记录</strong></h2><h3 id="11月14日"><a href="#11月14日" class="headerlink" title="11月14日"></a>11月14日</h3><p>我给他们争取了自由，他们却用自由做了些什么呢？</p>
+<h3 id="11月15日"><a href="#11月15日" class="headerlink" title="11月15日"></a>11月15日</h3><p>人总是要经历点遗憾和刻苦铭心，才能写出那么多感人至深的话。</p>
+<h3 id="11月16日"><a href="#11月16日" class="headerlink" title="11月16日"></a>11月16日</h3><p>在互联网社交媒体高度发达的今天，拥抱高质量小共同体、远比亲近低质量混沌的大空间要好。远离大众自古以来都是一种睿智的自我保护生存策略。这样不仅能活得开心，其次还因注意力宝贵，没必要把生命浪费在跟无关人的辩驳上。人从来都不可能因为他人的几句话就能被改变的，每个人都有自己的命数，改变别人干嘛呢？不要天真的以为改变别人，别人就会感激你。最重要的是要减少招致他人怨恨，而取悦他人，是最好的方式。但如若不想说假话，那最好的方式就是保持沉默。</p>
+<h3 id="11月18日"><a href="#11月18日" class="headerlink" title="11月18日"></a>11月18日</h3><p>毛的实践论是我目前看到的对知行合一最好的、最全面的、最透彻的分析。王阳明和毛都意识到了，如果想要做成事，就必须去实践和认识相结合。仅有经验是不够的，要把感性的经验抽象成方法论，然后用这个方法论去继续指导实践，继而修正迭代方法论。人很难仅通过理论去实现理想，也不能仅通过做事而无方法的去盲目实践，当知和行达到统一后，方能说接近了真理，这就是辩证唯物的认识论。</p>
+<h3 id="11月19日"><a href="#11月19日" class="headerlink" title="11月19日"></a>11月19日</h3><p>推荐有价值的内容和推荐有流量的内容是两个逻辑。热闹吸睛并不等于价值。真正的价值在于人们是否愿意掏真金白银，用钱投票才是真需求。</p>
+<h3 id="11月20日"><a href="#11月20日" class="headerlink" title="11月20日"></a>11月20日</h3><p>女性天生比男性共情能力要强，所以在这个信息爆炸、充满负面戾气和焦虑的时代，女性要比男性痛苦很多。女性更愿意阅读文字而不是通过视觉化去感受世界。这或许生物演化因素有关，女性常活在“幻想”里，而男性则能活在“视觉”里。英雄难过美人关，女性需要更多安全感。而如今大家越来越没有阅读的耐心了……注意力稀缺的时代，人类终究进入到了属于我们的“25号宇宙”时刻。</p>
 <p>现在 AI 媒体们的标题党程度，已经毫不逊色于传统媒体了……大家为了争夺注意力也是拼了。信息爆炸的当下，用户越来越没有耐心的时代，流量成了最廉价的东西，也成了最贵的东西。</p>
-<p>11月21日</p>
-<p>重要的不是你拥有什么，而是你的感受是什么。</p>
-<p>11月23日</p>
-<p>之前也去了几次天安门但从未想过去看看老人家，这次去之前还是又仔细翻了翻毛选，作为新中国的领袖以及精神领袖，我们都必须承认，老人家从未离我们远去。这几年陆陆续续看了些老人家的著作，从《早期文稿》到《选集》，再到一些反对者对于老人家的批评等等。不论是崇拜还是批判他，都有一群巨大的拥趸。但不论如何，你都必须承认他开创了一个不一样的时代，我有时会想，我们活在毛的时代会怎样呢？或许，人们不会丢失狂热吧。因为他太有魅力了不是吗……但也别忘了老人家曾说过，数风流人物，还看今朝。</p>
-<p>11月27日</p>
-<p>杭州就是中国的加州。</p>
-<p>11月28日</p>
-<p>人需要活在希望中，那怕那希望是虚无缥缈的。但还需认清现实，因为实现理想的过程需要脚踏实地。仰望星空当然会发现自我的渺小与局限，但渺小从不是没有力量，不积跬步，无法达到灵山。回看来时路时，我们终究会怀念当初的时光，这是人性的复杂和矛盾性。目标很重要，但我们体验的永远是过程，而非结果。结果是给人看的，感受是自己的。</p>
-<p>11月29日</p>
-<p>慕强的底层逻辑是缺乏安全感。</p>
-<p>11月30日</p>
-<p>以前特别烦大学生在评论区发抽象表情包，觉得特别乱，也没有实际讨论价值。但是不知不觉我现在每天就喜欢在看他们发的抽象表情包，每次看到都觉得特别有趣憋不住笑。果然，人这种动物什么都能适应。</p>
-<p>11月1日</p>
-<p>终于明白了什么是“看万山红遍，层林尽染……万类霜天竞自由”。湖南人的浪漫主义和乐观的精神状态，以及整座城市浓浓的烟火气和活人感，真是非常吸引人的。也解开了诸多疑惑，为什么许多革命领袖出生在湖南——没有这些地域环境派生出来的性格，是无法在每天都充满不确定性的革命年代存活下来并成就一番事业的。</p>
-<p>11月2日</p>
-<p>渤海深处写满了不甘。</p>
-<p>12月4日</p>
-<p>一切不符合第一性原理的需求，或者需要用户付出一定学习成本才能被满足的使用需求都会被 AI 时代所重塑。技术进步就是要打破或者降低一切学习门槛，无论是从生产端的应用开发还是用户端的使用学习成本。任何东西它的出现应该符合最直接的需求，而不是需要人类来特殊学习才能获得使用权。</p>
-<p>12月6日</p>
-<p>历史会永远反复。一切的委屈和不公，最后都会以诉诸暴力的方式去解决。时间永远不会抚平伤口，拳头硬才是真理。</p>
-<p>12月7日</p>
-<p>舆论已经崩坏，人民已经不再相信。今夕是何年？</p>
-<p><br>12月8日</p>
-<p>这些年的感触就是不是一个阶层的人真的尿不到一壶去。这个阶层可以按照教育程度划分，也可以按照财富程度划分，更可以按照官员的权力大小划分，甚至你可以按照博主的粉丝量分。不同阶层的利益就是不一致的，没人会轻易的把拼命赚来的的权和利跟你一个平民百姓分。所以我们很难反驳他老人家的“以阶级斗争为纲”的口号是错误的，即便是他去世后的第49年。一个平等的社会是不可能有参差的，一个有参差的社会也是不可能会平等的。</p>
+<h3 id="11月21日"><a href="#11月21日" class="headerlink" title="11月21日"></a>11月21日</h3><p>重要的不是你拥有什么，而是你的感受是什么。</p>
+<h3 id="11月23日"><a href="#11月23日" class="headerlink" title="11月23日"></a>11月23日</h3><p>之前也去了几次天安门但从未想过去看看老人家，这次去之前还是又仔细翻了翻毛选，作为新中国的领袖以及精神领袖，我们都必须承认，老人家从未离我们远去。这几年陆陆续续看了些老人家的著作，从《早期文稿》到《选集》，再到一些反对者对于老人家的批评等等。不论是崇拜还是批判他，都有一群巨大的拥趸。但不论如何，你都必须承认他开创了一个不一样的时代，我有时会想，我们活在毛的时代会怎样呢？或许，人们不会丢失狂热吧。因为他太有魅力了不是吗……但也别忘了老人家曾说过，数风流人物，还看今朝。</p>
+<h3 id="11月27日"><a href="#11月27日" class="headerlink" title="11月27日"></a>11月27日</h3><p>杭州就是中国的加州。</p>
+<h3 id="11月28日"><a href="#11月28日" class="headerlink" title="11月28日"></a>11月28日</h3><p>人需要活在希望中，那怕那希望是虚无缥缈的。但还需认清现实，因为实现理想的过程需要脚踏实地。仰望星空当然会发现自我的渺小与局限，但渺小从不是没有力量，不积跬步，无法达到灵山。回看来时路时，我们终究会怀念当初的时光，这是人性的复杂和矛盾性。目标很重要，但我们体验的永远是过程，而非结果。结果是给人看的，感受是自己的。</p>
+<h3 id="11月29日"><a href="#11月29日" class="headerlink" title="11月29日"></a>11月29日</h3><p>慕强的底层逻辑是缺乏安全感。</p>
+<h3 id="11月30日"><a href="#11月30日" class="headerlink" title="11月30日"></a>11月30日</h3><p>以前特别烦大学生在评论区发抽象表情包，觉得特别乱，也没有实际讨论价值。但是不知不觉我现在每天就喜欢在看他们发的抽象表情包，每次看到都觉得特别有趣憋不住笑。果然，人这种动物什么都能适应。</p>
+<h3 id="11月1日"><a href="#11月1日" class="headerlink" title="11月1日"></a>11月1日</h3><p>终于明白了什么是“看万山红遍，层林尽染……万类霜天竞自由”。湖南人的浪漫主义和乐观的精神状态，以及整座城市浓浓的烟火气和活人感，真是非常吸引人的。也解开了诸多疑惑，为什么许多革命领袖出生在湖南——没有这些地域环境派生出来的性格，是无法在每天都充满不确定性的革命年代存活下来并成就一番事业的。</p>
+<h3 id="11月2日"><a href="#11月2日" class="headerlink" title="11月2日"></a>11月2日</h3><p>渤海深处写满了不甘。</p>
+<h3 id="12月4日"><a href="#12月4日" class="headerlink" title="12月4日"></a>12月4日</h3><p>一切不符合第一性原理的需求，或者需要用户付出一定学习成本才能被满足的使用需求都会被 AI 时代所重塑。技术进步就是要打破或者降低一切学习门槛，无论是从生产端的应用开发还是用户端的使用学习成本。任何东西它的出现应该符合最直接的需求，而不是需要人类来特殊学习才能获得使用权。</p>
+<h3 id="12月6日"><a href="#12月6日" class="headerlink" title="12月6日"></a>12月6日</h3><p>历史会永远反复。一切的委屈和不公，最后都会以诉诸暴力的方式去解决。时间永远不会抚平伤口，拳头硬才是真理。</p>
+<h3 id="12月7日"><a href="#12月7日" class="headerlink" title="12月7日"></a>12月7日</h3><p>舆论已经崩坏，人民已经不再相信。今夕是何年？</p>
+<p>\</p>
+<h3 id="12月8日"><a href="#12月8日" class="headerlink" title="12月8日"></a>12月8日</h3><p>这些年的感触就是不是一个阶层的人真的尿不到一壶去。这个阶层可以按照教育程度划分，也可以按照财富程度划分，更可以按照官员的权力大小划分，甚至你可以按照博主的粉丝量分。不同阶层的利益就是不一致的，没人会轻易的把拼命赚来的的权和利跟你一个平民百姓分。所以我们很难反驳他老人家的“以阶级斗争为纲”的口号是错误的，即便是他去世后的第49年。一个平等的社会是不可能有参差的，一个有参差的社会也是不可能会平等的。</p>
 <p>12月10肉</p>
 <p>AI 生产内容的时代，真实已成为最稀缺资源。</p>
-<p>12月11日</p>
-<p>在充满了阴谋论和断章取义的信息过载时代，人们越来越缺少了解“完整”的能力。</p>
-<p>12月12日</p>
-<p>培养兴趣，养成习惯，而非设立目标。</p>
-<p>12月13日</p>
-<p>这么多 AI 模型的名字，最喜欢谷歌的命名方式，最有活人感。</p>
-<p>12月14日</p>
-<p>不假思索的认同，不明真相的反对，都是思维懒惰的结果。一切事物都是有矛盾的，只是我们个人要选择哪一面。但前提是你做好了 AB test后做一个抉择，而不是一味的凭感觉做价值判断。</p>
-<p>12月16日</p>
-<p>Vibe Coding现在真的是太好用了，相比一年前刚推出的时候，如今基本上是指哪打哪……果然，自然语言才是最好的编程语言。</p>
-<p>12月17日</p>
-<p>人创造解决问题的 SOP，AI 去制造 SOP 效率工具，工具去重复 SOP。真的价值在于解决需求，需求决定消费与否，收取必要的服务费用。这大概就是如今的复利杠杆所在。</p>
-<p>12月18日</p>
-<p>批判式创新通常不会成功。</p>
-<p>12月19日</p>
-<p>看到一个对「左派青年」最好的解释：一群充满理想又无法实现这些理想的青年。但又有什么比革命更浪漫的事儿呢？你如果问我革命成功了吗？我会回答，它成功过。</p>
+<h3 id="12月11日"><a href="#12月11日" class="headerlink" title="12月11日"></a>12月11日</h3><p>在充满了阴谋论和断章取义的信息过载时代，人们越来越缺少了解“完整”的能力。</p>
+<h3 id="12月12日"><a href="#12月12日" class="headerlink" title="12月12日"></a>12月12日</h3><p>培养兴趣，养成习惯，而非设立目标。</p>
+<h3 id="12月13日"><a href="#12月13日" class="headerlink" title="12月13日"></a>12月13日</h3><p>这么多 AI 模型的名字，最喜欢谷歌的命名方式，最有活人感。</p>
+<h3 id="12月14日"><a href="#12月14日" class="headerlink" title="12月14日"></a>12月14日</h3><p>不假思索的认同，不明真相的反对，都是思维懒惰的结果。一切事物都是有矛盾的，只是我们个人要选择哪一面。但前提是你做好了 AB test后做一个抉择，而不是一味的凭感觉做价值判断。</p>
+<h3 id="12月16日"><a href="#12月16日" class="headerlink" title="12月16日"></a>12月16日</h3><p>Vibe Coding现在真的是太好用了，相比一年前刚推出的时候，如今基本上是指哪打哪……果然，自然语言才是最好的编程语言。</p>
+<h3 id="12月17日"><a href="#12月17日" class="headerlink" title="12月17日"></a>12月17日</h3><p>人创造解决问题的 SOP，AI 去制造 SOP 效率工具，工具去重复 SOP。真的价值在于解决需求，需求决定消费与否，收取必要的服务费用。这大概就是如今的复利杠杆所在。</p>
+<h3 id="12月18日"><a href="#12月18日" class="headerlink" title="12月18日"></a>12月18日</h3><p>批判式创新通常不会成功。</p>
+<h3 id="12月19日"><a href="#12月19日" class="headerlink" title="12月19日"></a>12月19日</h3><p>看到一个对「左派青年」最好的解释：一群充满理想又无法实现这些理想的青年。但又有什么比革命更浪漫的事儿呢？你如果问我革命成功了吗？我会回答，它成功过。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%BA%94/">思考马克·三十五</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%B8%89/">思考马克·三十三</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

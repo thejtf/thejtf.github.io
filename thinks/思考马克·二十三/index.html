@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·二十三</p><script>(function() {
   try {
@@ -164,22 +161,13 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·二十三</a></h2><span class="post__date">2024-09-15</span></div></div><div class="article__content"><h1 id="思考马克·二十三"><a href="#思考马克·二十三" class="headerlink" title="思考马克·二十三"></a><strong>思考马克·二十三</strong></h1><h3 id="2024年九月记录"><a href="#2024年九月记录" class="headerlink" title="2024年九月记录"></a><strong>2024年九月记录</strong></h3><p>9月23日</p>
-<p>影响话题讨论质量的两个因素：一个是阴谋论，一个是人身攻击。前者无法被证实或证伪，后者已不再是观点之争而演变成立场之争了。在如今互联网的舆论场里绝大部分信息都是情绪，而我们很多人每天都在消费这种情绪。吃多了垃圾食物人会消化不良，看多了情绪信息也同理。</p>
-<p>9月25日</p>
-<p>一个人应该得意，得意的人谈话都有精彩。也许只有意气风发，才能谈笑风生。</p>
-<p>10月7日</p>
-<p>世味酸咸谁自信，人生声利古难全。</p>
-<p>10月8日</p>
-<p>用心做产品和服务的人永远值得称赞，魔鬼藏在细节中。做产品的人很多，用产品传递思想的却少之又少。</p>
-<p>10月9日</p>
-<p>索罗斯说的对，市场的过度乐观和过度悲观都会创造投资机会。</p>
-<p>10月11日</p>
-<p>如果人生真的是一场游戏，那一场游戏里最重要的是什么？应当是密切关注「版本更新」。</p>
-<p>10月12日</p>
-<p>安民可与行义，而危民易与为非，仁义不施而攻守之势异也。历史上功成名就的往往是少数，也总有遗憾，这是历史的魅力，因为历史是真的。</p>
-<p>10月14日</p>
-<p>众所周知，市场长期由价值决定，而中短期却主要由资金和情绪决定。大多数人总是在错过了一个涨停板、一支牛股、一次牛市后，痛心疾首甚至拍烂大腿。但对于自己持之以恒地错过了整个时代，却恍然不觉甚至还心安理得。</p>
-<p>10月15日</p>
-<p>幽默感是对抗权威最好的力量。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·二十三</a></h2><span class="post__date">2024-09-15</span></div></div><div class="article__content"><h1 id="思考马克·二十三"><a href="#思考马克·二十三" class="headerlink" title="思考马克·二十三"></a>思考马克·二十三</h1><h2 id="2024年九月记录"><a href="#2024年九月记录" class="headerlink" title="2024年九月记录"></a><strong>2024年九月记录</strong></h2><h3 id="9月23日"><a href="#9月23日" class="headerlink" title="9月23日"></a>9月23日</h3><p>影响话题讨论质量的两个因素：一个是阴谋论，一个是人身攻击。前者无法被证实或证伪，后者已不再是观点之争而演变成立场之争了。在如今互联网的舆论场里绝大部分信息都是情绪，而我们很多人每天都在消费这种情绪。吃多了垃圾食物人会消化不良，看多了情绪信息也同理。</p>
+<h3 id="9月25日"><a href="#9月25日" class="headerlink" title="9月25日"></a>9月25日</h3><p>一个人应该得意，得意的人谈话都有精彩。也许只有意气风发，才能谈笑风生。</p>
+<h3 id="10月7日"><a href="#10月7日" class="headerlink" title="10月7日"></a>10月7日</h3><p>世味酸咸谁自信，人生声利古难全。</p>
+<h3 id="10月8日"><a href="#10月8日" class="headerlink" title="10月8日"></a>10月8日</h3><p>用心做产品和服务的人永远值得称赞，魔鬼藏在细节中。做产品的人很多，用产品传递思想的却少之又少。</p>
+<h3 id="10月9日"><a href="#10月9日" class="headerlink" title="10月9日"></a>10月9日</h3><p>索罗斯说的对，市场的过度乐观和过度悲观都会创造投资机会。</p>
+<h3 id="10月11日"><a href="#10月11日" class="headerlink" title="10月11日"></a>10月11日</h3><p>如果人生真的是一场游戏，那一场游戏里最重要的是什么？应当是密切关注「版本更新」。</p>
+<h3 id="10月12日"><a href="#10月12日" class="headerlink" title="10月12日"></a>10月12日</h3><p>安民可与行义，而危民易与为非，仁义不施而攻守之势异也。历史上功成名就的往往是少数，也总有遗憾，这是历史的魅力，因为历史是真的。</p>
+<h3 id="10月14日"><a href="#10月14日" class="headerlink" title="10月14日"></a>10月14日</h3><p>众所周知，市场长期由价值决定，而中短期却主要由资金和情绪决定。大多数人总是在错过了一个涨停板、一支牛股、一次牛市后，痛心疾首甚至拍烂大腿。但对于自己持之以恒地错过了整个时代，却恍然不觉甚至还心安理得。</p>
+<h3 id="10月15日"><a href="#10月15日" class="headerlink" title="10月15日"></a>10月15日</h3><p>幽默感是对抗权威最好的力量。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81%E5%9B%9B/">思考马克·二十四</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81%E4%BA%8C/">思考马克·二十二</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

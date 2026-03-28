@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·三十二</p><script>(function() {
   try {
@@ -164,57 +161,38 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十二</a></h2><span class="post__date">2025-09-15</span></div></div><div class="article__content"><h1 id="思考马克·三十二"><a href="#思考马克·三十二" class="headerlink" title="思考马克·三十二"></a><strong>思考马克·三十二</strong></h1><h3 id="2025年九月记录"><a href="#2025年九月记录" class="headerlink" title="2025年九月记录"></a><strong>2025年九月记录</strong></h3><p>8月21日</p>
-<p>人想要不被淘汰，唯有一条路：一辈子不断OTA。OTA的当然不只有知识、还包括思维认知、偏好与个人性格。</p>
-<p>8月24日</p>
-<p>很多不善良都是来自公地悲剧，恶意一旦蔓延，人性是很难修正的。在一切人反对一切人的战争里，善意需靠思想引导，需要让渡自己的利益让群体利益最大化，需要靠人群的行为惯性积累。善良与宽容永远是群体生活的最优博弈策略，恶意虽然可以一时爽，但是生活的回旋镖迟早会飞向你。</p>
-<p><br>8月25日</p>
-<p>很多产品的支持者并不会发声，他们只是一味的默默用脚投票。产品最重要的用户可能并不会给 PM 任何反馈，而骂得最凶的、经常反馈的反而可能会是低价值用户，甚至是负价值用户。用户的真实购买、用钱投票才是唯一可靠的民意数据。提高胜率的重要手段是忽略一切主观评价，而把市场当作一个实验模型，收集尽可能多的客观数据，用严格的数学方法提取客观可靠的变量间的数学关联才是最行之有效的办法。</p>
-<p><br>8月26日</p>
-<p>地里已经没有果实了，一些人不想着怎么种地，都在想着怎么收割……</p>
-<p>8月27日</p>
-<p>在文字和思想面前众生是平等的，所以不论是佛教还是基督教的初始教义中都明确禁止偶像崇拜。</p>
-<p>8月28日</p>
-<p>要勇敢的和过去告别，牛顿第三定律告诉我们，想要前进总得留下点什么。</p>
-<p><br>8月30日</p>
-<p>很多事只有做了才能理解，不做是无法理解的，这大概是我觉得对「知行合一」最好的解释。人的某些认知是需要通过行动提高的，因为人是无法通过空想去想象得到某种东西后的体悟，就像祛魅某种事物的最好办法是拥有它。</p>
-<p>8月31日</p>
-<p>我们穷其一生到底在追求什么？社会教育我们说是钱权色，但其实我们其实一生都在追求美好的生活、美好事物、美好的人际关系、美好的体验。而要体验美好的东西往往是稀缺性的，是需要资源的匹配和价值交换的，这一切都是有代价的。人们追求金钱等一般等价物的初衷永远都是为了体验美好事物，但它是只是一种体验，而不能永远拥有。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十二</a></h2><span class="post__date">2025-09-15</span></div></div><div class="article__content"><h1 id="思考马克·三十二"><a href="#思考马克·三十二" class="headerlink" title="思考马克·三十二"></a>思考马克·三十二</h1><h2 id="2025年九月记录"><a href="#2025年九月记录" class="headerlink" title="2025年九月记录"></a><strong>2025年九月记录</strong></h2><h3 id="8月21日"><a href="#8月21日" class="headerlink" title="8月21日"></a>8月21日</h3><p>人想要不被淘汰，唯有一条路：一辈子不断OTA。OTA的当然不只有知识、还包括思维认知、偏好与个人性格。</p>
+<h3 id="8月24日"><a href="#8月24日" class="headerlink" title="8月24日"></a>8月24日</h3><p>很多不善良都是来自公地悲剧，恶意一旦蔓延，人性是很难修正的。在一切人反对一切人的战争里，善意需靠思想引导，需要让渡自己的利益让群体利益最大化，需要靠人群的行为惯性积累。善良与宽容永远是群体生活的最优博弈策略，恶意虽然可以一时爽，但是生活的回旋镖迟早会飞向你。</p>
+<p>\</p>
+<h3 id="8月25日"><a href="#8月25日" class="headerlink" title="8月25日"></a>8月25日</h3><p>很多产品的支持者并不会发声，他们只是一味的默默用脚投票。产品最重要的用户可能并不会给 PM 任何反馈，而骂得最凶的、经常反馈的反而可能会是低价值用户，甚至是负价值用户。用户的真实购买、用钱投票才是唯一可靠的民意数据。提高胜率的重要手段是忽略一切主观评价，而把市场当作一个实验模型，收集尽可能多的客观数据，用严格的数学方法提取客观可靠的变量间的数学关联才是最行之有效的办法。</p>
+<p>\</p>
+<h3 id="8月26日"><a href="#8月26日" class="headerlink" title="8月26日"></a>8月26日</h3><p>地里已经没有果实了，一些人不想着怎么种地，都在想着怎么收割……</p>
+<h3 id="8月27日"><a href="#8月27日" class="headerlink" title="8月27日"></a>8月27日</h3><p>在文字和思想面前众生是平等的，所以不论是佛教还是基督教的初始教义中都明确禁止偶像崇拜。</p>
+<h3 id="8月28日"><a href="#8月28日" class="headerlink" title="8月28日"></a>8月28日</h3><p>要勇敢的和过去告别，牛顿第三定律告诉我们，想要前进总得留下点什么。</p>
+<p>\</p>
+<h3 id="8月30日"><a href="#8月30日" class="headerlink" title="8月30日"></a>8月30日</h3><p>很多事只有做了才能理解，不做是无法理解的，这大概是我觉得对「知行合一」最好的解释。人的某些认知是需要通过行动提高的，因为人是无法通过空想去想象得到某种东西后的体悟，就像祛魅某种事物的最好办法是拥有它。</p>
+<h3 id="8月31日"><a href="#8月31日" class="headerlink" title="8月31日"></a>8月31日</h3><p>我们穷其一生到底在追求什么？社会教育我们说是钱权色，但其实我们其实一生都在追求美好的生活、美好事物、美好的人际关系、美好的体验。而要体验美好的东西往往是稀缺性的，是需要资源的匹配和价值交换的，这一切都是有代价的。人们追求金钱等一般等价物的初衷永远都是为了体验美好事物，但它是只是一种体验，而不能永远拥有。</p>
 <p>很多事，只要你认真你就能超过三成的人。这个世界的草台班子化比我们预想的要严重，很多人连基本的认真都做不到，所以不论你做的事有多难，你只要认真就能轻轻松松超过30%的人，再努努力再拿下30%就能及格。所以即便是再难的事也不要怕。只要是人做出来的，一切都有迹可循。</p>
-<p>9月1日</p>
-<p>如果没有参与权，就很难激发他人的利他心。当人无法决定任何东西的时候，人会优先选择利己。</p>
-<p>9月5日</p>
-<p>有时候你看一个人推崇的书籍、音乐和电影就能反应其价值取向。文化是上层建筑，而文化最直接的表现就在文艺作品和严肃文学的喜好上。</p>
-<p>9月7日</p>
-<p>沉溺于文学和摇滚，如同沉迷于无休止的纵欲。</p>
-<p>9月9日</p>
-<p>过去是一条回不去的路，我们始终要往前走。我以前特别爱追忆往事，现在别人一提过去多好多好，我就觉得可笑。场域里是不存在永恒秩序的，唯一的不变是永远会改变。追悔莫及不如积极拥抱变化，务实奋进。</p>
-<p>9月11日</p>
-<p>我喜欢和迷恋文字，所以我还是喜欢做一个只能发文字的产品。在充斥着图片和视频的信息流里文字有天然的劣势。</p>
-<p>9月14日</p>
-<p>当一个人追求幸福的权利被剥夺时，别人的痛苦就成了他的快乐。</p>
-<p>9月15日</p>
-<p>用户需要的是花哨的功能吗？不，用户需要的是有趣的内容。</p>
-<p>9月16日</p>
-<p>鲁迅先生说过，我们极容易变成奴隶，而且变了后会万分欢喜。每个人可以有选择自己如何生活的权利，但请别在别人为你争取自由的时候说人家你怎么不知趣。有没有可能不是每个人都像你这样想当奴隶呢？</p>
-<p><br>9月18日</p>
-<p>人的心情似乎不是根据当下来显现的，而是关乎未来，对于未来的预期决定了此刻的心情与心态。因为有的人心怀希望，而有的人只剩下回忆。</p>
-<p><br>9月21日</p>
-<p>美就意味着真实，虽说真实的东西不一定都美，可是最美的东西永远是真实的。丧失了真实性，就丧失了艺术性。</p>
+<h3 id="9月1日"><a href="#9月1日" class="headerlink" title="9月1日"></a>9月1日</h3><p>如果没有参与权，就很难激发他人的利他心。当人无法决定任何东西的时候，人会优先选择利己。</p>
+<h3 id="9月5日"><a href="#9月5日" class="headerlink" title="9月5日"></a>9月5日</h3><p>有时候你看一个人推崇的书籍、音乐和电影就能反应其价值取向。文化是上层建筑，而文化最直接的表现就在文艺作品和严肃文学的喜好上。</p>
+<h3 id="9月7日"><a href="#9月7日" class="headerlink" title="9月7日"></a>9月7日</h3><p>沉溺于文学和摇滚，如同沉迷于无休止的纵欲。</p>
+<h3 id="9月9日"><a href="#9月9日" class="headerlink" title="9月9日"></a>9月9日</h3><p>过去是一条回不去的路，我们始终要往前走。我以前特别爱追忆往事，现在别人一提过去多好多好，我就觉得可笑。场域里是不存在永恒秩序的，唯一的不变是永远会改变。追悔莫及不如积极拥抱变化，务实奋进。</p>
+<h3 id="9月11日"><a href="#9月11日" class="headerlink" title="9月11日"></a>9月11日</h3><p>我喜欢和迷恋文字，所以我还是喜欢做一个只能发文字的产品。在充斥着图片和视频的信息流里文字有天然的劣势。</p>
+<h3 id="9月14日"><a href="#9月14日" class="headerlink" title="9月14日"></a>9月14日</h3><p>当一个人追求幸福的权利被剥夺时，别人的痛苦就成了他的快乐。</p>
+<h3 id="9月15日"><a href="#9月15日" class="headerlink" title="9月15日"></a>9月15日</h3><p>用户需要的是花哨的功能吗？不，用户需要的是有趣的内容。</p>
+<h3 id="9月16日"><a href="#9月16日" class="headerlink" title="9月16日"></a>9月16日</h3><p>鲁迅先生说过，我们极容易变成奴隶，而且变了后会万分欢喜。每个人可以有选择自己如何生活的权利，但请别在别人为你争取自由的时候说人家你怎么不知趣。有没有可能不是每个人都像你这样想当奴隶呢？</p>
+<p>\</p>
+<h3 id="9月18日"><a href="#9月18日" class="headerlink" title="9月18日"></a>9月18日</h3><p>人的心情似乎不是根据当下来显现的，而是关乎未来，对于未来的预期决定了此刻的心情与心态。因为有的人心怀希望，而有的人只剩下回忆。</p>
+<p>\</p>
+<h3 id="9月21日"><a href="#9月21日" class="headerlink" title="9月21日"></a>9月21日</h3><p>美就意味着真实，虽说真实的东西不一定都美，可是最美的东西永远是真实的。丧失了真实性，就丧失了艺术性。</p>
 <p>这个世界没有什么是免费的，好的东西都需要付出耐心。</p>
-<p>9月22日</p>
-<p>人生谜底，寻寻觅觅。每一次和老友相逢又别离总是有一种难以言说的情绪。千言万语也道不尽往昔与未来，每次遇见也都能感受到岁月在我们彼此身体上和灵魂里留下了无法掩盖的痕迹。虽说我们不可避免的接受了生命的暗淡，生活也都让我们变得越来越规律和平凡。《诗经》里说“靡不有初，鲜克有终”。但我总奢侈的希望我的朋友们都能寻找到属于自己人生的答案，希望朋友们也都过上理想的生活。</p>
-<p>9月23日</p>
-<p>为什么每次坐卧铺都能遇到鼾声很大的人，这或许就是墨菲定律吧。抑或者说打呼噜的人口比例已相当的高了。</p>
-<p>9月24日</p>
-<p>敏感体质+丰富的表达欲，才是一个内容创作者最大的福报。充沛情绪加上精准的用词，真的是老天爷追着赏饭。但也别忘了，天予不取，反受其咎。</p>
+<h3 id="9月22日"><a href="#9月22日" class="headerlink" title="9月22日"></a>9月22日</h3><p>人生谜底，寻寻觅觅。每一次和老友相逢又别离总是有一种难以言说的情绪。千言万语也道不尽往昔与未来，每次遇见也都能感受到岁月在我们彼此身体上和灵魂里留下了无法掩盖的痕迹。虽说我们不可避免的接受了生命的暗淡，生活也都让我们变得越来越规律和平凡。《诗经》里说“靡不有初，鲜克有终”。但我总奢侈的希望我的朋友们都能寻找到属于自己人生的答案，希望朋友们也都过上理想的生活。</p>
+<h3 id="9月23日"><a href="#9月23日" class="headerlink" title="9月23日"></a>9月23日</h3><p>为什么每次坐卧铺都能遇到鼾声很大的人，这或许就是墨菲定律吧。抑或者说打呼噜的人口比例已相当的高了。</p>
+<h3 id="9月24日"><a href="#9月24日" class="headerlink" title="9月24日"></a>9月24日</h3><p>敏感体质+丰富的表达欲，才是一个内容创作者最大的福报。充沛情绪加上精准的用词，真的是老天爷追着赏饭。但也别忘了，天予不取，反受其咎。</p>
 <p>有趣这个词是特别有意思的，它简直是衡量人类之间是否是同类的重要标准。一个“有趣”的人不会认为无聊的人有趣，同样一个“无聊”的人也不会认为有趣的人有趣。也就是说无聊的人从不会自诩无聊，而有趣的人会认为有趣的人比他更有趣。</p>
 <p>生命的本质是体验，所以越来越理解高更了，追逐梦想就如同追逐自己的噩运。</p>
-<p>9月25日</p>
-<p>在一个生产力过剩和刚需被挖掘殆尽的时代，仅仅凭借着掌握生产资料已经不能单纯的造富了。要么去做新兴产业，要么结合目前的资源去挖掘更多的细分场景。总之，增长才是决定未来生存的关键。</p>
+<h3 id="9月25日"><a href="#9月25日" class="headerlink" title="9月25日"></a>9月25日</h3><p>在一个生产力过剩和刚需被挖掘殆尽的时代，仅仅凭借着掌握生产资料已经不能单纯的造富了。要么去做新兴产业，要么结合目前的资源去挖掘更多的细分场景。总之，增长才是决定未来生存的关键。</p>
 <p>有时候你越想要你反而得不到，你释然了，它反而给你了。命运的无常捉弄是人生一大乐趣之一，可能人类对于上帝来说就是蛐蛐，上帝偏爱逗蛐蛐。</p>
-<p>9月26日</p>
-<p>现在社会的一大矛盾就是虽然一些人识字了，但其实有严重的阅读障碍。他们很难看懂文字所表达的真情流露。而是以一种秀无知的状态在贬损一些有趣的思考，但因这个群体越来越大，这种情绪反而成了主流。</p>
-<p>9月29日</p>
-<p>人的使命感很重要，虽然有使命感并不一定能做成什么事情。但是有使命感是出发做一件事的基础。做足万全准备的事儿是少有的，要敢于在什么都缺少的情况下即便弄脏双手也要出发。知行合一，很多事不做是无法理解的。</p>
+<h3 id="9月26日"><a href="#9月26日" class="headerlink" title="9月26日"></a>9月26日</h3><p>现在社会的一大矛盾就是虽然一些人识字了，但其实有严重的阅读障碍。他们很难看懂文字所表达的真情流露。而是以一种秀无知的状态在贬损一些有趣的思考，但因这个群体越来越大，这种情绪反而成了主流。</p>
+<h3 id="9月29日"><a href="#9月29日" class="headerlink" title="9月29日"></a>9月29日</h3><p>人的使命感很重要，虽然有使命感并不一定能做成什么事情。但是有使命感是出发做一件事的基础。做足万全准备的事儿是少有的，要敢于在什么都缺少的情况下即便弄脏双手也要出发。知行合一，很多事不做是无法理解的。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%B8%89/">思考马克·三十三</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%B8%80/">思考马克·三十一</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·十二</p><script>(function() {
   try {
@@ -164,40 +161,27 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十二</a></h2><span class="post__date">2023-09-15</span></div></div><div class="article__content"><h1 id="思考马克·十二"><a href="#思考马克·十二" class="headerlink" title="思考马克·十二"></a><strong>思考马克·十二</strong></h1><h3 id="2023年九月记录"><a href="#2023年九月记录" class="headerlink" title="2023年九月记录"></a><strong>2023年九月记录</strong></h3><p>9月6日</p>
-<p>谷东安老师留给这个世界的最后一句话：“我是来创造生活的，不是来委屈自己迁就这个时代的。”</p>
-<p>9月10日</p>
-<p>如果这是粪坑，你要做的不是清理它，而是要迅速远离。清理粪坑并不会给你成就感，只会让你一次次恶心。</p>
-<p>9月12日</p>
-<p>今天去公安局看门大爷说你得抵押点什么才能进去，我今天包里就只带了两本书，一本是黄仁宇的《万历十五年》英文版，一本是钱穆的《国史大纲》，最后我把后者给看门大爷了。大爷很惊奇说小伙子还看书呐？或许我应该是很少把书押给公安局门卫的人吧。进去后，等了很久办案民警，甚至《万历十五年》都看了好几页关于万历皇帝的事了。我其实很淡定，我早知道就是这种结果，因为我带的书里面都写尽了这样的故事。</p>
-<p>9月13日</p>
-<p>一些朋友听闻了我的近况给了我许多鼓励和安慰，我想我的人生真的是很精彩和幸运，我会记住这一切的，这些鼓励是我未来人生路上宝贵的盘缠。我没有你们说的那么好，但我确实也不坏，我妈给我算过命的，我的命运就是初限驳杂，但好消息是大器晚成。谢谢这么多人美好的祝愿，我想我命运的齿轮就要开始转动了。</p>
-<p><br>9月14日</p>
-<p>了解世界的黑暗与绝望，却从不放弃，并以悲天悯人之心去关怀所有不幸的人。这才是伟人之所以成为伟人的真正原因，这才是人类最为崇高的道德与情感。</p>
-<p><br>9月15日</p>
-<p>可知的世界可知，不可知的世界不可知，存在总是存在者的存在。或许真正的成功只有一个，就是按照自己喜欢的方式度过一生。我喜欢马斯克这段话，就像乔布斯说的，真正足以疯狂地相信自己可以改变世界的人才能改变世界。</p>
-<p>9月16日</p>
-<p>历史给我们的教训就是我们不会从历史中得到任何教训，以史为鉴？算了吧。技术在变，只要人性未变，变化的就只是表象，历史是车轮，它从未变过。以前犯的错，未来还会再犯。该杀的人，还是会再杀。伍子胥会死，韩信会死，岳飞会死，窦娥也依旧会蒙冤，再过一千年这类人的结局都不会改变。</p>
-<p>9月18日</p>
-<p>青年的爱国是有力量的，不像某些成年人的爱国到处充满了蝇营狗苟般的算计。</p>
-<p>9月19日</p>
-<p>我不是毛粉，但是我对他的理论极其感兴趣。一介书生，一个理想主义者是怎么一步步引导中国革命取得了胜利，我没资格评价他，但从他的文笔就能窥见一斑，会写文章的国人大有人在，会写文章又能搞革命的恐怕就只有他了。</p>
-<p><br>9月20日</p>
-<p>To err is human, to forgive devine.</p>
-<p><br>9月21日</p>
-<p>天不生仲尼，万古如长夜。</p>
-<p>9月22日</p>
-<p>一个方便的入口+一个强需求&#x3D;一个好产品。</p>
-<p>9月23日</p>
-<p>拿着维特根斯坦是一点没看进去，打开豆瓣搜到鲁迅，再看他百年前的文字，五味杂陈。</p>
-<p>9月25日</p>
-<p>让人真正改变的从来不是知识而是见识。</p>
-<p><br>9月26日</p>
-<p>忽然发现，最近自己的判断力变得非常差。</p>
-<p>9月28日</p>
-<p>胡适先生说过，用自己的自由换取安稳，既得不到安稳也得不到自由。</p>
-<p>9月29日</p>
-<p>人生没有终点，但永远都会有下一站。</p>
-<p>9月30日</p>
-<p>一些历史或者一些书籍之所以看不懂是因为没法共情，伟大的作品需要理解它的人，厄运和苦难从来都是优秀作品的注解。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十二</a></h2><span class="post__date">2023-09-15</span></div></div><div class="article__content"><h1 id="思考马克·十二"><a href="#思考马克·十二" class="headerlink" title="思考马克·十二"></a>思考马克·十二</h1><h2 id="2023年九月记录"><a href="#2023年九月记录" class="headerlink" title="2023年九月记录"></a><strong>2023年九月记录</strong></h2><h3 id="9月6日"><a href="#9月6日" class="headerlink" title="9月6日"></a>9月6日</h3><p>谷东安老师留给这个世界的最后一句话：“我是来创造生活的，不是来委屈自己迁就这个时代的。”</p>
+<h3 id="9月10日"><a href="#9月10日" class="headerlink" title="9月10日"></a>9月10日</h3><p>如果这是粪坑，你要做的不是清理它，而是要迅速远离。清理粪坑并不会给你成就感，只会让你一次次恶心。</p>
+<h3 id="9月12日"><a href="#9月12日" class="headerlink" title="9月12日"></a>9月12日</h3><p>今天去公安局看门大爷说你得抵押点什么才能进去，我今天包里就只带了两本书，一本是黄仁宇的《万历十五年》英文版，一本是钱穆的《国史大纲》，最后我把后者给看门大爷了。大爷很惊奇说小伙子还看书呐？或许我应该是很少把书押给公安局门卫的人吧。进去后，等了很久办案民警，甚至《万历十五年》都看了好几页关于万历皇帝的事了。我其实很淡定，我早知道就是这种结果，因为我带的书里面都写尽了这样的故事。</p>
+<h3 id="9月13日"><a href="#9月13日" class="headerlink" title="9月13日"></a>9月13日</h3><p>一些朋友听闻了我的近况给了我许多鼓励和安慰，我想我的人生真的是很精彩和幸运，我会记住这一切的，这些鼓励是我未来人生路上宝贵的盘缠。我没有你们说的那么好，但我确实也不坏，我妈给我算过命的，我的命运就是初限驳杂，但好消息是大器晚成。谢谢这么多人美好的祝愿，我想我命运的齿轮就要开始转动了。</p>
+<p>\</p>
+<h3 id="9月14日"><a href="#9月14日" class="headerlink" title="9月14日"></a>9月14日</h3><p>了解世界的黑暗与绝望，却从不放弃，并以悲天悯人之心去关怀所有不幸的人。这才是伟人之所以成为伟人的真正原因，这才是人类最为崇高的道德与情感。</p>
+<p>\</p>
+<h3 id="9月15日"><a href="#9月15日" class="headerlink" title="9月15日"></a>9月15日</h3><p>可知的世界可知，不可知的世界不可知，存在总是存在者的存在。或许真正的成功只有一个，就是按照自己喜欢的方式度过一生。我喜欢马斯克这段话，就像乔布斯说的，真正足以疯狂地相信自己可以改变世界的人才能改变世界。</p>
+<h3 id="9月16日"><a href="#9月16日" class="headerlink" title="9月16日"></a>9月16日</h3><p>历史给我们的教训就是我们不会从历史中得到任何教训，以史为鉴？算了吧。技术在变，只要人性未变，变化的就只是表象，历史是车轮，它从未变过。以前犯的错，未来还会再犯。该杀的人，还是会再杀。伍子胥会死，韩信会死，岳飞会死，窦娥也依旧会蒙冤，再过一千年这类人的结局都不会改变。</p>
+<h3 id="9月18日"><a href="#9月18日" class="headerlink" title="9月18日"></a>9月18日</h3><p>青年的爱国是有力量的，不像某些成年人的爱国到处充满了蝇营狗苟般的算计。</p>
+<h3 id="9月19日"><a href="#9月19日" class="headerlink" title="9月19日"></a>9月19日</h3><p>我不是毛粉，但是我对他的理论极其感兴趣。一介书生，一个理想主义者是怎么一步步引导中国革命取得了胜利，我没资格评价他，但从他的文笔就能窥见一斑，会写文章的国人大有人在，会写文章又能搞革命的恐怕就只有他了。</p>
+<p>\</p>
+<h3 id="9月20日"><a href="#9月20日" class="headerlink" title="9月20日"></a>9月20日</h3><p>To err is human, to forgive devine.</p>
+<p>\</p>
+<h3 id="9月21日"><a href="#9月21日" class="headerlink" title="9月21日"></a>9月21日</h3><p>天不生仲尼，万古如长夜。</p>
+<h3 id="9月22日"><a href="#9月22日" class="headerlink" title="9月22日"></a>9月22日</h3><p>一个方便的入口+一个强需求&#x3D;一个好产品。</p>
+<h3 id="9月23日"><a href="#9月23日" class="headerlink" title="9月23日"></a>9月23日</h3><p>拿着维特根斯坦是一点没看进去，打开豆瓣搜到鲁迅，再看他百年前的文字，五味杂陈。</p>
+<h3 id="9月25日"><a href="#9月25日" class="headerlink" title="9月25日"></a>9月25日</h3><p>让人真正改变的从来不是知识而是见识。</p>
+<p>\</p>
+<h3 id="9月26日"><a href="#9月26日" class="headerlink" title="9月26日"></a>9月26日</h3><p>忽然发现，最近自己的判断力变得非常差。</p>
+<h3 id="9月28日"><a href="#9月28日" class="headerlink" title="9月28日"></a>9月28日</h3><p>胡适先生说过，用自己的自由换取安稳，既得不到安稳也得不到自由。</p>
+<h3 id="9月29日"><a href="#9月29日" class="headerlink" title="9月29日"></a>9月29日</h3><p>人生没有终点，但永远都会有下一站。</p>
+<h3 id="9月30日"><a href="#9月30日" class="headerlink" title="9月30日"></a>9月30日</h3><p>一些历史或者一些书籍之所以看不懂是因为没法共情，伟大的作品需要理解它的人，厄运和苦难从来都是优秀作品的注解。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%B8%89/">思考马克·十三</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%B8%80/">思考马克·十一</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

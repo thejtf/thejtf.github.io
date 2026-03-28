@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·二十一</p><script>(function() {
   try {
@@ -164,40 +161,22 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·二十一</a></h2><span class="post__date">2024-07-15</span></div></div><div class="article__content"><h1 id="思考马克·二十一"><a href="#思考马克·二十一" class="headerlink" title="思考马克·二十一"></a><strong>思考马克·二十一</strong></h1><h3 id="2024年七月记录"><a href="#2024年七月记录" class="headerlink" title="2024年七月记录"></a><strong>2024年七月记录</strong></h3><p>7月16日</p>
-<p>快速成功的方法只有一个就是快速失败。</p>
-<p>7月17日</p>
-<p>假如人生活在一种无力改变的痛苦之中，就会转而爱上这种痛苦，把它视为一种快乐，以便使自己好过一些。人是一种会自己骗自己的动物。大多数人不会意识到是吃了很多无益的苦，并且虚掷了不少青春年华，他们反而会觉得这种经历是无比崇高和必要的。无价值的吃苦和无代价的牺牲大抵如此。</p>
-<p>7月18日</p>
-<p>俄罗斯人确实挺乐观的，昨晚突降大雨，我撑伞都几乎淋了个半湿。路遇到几个俄罗斯人他们没撑伞在雨中奔跑，其中一位小哥跟我开心的说了句话。由于我不懂俄语，不知道他在表达什么，但是看他那种近乎天真的开心模样，我也象征性打了一个国际友好手势。在恶劣环境下成长的人们似乎从骨子里就有一种乐观精神。可惜不会俄语，否则真的蛮想和他交个朋友。</p>
-<p>7月19日</p>
-<p>以前文化水平低的人都生怕自己露怯，而现在随着素质教育的普及让一群“文盲”识字了。然而最大的弊端就是，他们会用他们有限的词语来到处炫耀自己的无知。或许我们新时代需要对文盲重新下个定义了。不是识了字的就不是“文盲”，是到处炫耀自己没文化的人才是“文盲”。</p>
-<p>7月20日</p>
-<p>别把他人的伤痛当作玩笑，真正的伦理原则是把人人同等看待。人既不是天使，也不是禽兽。但不幸在于，那些该表现为天使的时刻，有些人却表现为禽兽。</p>
-<p>7月22日</p>
-<p>《梳毛》这本书读完并不开心，或许是因为在读的过程中我对它的结尾抱有太高的期待。这本书让我更了解了自我，也对人类进化有了不同的视角。人类进化的过程并不完美，甚至有些东西华而不实，我们也并非是上帝塑造完美的生物。但运用语言的方式，决定了我们和“上帝”的距离，更决定了我们人生的边界。你可以用它来聊八卦，可以用它来交朋友，甚至你可以用它来“搭便车”欺骗他人。理解社会远比认识物质世界复杂的多。但语言也不是万能的，有时候老办法反而更深刻，这大概就是听其言观其行吧。相信直觉，肯为彼此“梳毛”的人才更值得信任。</p>
-<p>7月24日</p>
-<p>现如今 UGC 入口太多了，甚至有点过剩。谁都上来说一嘴的结果就是信息噪声越来越大，情绪化内容越来越多，PGC 专业内容越发难以出圈以致日渐萎缩，所以书籍仍然是这个时代获取高质量信息的重要方式。几十年前的人们或许不曾想象，互联网高度发达的结果就是，垃圾内容越来越多，有见地的人也越来越沉默。</p>
-<p>7月25日</p>
-<p>如果当时多了解些历史，是不是会少些盲从的愤怒。</p>
-<p>7月28日</p>
-<p>现在的人被算法投喂的已经烂掉了，算法投喂就像百年前的鸦片一样已经开始积恶成疾了。狗血的内容有人会说一定是假的，相对正经的有人会说太无聊了、讨论多的话题会说你是故意引战、没讨论的还会说这么没意思的你也发，凡此种种吧……算法投喂是趋势也是让人们分裂的源头，凡事都达不成共识，公说公有理，婆说婆有理。不是理解的“理”，而是不讲道理的“理”。终于这盛世，用算法把每个人都鼓励成了大傻逼。</p>
-<p>7月29日</p>
-<p>时事政治是男人的八卦，它不比聊那个爱豆明星更高级，本质上也是一种信息娱乐。目前人类信息已经泛娱乐化。对于绝大多数普通人了解美国谁当总统只是信息载入，并不能提高个人对世界的理解力。</p>
-<p>8月1日</p>
-<p>商人或许比政客更有理想主义，成功的企业家采访表面聊的是商业，但本质上都是其人生价值理想的现实实现。而政客们嘴上聊的都是国家理想，究其本质上都是生意都是选票。</p>
-<p>8月4日</p>
-<p>现代社会人们总是花了太多时间在关注别人，其实应该把更多的时间和精力花在自己身上。放以前，确实不能只关注自己还要抬头看天；但现在，乱花迷人眼群魔乱舞各种烟雾弹，还不如多花心思关心关心自己。想要摸清趋势要在史书里找，而不是在热搜里找。历史大事，近看不如远观。凡人之智，能见已然，不能见将然。</p>
-<p>8月5日</p>
-<p>You can’t control the wind but you can adjust the sail.</p>
-<p>8月7日</p>
-<p>富人家孩子有两种，一种特别单纯的，一种情商特别高的。</p>
-<p>8月8日</p>
-<p>我们要坦然接受一个全民自媒体，却又没有新闻的时代。</p>
-<p>8月9日</p>
-<p>互联网上的绝大部分应用都不是创新，而是杠杆。</p>
-<p>8月12日</p>
-<p>道德是一种特别奇怪的事物，你做的比别人好的时候别人会说你古板刻薄道德感太高。而当你做的不如别人的时候某些人又会瞧不起你。在大多数没有经过伦理教育的人眼里，道德的标准有且只有自己。</p>
-<p>8月14日</p>
-<p>这几年做运营和产品，Owen 影响我最多，也给我帮助最多。一开始我觉得他很执拗，但是后来我才知道一个人的原则对于一个人的塑造有多大的影响。一直以来我都在向他学习，他的想法点子和执行力，在我认识的技术人员里都是独树一帜的存在。不知道这里多少人用过他的“沉浸式翻译”，但是我依稀记得他做出来介绍给我用的时候，我那种眼前一亮的欣喜感。真正热爱产品的人不多，有自己原则和思想的人就更少了。每次都能在他的身上学到很多好东西。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·二十一</a></h2><span class="post__date">2024-07-15</span></div></div><div class="article__content"><h1 id="思考马克·二十一"><a href="#思考马克·二十一" class="headerlink" title="思考马克·二十一"></a>思考马克·二十一</h1><h2 id="2024年七月记录"><a href="#2024年七月记录" class="headerlink" title="2024年七月记录"></a><strong>2024年七月记录</strong></h2><h3 id="7月16日"><a href="#7月16日" class="headerlink" title="7月16日"></a>7月16日</h3><p>快速成功的方法只有一个就是快速失败。</p>
+<h3 id="7月17日"><a href="#7月17日" class="headerlink" title="7月17日"></a>7月17日</h3><p>假如人生活在一种无力改变的痛苦之中，就会转而爱上这种痛苦，把它视为一种快乐，以便使自己好过一些。人是一种会自己骗自己的动物。大多数人不会意识到是吃了很多无益的苦，并且虚掷了不少青春年华，他们反而会觉得这种经历是无比崇高和必要的。无价值的吃苦和无代价的牺牲大抵如此。</p>
+<h3 id="7月18日"><a href="#7月18日" class="headerlink" title="7月18日"></a>7月18日</h3><p>俄罗斯人确实挺乐观的，昨晚突降大雨，我撑伞都几乎淋了个半湿。路遇到几个俄罗斯人他们没撑伞在雨中奔跑，其中一位小哥跟我开心的说了句话。由于我不懂俄语，不知道他在表达什么，但是看他那种近乎天真的开心模样，我也象征性打了一个国际友好手势。在恶劣环境下成长的人们似乎从骨子里就有一种乐观精神。可惜不会俄语，否则真的蛮想和他交个朋友。</p>
+<h3 id="7月19日"><a href="#7月19日" class="headerlink" title="7月19日"></a>7月19日</h3><p>以前文化水平低的人都生怕自己露怯，而现在随着素质教育的普及让一群“文盲”识字了。然而最大的弊端就是，他们会用他们有限的词语来到处炫耀自己的无知。或许我们新时代需要对文盲重新下个定义了。不是识了字的就不是“文盲”，是到处炫耀自己没文化的人才是“文盲”。</p>
+<h3 id="7月20日"><a href="#7月20日" class="headerlink" title="7月20日"></a>7月20日</h3><p>别把他人的伤痛当作玩笑，真正的伦理原则是把人人同等看待。人既不是天使，也不是禽兽。但不幸在于，那些该表现为天使的时刻，有些人却表现为禽兽。</p>
+<h3 id="7月22日"><a href="#7月22日" class="headerlink" title="7月22日"></a>7月22日</h3><p>《梳毛》这本书读完并不开心，或许是因为在读的过程中我对它的结尾抱有太高的期待。这本书让我更了解了自我，也对人类进化有了不同的视角。人类进化的过程并不完美，甚至有些东西华而不实，我们也并非是上帝塑造完美的生物。但运用语言的方式，决定了我们和“上帝”的距离，更决定了我们人生的边界。你可以用它来聊八卦，可以用它来交朋友，甚至你可以用它来“搭便车”欺骗他人。理解社会远比认识物质世界复杂的多。但语言也不是万能的，有时候老办法反而更深刻，这大概就是听其言观其行吧。相信直觉，肯为彼此“梳毛”的人才更值得信任。</p>
+<h3 id="7月24日"><a href="#7月24日" class="headerlink" title="7月24日"></a>7月24日</h3><p>现如今 UGC 入口太多了，甚至有点过剩。谁都上来说一嘴的结果就是信息噪声越来越大，情绪化内容越来越多，PGC 专业内容越发难以出圈以致日渐萎缩，所以书籍仍然是这个时代获取高质量信息的重要方式。几十年前的人们或许不曾想象，互联网高度发达的结果就是，垃圾内容越来越多，有见地的人也越来越沉默。</p>
+<h3 id="7月25日"><a href="#7月25日" class="headerlink" title="7月25日"></a>7月25日</h3><p>如果当时多了解些历史，是不是会少些盲从的愤怒。</p>
+<h3 id="7月28日"><a href="#7月28日" class="headerlink" title="7月28日"></a>7月28日</h3><p>现在的人被算法投喂的已经烂掉了，算法投喂就像百年前的鸦片一样已经开始积恶成疾了。狗血的内容有人会说一定是假的，相对正经的有人会说太无聊了、讨论多的话题会说你是故意引战、没讨论的还会说这么没意思的你也发，凡此种种吧……算法投喂是趋势也是让人们分裂的源头，凡事都达不成共识，公说公有理，婆说婆有理。不是理解的“理”，而是不讲道理的“理”。终于这盛世，用算法把每个人都鼓励成了大傻逼。</p>
+<h3 id="7月29日"><a href="#7月29日" class="headerlink" title="7月29日"></a>7月29日</h3><p>时事政治是男人的八卦，它不比聊那个爱豆明星更高级，本质上也是一种信息娱乐。目前人类信息已经泛娱乐化。对于绝大多数普通人了解美国谁当总统只是信息载入，并不能提高个人对世界的理解力。</p>
+<h3 id="8月1日"><a href="#8月1日" class="headerlink" title="8月1日"></a>8月1日</h3><p>商人或许比政客更有理想主义，成功的企业家采访表面聊的是商业，但本质上都是其人生价值理想的现实实现。而政客们嘴上聊的都是国家理想，究其本质上都是生意都是选票。</p>
+<h3 id="8月4日"><a href="#8月4日" class="headerlink" title="8月4日"></a>8月4日</h3><p>现代社会人们总是花了太多时间在关注别人，其实应该把更多的时间和精力花在自己身上。放以前，确实不能只关注自己还要抬头看天；但现在，乱花迷人眼群魔乱舞各种烟雾弹，还不如多花心思关心关心自己。想要摸清趋势要在史书里找，而不是在热搜里找。历史大事，近看不如远观。凡人之智，能见已然，不能见将然。</p>
+<h3 id="8月5日"><a href="#8月5日" class="headerlink" title="8月5日"></a>8月5日</h3><p>You can’t control the wind but you can adjust the sail.</p>
+<h3 id="8月7日"><a href="#8月7日" class="headerlink" title="8月7日"></a>8月7日</h3><p>富人家孩子有两种，一种特别单纯的，一种情商特别高的。</p>
+<h3 id="8月8日"><a href="#8月8日" class="headerlink" title="8月8日"></a>8月8日</h3><p>我们要坦然接受一个全民自媒体，却又没有新闻的时代。</p>
+<h3 id="8月9日"><a href="#8月9日" class="headerlink" title="8月9日"></a>8月9日</h3><p>互联网上的绝大部分应用都不是创新，而是杠杆。</p>
+<h3 id="8月12日"><a href="#8月12日" class="headerlink" title="8月12日"></a>8月12日</h3><p>道德是一种特别奇怪的事物，你做的比别人好的时候别人会说你古板刻薄道德感太高。而当你做的不如别人的时候某些人又会瞧不起你。在大多数没有经过伦理教育的人眼里，道德的标准有且只有自己。</p>
+<h3 id="8月14日"><a href="#8月14日" class="headerlink" title="8月14日"></a>8月14日</h3><p>这几年做运营和产品，Owen 影响我最多，也给我帮助最多。一开始我觉得他很执拗，但是后来我才知道一个人的原则对于一个人的塑造有多大的影响。一直以来我都在向他学习，他的想法点子和执行力，在我认识的技术人员里都是独树一帜的存在。不知道这里多少人用过他的“沉浸式翻译”，但是我依稀记得他做出来介绍给我用的时候，我那种眼前一亮的欣喜感。真正热爱产品的人不多，有自己原则和思想的人就更少了。每次都能在他的身上学到很多好东西。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81%E4%BA%8C/">思考马克·二十二</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81/">思考马克·二十</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

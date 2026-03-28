@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·八</p><script>(function() {
   try {
@@ -164,58 +161,40 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·八</a></h2><span class="post__date">2023-05-15</span></div></div><div class="article__content"><h1 id="思考马克·八"><a href="#思考马克·八" class="headerlink" title="思考马克·八"></a>思考马克·八</h1><h3 id="2023年五月记录"><a href="#2023年五月记录" class="headerlink" title="2023年五月记录"></a>2023年五月记录</h3><p>5月6日</p>
-<p>Do not go gentle into that good night,Old age should burn and rave at close of day. Rage, rage against the dying of the light…via托马斯</p>
-<p>5月8日</p>
-<p>一个人，不是一个天生的柏拉图主义者，就是一个亚里士多德主义者。</p>
-<p>5月9日</p>
-<p>这个世界没有比写作更深刻的表达了。</p>
-<p>5月11日</p>
-<p>之前博客上写的书摘与读书心得，至今再读，还依旧能知新。费老在《乡土中国》中说，「学的方法是”习”，习指的是反复的做，靠时间中的磨炼使一个人惯于一种新的作法，因之，学习必须打破个人今昔之隔。」我想就是如此吧。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·八</a></h2><span class="post__date">2023-05-15</span></div></div><div class="article__content"><h1 id="思考马克·八"><a href="#思考马克·八" class="headerlink" title="思考马克·八"></a>思考马克·八</h1><h2 id="2023年五月记录"><a href="#2023年五月记录" class="headerlink" title="2023年五月记录"></a><strong>2023年五月记录</strong></h2><h3 id="5月6日"><a href="#5月6日" class="headerlink" title="5月6日"></a>5月6日</h3><p>Do not go gentle into that good night,Old age should burn and rave at close of day. Rage, rage against the dying of the light…via托马斯</p>
+<h3 id="5月8日"><a href="#5月8日" class="headerlink" title="5月8日"></a>5月8日</h3><p>一个人，不是一个天生的柏拉图主义者，就是一个亚里士多德主义者。</p>
+<h3 id="5月9日"><a href="#5月9日" class="headerlink" title="5月9日"></a>5月9日</h3><p>这个世界没有比写作更深刻的表达了。</p>
+<h3 id="5月11日"><a href="#5月11日" class="headerlink" title="5月11日"></a>5月11日</h3><p>之前博客上写的书摘与读书心得，至今再读，还依旧能知新。费老在《乡土中国》中说，「学的方法是”习”，习指的是反复的做，靠时间中的磨炼使一个人惯于一种新的作法，因之，学习必须打破个人今昔之隔。」我想就是如此吧。</p>
 <p>一个人有多少种观点，他就有多少不同的人生经历。有时候，一个人对一件事过于热爱，反而会让人变得狭隘。如果我们持续受到一些明显偏私的影响，我们就永远不可能公正地评价他人，同时，当我们仍然受到顽固偏见的束缚时，我们也不能公正地评价自己。一个喜爱妓女的男人是不配选择和评价妻子的，同理，只要我们还怀有支持一种腐朽思想的偏见，我们就无法识别那些真正美好的事物。</p>
 <p>本以为写作是输出，其实写作不是思考的结果，而是思考发生的媒介。</p>
 <p>当你停止创造，你的才能就不再重要，剩下的只有品味。 而品味会排斥其他人，让你变得狭隘。所以，要创造。via吉列</p>
-<p>5月12日</p>
-<p>在这个飞速运转的时代里，注意力是稀缺资源，热爱最是难得。</p>
+<h3 id="5月12日"><a href="#5月12日" class="headerlink" title="5月12日"></a>5月12日</h3><p>在这个飞速运转的时代里，注意力是稀缺资源，热爱最是难得。</p>
 <p>知识不应该被分类，知识一旦受限就意味着它的消亡。知识之间应该是连接的，知识应当是共享的。</p>
-<p>5月14日</p>
-<p>Midjourney 创始人说过 “ AI 工具可以让艺术家在他们所做的事情上做得更好，而不是让每个人都成为专业的艺术家”，深有感触，AI 确实不会让不想懂的人懂，它只会让专业的人更专业。以我有限观察的看，有些人即便 AI 把结果喂到嘴边，都没用。因为他们根本不想动手去创造一个自己想要的世界。AI 技术是平权的存在，但是马太效应永远都赢，人人都平等的世界或许本就不存在。</p>
+<h3 id="5月14日"><a href="#5月14日" class="headerlink" title="5月14日"></a>5月14日</h3><p>Midjourney 创始人说过 “ AI 工具可以让艺术家在他们所做的事情上做得更好，而不是让每个人都成为专业的艺术家”，深有感触，AI 确实不会让不想懂的人懂，它只会让专业的人更专业。以我有限观察的看，有些人即便 AI 把结果喂到嘴边，都没用。因为他们根本不想动手去创造一个自己想要的世界。AI 技术是平权的存在，但是马太效应永远都赢，人人都平等的世界或许本就不存在。</p>
 <p>鲁迅在《狂人日记》里写道，从来如此，便对吗？对，因为压迫久了人们就接受了，便不会思考为何如此，人们会说不都这样嘛…还会自觉的找出一堆合理性。环境会影响人，因为它希望你融入它，它会千方百计地吸引你。从来如此，便对吗？其实不对，我们必须重新审视生活独立思考，并为自己的与众不同付出代价，因为这是值得的。</p>
-<p>5月15日</p>
-<p>如果我们每一个人都要面对死亡的话，那我们应该给这个世界多留下点什么。</p>
-<p>5月16日</p>
-<p>人的影响力，源自独立性。</p>
-<p>5月18日</p>
-<p>看博客越看越开心，你会发现很多有趣的人，相反看社交媒体就越看越生气。如果两者有什么不同那就是一个是长内容低互动，一个是短内容高互动。抑或前者在创造上前者门槛高，后者门槛低。前者创作内容，后者表达情绪。</p>
-<p>5月19日</p>
-<p>加缪在《局外人》中曾提到“人在面对艰难而机械的现实生存的时候，每天要按照一个节奏和生活模式来生存，必然要产生出我为什么要这么生活，我为什么不能以其它方式生活的追问。可是，偏偏人就不能以其它方式生活，人还必须要以人现在的方式生活。”于是，这就产生了荒诞感。</p>
+<h3 id="5月15日"><a href="#5月15日" class="headerlink" title="5月15日"></a>5月15日</h3><p>如果我们每一个人都要面对死亡的话，那我们应该给这个世界多留下点什么。</p>
+<h3 id="5月16日"><a href="#5月16日" class="headerlink" title="5月16日"></a>5月16日</h3><p>人的影响力，源自独立性。</p>
+<h3 id="5月18日"><a href="#5月18日" class="headerlink" title="5月18日"></a>5月18日</h3><p>看博客越看越开心，你会发现很多有趣的人，相反看社交媒体就越看越生气。如果两者有什么不同那就是一个是长内容低互动，一个是短内容高互动。抑或前者在创造上前者门槛高，后者门槛低。前者创作内容，后者表达情绪。</p>
+<h3 id="5月19日"><a href="#5月19日" class="headerlink" title="5月19日"></a>5月19日</h3><p>加缪在《局外人》中曾提到“人在面对艰难而机械的现实生存的时候，每天要按照一个节奏和生活模式来生存，必然要产生出我为什么要这么生活，我为什么不能以其它方式生活的追问。可是，偏偏人就不能以其它方式生活，人还必须要以人现在的方式生活。”于是，这就产生了荒诞感。</p>
 <p>柏拉图和苏格拉底告诉我们一个道理，不应该把世界让给我们所讨厌的和不如我们的人。否则你会受到惩罚和付出相应的代价。</p>
-<p>5月22日</p>
-<p>我们对任何东西都不是直接观察的，所有的观察都是理论负载的。</p>
-<p>5月23日</p>
-<p>自从读过《精英的傲慢》后，对于努力就会得到回报这种思维模式，极其抵触。</p>
+<h3 id="5月22日"><a href="#5月22日" class="headerlink" title="5月22日"></a>5月22日</h3><p>我们对任何东西都不是直接观察的，所有的观察都是理论负载的。</p>
+<h3 id="5月23日"><a href="#5月23日" class="headerlink" title="5月23日"></a>5月23日</h3><p>自从读过《精英的傲慢》后，对于努力就会得到回报这种思维模式，极其抵触。</p>
 <p>越是底层人越关注宏大叙事…</p>
-<p><br>5月24日</p>
-<p>如果一件事情的解决方案是复杂的，那一定是错的。或许这么说过于绝对，但确实如此。如果你的方案比你竞争对手复杂，你就是错的，你就很难在竞争中长久取胜。这个世界上一定是存在又快又好又简单的解决办法，如果没找到，那就是错了，那就继续找。 </p>
+<p>\</p>
+<h3 id="5月24日"><a href="#5月24日" class="headerlink" title="5月24日"></a>5月24日</h3><p>如果一件事情的解决方案是复杂的，那一定是错的。或许这么说过于绝对，但确实如此。如果你的方案比你竞争对手复杂，你就是错的，你就很难在竞争中长久取胜。这个世界上一定是存在又快又好又简单的解决办法，如果没找到，那就是错了，那就继续找。 </p>
 <p>拒绝不了诱惑不可耻，拒绝不了诱惑还找一堆借口可耻。但这并不意味着别人就理应原谅你。</p>
-<p>5月25日</p>
-<p>把需求用简洁的话语描述出来并考虑全面，是一个产品经理的基本素养。</p>
+<h3 id="5月25日"><a href="#5月25日" class="headerlink" title="5月25日"></a>5月25日</h3><p>把需求用简洁的话语描述出来并考虑全面，是一个产品经理的基本素养。</p>
 <p>做互联网更多的是自我表达。</p>
 <p>让商业首先是商业，让商业回归商业本身。</p>
 <p>不要轻易动用价格杠杆。</p>
 <p>现在用 AI 跟太上老君炼丹一样，你永远不知道这个 prompt 下去下一秒会出什么样的丹。</p>
-<p>5月26日</p>
-<p>如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流。via石黑一雄</p>
+<h3 id="5月26日"><a href="#5月26日" class="headerlink" title="5月26日"></a>5月26日</h3><p>如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流。via石黑一雄</p>
 <p>人多，欲望也多。想要六根清净，就应该远离人群。</p>
-<p>5月27日</p>
-<p>高级的营销是一种价值观输出via乔布斯，一件事如果有太多的商业气息就不酷了。</p>
-<p>5月28日</p>
-<p>短视频低智的驯化后，显示无知似乎变成了一种主流。</p>
+<h3 id="5月27日"><a href="#5月27日" class="headerlink" title="5月27日"></a>5月27日</h3><p>高级的营销是一种价值观输出via乔布斯，一件事如果有太多的商业气息就不酷了。</p>
+<h3 id="5月28日"><a href="#5月28日" class="headerlink" title="5月28日"></a>5月28日</h3><p>短视频低智的驯化后，显示无知似乎变成了一种主流。</p>
 <p>我深怕自己本非美玉，故而不敢加以辛苦琢磨，却又半信自己是块美玉，故又不肯庸庸碌碌，与瓦砾为伍。于是我渐渐地脱离凡尘，疏远世人，结果便是——任愤懑与羞恨日益助长内心那怯懦的自尊心。via《山月记》</p>
-<p>5月29日</p>
-<p>所谓整洁，就是会藏东西。</p>
-<p>5月30日</p>
-<p>我们想要拼命争取的，不过是他人的日常。如果我们不再以“谁走得更远”来衡量人们的价值，而是以“谁在旅途中创造了更多的意义”来衡量，也许能够豁然开朗一些。一个出身优渥的人，也许可以轻松走得很远，但却可能缺乏意义感；而一生都要不停翻高山的人，也许从绝对距离上衡量走得并不远，但却可能从过程中有了更多的感受和思考，找到了更多的意义。创造意义当然是一件困难的事情，但它至少将命运的主动权交还了自我，至少确认了人的主体价值，而不是将自己完全交由那些外在的随机因素去决定。</p>
+<h3 id="5月29日"><a href="#5月29日" class="headerlink" title="5月29日"></a>5月29日</h3><p>所谓整洁，就是会藏东西。</p>
+<h3 id="5月30日"><a href="#5月30日" class="headerlink" title="5月30日"></a>5月30日</h3><p>我们想要拼命争取的，不过是他人的日常。如果我们不再以“谁走得更远”来衡量人们的价值，而是以“谁在旅途中创造了更多的意义”来衡量，也许能够豁然开朗一些。一个出身优渥的人，也许可以轻松走得很远，但却可能缺乏意义感；而一生都要不停翻高山的人，也许从绝对距离上衡量走得并不远，但却可能从过程中有了更多的感受和思考，找到了更多的意义。创造意义当然是一件困难的事情，但它至少将命运的主动权交还了自我，至少确认了人的主体价值，而不是将自己完全交由那些外在的随机因素去决定。</p>
 <p>从历史中汲取力量，创造前人未曾抵达的未来。</p>
 <p>提供一个自由而支持的环境，让不同人生长成不同的模样，本就是大学的意义。若大家也在唱同一个音符，又岂能谱出和声？</p>
 <p>昨天朋友问了我一个问题，假如下一秒，我要面对死亡，我最想做什么，我说我想列一个 list，但是她说不对，你应该立刻去做。是啊，想做却还没做的，还很多，但是还是列了一个人生遗憾清单 ： </p>
@@ -227,7 +206,6 @@ if (!isLocalhost) {
 <p>- 把书架上还没有读完的书读完</p>
 <p>这世间的产品不是需要用 AI 套壳重做一遍，而是需要用 AI 颠覆一遍。一个新时代的产品经理不仅要有产品观还要有 AI 观。</p>
 <p>人与人的想法应该像星球之间，可以连接，可以观察，但不应该太过亲密。万有引力，太近了就产生有害碰撞了。人与人的想法应该产生有益连接，而不是人与人的连接，内容思想优先而非肉体。</p>
-<p>5月31日</p>
-<p>预期是美好的最大杀手。</p>
+<h3 id="5月31日"><a href="#5月31日" class="headerlink" title="5月31日"></a>5月31日</h3><p>预期是美好的最大杀手。</p>
 <p>通过树立一种“我是更先进的理念”的品牌感来感染消费者，一个爆品不在于它本身有多好，而是营销有多好。吸引用户的并非产品本身，而是一种自我认同、一种焦虑感，一种对“个性需求”的顺应，满足一种对拥有了某物的幻想。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B9%9D/">思考马克·九</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%83/">思考马克·七</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

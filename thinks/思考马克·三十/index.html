@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·三十</p><script>(function() {
   try {
@@ -164,37 +161,27 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十</a></h2><span class="post__date">2025-06-15</span></div></div><div class="article__content"><h1 id="思考马克·三十"><a href="#思考马克·三十" class="headerlink" title="思考马克·三十"></a><strong>思考马克·三十</strong></h1><h3 id="2025年五至六月记录"><a href="#2025年五至六月记录" class="headerlink" title="2025年五至六月记录"></a><strong>2025年五至六月记录</strong></h3><p>5月15日</p>
-<p>耐心面对没成果的日子、耐心想清楚一个问题、耐心找到真正靠谱的合作伙伴……那些看似“漫长而无意义”的日子，才是你未来力量的来源。</p>
-<p><br>5月21日</p>
-<p>任何时候改变都需要付出代价，不管多大的代价都是最小的代价。</p>
-<p><br>5月27日</p>
-<p>AI在变得越来越有趣，而人类在变得越来越无聊。</p>
-<p><br>5月30日</p>
-<p>看破的，遁入空门；痴迷的，枉送了性命。</p>
-<p><br>5月31日</p>
-<p>胡思乱想并不有趣，有趣是有道理而且新奇。</p>
-<p><br>6月4日</p>
-<p>在一个仍然充满偏见的世界中，建议每个人“做你自己”是不公平的。因为并不是每个人生来就享有一套特权属性与行为……</p>
-<p>6月10日</p>
-<p>最难过的事情莫过于看到一个喜欢的产品、你没有机会再体验了那种感觉，那种错过感是非常的痛苦。这比一首喜欢的歌被下架、一部电影被下映、一个喜欢的本书被禁还难受，后面你是都可以通过搜索搞到复制的版本，但是产品不能就是不能了。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十</a></h2><span class="post__date">2025-06-15</span></div></div><div class="article__content"><h1 id="思考马克·三十"><a href="#思考马克·三十" class="headerlink" title="思考马克·三十"></a>思考马克·三十</h1><h2 id="2025年五至六月记录"><a href="#2025年五至六月记录" class="headerlink" title="2025年五至六月记录"></a><strong>2025年五至六月记录</strong></h2><h3 id="5月15日"><a href="#5月15日" class="headerlink" title="5月15日"></a>5月15日</h3><p>耐心面对没成果的日子、耐心想清楚一个问题、耐心找到真正靠谱的合作伙伴……那些看似“漫长而无意义”的日子，才是你未来力量的来源。</p>
+<p>\</p>
+<h3 id="5月21日"><a href="#5月21日" class="headerlink" title="5月21日"></a>5月21日</h3><p>任何时候改变都需要付出代价，不管多大的代价都是最小的代价。</p>
+<p>\</p>
+<h3 id="5月27日"><a href="#5月27日" class="headerlink" title="5月27日"></a>5月27日</h3><p>AI在变得越来越有趣，而人类在变得越来越无聊。</p>
+<p>\</p>
+<h3 id="5月30日"><a href="#5月30日" class="headerlink" title="5月30日"></a>5月30日</h3><p>看破的，遁入空门；痴迷的，枉送了性命。</p>
+<p>\</p>
+<h3 id="5月31日"><a href="#5月31日" class="headerlink" title="5月31日"></a>5月31日</h3><p>胡思乱想并不有趣，有趣是有道理而且新奇。</p>
+<p>\</p>
+<h3 id="6月4日"><a href="#6月4日" class="headerlink" title="6月4日"></a>6月4日</h3><p>在一个仍然充满偏见的世界中，建议每个人“做你自己”是不公平的。因为并不是每个人生来就享有一套特权属性与行为……</p>
+<h3 id="6月10日"><a href="#6月10日" class="headerlink" title="6月10日"></a>6月10日</h3><p>最难过的事情莫过于看到一个喜欢的产品、你没有机会再体验了那种感觉，那种错过感是非常的痛苦。这比一首喜欢的歌被下架、一部电影被下映、一个喜欢的本书被禁还难受，后面你是都可以通过搜索搞到复制的版本，但是产品不能就是不能了。</p>
 <p>人类对信息的需求量，要远远大于食物。但食物对人类的必要程度要远大于信息。</p>
 <p>当所有人都有了就相当于所有人都没有，很多时候人的幸福感来自人无我有的稀缺性。稀缺性是竞争力。</p>
-<p>6月12日</p>
-<p>有些人始终是分不清什么是有趣？而什么是流氓。正是这个世界无趣的人太多太多，而那些真正有趣的灵魂相遇才是一件非常让人留恋的事儿。如果人人都像王朔那样，这个世界该有多美好。</p>
-<p>6月16日</p>
-<p>道之动常出于被迫，道之用常处于不争。工于心计者，多败其功；两军相若，骄兵必溃，哀者必胜。</p>
-<p>6月17日</p>
-<p>脏话比谎言干净一千倍，不是吗？</p>
-<p>6月21日</p>
-<p>只要不限制年轻人的自由，你会发现他们会创造无限可能。可是这个世界就是有那么一群人想用各种东西来限制年轻人的想法和自由。以前你问我，年轻人有没有未来？我会说没有！但最近运营的感受是未来一定会在可爱的年轻人手里。只是他们还没到时机，否则他们一定会创造出一个更美好的世界。</p>
-<p>6月23日</p>
-<p>现代战争怎么越来越像回合制游戏…</p>
-<p>6月27日</p>
-<p>看见的不需要相信的，看不见的才需要相信。</p>
+<h3 id="6月12日"><a href="#6月12日" class="headerlink" title="6月12日"></a>6月12日</h3><p>有些人始终是分不清什么是有趣？而什么是流氓。正是这个世界无趣的人太多太多，而那些真正有趣的灵魂相遇才是一件非常让人留恋的事儿。如果人人都像王朔那样，这个世界该有多美好。</p>
+<h3 id="6月16日"><a href="#6月16日" class="headerlink" title="6月16日"></a>6月16日</h3><p>道之动常出于被迫，道之用常处于不争。工于心计者，多败其功；两军相若，骄兵必溃，哀者必胜。</p>
+<h3 id="6月17日"><a href="#6月17日" class="headerlink" title="6月17日"></a>6月17日</h3><p>脏话比谎言干净一千倍，不是吗？</p>
+<h3 id="6月21日"><a href="#6月21日" class="headerlink" title="6月21日"></a>6月21日</h3><p>只要不限制年轻人的自由，你会发现他们会创造无限可能。可是这个世界就是有那么一群人想用各种东西来限制年轻人的想法和自由。以前你问我，年轻人有没有未来？我会说没有！但最近运营的感受是未来一定会在可爱的年轻人手里。只是他们还没到时机，否则他们一定会创造出一个更美好的世界。</p>
+<h3 id="6月23日"><a href="#6月23日" class="headerlink" title="6月23日"></a>6月23日</h3><p>现代战争怎么越来越像回合制游戏…</p>
+<h3 id="6月27日"><a href="#6月27日" class="headerlink" title="6月27日"></a>6月27日</h3><p>看见的不需要相信的，看不见的才需要相信。</p>
 <p>有些人接受不了复杂，但又为何不喜欢单纯？</p>
-<p>6月29日</p>
-<p>上网上久了你就会想去读书，因为吃垃圾食品吃多了就会不自觉的恶心。人终究会回到最纯粹的味觉体验，佐料当然会提升味蕾，但它始终不是食物的本原。</p>
-<p>6月30日</p>
-<p>你在乎形式越多，你就越不在乎内容。你越在乎内容，你就会发现形式只是个载体。表象总是迷惑着人类……</p>
+<h3 id="6月29日"><a href="#6月29日" class="headerlink" title="6月29日"></a>6月29日</h3><p>上网上久了你就会想去读书，因为吃垃圾食品吃多了就会不自觉的恶心。人终究会回到最纯粹的味觉体验，佐料当然会提升味蕾，但它始终不是食物的本原。</p>
+<h3 id="6月30日"><a href="#6月30日" class="headerlink" title="6月30日"></a>6月30日</h3><p>你在乎形式越多，你就越不在乎内容。你越在乎内容，你就会发现形式只是个载体。表象总是迷惑着人类……</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%B8%80/">思考马克·三十一</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%BA%8C%E5%8D%81%E4%B9%9D/">思考马克·二十九</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

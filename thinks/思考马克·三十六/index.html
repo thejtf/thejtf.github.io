@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·三十六</p><script>(function() {
   try {
@@ -164,50 +161,31 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十六</a></h2><span class="post__date">2026-01-15</span></div></div><div class="article__content"><h1 id="思考马克·三十六"><a href="#思考马克·三十六" class="headerlink" title="思考马克·三十六"></a>思考马克·三十六</h1><h3 id="2026年一月记录"><a href="#2026年一月记录" class="headerlink" title="2026年一月记录"></a>2026年一月记录</h3><p>1月25日</p>
-<p>很多人总是用行为上的鲁莽来掩盖思维上的懒惰。</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·三十六</a></h2><span class="post__date">2026-01-15</span></div></div><div class="article__content"><h1 id="思考马克·三十六"><a href="#思考马克·三十六" class="headerlink" title="思考马克·三十六"></a>思考马克·三十六</h1><h2 id="2026年一月记录"><a href="#2026年一月记录" class="headerlink" title="2026年一月记录"></a><strong>2026年一月记录</strong></h2><h3 id="1月25日"><a href="#1月25日" class="headerlink" title="1月25日"></a>1月25日</h3><p>很多人总是用行为上的鲁莽来掩盖思维上的懒惰。</p>
 <p>人与人之间所有的交流，实际上都是权力的流动。</p>
-<p>1月26日</p>
-<p>在真的抵达前，不要让你的大脑先到。</p>
+<h3 id="1月26日"><a href="#1月26日" class="headerlink" title="1月26日"></a>1月26日</h3><p>在真的抵达前，不要让你的大脑先到。</p>
 <p>中国人向来以成败论英雄，成了就是高瞻远瞩能说会道，败了就是油嘴滑舌好高骛远。可天下英雄如过江之鲫，人中龙凤尚且举步维艰，何况我们。寒门立志向来九死一生，你想堕落没人拦你，可若是你想要出头，拦你的何止千万……</p>
-<p>1月27日</p>
-<p>人们不爱阅读的一大恶果就是书店里精装本的比率越来越多……这个世界需要越来越多的企鹅兰登。</p>
-<p>1月28日</p>
-<p>道德永远站在最高点，但现实永远是复杂的。</p>
-<p>1月30日</p>
-<p>第一性原理的最通俗理解就是一切问题最终都要回归到本质。第一性原理就是最本质的需求，去繁就简。</p>
-<p>1月31日</p>
-<p>好习惯远比一个好点子更重要。</p>
-<p>2月1日</p>
-<p>看元宝的打法就会发现腾讯已经在这轮AI浪潮下被落后的多远了，这倒不是说技术和产品，而是产品模式。他们还在停留微信红包的那个春节的幻想里呢，二十一世纪已经过了四分之一，人们不可能一直停留在过去，十几年前4G时代我们还会因为红包而高兴，现在则不然。不过好处就是，大公司真的尾大不掉，强者也绝非恒强。新机遇是留给后来的人的，前人也吃尽了红利了，有些大厂还是太安逸了，亦或者某些公司真的老了。</p>
-<p>2月2日</p>
-<p>Mark一下王小波的这句话：我来这个世界，不是为了繁衍后代。而是来看花怎么开，水怎么流。太阳怎么升起，夕阳何时落下。我活在世上，无非想要明白些道理，遇见些有趣的事。生命是一场偶然，我在其中寻找因果。</p>
-<p>2月3日</p>
-<p>所有的压抑都是源于不够勇敢。</p>
-<p>2月4日</p>
-<p>媒体真的是普通人最容易的杠杆了，时人不识凌云木，直待凌云始道高。</p>
-<p>2月12日</p>
-<p>人类的需求从来就是结果，而不是软件。</p>
-<p>2月14日</p>
-<p>模型和模型的差距就跟人与人之间的差距一样，有的模型干啥都行就是贵，而有的模型只擅长干一部分活，而有的不花钱的模型，算了，还是别用了。</p>
+<h3 id="1月27日"><a href="#1月27日" class="headerlink" title="1月27日"></a>1月27日</h3><p>人们不爱阅读的一大恶果就是书店里精装本的比率越来越多……这个世界需要越来越多的企鹅兰登。</p>
+<h3 id="1月28日"><a href="#1月28日" class="headerlink" title="1月28日"></a>1月28日</h3><p>道德永远站在最高点，但现实永远是复杂的。</p>
+<h3 id="1月30日"><a href="#1月30日" class="headerlink" title="1月30日"></a>1月30日</h3><p>第一性原理的最通俗理解就是一切问题最终都要回归到本质。第一性原理就是最本质的需求，去繁就简。</p>
+<h3 id="1月31日"><a href="#1月31日" class="headerlink" title="1月31日"></a>1月31日</h3><p>好习惯远比一个好点子更重要。</p>
+<h3 id="2月1日"><a href="#2月1日" class="headerlink" title="2月1日"></a>2月1日</h3><p>看元宝的打法就会发现腾讯已经在这轮AI浪潮下被落后的多远了，这倒不是说技术和产品，而是产品模式。他们还在停留微信红包的那个春节的幻想里呢，二十一世纪已经过了四分之一，人们不可能一直停留在过去，十几年前4G时代我们还会因为红包而高兴，现在则不然。不过好处就是，大公司真的尾大不掉，强者也绝非恒强。新机遇是留给后来的人的，前人也吃尽了红利了，有些大厂还是太安逸了，亦或者某些公司真的老了。</p>
+<h3 id="2月2日"><a href="#2月2日" class="headerlink" title="2月2日"></a>2月2日</h3><p>Mark一下王小波的这句话：我来这个世界，不是为了繁衍后代。而是来看花怎么开，水怎么流。太阳怎么升起，夕阳何时落下。我活在世上，无非想要明白些道理，遇见些有趣的事。生命是一场偶然，我在其中寻找因果。</p>
+<h3 id="2月3日"><a href="#2月3日" class="headerlink" title="2月3日"></a>2月3日</h3><p>所有的压抑都是源于不够勇敢。</p>
+<h3 id="2月4日"><a href="#2月4日" class="headerlink" title="2月4日"></a>2月4日</h3><p>媒体真的是普通人最容易的杠杆了，时人不识凌云木，直待凌云始道高。</p>
+<h3 id="2月12日"><a href="#2月12日" class="headerlink" title="2月12日"></a>2月12日</h3><p>人类的需求从来就是结果，而不是软件。</p>
+<h3 id="2月14日"><a href="#2月14日" class="headerlink" title="2月14日"></a>2月14日</h3><p>模型和模型的差距就跟人与人之间的差距一样，有的模型干啥都行就是贵，而有的模型只擅长干一部分活，而有的不花钱的模型，算了，还是别用了。</p>
 <p>那些说AI改变世界的人都是在用最贵最优秀最有生产力的模型，而那些觉得AI也不过如此的人大多都是在用聊天模型。chatting改变不了世界，creating才能改变世界。</p>
-<p>2月15日</p>
-<p>求则得之，舍则失之，是求有益于得也，求在我者也。求之有道，得之有命，是求无益于得也，求在外者也。</p>
+<h3 id="2月15日"><a href="#2月15日" class="headerlink" title="2月15日"></a>2月15日</h3><p>求则得之，舍则失之，是求有益于得也，求在我者也。求之有道，得之有命，是求无益于得也，求在外者也。</p>
 <p>珍惜现在能和人类交流的机会吧，几十年后我感觉想找到一个真人交流会变得越来越难得的，谁知道网线的另一端是Agent还是Bot还是物理级别存在的机器人呢。</p>
-<p>2月16日</p>
-<p>模型也是存在阶级的。</p>
+<h3 id="2月16日"><a href="#2月16日" class="headerlink" title="2月16日"></a>2月16日</h3><p>模型也是存在阶级的。</p>
 <p>事实上人类的许多看起来有意义的工作，Bot都能取代，甚至能取代的更好。所以人类的意义有时候是多么的可笑啊。</p>
-<p>2月17日</p>
-<p>在越来越方便的Agent时代，慢慢的才发现越来越难以忍受这些各种UI的软件页面。人类不该花在这么多的时间在软件交互上，人类该解放出来去做一些对于生命更有意义和价值的事，而不是对着屏幕耗尽余生。</p>
-<p>2月18日</p>
-<p>在本该选择进攻的时刻选择防守是很多人失败的终极原因。</p>
-<p>2月19日</p>
-<p>人们做事是因为喜欢，不是因为哪件事多么有意义。</p>
+<h3 id="2月17日"><a href="#2月17日" class="headerlink" title="2月17日"></a>2月17日</h3><p>在越来越方便的Agent时代，慢慢的才发现越来越难以忍受这些各种UI的软件页面。人类不该花在这么多的时间在软件交互上，人类该解放出来去做一些对于生命更有意义和价值的事，而不是对着屏幕耗尽余生。</p>
+<h3 id="2月18日"><a href="#2月18日" class="headerlink" title="2月18日"></a>2月18日</h3><p>在本该选择进攻的时刻选择防守是很多人失败的终极原因。</p>
+<h3 id="2月19日"><a href="#2月19日" class="headerlink" title="2月19日"></a>2月19日</h3><p>人们做事是因为喜欢，不是因为哪件事多么有意义。</p>
 <p>我宁愿读你的破文笔，也不想读你的 AI slop。因为 AI，更加珍视人类粗糙的那部分了。</p>
 <p>2月20日<br>省 token 和提升性能不该同时发生。</p>
 <p>Agent终将改变潮水的方向。我们应勇敢地和过去的自己的思维习惯做彻底的说ByeBye。扔掉旧世界的镰刀和斧头和头脑里的思想，旧的价值判断已然失效，人类应该大胆去寻找新世界。然后问问自己：在新世界里，想要成为什么样的人？可能这个问题，在以后一段时间内比任何商业机会对人来说都重要。如果你还不懂，那我说，如果你面对的是一场人类生产力革命呢，接下来你是参与革命还是做一个旧社会的续命者呢？</p>
-<p>2月21日</p>
-<p>如果你有一个全知全能的Agent或bot，你要什么它都能给你实现，那你唯一缺的不是token，而是token指向的能源。</p>
-<p>2月23日</p>
-<p>说来说去，一个人最吸引人的品质就是保持头脑开放并持续学习实践的能力。容颜易老，往日的功勋也会随着时间褪色。若停止了进化，再惊才绝艳的人也难逃平庸。我想不到为何这样，大概只能怪给这个生命的熵增。忽然想起乔老爷子在斯坦福毕业演讲里说的那句话「Stay Hungry, Stay Foolish」。</p>
+<h3 id="2月21日"><a href="#2月21日" class="headerlink" title="2月21日"></a>2月21日</h3><p>如果你有一个全知全能的Agent或bot，你要什么它都能给你实现，那你唯一缺的不是token，而是token指向的能源。</p>
+<h3 id="2月23日"><a href="#2月23日" class="headerlink" title="2月23日"></a>2月23日</h3><p>说来说去，一个人最吸引人的品质就是保持头脑开放并持续学习实践的能力。容颜易老，往日的功勋也会随着时间褪色。若停止了进化，再惊才绝艳的人也难逃平庸。我想不到为何这样，大概只能怪给这个生命的熵增。忽然想起乔老爷子在斯坦福毕业演讲里说的那句话「Stay Hungry, Stay Foolish」。</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%B8%83/">思考马克·三十七</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E4%B8%89%E5%8D%81%E4%BA%94/">思考马克·三十五</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>

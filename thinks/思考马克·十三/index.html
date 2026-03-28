@@ -111,19 +111,16 @@ if (!isLocalhost) {
   window.gtag = function() {
     // 静默忽略本地环境的分析请求
   };
-}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js" defer></script><script>window.addEventListener('DOMContentLoaded', () => {
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.toc__content',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.article__content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    // For headings inside relative or absolute positioned containers within content.
-    hasInnerContainers: true,
-    orderedList: false,
-    collapseDepth: 2,
-  });
+}</script><link rel="stylesheet" href="/css/tocbot.css"><script src="/js/tocbot.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  if (typeof tocbot !== 'undefined' && document.querySelector('.article__content')) {
+    tocbot.init({
+      tocSelector: '.toc__content',
+      contentSelector: '.article__content',
+      headingSelector: 'h1, h2, h3, h4',
+      orderedList: false,
+      collapseDepth: 6
+    });
+  }
 })</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jopus" type="application/atom+xml">
 </head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Jopus</a></h1><p>Life by creating</p></div></div><div class="paper-container"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text" id="location-text">思考马克·十三</p><script>(function() {
   try {
@@ -164,51 +161,31 @@ if (!isLocalhost) {
   } catch(e) {
     // 静默处理错误
   }
-})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十三</a></h2><span class="post__date">2023-11-15</span></div></div><div class="article__content"><h1 id="思考马克·十三"><a href="#思考马克·十三" class="headerlink" title="思考马克·十三"></a><strong>思考马克·十三</strong></h1><h3 id="2023年十一月记录"><a href="#2023年十一月记录" class="headerlink" title="2023年十一月记录"></a><strong>2023年十一月记录</strong></h3><p>10月4日</p>
-<p>成功最难的不是吃苦，而是怎么抗住失败。九死一生的命运里，人们总是看到那 10% 的成功而忽略了大多数的失败。</p>
-<p>10月9日</p>
-<p>一个什么都想被人管的人不配拥有自由，只有勇敢的人才会享受自由。</p>
-<p>10月10日</p>
-<p>人类永远都愿意为稀少的东西而进行溢价支付。</p>
-<p>10月13日</p>
-<p>原来不是所有人都遗忘了，</p>
+})();</script><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><article class="post-view__article"><div class="article__infomation"><div class="posts-item"><h2 class="posts-item__title"><a href="">思考马克·十三</a></h2><span class="post__date">2023-11-15</span></div></div><div class="article__content"><h1 id="思考马克·十三"><a href="#思考马克·十三" class="headerlink" title="思考马克·十三"></a>思考马克·十三</h1><h2 id="2023年十一月记录"><a href="#2023年十一月记录" class="headerlink" title="2023年十一月记录"></a><strong>2023年十一月记录</strong></h2><h3 id="10月4日"><a href="#10月4日" class="headerlink" title="10月4日"></a>10月4日</h3><p>成功最难的不是吃苦，而是怎么抗住失败。九死一生的命运里，人们总是看到那 10% 的成功而忽略了大多数的失败。</p>
+<h3 id="10月9日"><a href="#10月9日" class="headerlink" title="10月9日"></a>10月9日</h3><p>一个什么都想被人管的人不配拥有自由，只有勇敢的人才会享受自由。</p>
+<h3 id="10月10日"><a href="#10月10日" class="headerlink" title="10月10日"></a>10月10日</h3><p>人类永远都愿意为稀少的东西而进行溢价支付。</p>
+<h3 id="10月13日"><a href="#10月13日" class="headerlink" title="10月13日"></a>10月13日</h3><p>原来不是所有人都遗忘了，</p>
 <p>只是大家都不愿意再提起。</p>
-<p>10月16日</p>
-<p>未来和过去其实是同时发生的，怀疑一旦产生，罪名便成立。所以人性不能去试探，因为一旦观察，未来就坍缩成唯一的结果，这就导致了倒果为因。</p>
-<p>10月18日</p>
-<p>恶人自有恶人磨，这个世界所有的东西都暗中标好了价格。</p>
-<p>10月19日</p>
-<p>人不是一下子死掉的，人是一点点死掉的。你离开时是一个秋天，如今又是一个秋天。这一刻，无比怀念鲁迅，纪念鲁迅逝世 87 周年。</p>
-<p>10月21日</p>
-<p>欲望是自我保存的冲动。——斯宾诺莎</p>
-<p>10月24日</p>
-<p>人有很多种美，但肯定有一种美是能够明确优雅的表达你所相信的一切。</p>
+<h3 id="10月16日"><a href="#10月16日" class="headerlink" title="10月16日"></a>10月16日</h3><p>未来和过去其实是同时发生的，怀疑一旦产生，罪名便成立。所以人性不能去试探，因为一旦观察，未来就坍缩成唯一的结果，这就导致了倒果为因。</p>
+<h3 id="10月18日"><a href="#10月18日" class="headerlink" title="10月18日"></a>10月18日</h3><p>恶人自有恶人磨，这个世界所有的东西都暗中标好了价格。</p>
+<h3 id="10月19日"><a href="#10月19日" class="headerlink" title="10月19日"></a>10月19日</h3><p>人不是一下子死掉的，人是一点点死掉的。你离开时是一个秋天，如今又是一个秋天。这一刻，无比怀念鲁迅，纪念鲁迅逝世 87 周年。</p>
+<h3 id="10月21日"><a href="#10月21日" class="headerlink" title="10月21日"></a>10月21日</h3><p>欲望是自我保存的冲动。——斯宾诺莎</p>
+<h3 id="10月24日"><a href="#10月24日" class="headerlink" title="10月24日"></a>10月24日</h3><p>人有很多种美，但肯定有一种美是能够明确优雅的表达你所相信的一切。</p>
 <p>任何生命的意义都不在于被他人观赏，投喂是最虚伪的爱。</p>
-<p>10月26日</p>
-<p>再读读西方哲学史吧，到底什么能抵挡住岁月的消磨…</p>
-<p>10月29日</p>
-<p>书籍是少数几个没有被软件吞噬的领域，数据表明目前只有 10% 的电子书销量是非小说类图书。这当然并不是说因为阅读形式在某种程度上已经接近完美了，而是至少对于非小说类读者而言，电子书的体验目前还不够好，不足以从实体书转向电子书。互联网这头猛兽发展了这么多年，但至今仍然没有一款产品可以撼动纸质书的阅读群体，这事儿是值得思考的。</p>
-<p>11月7日</p>
-<p>限制创造的方式越来越不是工具了，审美创新才是。现在已经不是 AI 有没有智慧的问题了，而是你作为人类自身有没有智慧在这个变化的时代快速适应迭代的问题了。</p>
-<p>11月8日</p>
-<p>每天都能感受到科技的日新月异，但同时也能感受到这个世界再变的越来越糟。就像《头号玩家》的场景一样，一边是元宇宙，一边是贫民窟。更酷似《黑客帝国》人们已经似乎变成了某种可以被科技公司榨成的电池养料。统一的秩序很美，反差的效果也很惊人，马太效应永远都赢，你要么成为压迫他人的一部分，要么成为被他人压迫的一部分。</p>
-<p>11月9日</p>
-<p>小红书能不能打败抖音不好说，但是一定能打败微博，现在微博的信息流内容真就是一言难尽。</p>
-<p>11月10日</p>
-<p>对软件极度较真的人应该生产自己的硬件。</p>
+<h3 id="10月26日"><a href="#10月26日" class="headerlink" title="10月26日"></a>10月26日</h3><p>再读读西方哲学史吧，到底什么能抵挡住岁月的消磨…</p>
+<h3 id="10月29日"><a href="#10月29日" class="headerlink" title="10月29日"></a>10月29日</h3><p>书籍是少数几个没有被软件吞噬的领域，数据表明目前只有 10% 的电子书销量是非小说类图书。这当然并不是说因为阅读形式在某种程度上已经接近完美了，而是至少对于非小说类读者而言，电子书的体验目前还不够好，不足以从实体书转向电子书。互联网这头猛兽发展了这么多年，但至今仍然没有一款产品可以撼动纸质书的阅读群体，这事儿是值得思考的。</p>
+<h3 id="11月7日"><a href="#11月7日" class="headerlink" title="11月7日"></a>11月7日</h3><p>限制创造的方式越来越不是工具了，审美创新才是。现在已经不是 AI 有没有智慧的问题了，而是你作为人类自身有没有智慧在这个变化的时代快速适应迭代的问题了。</p>
+<h3 id="11月8日"><a href="#11月8日" class="headerlink" title="11月8日"></a>11月8日</h3><p>每天都能感受到科技的日新月异，但同时也能感受到这个世界再变的越来越糟。就像《头号玩家》的场景一样，一边是元宇宙，一边是贫民窟。更酷似《黑客帝国》人们已经似乎变成了某种可以被科技公司榨成的电池养料。统一的秩序很美，反差的效果也很惊人，马太效应永远都赢，你要么成为压迫他人的一部分，要么成为被他人压迫的一部分。</p>
+<h3 id="11月9日"><a href="#11月9日" class="headerlink" title="11月9日"></a>11月9日</h3><p>小红书能不能打败抖音不好说，但是一定能打败微博，现在微博的信息流内容真就是一言难尽。</p>
+<h3 id="11月10日"><a href="#11月10日" class="headerlink" title="11月10日"></a>11月10日</h3><p>对软件极度较真的人应该生产自己的硬件。</p>
 <p>价值观冲突是产生内容的源泉。</p>
-<p>11月11日</p>
-<p>我们热爱高贵典雅的东西，但没有因此变得柔弱。我们把财富当作可以利用的东西，而不是当作可以夸耀的东西。真正的耻辱不是贫穷这一事实本身，而是不与贫穷作斗争。——伯里克利</p>
+<h3 id="11月11日"><a href="#11月11日" class="headerlink" title="11月11日"></a>11月11日</h3><p>我们热爱高贵典雅的东西，但没有因此变得柔弱。我们把财富当作可以利用的东西，而不是当作可以夸耀的东西。真正的耻辱不是贫穷这一事实本身，而是不与贫穷作斗争。——伯里克利</p>
 <p>秩序与稳定大多是脆弱而不确定的人造物，为的是抑制那些威胁人类事物的无所不在的混沌。在追求化多为一，化多样性为某种潜在的统一性的过程中，我们终将扭曲事物的本来意义。</p>
 <p>永远都是 5% 的人有意愿改变世界，而那 95% 的人就是活着，人本能的会向娱乐类的内容靠近。别批评什么娱乐至死，这才是人类的天性。</p>
 <p>柏拉图说的对，一直蜗居在山洞里的人，他们害怕光明。</p>
-<p>11月12日</p>
-<p>无论多么先进的模型，预测都是有极限的。就像人生，实力决定你的下限，而命运决定了你的上限。</p>
-<p>11月13日</p>
-<p>系统和产品都应该是简单的，一旦变得复杂就等同于走向灭亡。人喜欢简单但痴迷于复杂。</p>
+<h3 id="11月12日"><a href="#11月12日" class="headerlink" title="11月12日"></a>11月12日</h3><p>无论多么先进的模型，预测都是有极限的。就像人生，实力决定你的下限，而命运决定了你的上限。</p>
+<h3 id="11月13日"><a href="#11月13日" class="headerlink" title="11月13日"></a>11月13日</h3><p>系统和产品都应该是简单的，一旦变得复杂就等同于走向灭亡。人喜欢简单但痴迷于复杂。</p>
 <p>这个世界的很多参差来自于，有些人记性特别好，而有些人却擅长遗忘。</p>
-<p>11月14日</p>
-<p>今早想了想孔子的那句“穷则独善其身，达则兼济天下”越来越不对劲，穷困的时候都能做到独善其身，发达了有那么多既得利益便不能放下就会更能懂得独善其身的道理了。朋友说该改成“穷则软肋少少，达则软肋多多”才更符合时宜。</p>
-<p>11月15日</p>
-<p>一个人应该能够换尿布，策划战争，杀猪，开船，设计房子，写十四行诗，结算账户，砌墙，接脱臼的骨头，安慰濒死的人，服从命令，发布命令，携手合作，独立行动，解数学方程，分析新问题，铲粪，电脑编程，做出可口的饭，善打架，勇敢地死去。只有昆虫才专业化。——海因莱因</p>
+<h3 id="11月14日"><a href="#11月14日" class="headerlink" title="11月14日"></a>11月14日</h3><p>今早想了想孔子的那句“穷则独善其身，达则兼济天下”越来越不对劲，穷困的时候都能做到独善其身，发达了有那么多既得利益便不能放下就会更能懂得独善其身的道理了。朋友说该改成“穷则软肋少少，达则软肋多多”才更符合时宜。</p>
+<h3 id="11月15日"><a href="#11月15日" class="headerlink" title="11月15日"></a>11月15日</h3><p>一个人应该能够换尿布，策划战争，杀猪，开船，设计房子，写十四行诗，结算账户，砌墙，接脱臼的骨头，安慰濒死的人，服从命令，发布命令，携手合作，独立行动，解数学方程，分析新问题，铲粪，电脑编程，做出可口的饭，善打架，勇敢地死去。只有昆虫才专业化。——海因莱因</p>
 </div></article><div class="post-view__sidebar"><div class="sidebar"><div class="tocbot"><h2>Toc</h2><div class="toc__content"></div></div><h2>Links</h2><div class="sidebar__link"><ul><li><a href="/note">公开笔记</a></li><li><a href="/think">思考马克</a></li><li><a href="/read">读书划线</a></li><li><a href="/readme">Readme</a></li><li><a target="_blank" rel="noopener" href="https://jopus.cn/atom.xml">RSS 订阅</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2025/">2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2024/">2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/thinks/archives/2019/">2019</a></li></ul></div><h2>Categories</h2><div class="sidebar__categories"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/thinks/categories/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B/">思考马克</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/%E6%80%9D%E8%80%83/">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/thinks/tags/Mark/">Mark</a></li></ul></div></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="pre-next"><a class="pre-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B720%E5%B9%B4%E8%87%B323%E5%B9%B4/">思考马克·20年至23年</a><a class="next-button" href="/thinks/%E6%80%9D%E8%80%83%E9%A9%AC%E5%85%8B%C2%B7%E5%8D%81%E4%BA%8C/">思考马克·十二</a></div></div></div></div><div class="footer"><span>©️2020-2026 Created By&nbsp;<strong>Jopus</strong></span></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>
