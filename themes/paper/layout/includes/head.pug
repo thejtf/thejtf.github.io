@@ -1,5 +1,9 @@
 .head
   .head__inner
     h1
-      a(href=theme.menu.Home) #{config.title}
+      a(href=theme.menu.Home)
+        if is_page() && page.title
+          | #{page.title}
+        else
+          | #{config.title}
     p #{config.description}
