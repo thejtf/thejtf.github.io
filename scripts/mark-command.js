@@ -77,6 +77,14 @@ hexo.extend.console.register('mark', 'Add a thinking mark entry', {
     };
 
     const monthTitle = getMonthTitle();
+    const filename = generateFilename(num);
+    const filePath = path.join(thinksDir, filename);
+
+    // 检查文件是否已存在
+    if (fs.existsSync(filePath)) {
+      hexo.log.warn(`⚠️  文件已存在: ${filename}，将追加内容而非覆盖`);
+      return appendToArticle(filePath);
+    }
 
     const articleContent = `---
 title: 思考马克·${chineseNums[num]}
@@ -95,14 +103,30 @@ tags:
 ### ${currentMonth}月${currentDay}日
 
 ${content}
-
-
-
 `;
 
-    const filename = generateFilename(num);
-    const filePath = path.join(thinksDir, filename);
     fs.writeFileSync(filePath, articleContent);
+
+    // 验证创建的文件格式
+    const createdContent = fs.readFileSync(filePath, 'utf-8');
+    const expectedTitle = `# 思考马克·${chineseNums[num]}`;
+    const expectedMonth = `## **${monthTitle}**`;
+    const expectedDate = `### ${currentMonth}月${currentDay}日`;
+
+    if (!createdContent.includes(expectedTitle)) {
+      hexo.log.error(`❌ 创建失败: 文章标题不正确`);
+      return null;
+    }
+    if (!createdContent.includes(expectedMonth)) {
+      hexo.log.error(`❌ 创建失败: 月份标题不正确`);
+      return null;
+    }
+    if (!createdContent.includes(expectedDate)) {
+      hexo.log.error(`❌ 创建失败: 日期标题不正确`);
+      return null;
+    }
+
+    hexo.log.info(`✅ 格式验证通过`);
     return filename;
   }
 
