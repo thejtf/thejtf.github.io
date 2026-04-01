@@ -7,8 +7,7 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "deploy:keep-workflow": "./deploy-with-workflow.sh",
-    "server": "hexo server",
-    "pub": "node scripts/publish.js"
+    "server": "hexo server"
   },
   "hexo": {
     "version": "6.3.0"
