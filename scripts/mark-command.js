@@ -225,4 +225,16 @@ ${content}
     hexo.log.info(`✅ 已追加到: source/_thinks/${targetFile}`);
   }
   hexo.log.info(`📝 ${currentMonth}月${currentDay}日: "${content}"`);
+
+  // 自动 commit 和 push
+  const exec = require('child_process').execSync;
+  try {
+    hexo.log.info('正在提交到 git...');
+    exec(`git add "source/_thinks/${targetFile}"`, { cwd: hexo.base_dir, stdio: 'inherit' });
+    exec(`git commit -m "Add thinking mark - ${currentMonth}月${currentDay}日"`, { cwd: hexo.base_dir, stdio: 'inherit' });
+    exec('git push origin source', { cwd: hexo.base_dir, stdio: 'inherit' });
+    hexo.log.info('✅ 已提交并推送到 source 分支');
+  } catch (e) {
+    hexo.log.warn('⚠️ Git 操作失败，请手动提交');
+  }
 });

@@ -7,18 +7,42 @@
 BLOG_DIR="/home/jopus/Blog"
 cd "$BLOG_DIR" || exit 1
 
-# 0. 检查是否有新博文需要提交到 source 分支
-echo "检查是否有新博文需要提交..."
-NEW_POSTS=$(git status --porcelain "source/_posts/" 2>/dev/null | grep "^??")
+# 0. 检查是否有新内容需要提交到 source 分支
+echo "检查是否有新内容需要提交..."
 
+# 检查 _posts/
+NEW_POSTS=$(git status --porcelain "source/_posts/" 2>/dev/null | grep "^??")
 if [ -n "$NEW_POSTS" ]; then
-    echo "发现新博文，正在提交到 source 分支..."
-    git add "source/_posts/"
-    git commit -m "Add new posts: $(date '+%Y-%m-%d %H:%M')"
-    git push origin source
-    echo "✅ 新博文已提交到 source 分支"
+  echo "发现新博文，正在提交..."
+  git add "source/_posts/"
+  git commit -m "Add new posts: $(date '+%Y-%m-%d %H:%M')"
+  echo "✅ 新博文已提交"
+fi
+
+# 检查 _notes/
+NEW_NOTES=$(git status --porcelain "source/_notes/" 2>/dev/null)
+if [ -n "$NEW_NOTES" ]; then
+  echo "发现笔记变更，正在提交..."
+  git add "source/_notes/"
+  git commit -m "Update notes: $(date '+%Y-%m-%d %H:%M')"
+  echo "✅ 笔记已提交"
+fi
+
+# 检查 _thinks/
+NEW_THINKS=$(git status --porcelain "source/_thinks/" 2>/dev/null)
+if [ -n "$NEW_THINKS" ]; then
+  echo "发现思考马克变更，正在提交..."
+  git add "source/_thinks/"
+  git commit -m "Update thinking marks: $(date '+%Y-%m-%d %H:%M')"
+  echo "✅ 思考马克已提交"
+fi
+
+# 如果有任何提交，推送到远程
+if [ -n "$NEW_POSTS" ] || [ -n "$NEW_NOTES" ] || [ -n "$NEW_THINKS" ]; then
+  git push origin source
+  echo "✅ 已推送到 source 分支"
 else
-    echo "没有发现新博文需要提交"
+  echo "没有发现新内容需要提交"
 fi
 
 # 1. 清理并生成静态文件

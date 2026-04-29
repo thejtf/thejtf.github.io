@@ -20,16 +20,40 @@ cd "$BLOG_DIR" || exit 1
 echo "=========================================" >> "$LOG_FILE"
 echo "开始每日重建并部署: $(date '+%Y-%m-%d %H:%M:%S')" >> "$LOG_FILE"
 
-# 检查是否有新博文需要提交到 source 分支
-echo "检查新博文..." >> "$LOG_FILE"
-NEW_POSTS=$(git status --porcelain "source/_posts/" 2>/dev/null | grep "^??")
+# 检查是否有新内容需要提交到 source 分支
+echo "检查新内容..." >> "$LOG_FILE"
 
+# 检查 _posts/
+NEW_POSTS=$(git status --porcelain "source/_posts/" 2>/dev/null | grep "^??")
 if [ -n "$NEW_POSTS" ]; then
-    echo "发现新博文，正在提交到 source 分支..." >> "$LOG_FILE"
+    echo "发现新博文，正在提交..." >> "$LOG_FILE"
     git add "source/_posts/" >> "$LOG_FILE" 2>&1
     git commit -m "Add new posts: $(date '+%Y-%m-%d %H:%M')" >> "$LOG_FILE" 2>&1
+    echo "✅ 新博文已提交" >> "$LOG_FILE"
+fi
+
+# 检查 _notes/
+NEW_NOTES=$(git status --porcelain "source/_notes/" 2>/dev/null)
+if [ -n "$NEW_NOTES" ]; then
+    echo "发现笔记变更，正在提交..." >> "$LOG_FILE"
+    git add "source/_notes/" >> "$LOG_FILE" 2>&1
+    git commit -m "Update notes: $(date '+%Y-%m-%d %H:%M')" >> "$LOG_FILE" 2>&1
+    echo "✅ 笔记已提交" >> "$LOG_FILE"
+fi
+
+# 检查 _thinks/
+NEW_THINKS=$(git status --porcelain "source/_thinks/" 2>/dev/null)
+if [ -n "$NEW_THINKS" ]; then
+    echo "发现思考马克变更，正在提交..." >> "$LOG_FILE"
+    git add "source/_thinks/" >> "$LOG_FILE" 2>&1
+    git commit -m "Update thinking marks: $(date '+%Y-%m-%d %H:%M')" >> "$LOG_FILE" 2>&1
+    echo "✅ 思考马克已提交" >> "$LOG_FILE"
+fi
+
+# 如果有任何提交，推送到远程
+if [ -n "$NEW_POSTS" ] || [ -n "$NEW_NOTES" ] || [ -n "$NEW_THINKS" ]; then
     git push origin source >> "$LOG_FILE" 2>&1
-    echo "✅ 新博文已提交到 source 分支" >> "$LOG_FILE"
+    echo "✅ 已推送到 source 分支" >> "$LOG_FILE"
 fi
 
 # 清理旧文件
