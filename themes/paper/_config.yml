@@ -23,9 +23,9 @@ scripts_defer:
 
 
 social:
-  公开笔记: /note
+  公开清单: /note
   思考马克: /think
-  读书划线: /read
+  读书笔记: /read
   Readme: /readme
   RSS 订阅: https://jopus.cn/atom.xml
   # and more, you can add other link by the same way
