@@ -18,6 +18,7 @@ hexo.extend.filter.register('template_locals', function(locals) {
   const posts = files.map(file => {
     const filePath = path.join(readsDir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
+    const stats = fs.statSync(filePath);
 
     // 解析 front matter
     const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -35,6 +36,7 @@ hexo.extend.filter.register('template_locals', function(locals) {
     return {
       title: meta.title,
       date: meta.date,
+      updated: stats.mtime, // 文件修改时间
       content: body,
       source: file,
       path: `reads/${file.replace('.md', '')}/`,
@@ -43,8 +45,8 @@ hexo.extend.filter.register('template_locals', function(locals) {
     };
   });
 
-  // 按日期倒序排序
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // 按文件修改时间倒序排序
+  posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
 
   // 注入到模板 locals
   locals.reads = posts;
@@ -139,6 +141,7 @@ hexo.extend.generator.register('reads', function(locals) {
   files.forEach(file => {
     const filePath = path.join(readsDir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
+    const stats = fs.statSync(filePath);
 
     const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     let meta = { title: file.replace('.md', ''), date: new Date(), tags: [], categories: [] };
@@ -155,6 +158,7 @@ hexo.extend.generator.register('reads', function(locals) {
     const postData = {
       title: meta.title,
       date: meta.date,
+      updated: stats.mtime, // 文件修改时间
       source: file,
       path: `reads/${file.replace('.md', '')}/`,
       content: hexo.render.renderSync({ text: body, engine: 'markdown' }),
@@ -190,8 +194,8 @@ hexo.extend.generator.register('reads', function(locals) {
     }
   });
 
-  // 按日期排序所有文章
-  allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // 按文件修改时间倒序排序所有文章
+  allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
 
   // 为每篇文章设置 prev 和 next
   allPosts.forEach((post, index) => {
