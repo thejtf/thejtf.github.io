@@ -18,6 +18,7 @@ hexo.extend.filter.register('template_locals', function(locals) {
   const posts = files.map(file => {
     const filePath = path.join(notesDir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
+    const stats = fs.statSync(filePath);
 
     // 解析 front matter
     const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -42,6 +43,7 @@ hexo.extend.filter.register('template_locals', function(locals) {
     return {
       title: meta.title,
       date: meta.date,
+      updated: stats.mtime, // 文件修改时间
       content: body,
       source: file,
       path: `notes/${file.replace('.md', '')}/`,
@@ -51,8 +53,8 @@ hexo.extend.filter.register('template_locals', function(locals) {
     };
   });
 
-  // 按日期倒序排序
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // 按文件修改时间倒序排序
+  posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
 
   // 注入到模板 locals
   locals.notes = posts;
@@ -88,6 +90,14 @@ hexo.extend.filter.register('template_locals', function(locals) {
           }
         });
       }
+    });
+
+    // 对每个分类和标签中的文章按修改时间排序
+    categoryMap.forEach(posts => {
+      posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+    });
+    tagMap.forEach(posts => {
+      posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
     });
 
     // 将 note 的分类和标签合并到 site 中
@@ -148,6 +158,7 @@ hexo.extend.generator.register('notes', function(locals) {
   files.forEach(file => {
     const filePath = path.join(notesDir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
+    const stats = fs.statSync(filePath);
 
     const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     let meta = { title: file.replace('.md', ''), date: new Date(), tags: [], categories: [] };
@@ -164,6 +175,7 @@ hexo.extend.generator.register('notes', function(locals) {
     const postData = {
       title: meta.title,
       date: meta.date,
+      updated: stats.mtime, // 文件修改时间
       source: file,
       path: `notes/${file.replace('.md', '')}/`,
       content: hexo.render.renderSync({ text: body, engine: 'markdown' }),
@@ -199,8 +211,16 @@ hexo.extend.generator.register('notes', function(locals) {
     }
   });
 
-  // 按日期排序所有文章
-  allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // 按文件修改时间倒序排序所有文章
+  allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+
+  // 对每个分类和标签中的文章也按修改时间排序
+  categoryMap.forEach(posts => {
+    posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+  });
+  tagMap.forEach(posts => {
+    posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+  });
 
   // 为每篇文章设置 prev 和 next
   allPosts.forEach((post, index) => {
