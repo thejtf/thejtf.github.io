@@ -49,6 +49,9 @@ hexo.extend.filter.register('before_exit', function() {
         htmlContent = body;
       }
 
+      // 去掉 content 里的第一个 h1 标题（因为 <title> 已经有了）
+      htmlContent = htmlContent.replace(/<h1[^>]*>.*?<\/h1>\n?/, '');
+
       posts.push({
         title: meta.title,
         label: label,
