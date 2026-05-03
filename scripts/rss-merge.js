@@ -23,23 +23,30 @@ hexo.extend.filter.register('before_exit', function() {
 
       const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
       let meta = { title: file.replace('.md', ''), date: new Date() };
+      let body = '';
 
       if (match) {
         const yaml = require('js-yaml');
         try {
           meta = { ...meta, ...yaml.load(match[1]) };
         } catch (e) {}
+        body = match[2] || '';
       }
 
       // 提取正文前200字符作为摘要
-      let summary = '';
-      if (match && match[2]) {
-        summary = match[2]
-          .replace(/<!--more-->/g, '')
-          .replace(/^#+.*$/gm, '')
-          .replace(/\n+/g, ' ')
-          .trim()
-          .slice(0, 200);
+      let summary = body
+        .replace(/<!--more-->/g, '')
+        .replace(/^#+.*$/gm, '')
+        .replace(/\n+/g, ' ')
+        .trim()
+        .slice(0, 200);
+
+      // 将 markdown 转换为 HTML（完整内容）
+      let htmlContent = '';
+      try {
+        htmlContent = hexo.render.renderSync({ text: body, engine: 'markdown' });
+      } catch (e) {
+        htmlContent = body;
       }
 
       posts.push({
@@ -48,7 +55,8 @@ hexo.extend.filter.register('before_exit', function() {
         date: meta.date,
         updated: stats.mtime,
         path: `${prefix}/${file.replace('.md', '')}/`,
-        summary: summary
+        summary: summary,
+        content: htmlContent
       });
     });
     return posts;
@@ -61,7 +69,7 @@ hexo.extend.filter.register('before_exit', function() {
     ...collectPosts(path.join(hexo.source_dir, '_notes'), 'notes', '[笔记]')
   ];
 
-  // 按修改时间排序，取最新的10篇
+  // 按修改时间排序，取最新的20篇
   allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
   const recentPosts = allPosts.slice(0, 20);
 
@@ -79,10 +87,6 @@ hexo.extend.filter.register('before_exit', function() {
   const newEntries = recentPosts.map(post => {
     const fullTitle = `${post.label} ${post.title}`;
     const postUrl = `${baseUrl}/${post.path}`;
-    const safeSummary = post.summary
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
 
     return `
   <entry>
@@ -91,15 +95,14 @@ hexo.extend.filter.register('before_exit', function() {
     <id>${postUrl}</id>
     <published>${formatDate(post.date)}</published>
     <updated>${formatDate(post.updated)}</updated>
-    <summary type="html"><![CDATA[${safeSummary}]]></summary>
+    <content type="html"><![CDATA[${post.content}]]></content>
+    <summary type="html"><![CDATA[${post.summary}]]></summary>
   </entry>`;
   }).join('\n');
 
-  // 找到第一个 </entry> 后面插入新内容
-  // 或者在 </feed> 前面插入
+  // 找到 generator 标签后的位置插入
   let updatedAtom;
 
-  // 找到 generator 标签后的位置插入
   const generatorMatch = atomContent.match(/<generator[^>]*>.*?<\/generator>\n/);
   if (generatorMatch) {
     updatedAtom = atomContent.replace(
@@ -118,5 +121,5 @@ hexo.extend.filter.register('before_exit', function() {
   );
 
   fs.writeFileSync(atomPath, updatedAtom);
-  hexo.log.info(`✅ RSS 已合并 ${recentPosts.length} 篇思考/读书/笔记文章`);
+  hexo.log.info(`✅ RSS 已合并 ${recentPosts.length} 篇思考/读书/笔记文章（含完整内容）`);
 }, 20);
