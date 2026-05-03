@@ -83,6 +83,14 @@ hexo.extend.filter.register('template_locals', function(locals) {
       }
     });
 
+    // 对每个分类和标签中的文章按修改时间排序
+    categoryMap.forEach(posts => {
+      posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+    });
+    tagMap.forEach(posts => {
+      posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+    });
+
     // 将 read 的分类和标签合并到 site 中
     locals.readCategories = Array.from(categoryMap.entries()).map(([name, posts]) => ({
       name,
@@ -196,6 +204,14 @@ hexo.extend.generator.register('reads', function(locals) {
 
   // 按文件修改时间倒序排序所有文章
   allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+
+  // 对每个分类和标签中的文章也按修改时间排序
+  categoryMap.forEach(posts => {
+    posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+  });
+  tagMap.forEach(posts => {
+    posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+  });
 
   // 为每篇文章设置 prev 和 next
   allPosts.forEach((post, index) => {
