@@ -49,12 +49,17 @@ hexo.extend.filter.register('before_exit', function() {
         htmlContent = body;
       }
 
-      // 去掉 content 里的第一个 h1 标题（因为 <title> 已经有了）
+      // 去掉 content 里的第一个 h1 标题（因为我们会手动添加带标签的标题）
       htmlContent = htmlContent.replace(/<h1[^>]*>.*?<\/h1>\n?/, '');
+
+      // 在 content 开头添加带标签的标题（如 [思考] 思考马克·三十九）
+      const fullTitle = `${label} ${meta.title}`;
+      htmlContent = `<h1>${fullTitle}</h1>\n${htmlContent}`;
 
       posts.push({
         title: meta.title,
         label: label,
+        fullTitle: fullTitle,
         date: meta.date,
         updated: stats.mtime,
         path: `${prefix}/${file.replace('.md', '')}/`,
@@ -88,12 +93,11 @@ hexo.extend.filter.register('before_exit', function() {
   const baseUrl = hexo.config.url || 'https://jopus.cn';
 
   const newEntries = recentPosts.map(post => {
-    const fullTitle = `${post.label} ${post.title}`;
     const postUrl = `${baseUrl}/${post.path}`;
 
     return `
   <entry>
-    <title>${fullTitle}</title>
+    <title>${post.fullTitle}</title>
     <link href="${postUrl}"/>
     <id>${postUrl}</id>
     <published>${formatDate(post.date)}</published>
