@@ -27,7 +27,7 @@ social:
   读书笔记: /read
   公开清单: /note
   Readme: /readme
-  RSS 订阅: https://jopus.cn/atom.xml
+  RSS 订阅: /atom.xml
   # and more, you can add other link by the same way
 # Uncomment to disable sidebar
 # toc: false

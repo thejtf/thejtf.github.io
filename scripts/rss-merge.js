@@ -63,7 +63,7 @@ hexo.extend.filter.register('before_exit', function() {
 
   // 按修改时间排序，取最新的10篇
   allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
-  const recentPosts = allPosts.slice(0, 10);
+  const recentPosts = allPosts.slice(0, 20);
 
   if (recentPosts.length === 0) return;
 
