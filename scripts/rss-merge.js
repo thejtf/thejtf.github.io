@@ -52,9 +52,7 @@ hexo.extend.filter.register('before_exit', function() {
       // 去掉 content 里的第一个 h1 标题
       htmlContent = htmlContent.replace(/<h1[^>]*>.*?<\/h1>\n?/, '');
 
-      // 在 content 开头添加带标签的标题
       const fullTitle = `${label} ${meta.title}`;
-      htmlContent = `<h1>${fullTitle}</h1>\n${htmlContent}`;
 
       posts.push({
         title: meta.title,
@@ -87,22 +85,7 @@ hexo.extend.filter.register('before_exit', function() {
   // 格式化日期
   const formatDate = (d) => new Date(d).toISOString();
 
-  // 1. 给主页文章的 content 添加 h1 标题
-  // 匹配所有 entry，检查 content 是否有 h1
-  const entryRegex = /<entry>\s*<title>([^<]+)<\/title>([\s\S]*?)<content type="html"><!\[CDATA\[([\s\S]*?)\]\]><\/content>/g;
-
-  atomContent = atomContent.replace(entryRegex, (match, title, middle, contentBody) => {
-    // 检查 content 是否已经有 h1
-    if (contentBody.trim().startsWith('<h1')) {
-      return match; // 已有 h1，不修改
-    }
-
-    // 在 content 开头添加 h1 标题
-    const newContent = `<h1>${title}</h1>\n${contentBody}`;
-    return `<entry>\n    <title>${title}</title>${middle}<content type="html"><![CDATA[${newContent}]]></content>`;
-  });
-
-  // 2. 添加合并的文章
+  // 添加合并的文章
   if (recentPosts.length > 0) {
     const baseUrl = hexo.config.url || 'https://jopus.cn';
 
@@ -140,5 +123,5 @@ hexo.extend.filter.register('before_exit', function() {
   );
 
   fs.writeFileSync(atomPath, atomContent);
-  hexo.log.info(`✅ RSS 已处理：主页文章添加标题 + 合并 ${recentPosts.length} 篇思考/读书/笔记文章`);
+  hexo.log.info(`✅ RSS 已合并 ${recentPosts.length} 篇思考/读书/笔记文章`);
 }, 20);
