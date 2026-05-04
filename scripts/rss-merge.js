@@ -1,5 +1,5 @@
 // 将 thinks、reads、notes 合并到 RSS feed
-// 在生成完成后修改 atom.xml
+// 并给所有文章的 content 开头添加 h1 标题
 hexo.extend.filter.register('before_exit', function() {
   const fs = require('fs');
   const path = require('path');
@@ -49,10 +49,10 @@ hexo.extend.filter.register('before_exit', function() {
         htmlContent = body;
       }
 
-      // 去掉 content 里的第一个 h1 标题（因为我们会手动添加带标签的标题）
+      // 去掉 content 里的第一个 h1 标题
       htmlContent = htmlContent.replace(/<h1[^>]*>.*?<\/h1>\n?/, '');
 
-      // 在 content 开头添加带标签的标题（如 [思考] 思考马克·三十九）
+      // 在 content 开头添加带标签的标题
       const fullTitle = `${label} ${meta.title}`;
       htmlContent = `<h1>${fullTitle}</h1>\n${htmlContent}`;
 
@@ -81,21 +81,35 @@ hexo.extend.filter.register('before_exit', function() {
   allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
   const recentPosts = allPosts.slice(0, 20);
 
-  if (recentPosts.length === 0) return;
-
   // 读取现有的 atom.xml
-  const atomContent = fs.readFileSync(atomPath, 'utf-8');
+  let atomContent = fs.readFileSync(atomPath, 'utf-8');
 
   // 格式化日期
   const formatDate = (d) => new Date(d).toISOString();
 
-  // 生成新的 entry XML
-  const baseUrl = hexo.config.url || 'https://jopus.cn';
+  // 1. 给主页文章的 content 添加 h1 标题
+  // 匹配所有 entry，检查 content 是否有 h1
+  const entryRegex = /<entry>\s*<title>([^<]+)<\/title>([\s\S]*?)<content type="html"><!\[CDATA\[([\s\S]*?)\]\]><\/content>/g;
 
-  const newEntries = recentPosts.map(post => {
-    const postUrl = `${baseUrl}/${post.path}`;
+  atomContent = atomContent.replace(entryRegex, (match, title, middle, contentBody) => {
+    // 检查 content 是否已经有 h1
+    if (contentBody.trim().startsWith('<h1')) {
+      return match; // 已有 h1，不修改
+    }
 
-    return `
+    // 在 content 开头添加 h1 标题
+    const newContent = `<h1>${title}</h1>\n${contentBody}`;
+    return `<entry>\n    <title>${title}</title>${middle}<content type="html"><![CDATA[${newContent}]]></content>`;
+  });
+
+  // 2. 添加合并的文章
+  if (recentPosts.length > 0) {
+    const baseUrl = hexo.config.url || 'https://jopus.cn';
+
+    const newEntries = recentPosts.map(post => {
+      const postUrl = `${baseUrl}/${post.path}`;
+
+      return `
   <entry>
     <title>${post.fullTitle}</title>
     <link href="${postUrl}"/>
@@ -105,28 +119,26 @@ hexo.extend.filter.register('before_exit', function() {
     <content type="html"><![CDATA[${post.content}]]></content>
     <summary type="html"><![CDATA[${post.summary}]]></summary>
   </entry>`;
-  }).join('\n');
+    }).join('\n');
 
-  // 找到 generator 标签后的位置插入
-  let updatedAtom;
-
-  const generatorMatch = atomContent.match(/<generator[^>]*>.*?<\/generator>\n/);
-  if (generatorMatch) {
-    updatedAtom = atomContent.replace(
-      /<generator[^>]*>.*?<\/generator>\n/,
-      generatorMatch[0] + newEntries + '\n'
-    );
-  } else {
-    // 在 </feed> 前插入
-    updatedAtom = atomContent.replace('</feed>', newEntries + '\n</feed>');
+    // 找到 generator 标签后的位置插入
+    const generatorMatch = atomContent.match(/<generator[^>]*>.*?<\/generator>\n/);
+    if (generatorMatch) {
+      atomContent = atomContent.replace(
+        /<generator[^>]*>.*?<\/generator>\n/,
+        generatorMatch[0] + newEntries + '\n'
+      );
+    } else {
+      atomContent = atomContent.replace('</feed>', newEntries + '\n</feed>');
+    }
   }
 
-  // 更新 feed 的 updated 时间
-  updatedAtom = updatedAtom.replace(
+  // 3. 更新 feed 的 updated 时间
+  atomContent = atomContent.replace(
     /<updated>.*?<\/updated>/,
     `<updated>${formatDate(new Date())}</updated>`
   );
 
-  fs.writeFileSync(atomPath, updatedAtom);
-  hexo.log.info(`✅ RSS 已合并 ${recentPosts.length} 篇思考/读书/笔记文章（含完整内容）`);
+  fs.writeFileSync(atomPath, atomContent);
+  hexo.log.info(`✅ RSS 已处理：主页文章添加标题 + 合并 ${recentPosts.length} 篇思考/读书/笔记文章`);
 }, 20);
