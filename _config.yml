@@ -111,10 +111,11 @@ deploy:
 
 # Feed generator (RSS)
 feed:
-  type: atom
-  path: atom.xml
+  type: rss2
+  path: rss.xml
   limit: 20
   title: Jopus的博客
   icon: https://jopus.cn/favicon.ico
-  template: ./source/_atom.xml
+  template: ./source/_rss.xml
+  content: true
 

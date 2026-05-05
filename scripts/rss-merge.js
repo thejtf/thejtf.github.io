@@ -4,9 +4,9 @@ hexo.extend.filter.register('before_exit', function() {
   const fs = require('fs');
   const path = require('path');
 
-  const atomPath = path.join(hexo.public_dir, 'atom.xml');
+  const rssPath = path.join(hexo.public_dir, 'rss.xml');
 
-  if (!fs.existsSync(atomPath)) {
+  if (!fs.existsSync(rssPath)) {
     return;
   }
 
@@ -79,49 +79,46 @@ hexo.extend.filter.register('before_exit', function() {
   allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
   const recentPosts = allPosts.slice(0, 20);
 
-  // 读取现有的 atom.xml
-  let atomContent = fs.readFileSync(atomPath, 'utf-8');
+  // 读取现有的 rss.xml
+  let rssContent = fs.readFileSync(rssPath, 'utf-8');
 
-  // 格式化日期
-  const formatDate = (d) => new Date(d).toISOString();
+  // 格式化日期 (RSS 2.0 使用 UTCString 格式)
+  const formatDate = (d) => new Date(d).toUTCString();
 
-  // 添加合并的文章
+  // 添加合并的文章 (RSS 2.0 格式)
   if (recentPosts.length > 0) {
     const baseUrl = hexo.config.url || 'https://jopus.cn';
 
-    const newEntries = recentPosts.map(post => {
+    const newItems = recentPosts.map(post => {
       const postUrl = `${baseUrl}/${post.path}`;
 
       return `
-  <entry>
-    <title>${post.fullTitle}</title>
-    <link href="${postUrl}"/>
-    <id>${postUrl}</id>
-    <published>${formatDate(post.date)}</published>
-    <updated>${formatDate(post.updated)}</updated>
-    <content type="html"><![CDATA[${post.content}]]></content>
-    <summary type="html"><![CDATA[${post.summary}]]></summary>
-  </entry>`;
+    <item>
+      <title>${post.fullTitle}</title>
+      <link>${postUrl}</link>
+      <pubDate>${formatDate(post.date)}</pubDate>
+      <description><![CDATA[${post.content}]]></description>
+    </item>`;
     }).join('\n');
 
-    // 找到 generator 标签后的位置插入
-    const generatorMatch = atomContent.match(/<generator[^>]*>.*?<\/generator>\n/);
-    if (generatorMatch) {
-      atomContent = atomContent.replace(
-        /<generator[^>]*>.*?<\/generator>\n/,
-        generatorMatch[0] + newEntries + '\n'
+    // 找到 lastBuildDate 标签后的位置插入
+    const lastBuildDateMatch = rssContent.match(/<lastBuildDate>.*?<\/lastBuildDate>\n/);
+    if (lastBuildDateMatch) {
+      rssContent = rssContent.replace(
+        /<lastBuildDate>.*?<\/lastBuildDate>\n/,
+        lastBuildDateMatch[0] + newItems + '\n'
       );
     } else {
-      atomContent = atomContent.replace('</feed>', newEntries + '\n</feed>');
+      rssContent = rssContent.replace('</channel>', newItems + '\n  </channel>');
     }
   }
 
-  // 3. 更新 feed 的 updated 时间
-  atomContent = atomContent.replace(
-    /<updated>.*?<\/updated>/,
-    `<updated>${formatDate(new Date())}</updated>`
+  // 更新 lastBuildDate 时间
+  rssContent = rssContent.replace(
+    /<lastBuildDate>.*?<\/lastBuildDate>/,
+    `<lastBuildDate>${formatDate(new Date())}</lastBuildDate>`
   );
 
-  fs.writeFileSync(atomPath, atomContent);
+  fs.writeFileSync(rssPath, rssContent);
   hexo.log.info(`✅ RSS 已合并 ${recentPosts.length} 篇思考/读书/笔记文章`);
 }, 20);
