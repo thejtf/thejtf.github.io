@@ -114,6 +114,7 @@ async function getReviews(bookId) {
   return reviews.map(r => ({
     reviewId: r.review.reviewId,
     content: r.review.content,
+    abstract: r.review.abstract || '',  // 划线原文
     createTime: r.review.createTime,
     star: r.review.star,
     chapterName: r.review.chapterName,

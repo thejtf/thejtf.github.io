@@ -269,7 +269,13 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       // 添加想法（类似 Kindle 的笔记格式）
       reviews.forEach(r => {
         if (r.content) {
-          excerptsContent += `**想法**：${r.content}\n\n`;
+          if (r.abstract) {
+            // 有对应的划线原文，先显示原文再显示想法
+            excerptsContent += `${r.abstract}\n\n**想法**：${r.content}\n\n`;
+          } else {
+            // 没有划线原文，直接显示想法
+            excerptsContent += `**想法**：${r.content}\n\n`;
+          }
         }
       });
 
