@@ -163,28 +163,11 @@ async function importFromWeread(title, category, hexo) {
       return val;
     };
 
-    // 构建书摘部分（引用格式）
+    // 构建书摘部分
     let excerptsContent = '';
-    if (bookmarks.length > 0) {
-      bookmarks.forEach(b => {
-        excerptsContent += `> ${b.markText}\n\n`;
-      });
-    } else {
-      excerptsContent = '暂无';
-    }
-
-    // 构建心得部分
-    let thoughtsContent = '';
-    if (reviews.length > 0) {
-      reviews.forEach(r => {
-        if (r.content) {
-          thoughtsContent += `${r.content}\n\n`;
-        }
-      });
-    }
-    if (!thoughtsContent) {
-      thoughtsContent = '暂无';
-    }
+    bookmarks.forEach(b => {
+      excerptsContent += `${b.markText}\n\n`;
+    });
 
     const mdContent = `---
 title: ${yamlValue(bookTitle)}
@@ -202,10 +185,6 @@ ${bookIntro}
 #### 书摘
 
 ${excerptsContent}
-
-#### 心得
-
-${thoughtsContent}
 `;
 
     // 6. 保存文件

@@ -263,12 +263,7 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
 
       let excerptsContent = '';
       bookmarks.forEach(b => {
-        excerptsContent += `> ${b.markText}\n\n`;
-      });
-
-      let thoughtsContent = '';
-      reviews.forEach(r => {
-        if (r.content) thoughtsContent += `${r.content}\n\n`;
+        excerptsContent += `${b.markText}\n\n`;
       });
 
       const mdContent = `---
@@ -287,11 +282,7 @@ ${bookInfo.intro || '待补充'}
 
 #### 书摘
 
-${excerptsContent || '暂无'}
-
-#### 心得
-
-${thoughtsContent || '暂无'}
+${excerptsContent || ''}
 `;
 
       // 保存文件
