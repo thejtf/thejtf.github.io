@@ -287,11 +287,11 @@ ${bookInfo.intro || '待补充'}
 
 #### 书摘
 
-${excerptsContent || '\n'}
+${excerptsContent || '暂无'}
 
 #### 心得
 
-${thoughtsContent || '\n'}
+${thoughtsContent || '暂无'}
 `;
 
       // 保存文件

@@ -170,7 +170,7 @@ async function importFromWeread(title, category, hexo) {
         excerptsContent += `> ${b.markText}\n\n`;
       });
     } else {
-      excerptsContent = '\n';
+      excerptsContent = '暂无';
     }
 
     // 构建心得部分
@@ -181,8 +181,9 @@ async function importFromWeread(title, category, hexo) {
           thoughtsContent += `${r.content}\n\n`;
         }
       });
-    } else {
-      thoughtsContent = '\n';
+    }
+    if (!thoughtsContent) {
+      thoughtsContent = '暂无';
     }
 
     const mdContent = `---
