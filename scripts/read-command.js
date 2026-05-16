@@ -169,6 +169,13 @@ async function importFromWeread(title, category, hexo) {
       excerptsContent += `${b.markText}\n\n`;
     });
 
+    // 添加想法（类似 Kindle 的笔记格式）
+    reviews.forEach(r => {
+      if (r.content) {
+        excerptsContent += `**想法**：${r.content}\n\n`;
+      }
+    });
+
     const mdContent = `---
 title: ${yamlValue(bookTitle)}
 date: ${formatDate(latestTime)}
