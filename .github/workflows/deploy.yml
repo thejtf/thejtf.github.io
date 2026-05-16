@@ -1,37 +1,55 @@
-name: Daily Rebuild and Deploy
+name: Hourly WeRead Sync and Deploy
 
 on:
   schedule:
-    # 每天 UTC 时间 16:10（北京时间 0:10）
-    # Cron 格式：分钟 小时 日 月 星期
-    - cron: '10 16 * * *'
+    # 每小时同步一次（UTC 时间每小时的第 10 分钟）
+    # 北京时间 8:10, 9:10, 10:10... (UTC+8)
+    - cron: '10 * * * *'
   workflow_dispatch:  # 允许在 GitHub 上手动触发
+
+permissions:
+  contents: write  # 需要 write 权限才能 push 到仓库
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout source branch
         uses: actions/checkout@v3
         with:
           ref: source  # 从 source 分支拉取源代码
-      
+          token: ${{ secrets.GITHUB_TOKEN }}  # 需要 token 才能 push
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: |
           npm ci
-      
+
+      - name: Sync WeRead notes
+        env:
+          WEREAD_API_KEY: ${{ secrets.WEREAD_API_KEY }}
+        run: |
+          npx hexo weread-sync || true
+
+      - name: Commit synced notes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add source/_reads/ || true
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto sync WeRead notes - $(date +%Y-%m-%d)"
+          git push origin source || true
+
       - name: Clean and generate
         run: |
           npx hexo clean
           npx hexo generate
-      
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
