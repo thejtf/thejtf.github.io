@@ -45,8 +45,8 @@ hexo.extend.filter.register('template_locals', function(locals) {
     };
   });
 
-  // 按文件修改时间倒序排序
-  posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+  // 按文章日期倒序排序（最新的在前）
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   // 注入到模板 locals
   locals.reads = posts;
@@ -83,12 +83,12 @@ hexo.extend.filter.register('template_locals', function(locals) {
       }
     });
 
-    // 对每个分类和标签中的文章按修改时间排序
+    // 对每个分类和标签中的文章按日期排序
     categoryMap.forEach(posts => {
-      posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     });
     tagMap.forEach(posts => {
-      posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     });
 
     // 将 read 的分类和标签合并到 site 中
@@ -202,15 +202,15 @@ hexo.extend.generator.register('reads', function(locals) {
     }
   });
 
-  // 按文件修改时间倒序排序所有文章
-  allPosts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+  // 按文章日期倒序排序所有文章
+  allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // 对每个分类和标签中的文章也按修改时间排序
+  // 对每个分类和标签中的文章也按日期排序
   categoryMap.forEach(posts => {
-    posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
   });
   tagMap.forEach(posts => {
-    posts.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
   });
 
   // 为每篇文章设置 prev 和 next
