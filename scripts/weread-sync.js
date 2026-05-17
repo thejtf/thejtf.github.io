@@ -244,9 +244,13 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       const tag = await getBookTag(bookTitle, bookInfo.intro);
 
       // 生成 Markdown
+      // 格式化日期（转换为北京时间 UTC+8，使用 UTC 方法避免服务器时区影响）
       const formatDate = (d) => {
         const pad = (n) => n.toString().padStart(2, '0');
-        return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+        // 使用 UTC 方法获取 UTC 时间组件，然后加8小时得到北京时间
+        const beijingHour = d.getUTCHours() + 8;
+        const beijingDate = new Date(d.getTime() + 8 * 3600 * 1000);
+        return `${beijingDate.getUTCFullYear()}-${pad(beijingDate.getUTCMonth()+1)}-${pad(beijingDate.getUTCDate())} ${pad(beijingDate.getUTCHours())}:${pad(beijingDate.getUTCMinutes())}:${pad(beijingDate.getUTCSeconds())}`;
       };
 
       // 取最新的时间（同时考虑 bookmarks 和 reviews）
