@@ -48,8 +48,10 @@ if ! git diff-index --quiet HEAD -- 2>/dev/null; then
     echo "[$(date '+%H:%M')] ✅ 已推送" >> "$LOG_FILE"
 fi
 
-# 4. 部署到 GitHub Pages（可选：每次同步后自动部署）
-# npx hexo generate --quiet
-# npx hexo deploy --quiet
+# 4. 部署到 GitHub Pages（每次同步后自动部署）
+echo "[$(date '+%H:%M')] 🚀 部署到线上..." >> "$LOG_FILE"
+npx hexo generate --quiet >> "$LOG_FILE" 2>&1
+npx hexo deploy --quiet >> "$LOG_FILE" 2>&1
+echo "[$(date '+%H:%M')] ✅ 已部署到线上" >> "$LOG_FILE"
 
 echo "[$(date '+%H:%M:%S')] 同步完成" >> "$LOG_FILE"
