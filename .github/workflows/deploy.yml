@@ -2,9 +2,8 @@ name: Hourly WeRead Sync and Deploy
 
 on:
   schedule:
-    # 每30分钟同步一次（UTC 时间每小时的第 10 分钟和第 40 分钟）
-    # 北京时间 11:10, 11:40, 12:10, 12:40... (UTC+8)
-    - cron: '10,40 * * * *'
+    # 每10分钟同步一次（用于测试）
+    - cron: '*/10 * * * *'
   workflow_dispatch:  # 允许在 GitHub 上手动触发
 
 permissions:
