@@ -10,11 +10,11 @@ const CLIPPINGS_FILE = '/media/jopus/Kindle/documents/My Clippings.txt';
 const READS_DIR = path.join(__dirname, '../source/_reads');
 
 // DeepSeek API 配置
-const DEEPSEEK_API_KEY = 'sk-19899c785b184543b25e82482d296267';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || '';
 const DEEPSEEK_API_URL = 'api.deepseek.com';
 
 // 分类缓存文件路径
-const CACHE_FILE = path.join(__dirname, '../.kindle-category-cache.json');
+const CACHE_FILE = path.join(__dirname, '../.weread-category-cache.json');
 
 // 加载分类缓存
 function loadCache() {
@@ -231,166 +231,25 @@ async function getBookTagAsync(bookTitle, summary) {
   return result.tag;
 }
 
-// 搜索豆瓣图书
-function searchDouban(bookTitle, author) {
-  return new Promise((resolve) => {
-    const query = encodeURIComponent(bookTitle);
-    const url = `https://book.douban.com/j/subject_suggest?q=${query}`;
-
-    https.get(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Referer': 'https://book.douban.com/'
-      }
-    }, (res) => {
-      let data = '';
-      res.on('data', (chunk) => { data += chunk; });
-      res.on('end', () => {
-        try {
-          const json = JSON.parse(data);
-          if (json && json.length > 0) {
-            // 找最匹配的结果
-            const book = json[0];
-            resolve({
-              id: book.id,
-              title: book.title,
-              author: book.author || '',
-              publisher: '',
-              publishedDate: ''
-            });
-          } else {
-            resolve(null);
-          }
-        } catch (e) {
-          resolve(null);
-        }
-      });
-    }).on('error', () => {
-      resolve(null);
-    });
-  });
-}
-
-// 获取豆瓣书籍详情（简介）
-function getDoubanDetail(bookId) {
-  return new Promise((resolve) => {
-    const url = `https://book.douban.com/subject/${bookId}/`;
-
-    https.get(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Referer': 'https://book.douban.com/'
-      }
-    }, (res) => {
-      const chunks = [];
-      res.on('data', (chunk) => { chunks.push(chunk); });
-      res.on('end', () => {
-        try {
-          const data = Buffer.concat(chunks).toString('utf-8');
-
-          // 提取书籍简介
-          let summary = '待补充';
-
-          // 方式1: <span property="v:summary">
-          const summaryMatch1 = data.match(/<span property="v:summary"[^>]*>([\s\S]*?)<\/span>/);
-          if (summaryMatch1) {
-            summary = summaryMatch1[1]
-              .replace(/<br\s*\/?>/g, '\n')
-              .replace(/<[^>]+>/g, '')
-              .replace(/&nbsp;/g, ' ')
-              .trim();
-          }
-
-          // 方式2: 提取第一个 <div class="intro"> 中的所有 <p> 标签
-          if (summary === '待补充') {
-            const introMatch = data.match(/<div class="intro">([\s\S]*?)<\/div>/);
-            if (introMatch) {
-              // 提取所有 <p> 标签内容
-              const pMatches = introMatch[1].match(/<p[^>]*>([\s\S]*?)<\/p>/g);
-              if (pMatches && pMatches.length > 0) {
-                // 提取段落内容，过滤掉短标题（如「内容简介」等）
-                const paragraphs = pMatches
-                  .map(p => p.replace(/<[^>]+>/g, '').trim())
-                  .filter(p => {
-                    // 过滤掉太短的段落、纯标点、纯标题格式
-                    if (p.length < 20) return false;
-                    if (p.match(/^[「」【】\[\]《》\s]+$/)) return false;
-                    if (p.match(/^「[^」]+」$/)) return false;
-                    if (p.match(/^★/)) return false;
-                    return true;
-                  })
-                  .slice(0, 3)
-                  .join('\n\n');
-                if (paragraphs && paragraphs.length > 50) {
-                  summary = paragraphs;
-                }
-              }
-            }
-          }
-
-          resolve({ summary });
-        } catch (e) {
-          resolve({ summary: '待补充' });
-        }
-      });
-    }).on('error', () => {
-      resolve({ summary: '待补充' });
-    });
-  });
-}
-
-// 搜索 Google Books
-function searchGoogleBooks(bookTitle, author) {
-  return new Promise((resolve) => {
-    let query = bookTitle;
-    if (author) {
-      query += ` ${author}`;
-    }
-    const encodedQuery = encodeURIComponent(query);
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${encodedQuery}&maxResults=1`;
-
-    https.get(url, (res) => {
-      let data = '';
-      res.on('data', (chunk) => { data += chunk; });
-      res.on('end', () => {
-        try {
-          const json = JSON.parse(data);
-          if (json.items && json.items.length > 0) {
-            const book = json.items[0].volumeInfo;
-            resolve({
-              summary: book.description || '待补充'
-            });
-          } else {
-            resolve({ summary: '待补充' });
-          }
-        } catch (e) {
-          resolve({ summary: '待补充' });
-        }
-      });
-    }).on('error', () => {
-      resolve({ summary: '待补充' });
-    });
-  });
-}
-
-// 综合搜索书籍信息（优先豆瓣，失败则用 Google Books）
+// 使用微信读书 API 搜索书籍信息
 async function searchBookInfo(bookTitle, author) {
-  // 判断是否为中文书籍
-  const isChinese = /[\u4e00-\u9fa5]/.test(bookTitle);
+  const wereadApi = require('./weread-api');
 
-  if (isChinese) {
-    // 中文书籍：先尝试豆瓣
-    const doubanResult = await searchDouban(bookTitle, author);
-    if (doubanResult && doubanResult.id) {
-      const detail = await getDoubanDetail(doubanResult.id);
-      if (detail.summary !== '待补充') {
-        return detail;
-      }
+  try {
+    // 搜索书籍
+    const book = await wereadApi.searchBook(bookTitle);
+    if (book && book.bookId) {
+      // 获取书籍详情
+      const bookInfo = await wereadApi.getBookInfo(book.bookId);
+      return {
+        summary: bookInfo.intro || '待补充'
+      };
     }
+  } catch (e) {
+    // 微信读书搜索失败
   }
 
-  // 回退到 Google Books
-  return await searchGoogleBooks(bookTitle, author);
+  return { summary: '待补充' };
 }
 
 // 解析 Kindle My Clippings.txt 格式
@@ -405,7 +264,7 @@ function parseClippings(content) {
     if (lines.length < 2) return;
 
     // 第一行是书名（可能有 BOM）
-    let bookTitle = lines[0].trim().replace(/^\uFEFF/, '');
+    let bookTitle = lines[0].trim().replace(/^﻿/, '');
 
     // 第二行是位置和时间信息
     const locationLine = lines[1] || '';
