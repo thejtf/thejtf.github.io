@@ -107,9 +107,31 @@ function findFileByISBN(readsDir, isbn) {
 
 // 合并划线和笔记（去重）
 function mergeExcerpts(existingExcerpts, newExcerpts, existingNotes, newNotes) {
-  // 划线去重
-  const excerptSet = new Set(existingExcerpts);
-  newExcerpts.forEach(e => excerptSet.add(e.trim()));
+  // 划线去重（处理完全匹配和包含关系）
+  const allExcerpts = [...existingExcerpts, ...newExcerpts.map(e => e.trim())];
+  const excerptSet = new Set();
+
+  for (const excerpt of allExcerpts) {
+    const text = excerpt.trim();
+    let isDuplicate = false;
+
+    for (const existing of excerptSet) {
+      // 完全匹配、包含、被包含
+      if (text === existing || text.includes(existing) || existing.includes(text)) {
+        // 保留更长的那个
+        if (text.length > existing.length) {
+          excerptSet.delete(existing);
+          excerptSet.add(text);
+        }
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      excerptSet.add(text);
+    }
+  }
 
   // 笔记去重（按 excerpt + content 组合判断）
   const noteMap = new Map();
