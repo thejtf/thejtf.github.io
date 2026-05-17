@@ -3,18 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./scripts/fully-auto-server.sh",
+    "start": "./start.sh",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "deploy:keep-workflow": "./deploy-with-workflow.sh",
     "pull": "./git-pull-latest.sh",
-    "server": "./scripts/fully-auto-server.sh",
+    "server": "./start.sh",
     "server:original": "hexo server",
-    "dev": "./scripts/fully-auto-server.sh",
-    "sync:watch": "./scripts/auto-bidirectional-sync.sh",
+    "dev": "./start.sh",
     "sync:status": "git fetch && git status",
-    "sync:stop": "pkill -f auto-bidirectional-sync.sh"
+    "sync:stop": "pkill -f 'auto-sync-daemon'"
   },
   "hexo": {
     "version": "6.3.0"
