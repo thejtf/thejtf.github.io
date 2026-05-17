@@ -8,3 +8,5 @@ public/
 _multiconfig.yml.kindle-category-cache.json
 
 .kindle-category-cache.json
+.env
+.sync-cron.log
