@@ -8,11 +8,11 @@ const exec = require('child_process').execSync;
 const https = require('https');
 
 // 从 kindle-sync.js 复用的分类配置和 AI 函数
-const DEEPSEEK_API_KEY = 'sk-19899c785b184543b25e82482d296267';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || '';
 const DEEPSEEK_API_URL = 'api.deepseek.com';
 
 // 分类缓存文件路径
-const CACHE_FILE = path.join(__dirname, '../.kindle-category-cache.json');
+const CACHE_FILE = path.join(__dirname, '../.weread-category-cache.json');
 
 // 书籍分类映射表
 const BOOK_CATEGORIES = {
@@ -248,11 +248,12 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
         return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
       };
 
+      // 取最新的时间（同时考虑 bookmarks 和 reviews）
       let latestTime = new Date();
-      if (bookmarks.length > 0) {
-        const maxTime = Math.max(...bookmarks.map(b => b.createTime || 0));
-        if (maxTime > 0) latestTime = new Date(maxTime * 1000);
-      }
+      const bookmarkMaxTime = bookmarks.length > 0 ? Math.max(...bookmarks.map(b => b.createTime || 0)) : 0;
+      const reviewMaxTime = reviews.length > 0 ? Math.max(...reviews.map(r => r.createTime || 0)) : 0;
+      const maxTime = Math.max(bookmarkMaxTime, reviewMaxTime);
+      if (maxTime > 0) latestTime = new Date(maxTime * 1000);
 
       const yamlValue = (val) => {
         if (val && /[:{}[\],&*#?|\-<>=!%@`]/.test(val)) {
@@ -261,21 +262,30 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
         return val;
       };
 
+      // 合并处理：先收集有想法的划线，再添加纯划线
+      // 用 Set 记录已显示的划线文本（用于去重）
+      const shownTexts = new Set();
       let excerptsContent = '';
-      bookmarks.forEach(b => {
-        excerptsContent += `${b.markText}\n\n`;
-      });
 
-      // 添加想法（类似 Kindle 的笔记格式）
+      // 先处理有想法的划线（显示划线+想法）
       reviews.forEach(r => {
         if (r.content) {
           if (r.abstract) {
-            // 有对应的划线原文，先显示原文再显示想法
+            // 记录这条划线已显示
+            shownTexts.add(r.abstract.trim());
             excerptsContent += `${r.abstract}\n\n**想法**：${r.content}\n\n`;
           } else {
             // 没有划线原文，直接显示想法
             excerptsContent += `**想法**：${r.content}\n\n`;
           }
+        }
+      });
+
+      // 再处理纯划线（没有想法的）
+      bookmarks.forEach(b => {
+        const text = b.markText.trim();
+        if (!shownTexts.has(text)) {
+          excerptsContent += `${text}\n\n`;
         }
       });
 
@@ -304,16 +314,17 @@ ${excerptsContent || ''}
       const filePath = path.join(readsDir, filename);
 
       const isNew = !fs.existsSync(filePath);
-      const needsUpdate = isNew || fs.readFileSync(filePath, 'utf-8').length < mdContent.length;
+      const existingContent = isNew ? '' : fs.readFileSync(filePath, 'utf-8');
+      const hasChanges = isNew || existingContent !== mdContent;
 
       if (isNew) {
         fs.writeFileSync(filePath, mdContent);
         created++;
         console.log(`  ✓ 创建: ${bookmarks.length} 条划线, ${reviews.length} 条想法 (${category}/${tag})`);
-      } else if (needsUpdate) {
+      } else if (hasChanges) {
         fs.writeFileSync(filePath, mdContent);
         updated++;
-        console.log(`  ✓ 更新: 新增内容`);
+        console.log(`  ✓ 更新: 内容有变化`);
       } else {
         skipped++;
         console.log(`  - 跳过: 无新内容`);
