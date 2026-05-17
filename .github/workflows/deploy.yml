@@ -51,6 +51,11 @@ jobs:
           npx hexo clean
           npx hexo generate
 
+      - name: Copy workflow file to public
+        run: |
+          mkdir -p public/.github/workflows
+          cp .github/workflows/deploy.yml public/.github/workflows/deploy.yml
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
