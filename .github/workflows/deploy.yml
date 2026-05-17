@@ -15,35 +15,36 @@ jobs:
 
     steps:
       - name: Checkout source branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: source  # 从 source 分支拉取源代码
           token: ${{ secrets.GITHUB_TOKEN }}  # 需要 token 才能 push
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          npm ci
+        run: npm ci
 
       - name: Sync WeRead notes
         env:
           WEREAD_API_KEY: ${{ secrets.WEREAD_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: |
-          npx hexo weread-sync || true
+        run: npx hexo weread-sync || true
 
       - name: Commit synced notes
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add source/_reads/ || true
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto sync WeRead notes - $(date +%Y-%m-%d)"
-          git push origin source || true
+          git config user.email 'github-actions[bot]@users.noreplay.github.com'
+          git add source/_reads/ 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto sync WeRead notes - $(date +%Y-%m-%d)"
+            git push origin source
+          fi
 
       - name: Clean and generate
         run: |
@@ -56,12 +57,11 @@ jobs:
           cp .github/workflows/deploy.yml public/.github/workflows/deploy.yml
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: master
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Auto deploy: Update theme color for $(date +%Y-%m-%d)'
-
+          commit_message: 'Auto deploy: $(date +%Y-%m-%d %H:%M)'
