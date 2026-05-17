@@ -193,6 +193,7 @@ async function getBookTag(bookTitle, summary) {
 // Hexo 命令注册
 hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async function(args) {
   const wereadApi = require('./weread-api');
+  const bookMerge = require('./book-merge');
 
   console.log('📚 开始从微信读书同步笔记...\n');
 
@@ -291,6 +292,7 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
 
       const mdContent = `---
 title: ${yamlValue(bookTitle)}
+isbn: ${bookInfo.isbn || ''}
 date: ${formatDate(latestTime)}
 tags:
   - 读书
@@ -313,21 +315,74 @@ ${excerptsContent || ''}
       const filename = `${safeTitle}.md`;
       const filePath = path.join(readsDir, filename);
 
-      const isNew = !fs.existsSync(filePath);
-      const existingContent = isNew ? '' : fs.readFileSync(filePath, 'utf-8');
-      const hasChanges = isNew || existingContent !== mdContent;
+      // 检查是否已有相同 ISBN 的文件（合并去重）
+      const existingFile = bookMerge.findFileByISBN(readsDir, bookInfo.isbn);
 
-      if (isNew) {
-        fs.writeFileSync(filePath, mdContent);
-        created++;
-        console.log(`  ✓ 创建: ${bookmarks.length} 条划线, ${reviews.length} 条想法 (${category}/${tag})`);
-      } else if (hasChanges) {
-        fs.writeFileSync(filePath, mdContent);
-        updated++;
-        console.log(`  ✓ 更新: 内容有变化`);
+      if (existingFile) {
+        // 合并去重
+        const newExcerpts = bookmarks.map(b => b.markText.trim());
+        const newNotes = reviews.filter(r => r.content).map(r => ({
+          excerpt: r.abstract ? r.abstract.trim() : '',
+          content: r.content.trim()
+        }));
+
+        const merged = bookMerge.mergeExcerpts(
+          existingFile.excerpts.excerpts,
+          newExcerpts,
+          existingFile.excerpts.notes,
+          newNotes
+        );
+
+        const mergedExcerptContent = bookMerge.generateExcerptContent(merged.excerpts, merged.notes);
+        const mergedDate = bookMerge.mergeDates(existingFile.frontmatter.date, formatDate(latestTime));
+
+        const mergedMdContent = `---
+title: ${yamlValue(existingFile.frontmatter.title || bookTitle)}
+isbn: ${bookInfo.isbn || ''}
+date: ${mergedDate}
+tags:
+  - 读书
+  - ${tag}
+categories:
+  - ${category}
+---
+
+#### 内容简介
+
+${bookInfo.intro || existingFile.frontmatter.intro || '待补充'}
+
+#### 书摘
+
+${mergedExcerptContent || ''}
+`;
+
+        // 比较内容是否有变化
+        if (existingFile.raw !== mergedMdContent) {
+          fs.writeFileSync(existingFile.filePath, mergedMdContent);
+          updated++;
+          console.log(`  ✓ 合并更新: ${existingFile.filename} (${merged.excerpts.length} 条划线, ${merged.notes.length} 条笔记)`);
+        } else {
+          skipped++;
+          console.log(`  - 跳过: 无新内容`);
+        }
       } else {
-        skipped++;
-        console.log(`  - 跳过: 无新内容`);
+        // 新书籍，直接创建
+        const isNew = !fs.existsSync(filePath);
+        const existingContent = isNew ? '' : fs.readFileSync(filePath, 'utf-8');
+        const hasChanges = isNew || existingContent !== mdContent;
+
+        if (isNew) {
+          fs.writeFileSync(filePath, mdContent);
+          created++;
+          console.log(`  ✓ 创建: ${bookmarks.length} 条划线, ${reviews.length} 条想法 (${category}/${tag})`);
+        } else if (hasChanges) {
+          fs.writeFileSync(filePath, mdContent);
+          updated++;
+          console.log(`  ✓ 更新: 内容有变化`);
+        } else {
+          skipped++;
+          console.log(`  - 跳过: 无新内容`);
+        }
       }
     }
 

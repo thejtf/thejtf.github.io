@@ -242,14 +242,16 @@ async function searchBookInfo(bookTitle, author) {
       // 获取书籍详情
       const bookInfo = await wereadApi.getBookInfo(book.bookId);
       return {
-        summary: bookInfo.intro || '待补充'
+        summary: bookInfo.intro || '待补充',
+        isbn: bookInfo.isbn || '',
+        title: bookInfo.title || bookTitle  // 使用微信读书的标准书名
       };
     }
   } catch (e) {
     // 微信读书搜索失败
   }
 
-  return { summary: '待补充' };
+  return { summary: '待补充', isbn: '', title: bookTitle };
 }
 
 // 解析 Kindle My Clippings.txt 格式
@@ -401,6 +403,9 @@ async function generateMarkdown(book, bookInfo) {
   // 清理多余空格
   pureBookTitle = pureBookTitle.replace(/\s+/g, ' ').trim();
 
+  // 使用微信读书的标准书名（如果有）
+  const standardTitle = bookInfo.title || pureBookTitle;
+
   // 生成正文（不带 > 引用符号）
   let body = '';
   highlights.forEach((h, index) => {
@@ -411,8 +416,8 @@ async function generateMarkdown(book, bookInfo) {
     }
   });
 
-  // 用清理后的书名生成文件名（特殊字符替换成空格，合并多个空格）
-  const safeTitle = pureBookTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
+  // 用标准书名生成文件名
+  const safeTitle = standardTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
 
   // YAML 值需要引号包裹的情况（包含冒号等特殊字符）
   const yamlValue = (val) => {
@@ -423,11 +428,12 @@ async function generateMarkdown(book, bookInfo) {
   };
 
   // 获取书籍分类和标签（异步，可能调用AI）
-  const category = await getBookCategoryAsync(pureBookTitle, bookInfo.summary);
-  const tag = await getBookTagAsync(pureBookTitle, bookInfo.summary);
+  const category = await getBookCategoryAsync(standardTitle, bookInfo.summary);
+  const tag = await getBookTagAsync(standardTitle, bookInfo.summary);
 
   const content = `---
-title: ${yamlValue(pureBookTitle)}
+title: ${yamlValue(standardTitle)}
+isbn: ${bookInfo.isbn || ''}
 date: ${formatDate(latestTime)}
 categories:
   - ${category}
@@ -447,24 +453,17 @@ ${body}
   return {
     filename: `${safeTitle}.md`,
     content: content,
-    title: pureBookTitle
+    title: standardTitle,
+    isbn: bookInfo.isbn || '',
+    excerpts: highlights.filter(h => h.type === 'highlight').map(h => h.content.trim()),
+    notes: highlights.filter(h => h.type === 'note').map(h => ({ excerpt: '', content: h.content.trim() }))
   };
-}
-
-// 检查是否需要更新文件
-function needsUpdate(filePath, newContent) {
-  if (!fs.existsSync(filePath)) {
-    return true;
-  }
-
-  const existingContent = fs.readFileSync(filePath, 'utf-8');
-
-  // 比较文件内容长度（新内容更长说明有新增高亮）
-  return newContent.length > existingContent.length;
 }
 
 // 主同步函数（异步）
 async function syncKindle() {
+  const bookMerge = require('./book-merge');
+
   // 检查 Kindle 是否连接
   if (!fs.existsSync(KINDLE_PATH)) {
     console.log('Kindle 未连接');
@@ -519,20 +518,93 @@ async function syncKindle() {
     const summaryPreview = bookInfo.summary !== '待补充' ? '已获取简介' : '无简介';
     console.log(` ${summaryPreview}`);
 
-    const { filename, content: mdContent, title } = await generateMarkdown(book, bookInfo);
+    const { filename, content: mdContent, title, isbn, excerpts, notes } = await generateMarkdown(book, bookInfo);
     const filePath = path.join(READS_DIR, filename);
 
-    if (!fs.existsSync(filePath)) {
-      fs.writeFileSync(filePath, mdContent);
-      created++;
-      console.log(`✓ 创建: 《${title}》(${book.highlights.length} 条高亮)`);
-    } else if (needsUpdate(filePath, mdContent)) {
-      fs.writeFileSync(filePath, mdContent);
-      updated++;
-      console.log(`✓ 更新: 《${title}》`);
+    // 检查是否已有相同 ISBN 的文件（合并去重）
+    const existingFile = bookMerge.findFileByISBN(READS_DIR, isbn);
+
+    if (existingFile) {
+      // 合并去重
+      const merged = bookMerge.mergeExcerpts(
+        existingFile.excerpts.excerpts,
+        excerpts,
+        existingFile.excerpts.notes,
+        notes
+      );
+
+      const mergedExcerptContent = bookMerge.generateExcerptContent(merged.excerpts, merged.notes);
+
+      // 格式化日期
+      const formatDate = (d) => {
+        const pad = (n) => n.toString().padStart(2, '0');
+        return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+      };
+
+      const latestTime = book.highlights.reduce((latest, h) => {
+        const hTime = parseChineseDate(h.time);
+        return hTime > latest ? hTime : latest;
+      }, new Date(0));
+
+      const mergedDate = bookMerge.mergeDates(existingFile.frontmatter.date, formatDate(latestTime));
+
+      // 获取分类和标签
+      const category = await getBookCategoryAsync(title, bookInfo.summary);
+      const tag = await getBookTagAsync(title, bookInfo.summary);
+
+      const yamlValue = (val) => {
+        if (val && /[:{}[\],&*#?|\-<>=!%@`]/.test(val)) {
+          return `"${val.replace(/"/g, '\\"')}"`;
+        }
+        return val;
+      };
+
+      const mergedMdContent = `---
+title: ${yamlValue(existingFile.frontmatter.title || title)}
+isbn: ${isbn}
+date: ${mergedDate}
+categories:
+  - ${category}
+tags:
+  - 读书
+  - ${tag}
+---
+
+#### 内容简介
+${bookInfo.summary || existingFile.frontmatter.intro || '待补充'}
+
+#### 书摘
+
+${mergedExcerptContent || ''}
+`;
+
+      // 比较内容是否有变化
+      if (existingFile.raw !== mergedMdContent) {
+        fs.writeFileSync(existingFile.filePath, mergedMdContent);
+        updated++;
+        console.log(`✓ 合并更新: 《${existingFile.frontmatter.title}》(${merged.excerpts.length} 条划线, ${merged.notes.length} 条笔记)`);
+      } else {
+        skipped++;
+        console.log(`- 跳过: 《${title}》(无新内容)`);
+      }
     } else {
-      skipped++;
-      console.log(`- 跳过: 《${title}》(无新内容)`);
+      // 新书籍，直接创建
+      if (!fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, mdContent);
+        created++;
+        console.log(`✓ 创建: 《${title}》(${book.highlights.length} 条高亮)`);
+      } else {
+        // 文件存在但没有 ISBN 匹配，检查内容更新
+        const existingContent = fs.readFileSync(filePath, 'utf-8');
+        if (existingContent !== mdContent) {
+          fs.writeFileSync(filePath, mdContent);
+          updated++;
+          console.log(`✓ 更新: 《${title}》`);
+        } else {
+          skipped++;
+          console.log(`- 跳过: 《${title}》(无新内容)`);
+        }
+      }
     }
   }
 
