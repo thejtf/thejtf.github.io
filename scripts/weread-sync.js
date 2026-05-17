@@ -287,9 +287,30 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       });
 
       // 再处理纯划线（没有想法的）
+      // 检查：1. 完全匹配 2. 包含已显示的内容 3. 被已显示的内容包含
       bookmarks.forEach(b => {
         const text = b.markText.trim();
-        if (!shownTexts.has(text)) {
+        let isDuplicate = false;
+
+        for (const shown of shownTexts) {
+          // 完全匹配
+          if (text === shown) {
+            isDuplicate = true;
+            break;
+          }
+          // bookmarks 内容包含已显示的划线（已显示的是部分内容）
+          if (text.includes(shown)) {
+            isDuplicate = true;
+            break;
+          }
+          // 已显示的划线包含 bookmarks 内容（bookmarks 是部分内容）
+          if (shown.includes(text)) {
+            isDuplicate = true;
+            break;
+          }
+        }
+
+        if (!isDuplicate) {
           excerptsContent += `${text}\n\n`;
         }
       });

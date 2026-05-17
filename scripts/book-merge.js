@@ -143,9 +143,19 @@ function generateExcerptContent(excerpts, notes) {
     }
   });
 
-  // 再处理纯划线
+  // 再处理纯划线（检查：完全匹配、包含、被包含）
   excerpts.forEach(e => {
-    if (!shownExcerpts.has(e.trim())) {
+    const text = e.trim();
+    let isDuplicate = false;
+
+    for (const shown of shownExcerpts) {
+      if (text === shown || text.includes(shown) || shown.includes(text)) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
       content += `${e}\n\n`;
     }
   });
