@@ -237,7 +237,18 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
 
       // 获取划线和想法
       const bookmarks = await wereadApi.getBookmarks(bookId);
-      const reviews = await wereadApi.getReviews(bookId);
+      let reviews = await wereadApi.getReviews(bookId);
+
+      // 对 reviews 去重（按 content + abstract 组合）
+      const reviewMap = new Map();
+      reviews.forEach(r => {
+        const key = (r.content || '') + '|' + (r.abstract || '');
+        // 保留时间戳最新的
+        if (!reviewMap.has(key) || (r.createTime || 0) > (reviewMap.get(key).createTime || 0)) {
+          reviewMap.set(key, r);
+        }
+      });
+      reviews = Array.from(reviewMap.values());
 
       // 获取分类和标签
       const category = await getBookCategory(bookTitle, bookInfo.intro);

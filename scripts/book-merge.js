@@ -133,15 +133,41 @@ function mergeExcerpts(existingExcerpts, newExcerpts, existingNotes, newNotes) {
     }
   }
 
-  // 笔记去重（按 excerpt + content 组合判断）
+  // 笔记去重（按 excerpt + content 组合判断，同时处理 excerpt 重叠）
   const noteMap = new Map();
+
+  // 辅助函数：检查两个文本是否相同或包含关系
+  const isTextOverlap = (a, b) => {
+    return a === b || a.includes(b) || b.includes(a);
+  };
+
   existingNotes.forEach(n => {
     const key = n.excerpt + '|' + n.content;
     noteMap.set(key, n);
   });
+
   newNotes.forEach(n => {
-    const key = n.excerpt + '|' + n.content;
-    noteMap.set(key, n);
+    // 检查是否已有相同 content 的笔记
+    let isDuplicate = false;
+    for (const [key, existing] of noteMap) {
+      if (existing.content === n.content) {
+        // content 相同，检查 excerpt 是否重叠
+        if (isTextOverlap(existing.excerpt, n.excerpt)) {
+          isDuplicate = true;
+          // 保留更长的 excerpt
+          if ((n.excerpt || '').length > (existing.excerpt || '').length) {
+            noteMap.delete(key);
+            noteMap.set(n.excerpt + '|' + n.content, n);
+          }
+          break;
+        }
+      }
+    }
+
+    if (!isDuplicate) {
+      const key = n.excerpt + '|' + n.content;
+      noteMap.set(key, n);
+    }
   });
 
   return {
