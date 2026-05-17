@@ -24,8 +24,8 @@ scripts_defer:
 
 social:
   思考马克: /think
-  读书笔记: /read
-  公开清单: /note
+  读书记录: /read
+  公开笔记: /note
   Readme: /readme
   RSS 订阅: /rss.xml
   # and more, you can add other link by the same way
