@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "./scripts/dev-server.sh",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "deploy:keep-workflow": "./deploy-with-workflow.sh",
     "pull": "./git-pull-latest.sh",
-    "server": "./scripts/start-server.sh",
+    "server": "./scripts/dev-server.sh",
     "server:original": "hexo server",
-    "dev": "./git-pull-latest.sh && hexo clean && hexo generate && hexo server",
+    "dev": "./scripts/dev-server.sh",
     "sync:watch": "./scripts/auto-sync.sh",
     "sync:status": "git fetch && git status"
   },
