@@ -1,6 +1,8 @@
 #!/bin/bash
-# 开发前自动拉取最新代码脚本
-# 用法: ./git-pull-latest.sh && npm run server
+# 开发前自动拉取最新代码
+# 放在项目根目录
+
+cd "$(dirname "$0")"
 
 echo "检查远程更新..."
 git fetch origin
