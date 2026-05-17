@@ -7,7 +7,12 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "deploy:keep-workflow": "./deploy-with-workflow.sh",
-    "server": "hexo server"
+    "pull": "./git-pull-latest.sh",
+    "server": "./scripts/start-server.sh",
+    "server:original": "hexo server",
+    "dev": "./git-pull-latest.sh && hexo clean && hexo generate && hexo server",
+    "sync:watch": "./scripts/auto-sync.sh",
+    "sync:status": "git fetch && git status"
   },
   "hexo": {
     "version": "6.3.0"
