@@ -240,5 +240,6 @@ module.exports = {
   findFileByISBN,
   mergeExcerpts,
   mergeDates,
-  generateExcerptContent
+  generateExcerptContent,
+  hasContainRelation
 };
