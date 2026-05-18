@@ -44,9 +44,9 @@ function similarity(a, b) {
 }
 
 // 改进的书籍搜索函数
-// 参数：bookTitle (Kindle 原书名), isbn (可选), author (可选)
-async function searchBookAccurate(bookTitle, author = '', isbn = '') {
-  // 策略 1：检查是否标记为"不在微信读书"
+// 参数：bookTitle (Kindle 原书名), author (可选)
+async function searchBookAccurate(bookTitle, author = '') {
+  // 等略 1：检查是否标记为"不在微信读书"
   if (NOT_ON_WEREAD[bookTitle]) {
     console.log(`  📖 已知信息: "${bookTitle}" 不在微信读书上`);
     return {
@@ -58,32 +58,21 @@ async function searchBookAccurate(bookTitle, author = '', isbn = '') {
     };
   }
 
-  // 等略 2：ISBN 优先匹配（最精确）
-  const searchISBN = isbn || ISBN_MAPPING[bookTitle];
-  if (searchISBN) {
-    console.log(`  🔍 用 ISBN 搜索: ${searchISBN}`);
+  // 等略 2：bookId 精确匹配（最可靠）
+  const bookId = BOOK_ID_MAPPING[bookTitle];
+  if (bookId) {
+    console.log(`  🔍 用 bookId 精确匹配: ${bookId}`);
     try {
-      const result = await wereadApi.wereadApi('/store/search', {
-        keyword: searchISBN,
-        scope: 10,
-        count: 1
-      });
-
-      if (result.results && result.results[0] && result.results[0].books) {
-        const book = result.results[0].books[0].bookInfo;
-        const bookInfo = await wereadApi.getBookInfo(book.bookId);
-
-        // ISBN 匹配，置信度 100%
-        console.log(`  ✅ ISBN 匹配: "${bookInfo.title}"`);
-        return {
-          summary: bookInfo.intro || '待补充',
-          isbn: bookInfo.isbn || searchISBN,
-          title: bookInfo.title || bookTitle,
-          confidence: 100
-        };
-      }
+      const bookInfo = await wereadApi.getBookInfo(bookId);
+      console.log(`  ✅ bookId 匹配: "${bookInfo.title}"`);
+      return {
+        summary: bookInfo.intro || '待补充',
+        isbn: bookInfo.isbn || '',
+        title: bookInfo.title || bookTitle,
+        confidence: 100
+      };
     } catch (e) {
-      console.log(`  ⚠️ ISBN 搜索失败: ${e.message}`);
+      console.log(`  ⚠️ bookId 获取失败: ${e.message}`);
     }
   }
 
@@ -154,9 +143,9 @@ async function searchBookAccurate(bookTitle, author = '', isbn = '') {
   }
 }
 
-// 添加/更新 ISBN 映射（供外部调用）
-function addISBNMapping(bookTitle, isbn) {
-  ISBN_MAPPING[bookTitle] = isbn;
+// 添加/更新 bookId 映射（供外部调用）
+function addBookIdMapping(bookTitle, bookId) {
+  BOOK_ID_MAPPING[bookTitle] = bookId;
 }
 
 // 标记书籍不在微信读书
@@ -167,8 +156,8 @@ function markNotOnWeRead(bookTitle) {
 module.exports = {
   searchBookAccurate,
   similarity,
-  ISBN_MAPPING,
+  BOOK_ID_MAPPING,
   NOT_ON_WEREAD,
-  addISBNMapping,
+  addBookIdMapping,
   markNotOnWeRead
 };
