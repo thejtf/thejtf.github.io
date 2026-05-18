@@ -88,26 +88,13 @@ top:
   fs.writeFileSync(filePath, content);
   hexo.log.info(`✅ 创建读书笔记: source/_reads/${filename}`);
   hexo.log.info(`📝 分类: ${category}`);
-  hexo.log.info(`提示: 编辑文件添加书摘和心得`);
-
-  // 自动 commit 和 push
-  const exec = require('child_process').execSync;
-  try {
-    hexo.log.info('正在提交到 git...');
-    exec(`git add "source/_reads/${filename}"`, { cwd: hexo.base_dir, stdio: 'inherit' });
-    exec(`git commit -m "Add reading note: ${title}"`, { cwd: hexo.base_dir, stdio: 'inherit' });
-    exec('git push origin source', { cwd: hexo.base_dir, stdio: 'inherit' });
-    hexo.log.info('✅ 已提交并推送到 source 分支');
-  } catch (e) {
-    hexo.log.warn('⚠️ Git 操作失败，请手动提交');
-  }
+  hexo.log.info('编辑内容后保存，auto-push 会自动推送到 GitHub');
 });
 
 // 从微信读书导入
 async function importFromWeread(title, category, hexo) {
   const fs = require('fs');
   const path = require('path');
-  const exec = require('child_process').execSync;
   const wereadApi = require('./weread-api');
 
   hexo.log.info(`🔍 正在搜索《${title}》...`);
@@ -222,17 +209,7 @@ ${excerptsContent}
     hexo.log.info(`   分类: ${category}`);
     hexo.log.info(`   划线: ${bookmarks.length} 条`);
     hexo.log.info(`   心得: ${reviews.length} 条`);
-
-    // 7. Git commit 和 push
-    try {
-      hexo.log.info('正在提交到 git...');
-      exec(`git add "source/_reads/${filename}"`, { cwd: hexo.base_dir, stdio: 'inherit' });
-      exec(`git commit -m "Add reading note from WeRead: ${bookTitle}"`, { cwd: hexo.base_dir, stdio: 'inherit' });
-      exec('git push origin source', { cwd: hexo.base_dir, stdio: 'inherit' });
-      hexo.log.info('✅ 已提交并推送到 source 分支');
-    } catch (e) {
-      hexo.log.warn('⚠️ Git 操作失败，请手动提交');
-    }
+    hexo.log.info('编辑内容后保存，auto-push 会自动推送到 GitHub');
 
   } catch (e) {
     hexo.log.error(`微信读书导入失败: ${e.message}`);
