@@ -1,19 +1,26 @@
 // 书籍搜索匹配模块
 // 解决微信读书搜索结果不准确的问题
-// 组合策略：标题匹配 + 多结果比对 + ISBN 优先 + 手动映射
+// 核心策略：ISBN 优先匹配（唯一标识） + 书名相似度验证
 
 const wereadApi = require('./weread-api');
 
-// 已知书籍映射表（手动干预）
-// null 表示该书不在微信读书上，保留原书名
-const BOOK_MAPPING = {
-  // Kindle 书名 → 微信读书书名（null = 不在微信读书）
-  '工作、消费主义和新穷人': null,  // 此书不在微信读书上
-  '将熟悉变为陌生': '将熟悉变为陌生：与齐格蒙特·鲍曼对谈',
-  // 可继续添加其他已知问题书籍
+// ISBN 映射表（手动维护已知书籍的 ISBN）
+// ISBN 是唯一标识，搜索精确度 100%
+const ISBN_MAPPING = {
+  // Kindle 书名 → 微信读书 ISBN
+  // 示例：'工作、消费主义和新穷人': '9787559806789',
+  '百年孤独': '9787573510921',
+  '中国历代政治得失': '9787522506859',
+  '可能的可能性': '9787542674262',
+  // 添加更多已知书籍...
 };
 
-// 计算两个字符串的相似度（简单版本）
+// 不在微信读书上的书籍（标记为 null）
+const NOT_ON_WEREAD = {
+  '工作、消费主义和新穷人': true,  // 此书不在微信读书上
+};
+
+// 计算两个字符串的相似度
 function similarity(a, b) {
   if (!a || !b) return 0;
 
@@ -39,59 +46,66 @@ function similarity(a, b) {
 }
 
 // 改进的书籍搜索函数
-async function searchBookAccurate(bookTitle, author = '') {
-  // 策略 1：检查手动映射表
-  if (BOOK_MAPPING[bookTitle] !== undefined) {
-    const mappedTitle = BOOK_MAPPING[bookTitle];
+// 参数：bookTitle (Kindle 原书名), isbn (可选), author (可选)
+async function searchBookAccurate(bookTitle, author = '', isbn = '') {
+  // 策略 1：检查是否标记为"不在微信读书"
+  if (NOT_ON_WEREAD[bookTitle]) {
+    console.log(`  📖 已知信息: "${bookTitle}" 不在微信读书上`);
+    return {
+      summary: '待补充（此书不在微信读书）',
+      isbn: '',
+      title: bookTitle,
+      confidence: 100,
+      notOnWeRead: true
+    };
+  }
 
-    // null 表示该书不在微信读书上
-    if (mappedTitle === null) {
-      console.log(`  📖 映射表标记: "${bookTitle}" 不在微信读书上`);
-      return {
-        summary: '待补充（此书不在微信读书）',
-        isbn: '',
-        title: bookTitle,
-        confidence: 100,
-        notOnWeRead: true
-      };
-    }
+  // 等略 2：ISBN 优先匹配（最精确）
+  const searchISBN = isbn || ISBN_MAPPING[bookTitle];
+  if (searchISBN) {
+    console.log(`  🔍 用 ISBN 搜索: ${searchISBN}`);
+    try {
+      const result = await wereadApi.wereadApi('/store/search', {
+        keyword: searchISBN,
+        scope: 10,
+        count: 1
+      });
 
-    // 有映射，使用映射后的书名搜索
-    console.log(`  📖 使用映射表: "${bookTitle}" → "${mappedTitle}"`);
-    const book = await wereadApi.searchBook(mappedTitle);
-    if (book && book.bookId) {
-      const bookInfo = await wereadApi.getBookInfo(book.bookId);
-      // 验证返回的书名是否与映射目标匹配
-      const titleSimilarity = similarity(mappedTitle, bookInfo.title);
-      if (titleSimilarity >= 80) {
+      if (result.results && result.results[0] && result.results[0].books) {
+        const book = result.results[0].books[0].bookInfo;
+        const bookInfo = await wereadApi.getBookInfo(book.bookId);
+
+        // ISBN 匹配，置信度 100%
+        console.log(`  ✅ ISBN 匹配: "${bookInfo.title}"`);
         return {
           summary: bookInfo.intro || '待补充',
-          isbn: bookInfo.isbn || '',
-          title: bookInfo.title || mappedTitle,
+          isbn: bookInfo.isbn || searchISBN,
+          title: bookInfo.title || bookTitle,
           confidence: 100
         };
       }
-      // 映射后仍不匹配，回退到多结果比对
-      console.log(`  ⚠️ 映射结果不匹配，回退到多结果比对`);
+    } catch (e) {
+      console.log(`  ⚠️ ISBN 搜索失败: ${e.message}`);
     }
   }
 
-  // 策略 2：搜索并获取多个结果
+  // 等略 3：书名搜索 + 多结果比对
+  console.log(`  🔍 用书名搜索: "${bookTitle}"`);
   try {
-    // 直接调用 API 获取多个结果
     const result = await wereadApi.wereadApi('/store/search', {
       keyword: bookTitle,
       scope: 10,
-      count: 5  // 获取5个结果
+      count: 5
     });
 
     if (!result.results || !result.results[0] || !result.results[0].books) {
+      console.log(`  ❌ 无搜索结果`);
       return { summary: '待补充', isbn: '', title: bookTitle, confidence: 0 };
     }
 
     const books = result.results[0].books;
 
-    // 策略 3：比对所有结果，选择最匹配的
+    // 比对所有结果，选择最匹配的
     let bestMatch = null;
     let bestScore = 0;
 
@@ -99,14 +113,13 @@ async function searchBookAccurate(bookTitle, author = '') {
       const info = b.bookInfo;
       const titleScore = similarity(bookTitle, info.title);
 
-      // 作者加分（如果提供）
+      // 作者加分
       let authorScore = 0;
       if (author && info.author) {
         authorScore = similarity(author, info.author) * 0.3;
       }
 
       const totalScore = titleScore + authorScore;
-
       console.log(`  📚 候选: "${info.title}" (相似度: ${totalScore.toFixed(0)}%)`);
 
       if (totalScore > bestScore) {
@@ -115,7 +128,7 @@ async function searchBookAccurate(bookTitle, author = '') {
       }
     }
 
-    // 策略 4：置信度阈值检查
+    // 等略 4：置信度阈值检查（>=70 才接受）
     if (bestMatch && bestScore >= 70) {
       const bookInfo = await wereadApi.getBookInfo(bestMatch.bookId);
       console.log(`  ✅ 选中: "${bestMatch.title}" (置信度: ${bestScore.toFixed(0)}%)`);
@@ -127,7 +140,7 @@ async function searchBookAccurate(bookTitle, author = '') {
       };
     }
 
-    // 策略 5：置信度过低，使用原书名
+    // 等略 5：置信度过低，保留原书名
     console.log(`  ⚠️ 匹配度过低 (最高 ${bestScore.toFixed(0)}%)，保留原书名`);
     return {
       summary: '待补充',
@@ -143,8 +156,21 @@ async function searchBookAccurate(bookTitle, author = '') {
   }
 }
 
+// 添加/更新 ISBN 映射（供外部调用）
+function addISBNMapping(bookTitle, isbn) {
+  ISBN_MAPPING[bookTitle] = isbn;
+}
+
+// 标记书籍不在微信读书
+function markNotOnWeRead(bookTitle) {
+  NOT_ON_WEREAD[bookTitle] = true;
+}
+
 module.exports = {
   searchBookAccurate,
   similarity,
-  BOOK_MAPPING
+  ISBN_MAPPING,
+  NOT_ON_WEREAD,
+  addISBNMapping,
+  markNotOnWeRead
 };
