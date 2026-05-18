@@ -107,9 +107,11 @@ function findFileByISBN(readsDir, isbn) {
 
 // 检查两个文本是否有包含关系
 function hasContainRelation(a, b) {
-  const aTrim = a.trim();
-  const bTrim = b.trim();
-  return aTrim.includes(bTrim) || bTrim.includes(aTrim);
+  // 标准化标点符号（冒号、句号等统一）
+  const normalize = (s) => s.trim().replace(/[：:。\.]/g, '');
+  const aNorm = normalize(a);
+  const bNorm = normalize(b);
+  return aNorm.includes(bNorm) || bNorm.includes(aNorm);
 }
 
 // 对 excerpts 数组去重（保留最长的版本）
