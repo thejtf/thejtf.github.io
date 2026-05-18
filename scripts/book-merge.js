@@ -112,27 +112,50 @@ function hasContainRelation(a, b) {
   return aTrim.includes(bTrim) || bTrim.includes(aTrim);
 }
 
-// 合并划线和笔记（去重）
-function mergeExcerpts(existingExcerpts, newExcerpts, existingNotes, newNotes) {
-  // 划线去重（处理完全匹配和包含关系）
-  const allExcerpts = [...existingExcerpts, ...newExcerpts.map(e => e.trim())];
+// 对 excerpts 数组去重（保留最长的版本）
+function dedupeExcerpts(excerpts) {
+  // 先按长度排序，长的优先
+  const sorted = [...excerpts].sort((a, b) => b.length - a.length);
+  const result = [];
 
-  // 先按长度排序，长的优先处理（这样可以保留更完整的版本）
-  allExcerpts.sort((a, b) => b.length - a.length);
-
-  const excerptSet = new Set();
-
-  for (const text of allExcerpts) {
+  for (const text of sorted) {
     const trimmed = text.trim();
     if (!trimmed) continue;
 
     let isDuplicate = false;
-
-    for (const existing of excerptSet) {
-      // 完全匹配或包含关系 → 视为重复
+    for (const existing of result) {
       if (trimmed === existing || hasContainRelation(trimmed, existing)) {
         isDuplicate = true;
-        // 由于我们已经按长度排序，excerptSet 里的都是更长的，所以不需要替换
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      result.push(trimmed);
+    }
+  }
+
+  return result;
+}
+
+// 合并划线和笔记（去重）
+function mergeExcerpts(existingExcerpts, newExcerpts, existingNotes, newNotes) {
+  // 先对已有内容去重
+  const dedupedExisting = dedupeExcerpts(existingExcerpts);
+  const allExcerpts = [...dedupedExisting, ...newExcerpts.map(e => e.trim())];
+
+  // 再整体去重
+  const excerptSet = new Set();
+  const sortedAll = allExcerpts.sort((a, b) => b.length - a.length);
+
+  for (const text of sortedAll) {
+    const trimmed = text.trim();
+    if (!trimmed) continue;
+
+    let isDuplicate = false;
+    for (const existing of excerptSet) {
+      if (trimmed === existing || hasContainRelation(trimmed, existing)) {
+        isDuplicate = true;
         break;
       }
     }
