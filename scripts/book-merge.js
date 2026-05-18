@@ -303,6 +303,8 @@ module.exports = {
   parseMarkdownFile,
   parseExcerpts,
   findFileByISBN,
+  findFileByTitle,
+  findExistingFile,
   mergeExcerpts,
   mergeDates,
   generateExcerptContent,
