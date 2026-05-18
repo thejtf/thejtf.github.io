@@ -105,31 +105,40 @@ function findFileByISBN(readsDir, isbn) {
   return null;
 }
 
+// 检查两个文本是否有包含关系
+function hasContainRelation(a, b) {
+  const aTrim = a.trim();
+  const bTrim = b.trim();
+  return aTrim.includes(bTrim) || bTrim.includes(aTrim);
+}
+
 // 合并划线和笔记（去重）
 function mergeExcerpts(existingExcerpts, newExcerpts, existingNotes, newNotes) {
   // 划线去重（处理完全匹配和包含关系）
   const allExcerpts = [...existingExcerpts, ...newExcerpts.map(e => e.trim())];
+
+  // 先按长度排序，长的优先处理（这样可以保留更完整的版本）
+  allExcerpts.sort((a, b) => b.length - a.length);
+
   const excerptSet = new Set();
 
-  for (const excerpt of allExcerpts) {
-    const text = excerpt.trim();
+  for (const text of allExcerpts) {
+    const trimmed = text.trim();
+    if (!trimmed) continue;
+
     let isDuplicate = false;
 
     for (const existing of excerptSet) {
-      // 完全匹配、包含、被包含
-      if (text === existing || text.includes(existing) || existing.includes(text)) {
-        // 保留更长的那个
-        if (text.length > existing.length) {
-          excerptSet.delete(existing);
-          excerptSet.add(text);
-        }
+      // 完全匹配或包含关系 → 视为重复
+      if (trimmed === existing || hasContainRelation(trimmed, existing)) {
         isDuplicate = true;
+        // 由于我们已经按长度排序，excerptSet 里的都是更长的，所以不需要替换
         break;
       }
     }
 
     if (!isDuplicate) {
-      excerptSet.add(text);
+      excerptSet.add(trimmed);
     }
   }
 
@@ -191,19 +200,22 @@ function generateExcerptContent(excerpts, notes) {
     }
   });
 
-  // 再处理纯划线（检查：完全匹配、包含、被包含）
+  // 再处理纯划线（检查包含关系）
   excerpts.forEach(e => {
     const text = e.trim();
+    if (!text) return;
+
     let isDuplicate = false;
 
     for (const shown of shownExcerpts) {
-      if (text === shown || text.includes(shown) || shown.includes(text)) {
+      if (text === shown || hasContainRelation(text, shown)) {
         isDuplicate = true;
         break;
       }
     }
 
     if (!isDuplicate) {
+      shownExcerpts.add(text);
       content += `${e}\n\n`;
     }
   });
