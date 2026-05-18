@@ -264,5 +264,6 @@ module.exports = {
   mergeExcerpts,
   mergeDates,
   generateExcerptContent,
-  hasContainRelation
+  hasContainRelation,
+  dedupeExcerpts
 };
