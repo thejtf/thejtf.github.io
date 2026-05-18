@@ -55,7 +55,8 @@ function wereadApi(apiName, params = {}) {
 
 // 搜索书籍获取 bookId
 async function searchBook(keyword) {
-  const result = await wereadApi('/store/search', { keyword, scope: 10, count: 5 });
+  // 注意：scope=10 有 bug，用 scope=1 只搜索书名更准确
+  const result = await wereadApi('/store/search', { keyword, scope: 1, count: 5 });
 
   if (!result.results || result.results.length === 0) {
     return null;
