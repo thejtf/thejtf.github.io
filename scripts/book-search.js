@@ -22,21 +22,27 @@ const NOT_ON_WEREAD = {
 function similarity(a, b) {
   if (!a || !b) return 0;
 
-  const aLower = a.toLowerCase().replace(/[：:]/g, '');
-  const bLower = b.toLowerCase().replace(/[：:]/g, '');
+  // 去掉冒号和括号内容（版本、出版社等）
+  const cleanStr = (s) => s.toLowerCase()
+    .replace(/[：:]/g, '')
+    .replace(/[\(\[（【][^\)\]\】]*[\)\]）】]/g, '')
+    .trim();
+
+  const aClean = cleanStr(a);
+  const bClean = cleanStr(b);
 
   // 完全匹配
-  if (aLower === bLower) return 100;
+  if (aClean === bClean) return 100;
 
-  // 包含关系
-  if (aLower.includes(bLower) || bLower.includes(aLower)) {
-    const ratio = Math.min(aLower.length, bLower.length) / Math.max(aLower.length, bLower.length);
-    return 80 * ratio;
+  // 包含关系（短标题被长标题包含）
+  if (aClean.includes(bClean) || bClean.includes(aClean)) {
+    const ratio = Math.min(aClean.length, bClean.length) / Math.max(aClean.length, bClean.length);
+    return 80 + 20 * ratio;  // 包含关系至少80分
   }
 
   // 计算共同字符比例
-  const aChars = new Set(aLower.split(''));
-  const bChars = new Set(bLower.split(''));
+  const aChars = new Set(aClean.split(''));
+  const bChars = new Set(bClean.split(''));
   const common = [...aChars].filter(c => bChars.has(c)).length;
   const total = aChars.size + bChars.size;
 
