@@ -86,9 +86,10 @@ async function searchBookAccurate(bookTitle, author = '') {
   // 等略 3：书名搜索 + 多结果比对
   console.log(`  🔍 用书名搜索: "${bookTitle}"`);
   try {
+    // 注意：scope=10 有 bug，会返回错误结果；用 scope=1 只搜索书名
     const result = await wereadApi.wereadApi('/store/search', {
       keyword: bookTitle,
-      scope: 10,
+      scope: 1,  // 只搜索书名，避免 scope=10 的算法 bug
       count: 5
     });
 
