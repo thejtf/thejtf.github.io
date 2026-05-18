@@ -1,6 +1,6 @@
 #!/bin/bash
 # 本地定时同步脚本 - 在 Pi 服务器上运行
-# 每30分钟自动同步微信读书笔记
+# 每30分钟自动同步所有内容并部署
 
 set -e
 
@@ -39,11 +39,11 @@ else
     echo "[$(date '+%H:%M')] ⚠️ 未设置 API Key，跳过同步" >> "$LOG_FILE"
 fi
 
-# 3. 检查是否有新内容需要推送
+# 3. 检查是否有新内容需要推送（提交全部 source/ 目录）
 if ! git diff-index --quiet HEAD -- 2>/dev/null; then
     echo "[$(date '+%H:%M')] ⬆️ 推送更新..." >> "$LOG_FILE"
-    git add source/_reads/ 2>/dev/null || true
-    git commit -m "Local sync: WeRead notes ($(date '+%Y-%m-%d %H:%M'))" 2>/dev/null || true
+    git add source/ 2>/dev/null || true
+    git commit -m "Local sync: $(date '+%Y-%m-%d %H:%M')" 2>/dev/null || true
     git push origin source --quiet 2>/dev/null
     echo "[$(date '+%H:%M')] ✅ 已推送" >> "$LOG_FILE"
 fi
