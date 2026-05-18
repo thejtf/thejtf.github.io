@@ -517,8 +517,8 @@ async function syncKindle() {
     const { filename, content: mdContent, title, isbn, excerpts, notes } = await generateMarkdown(book, bookInfo);
     const filePath = path.join(READS_DIR, filename);
 
-    // 检查是否已有相同 ISBN 的文件（合并去重）
-    const existingFile = bookMerge.findFileByISBN(READS_DIR, isbn);
+    // 检查是否已有相同书籍的文件（优先 ISBN，其次书名）
+    const existingFile = bookMerge.findExistingFile(READS_DIR, isbn, title);
 
     if (existingFile) {
       // 合并去重
