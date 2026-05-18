@@ -31,7 +31,7 @@ top: false
 
 `;
 
-  const filename = title.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-') + '.md';
+  const filename = title.replace(/[^a-zA-Z0-9一-龥]/g, '-') + '.md';
   const thinksDir = path.join(hexo.source_dir, '_thinks');
   const filePath = path.join(thinksDir, filename);
 
@@ -42,4 +42,5 @@ top: false
 
   fs.writeFileSync(filePath, content);
   hexo.log.info(`Created think: source/_thinks/${filename}`);
+  hexo.log.info('编辑内容后保存，auto-push 会自动推送到 GitHub');
 });
