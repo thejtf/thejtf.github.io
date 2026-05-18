@@ -14,11 +14,9 @@ tags:
 
 #### 书摘
 
-dehydrated. When you run for the bus you notice you warm up.
-
-Irritation. Exhaustion. I don’t want to do today. Is this
-
 Irritation. Exhaustion. I don’t want to do today. Is this low
+
+dehydrated. When you run for the bus you notice you warm up.
 
 self-critical. Even when we know our thought patterns aren’t
 

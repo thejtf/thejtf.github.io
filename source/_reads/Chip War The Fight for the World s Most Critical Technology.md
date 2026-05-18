@@ -14,8 +14,8 @@ tags:
 
 #### 书摘
 
-dynamic random access memory; one of two main types
-
 USS Mustin slipped into the northern end of the Taiwan Strait on
+
+dynamic random access memory; one of two main types
 
 
