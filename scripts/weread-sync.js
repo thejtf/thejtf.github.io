@@ -351,8 +351,8 @@ ${excerptsContent || ''}
       const filename = `${safeTitle}.md`;
       const filePath = path.join(readsDir, filename);
 
-      // 检查是否已有相同 ISBN 的文件（合并去重）
-      const existingFile = bookMerge.findFileByISBN(readsDir, bookInfo.isbn);
+      // 检查是否已有相同书籍的文件（合并去重，双向交叉验证）
+      const existingFile = bookMerge.findExistingFile(readsDir, bookInfo.isbn, bookTitle);
 
       if (existingFile) {
         // 合并去重
