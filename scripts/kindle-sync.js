@@ -231,27 +231,23 @@ async function getBookTagAsync(bookTitle, summary) {
   return result.tag;
 }
 
-// 使用微信读书 API 搜索书籍信息
+// 使用精确搜索模块匹配书籍信息
 async function searchBookInfo(bookTitle, author) {
-  const wereadApi = require('./weread-api');
+  const { searchBookAccurate } = require('./book-search');
 
   try {
-    // 搜索书籍
-    const book = await wereadApi.searchBook(bookTitle);
-    if (book && book.bookId) {
-      // 获取书籍详情
-      const bookInfo = await wereadApi.getBookInfo(book.bookId);
-      return {
-        summary: bookInfo.intro || '待补充',
-        isbn: bookInfo.isbn || '',
-        title: bookInfo.title || bookTitle  // 使用微信读书的标准书名
-      };
-    }
-  } catch (e) {
-    // 微信读书搜索失败
-  }
+    const result = await searchBookAccurate(bookTitle, author);
 
-  return { summary: '待补充', isbn: '', title: bookTitle };
+    // 如果匹配置信度过低，标记需要人工检查
+    if (result.needsManualCheck) {
+      console.log(`  ⚠️ 建议: 请确认书籍 "${bookTitle}" 是否正确识别`);
+    }
+
+    return result;
+  } catch (e) {
+    console.log(`  ❌ 搜索失败: ${e.message}`);
+    return { summary: '待补充', isbn: '', title: bookTitle };
+  }
 }
 
 // 解析 Kindle My Clippings.txt 格式
