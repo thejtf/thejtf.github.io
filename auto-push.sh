@@ -17,7 +17,7 @@ case "${1:-start}" in
         fi
 
         echo "🚀 启动自动同步守护进程..."
-        echo "   每 30 秒双向同步"
+        echo "   每 60 秒双向同步"
         echo "   日志: tail -f $LOG_FILE"
 
         # 启动后台进程，用标记名便于检测
@@ -25,7 +25,7 @@ case "${1:-start}" in
             cd /home/jopus/Blog
 
             while true; do
-                sleep 30
+                sleep 60
 
                 # 1. 检查远程连接
                 if ! git fetch origin source 2>/dev/null; then
