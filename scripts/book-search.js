@@ -41,18 +41,38 @@ function similarity(a, b) {
 // 改进的书籍搜索函数
 async function searchBookAccurate(bookTitle, author = '') {
   // 策略 1：检查手动映射表
-  if (BOOK_MAPPING[bookTitle]) {
+  if (BOOK_MAPPING[bookTitle] !== undefined) {
     const mappedTitle = BOOK_MAPPING[bookTitle];
+
+    // null 表示该书不在微信读书上
+    if (mappedTitle === null) {
+      console.log(`  📖 映射表标记: "${bookTitle}" 不在微信读书上`);
+      return {
+        summary: '待补充（此书不在微信读书）',
+        isbn: '',
+        title: bookTitle,
+        confidence: 100,
+        notOnWeRead: true
+      };
+    }
+
+    // 有映射，使用映射后的书名搜索
     console.log(`  📖 使用映射表: "${bookTitle}" → "${mappedTitle}"`);
     const book = await wereadApi.searchBook(mappedTitle);
     if (book && book.bookId) {
       const bookInfo = await wereadApi.getBookInfo(book.bookId);
-      return {
-        summary: bookInfo.intro || '待补充',
-        isbn: bookInfo.isbn || '',
-        title: bookInfo.title || mappedTitle,
-        confidence: 100
-      };
+      // 验证返回的书名是否与映射目标匹配
+      const titleSimilarity = similarity(mappedTitle, bookInfo.title);
+      if (titleSimilarity >= 80) {
+        return {
+          summary: bookInfo.intro || '待补充',
+          isbn: bookInfo.isbn || '',
+          title: bookInfo.title || mappedTitle,
+          confidence: 100
+        };
+      }
+      // 映射后仍不匹配，回退到多结果比对
+      console.log(`  ⚠️ 映射结果不匹配，回退到多结果比对`);
     }
   }
 
