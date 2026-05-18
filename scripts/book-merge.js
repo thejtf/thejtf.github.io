@@ -105,6 +105,46 @@ function findFileByISBN(readsDir, isbn) {
   return null;
 }
 
+// 根据书名相似度查找现有文件（当 ISBN 不可用时）
+function findFileByTitle(readsDir, bookTitle) {
+  if (!bookTitle) return null;
+
+  const files = fs.readdirSync(readsDir).filter(f => f.endsWith('.md'));
+
+  for (const file of files) {
+    const filePath = path.join(readsDir, file);
+    const parsed = parseMarkdownFile(filePath);
+    if (parsed && parsed.frontmatter.title) {
+      // 标准化后比较（去掉括号内容、标点）
+      const normalizeTitle = (t) => t.replace(/[：:]/g, '').replace(/[\(\[（【][^\)\]\】]*[\)\]）】]/g, '').trim();
+      const existingNorm = normalizeTitle(parsed.frontmatter.title);
+      const newNorm = normalizeTitle(bookTitle);
+
+      // 完全匹配或包含关系
+      if (existingNorm === newNorm || existingNorm.includes(newNorm) || newNorm.includes(existingNorm)) {
+        return {
+          filePath,
+          filename: file,
+          frontmatter: parsed.frontmatter,
+          excerpts: parseExcerpts(parsed.body)
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+// 查找现有文件（优先 ISBN，其次书名）
+function findExistingFile(readsDir, isbn, bookTitle) {
+  // 先尝试 ISBN 匹配
+  const byISBN = findFileByISBN(readsDir, isbn);
+  if (byISBN) return byISBN;
+
+  // 再尝试书名匹配
+  return findFileByTitle(readsDir, bookTitle);
+}
+
 // 检查两个文本是否有包含关系
 function hasContainRelation(a, b) {
   // 标准化标点符号（冒号、句号等统一）
