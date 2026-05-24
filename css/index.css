@@ -499,7 +499,7 @@ article.post-view__article .article__content .mjx-chtml {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.5rem;
     padding: 3rem 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
