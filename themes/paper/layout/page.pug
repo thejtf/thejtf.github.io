@@ -31,8 +31,8 @@ block content
           .paginator
             if notePagination.current > 1
               a.extend.prev(rel="prev" href=url_for(notePagination.current === 2 ? '/note/' : '/note/page/' + (notePagination.current - 1) + '/')) 上一页
-            - var start = Math.max(1, notePagination.current - 1)
-            - var end = Math.min(notePagination.total, notePagination.current + 1)
+            - var start = notePagination.current
+            - var end = notePagination.current
             if start > 1
               a.page-number(href=url_for('/note/')) 1
               if start > 2
@@ -81,8 +81,8 @@ block content
           .paginator
             if readPagination.current > 1
               a.extend.prev(rel="prev" href=url_for(readPagination.current === 2 ? '/read/' : '/read/page/' + (readPagination.current - 1) + '/')) 上一页
-            - var start = Math.max(1, readPagination.current - 1)
-            - var end = Math.min(readPagination.total, readPagination.current + 1)
+            - var start = readPagination.current
+            - var end = readPagination.current
             if start > 1
               a.page-number(href=url_for('/read/')) 1
               if start > 2
