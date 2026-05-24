@@ -51,36 +51,25 @@ else
     echo "[$(date '+%H:%M')] ⚠️ 未设置 API Key，跳过同步" >> "$LOG_FILE"
 fi
 
-# 3. 部署到 GitHub Pages（只在有新内容时部署）
-# 检查是否需要重新生成
+# 3. 部署到 GitHub Pages（有新 commit 才部署）
 NEED_DEPLOY=false
-
-# 检查上次部署时间和当前时间
 LAST_DEPLOY_FILE="$BLOG_DIR/.last-deploy"
-if [ -f "$LAST_DEPLOY_FILE" ]; then
-    LAST_DEPLOY=$(cat "$LAST_DEPLOY_FILE")
-    NOW=$(date +%s)
-    # 超过1小时就重新部署
-    if [ "$((NOW - LAST_DEPLOY))" -gt 3600 ]; then
-        NEED_DEPLOY=true
-    fi
-else
-    NEED_DEPLOY=true
-fi
 
-# 或者 source 有改动就部署
-if ! git diff-index --quiet HEAD -- source/ 2>/dev/null; then
+CURRENT_HEAD=$(git rev-parse HEAD)
+LAST_DEPLOYED=$(cat "$LAST_DEPLOY_FILE" 2>/dev/null || echo "")
+
+if [ "$CURRENT_HEAD" != "$LAST_DEPLOYED" ]; then
     NEED_DEPLOY=true
 fi
 
 if [ "$NEED_DEPLOY" = true ]; then
-    echo "[$(date '+%H:%M')] 🚀 部署到线上..." >> "$LOG_FILE"
+    echo "[$(date '+%H:%M')] 🚀 部署到线上 ($CURRENT_HEAD)..." >> "$LOG_FILE"
     npx hexo generate --quiet >> "$LOG_FILE" 2>&1
     npx hexo deploy --quiet >> "$LOG_FILE" 2>&1
-    date +%s > "$LAST_DEPLOY_FILE"
+    echo "$CURRENT_HEAD" > "$LAST_DEPLOY_FILE"
     echo "[$(date '+%H:%M')] ✅ 已部署到线上" >> "$LOG_FILE"
 else
-    echo "[$(date '+%H:%M')] ⏸️ 无需部署" >> "$LOG_FILE"
+    echo "[$(date '+%H:%M')] ⏸️ 无需部署（已是最新）" >> "$LOG_FILE"
 fi
 
 echo "[$(date '+%H:%M:%S')] 定时同步完成" >> "$LOG_FILE"
