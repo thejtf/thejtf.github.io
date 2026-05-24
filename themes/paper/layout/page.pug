@@ -126,8 +126,8 @@ block content
           .paginator
             if thinkPagination.current > 1
               a.extend.prev(rel="prev" href=url_for(thinkPagination.current === 2 ? '/think/' : '/think/page/' + (thinkPagination.current - 1) + '/')) 上一页
-            - var start = Math.max(1, thinkPagination.current - 1)
-            - var end = Math.min(thinkPagination.total, thinkPagination.current + 1)
+            - var start = thinkPagination.current
+            - var end = thinkPagination.current
             if start > 1
               a.page-number(href=url_for('/think/')) 1
               if start > 2
