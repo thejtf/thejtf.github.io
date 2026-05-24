@@ -1,7 +1,7 @@
 ---
 title: Claude Code橙皮书：从入门到精通（微信读书特别版）
 isbn: 
-date: 2026-05-25 01:58:57
+date: 2026-05-25 02:09:49
 tags:
   - 读书
   - 泛读
@@ -22,6 +22,19 @@ Claude Code是Anthropic推出的终端AI编程工具。和Copilot这类IDE插件
 在Claude Code的输入框中，按两次Shift+Tab。你会看到界面切换到Plan模式。此时Claude的行为会改变：
 
 **想法**：或输入/plan
+
+Plan模式的黄金工作流
+Boris推荐的完整流程是这样的：
+1．Plan模式下描述需求，来回讨论
+用Shift+Tab× 2 进入Plan模式，描述你的需求。Claude给出方案后，你可以说「第三步换个方式」「这里的库用XXX替换」，反复调整。
+2．用编辑器写一份详细的执行指令
+方案大致满意后，按Ctrl+G，会在你的默认编辑器（由$EDITOR环境变量决定）中打开输入框。你可以在编辑器里写一份完整的执行指令，把讨论中确认的方案细节、约束条件都写进去，保存后内容回到Claude Code的输入框，作为下一步的prompt发出。
+3．切换到执行模式，开启Auto-accept
+计划确认后，按Shift+Tab切回正常模式。因为计划已经讨论充分，你可以放心地让Claude一次性执行完成，不需要逐步确认。
+这个流程的精髓在于：把纠结放在Plan阶段解决完，执行阶段一气呵成。边做边改、反复返工是最浪费tokens的用法。
+
+如何启用Auto模式
+# 启动时指定￼ claude --permission-mode auto￼ ￼ # 或者在运行中用 Shift+Tab 循环切换模式￼ # 默认→Auto-accept edits→Plan→Auto→默认￼ # Auto模式目前是Team plan的Research Preview功能
 
 当前Claude Code背后的模型有三个：
 • Opus 4.6 — 推理能力最强，处理复杂任务和架构决策
