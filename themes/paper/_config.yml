@@ -4,6 +4,7 @@ language: zh
 
 # main menu navigation
 menu:
+  杂乱无章: https://jopuslee.com/
   Home: /
   Readme: /readme
   Note: /note
