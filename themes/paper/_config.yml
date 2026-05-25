@@ -4,7 +4,6 @@ language: zh
 
 # main menu navigation
 menu:
-  杂乱无章: https://jopuslee.com/
   Home: /
   Readme: /readme
   Note: /note
@@ -24,6 +23,7 @@ scripts_defer:
 
 
 social:
+  杂乱无章: https://jopuslee.com/
   思考马克: /think
   读书记录: /read
   学习笔记: /note
