@@ -96,7 +96,8 @@ hexo.extend.filter.register('before_exit', function() {
     <item>
       <title>${post.fullTitle}</title>
       <link>${postUrl}</link>
-      <pubDate>${formatDate(post.date)}</pubDate>
+      <guid isPermaLink="true">${postUrl}</guid>
+      <pubDate>${formatDate(post.updated || post.date)}</pubDate>
       <description><![CDATA[${post.content}]]></description>
     </item>`;
     }).join('\n');

@@ -6,10 +6,12 @@
     <description>{{ config.description }}</description>
     <language>zh-CN</language>
     <lastBuildDate>{% if posts.first().updated %}{{ posts.first().updated.toDate().toUTCString() }}{% else %}{{ posts.first().date.toDate().toUTCString() }}{% endif %}</lastBuildDate>
+    <ttl>15</ttl>
     {% for post in posts.toArray() %}
     <item>
       <title>{{ post.title }}</title>
       <link>{{ post.permalink | uriencode }}</link>
+      <guid isPermaLink="true">{{ post.permalink | uriencode }}</guid>
       <pubDate>{{ post.date.toDate().toUTCString() }}</pubDate>
       <description><![CDATA[{{ post.content | noControlChars | safe }}]]></description>
     </item>
