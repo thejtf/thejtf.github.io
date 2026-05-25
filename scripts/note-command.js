@@ -16,14 +16,14 @@ hexo.extend.console.register('note', 'Create a new note', {
     return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   };
 
-  // 默认 Categories 为公开笔记，Tags 为笔记
+  // 默认 Categories 为学习笔记，Tags 为笔记
   const content = `---
 title: ${title}
 date: ${formatDate(date)}
 tags:
   - 笔记
 categories:
-  - 公开笔记
+  - 学习笔记
 photos:
 top: false
 ---
