@@ -296,6 +296,15 @@ function cleanText(text) {
     .replace(/[​‌‍﻿￼]/g, '');  // 零宽字符、BOM、对象替换符
 }
 
+// 清理书名：去掉括号内的版本/出版信息，以及冒号后的副标题
+function cleanTitle(title) {
+  if (!title) return title;
+  return title
+    .replace(/[（(][^）)]*[）)]/g, '')  // 去掉（括号内容）
+    .replace(/[：:].*/u, '')             // 去掉：冒号及之后的副标题
+    .trim();
+}
+
 // 合并时间（取最新的）
 function mergeDates(existingDate, newDate) {
   if (!existingDate) return newDate;
@@ -318,5 +327,6 @@ module.exports = {
   generateExcerptContent,
   hasContainRelation,
   dedupeExcerpts,
-  cleanText
+  cleanText,
+  cleanTitle
 };
