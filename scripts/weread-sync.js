@@ -194,7 +194,7 @@ async function getBookTag(bookTitle, summary) {
 hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async function(args) {
   const wereadApi = require('./weread-api');
   const bookMerge = require('./book-merge');
-  const { cleanText } = bookMerge;
+  const { cleanText, cleanTitle } = bookMerge;
 
   console.log('📚 开始从微信读书同步笔记...\n');
 
@@ -251,9 +251,12 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       });
       reviews = Array.from(reviewMap.values());
 
-      // 获取分类和标签
+      // 获取分类和标签（用原始书名匹配，fuzzy matching 更准确）
       const category = await getBookCategory(bookTitle, bookInfo.intro);
       const tag = await getBookTag(bookTitle, bookInfo.intro);
+
+      // 清理书名用于显示：去掉括号版本信息和冒号副标题
+      const displayTitle = cleanTitle(bookTitle);
 
       // 生成 Markdown
       // 格式化日期（转换为北京时间 UTC+8，使用 UTC 方法避免服务器时区影响）
@@ -329,7 +332,7 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       });
 
       const mdContent = `---
-title: ${yamlValue(bookTitle)}
+title: ${yamlValue(displayTitle)}
 isbn: ${bookInfo.isbn || ''}
 date: ${formatDate(latestTime)}
 tags:
@@ -349,7 +352,7 @@ ${excerptsContent || ''}
 `;
 
       // 保存文件
-      const safeTitle = bookTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
+      const safeTitle = displayTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
       const filename = `${safeTitle}.md`;
       const filePath = path.join(readsDir, filename);
 
@@ -375,7 +378,7 @@ ${excerptsContent || ''}
         const mergedDate = bookMerge.mergeDates(existingFile.frontmatter.date, formatDate(latestTime));
 
         const mergedMdContent = `---
-title: ${yamlValue(existingFile.frontmatter.title || bookTitle)}
+title: ${yamlValue(existingFile.frontmatter.title || displayTitle)}
 isbn: ${bookInfo.isbn || ''}
 date: ${mergedDate}
 tags:

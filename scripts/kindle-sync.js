@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { cleanText } = require('./book-merge');
+const { cleanText, cleanTitle } = require('./book-merge');
 
 const KINDLE_PATH = '/media/jopus/Kindle';
 const CLIPPINGS_FILE = '/media/jopus/Kindle/documents/My Clippings.txt';
