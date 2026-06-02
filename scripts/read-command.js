@@ -198,7 +198,7 @@ ${excerptsContent}
       fs.mkdirSync(readsDir, { recursive: true });
     }
 
-    // 清理书名作为文件名
+    // 生成文件名（bookTitle 已经过 cleanTitle 处理）
     const safeTitle = bookTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
     const filename = `${safeTitle}.md`;
     const filePath = path.join(readsDir, filename);

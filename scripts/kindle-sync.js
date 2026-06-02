@@ -385,23 +385,8 @@ async function generateMarkdown(book, bookInfo) {
     }
   }
 
-  // 提取纯书名（去掉括号内的作者名，包括嵌套括号）
-  let pureBookTitle = book.title;
-  // 循环移除括号内容（从最内层开始，处理嵌套情况）
-  let changed = true;
-  while (changed) {
-    let old = pureBookTitle;
-    // 匹配括号内没有其他括号的情况
-    pureBookTitle = pureBookTitle.replace(/\s*[\(\[（【][^\(\)\[\]（）【】]*[\)\]）】]/g, '');
-    changed = old !== pureBookTitle;
-  }
-  // 清理残留的括号字符
-  pureBookTitle = pureBookTitle.replace(/[\(\)\[\]（）【】]/g, '');
-  // 清理多余空格
-  pureBookTitle = pureBookTitle.replace(/\s+/g, ' ').trim();
-
-  // 使用微信读书的标准书名（如果有）
-  const standardTitle = bookInfo.title || pureBookTitle;
+  // 使用微信读书的标准书名（如果有），并统一清理
+  const standardTitle = cleanTitle(bookInfo.title || book.title);
 
   // 生成正文（不带 > 引用符号）
   let body = '';
