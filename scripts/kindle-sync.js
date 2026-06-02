@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const { cleanText } = require('./book-merge');
 
 const KINDLE_PATH = '/media/jopus/Kindle';
 const CLIPPINGS_FILE = '/media/jopus/Kindle/documents/My Clippings.txt';
@@ -289,7 +290,7 @@ function parseClippings(content) {
         contentLines.push(lines[i].trim());
       }
     }
-    const highlightContent = contentLines.join('\n\n');
+    const highlightContent = cleanText(contentLines.join('\n\n'));
 
     if (!highlightContent) return;
     if (type === 'bookmark') return; // 跳过书签
