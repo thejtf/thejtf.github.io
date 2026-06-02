@@ -262,8 +262,8 @@ function parseClippings(content) {
 
     if (lines.length < 2) return;
 
-    // 第一行是书名（可能有 BOM）
-    let bookTitle = lines[0].trim().replace(/^﻿/, '');
+    // 第一行是书名（可能有 BOM），清理括号版本信息和冒号副标题
+    let bookTitle = cleanTitle(lines[0].trim().replace(/^﻿/, ''));
 
     // 第二行是位置和时间信息
     const locationLine = lines[1] || '';
