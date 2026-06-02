@@ -194,6 +194,7 @@ async function getBookTag(bookTitle, summary) {
 hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async function(args) {
   const wereadApi = require('./weread-api');
   const bookMerge = require('./book-merge');
+  const { cleanText } = bookMerge;
 
   console.log('📚 开始从微信读书同步笔记...\n');
 

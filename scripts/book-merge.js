@@ -288,6 +288,14 @@ function generateExcerptContent(excerpts, notes) {
   return content;
 }
 
+// 清理书摘文本：去除电子书脚注编号和不可见垃圾字符
+function cleanText(text) {
+  if (!text) return text;
+  return text
+    .replace(/\[\d+\]/g, '')          // 脚注编号 [91] [注12] 等
+    .replace(/[​‌‍﻿￼]/g, '');  // 零宽字符、BOM、对象替换符
+}
+
 // 合并时间（取最新的）
 function mergeDates(existingDate, newDate) {
   if (!existingDate) return newDate;
@@ -309,5 +317,6 @@ module.exports = {
   mergeDates,
   generateExcerptContent,
   hasContainRelation,
-  dedupeExcerpts
+  dedupeExcerpts,
+  cleanText
 };
