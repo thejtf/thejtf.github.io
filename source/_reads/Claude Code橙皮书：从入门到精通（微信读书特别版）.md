@@ -34,7 +34,7 @@ Boris推荐的完整流程是这样的：
 这个流程的精髓在于：把纠结放在Plan阶段解决完，执行阶段一气呵成。边做边改、反复返工是最浪费tokens的用法。
 
 如何启用Auto模式
-# 启动时指定￼ claude --permission-mode auto￼ ￼ # 或者在运行中用 Shift+Tab 循环切换模式￼ # 默认→Auto-accept edits→Plan→Auto→默认￼ # Auto模式目前是Team plan的Research Preview功能
+# 启动时指定 claude --permission-mode auto  # 或者在运行中用 Shift+Tab 循环切换模式 # 默认→Auto-accept edits→Plan→Auto→默认 # Auto模式目前是Team plan的Research Preview功能
 
 /compact不是清空对话，而是让Claude把当前对话压缩成一个摘要。适合在一个长会话中途使用：你和Claude已经讨论了很多，上下文太长影响了性能，但你不想丢掉讨论的结论。/compact会保留关键信息，释放上下文空间。
 
