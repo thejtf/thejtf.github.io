@@ -288,12 +288,13 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       reviews.forEach(r => {
         if (r.content) {
           if (r.abstract) {
-            // 记录这条划线已显示
-            shownTexts.add(r.abstract.trim());
-            excerptsContent += `${r.abstract}\n\n**想法**：${r.content}\n\n`;
+            const abstract = cleanText(r.abstract.trim());
+            const content = cleanText(r.content.trim());
+            shownTexts.add(abstract);
+            excerptsContent += `${abstract}\n\n**想法**：${content}\n\n`;
           } else {
-            // 没有划线原文，直接显示想法
-            excerptsContent += `**想法**：${r.content}\n\n`;
+            const content = cleanText(r.content.trim());
+            excerptsContent += `**想法**：${content}\n\n`;
           }
         }
       });
@@ -301,7 +302,7 @@ hexo.extend.console.register('weread-sync', 'Sync all notes from WeRead', async 
       // 再处理纯划线（没有想法的）
       // 检查：1. 完全匹配 2. 包含已显示的内容 3. 被已显示的内容包含
       bookmarks.forEach(b => {
-        const text = b.markText.trim();
+        const text = cleanText(b.markText.trim());
         let isDuplicate = false;
 
         for (const shown of shownTexts) {
@@ -357,10 +358,10 @@ ${excerptsContent || ''}
 
       if (existingFile) {
         // 合并去重
-        const newExcerpts = bookmarks.map(b => b.markText.trim());
+        const newExcerpts = bookmarks.map(b => cleanText(b.markText.trim()));
         const newNotes = reviews.filter(r => r.content).map(r => ({
-          excerpt: r.abstract ? r.abstract.trim() : '',
-          content: r.content.trim()
+          excerpt: r.abstract ? cleanText(r.abstract.trim()) : '',
+          content: cleanText(r.content.trim())
         }));
 
         const merged = bookMerge.mergeExcerpts(
