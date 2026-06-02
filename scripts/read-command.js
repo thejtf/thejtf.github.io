@@ -11,6 +11,7 @@ hexo.extend.console.register('read', 'Create a reading note', {
 }, async function(args) {
   const fs = require('fs');
   const path = require('path');
+  const { cleanTitle } = require('./book-merge');
 
   const title = args._.join(' ');
   if (!title) {
@@ -48,8 +49,11 @@ hexo.extend.console.register('read', 'Create a reading note', {
     return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   };
 
+  const cleanedTitle = cleanTitle(title);
+  const safeTitle = cleanedTitle.replace(/[\\/:*?"<>|'\-]/g, ' ').replace(/\s+/g, ' ').trim();
+
   const content = `---
-title: ${title}
+title: ${cleanedTitle}
 date: ${formatDate(date)}
 tags:
   - 读书
@@ -69,7 +73,7 @@ top:
 
 `;
 
-  const filename = title + '.md';
+  const filename = safeTitle + '.md';
   const readsDir = path.join(hexo.source_dir, '_reads');
   const filePath = path.join(readsDir, filename);
 
@@ -96,6 +100,7 @@ async function importFromWeread(title, category, hexo) {
   const fs = require('fs');
   const path = require('path');
   const wereadApi = require('./weread-api');
+  const { cleanTitle } = require('./book-merge');
 
   hexo.log.info(`🔍 正在搜索《${title}》...`);
 
@@ -123,7 +128,7 @@ async function importFromWeread(title, category, hexo) {
     hexo.log.info(`✓ 获取想法: ${reviews.length} 条`);
 
     // 5. 生成 Markdown 内容
-    const bookTitle = bookInfo.title || searchResult.title;
+    const bookTitle = cleanTitle(bookInfo.title || searchResult.title);
     const bookAuthor = bookInfo.author || searchResult.author || '';
     const bookIntro = bookInfo.intro || searchResult.intro || '待补充';
 
