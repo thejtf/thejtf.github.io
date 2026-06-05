@@ -54,9 +54,10 @@ case "${1:-start}" in
                 fi
 
                 # 3. 推送本地改动
-                if ! git diff-index --quiet HEAD -- 2>/dev/null; then
-                    # 获取改动文件列表
-                    CHANGED=$(git diff --name-only HEAD 2>/dev/null)
+                UNTRACKED=$(git ls-files --others --exclude-standard 2>/dev/null)
+                if ! git diff-index --quiet HEAD -- 2>/dev/null || [ -n "$UNTRACKED" ]; then
+                    # 获取改动文件列表（含新建未追踪文件）
+                    CHANGED=$(git diff --name-only HEAD 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null)
 
                     # 检查是否有实际内容（排除空文件）
                     HAS_CONTENT=false
@@ -66,7 +67,7 @@ case "${1:-start}" in
                             if [[ "$f" == *.md ]]; then
                                 # 检查文件大小和是否只有 front matter
                                 SIZE=$(wc -c < "$f" 2>/dev/null || echo 0)
-                                if [ "$SIZE" -gt 200 ]; then
+                                if [ "$SIZE" -gt 50 ]; then
                                     # 检查是否有正文内容（front matter 后面有非空行）
                                     BODY=$(sed -n "/^---$/,/^---$/p" "$f" | wc -l)
                                     TOTAL=$(wc -l < "$f")
