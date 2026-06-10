@@ -24,6 +24,9 @@ case "${1:-start}" in
         nohup bash -c '
             cd /home/jopus/Blog
 
+            # 标记进程名（部分系统支持）
+            echo "auto-sync-loop" > /proc/self/comm 2>/dev/null || true
+
             while true; do
                 sleep 60
 
@@ -33,73 +36,83 @@ case "${1:-start}" in
                     continue
                 fi
 
-                # 2. 拉取远程更新
-                LOCAL=$(git rev-parse HEAD)
-                REMOTE=$(git rev-parse origin/source 2>/dev/null || echo "")
-
-                if [ "$LOCAL" != "$REMOTE" ] && [ -n "$REMOTE" ]; then
-                    # 有本地改动时先暂存
-                    if ! git diff-index --quiet HEAD -- 2>/dev/null; then
-                        git stash -q 2>/dev/null || true
+                # 与 local-sync-cron.sh / daily-rebuild-and-deploy.sh 共用同一把锁，避免并发 git 操作
+                (
+                    if ! flock -w 30 9; then
+                        echo "[$(date "+%m-%d %H:%M")] ⏸️ 其他同步任务进行中，本轮跳过" >> .sync.log
+                        exit 0
                     fi
 
-                    # 拉取
-                    if git pull origin source --quiet 2>/dev/null; then
-                        # 恢复暂存
-                        git stash pop -q 2>/dev/null || true
-                        echo "[$(date "+%m-%d %H:%M")] ⬇️ 已拉取远程更新" >> .sync.log
-                    else
-                        echo "[$(date "+%m-%d %H:%M")] ⚠️ 拉取失败，可能有冲突" >> .sync.log
-                    fi
-                fi
+                    # 2. 拉取远程更新
+                    LOCAL=$(git rev-parse HEAD)
+                    REMOTE=$(git rev-parse origin/source 2>/dev/null || echo "")
 
-                # 3. 推送本地改动
-                UNTRACKED=$(git ls-files --others --exclude-standard 2>/dev/null)
-                if ! git diff-index --quiet HEAD -- 2>/dev/null || [ -n "$UNTRACKED" ]; then
-                    # 获取改动文件列表（含新建未追踪文件）
-                    CHANGED=$(git diff --name-only HEAD 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null)
-
-                    # 检查是否有实际内容（排除空文件）
-                    HAS_CONTENT=false
-                    for f in $CHANGED; do
-                        if [ -f "$f" ]; then
-                            # markdown 文件检查是否有实际内容
-                            if [[ "$f" == *.md ]]; then
-                                # 检查文件大小和是否只有 front matter
-                                SIZE=$(wc -c < "$f" 2>/dev/null || echo 0)
-                                if [ "$SIZE" -gt 50 ]; then
-                                    # 检查是否有正文内容（front matter 后面有非空行）
-                                    BODY=$(sed -n "/^---$/,/^---$/p" "$f" | wc -l)
-                                    TOTAL=$(wc -l < "$f")
-                                    if [ "$TOTAL" -gt "$BODY" ]; then
-                                        HAS_CONTENT=true
-                                        break
-                                    fi
-                                fi
-                            else
-                                # 非 markdown 文件，有改动就推送
-                                HAS_CONTENT=true
-                                break
-                            fi
+                    if [ "$LOCAL" != "$REMOTE" ] && [ -n "$REMOTE" ]; then
+                        # 有本地改动时先暂存
+                        STASHED=false
+                        if ! git diff-index --quiet HEAD -- 2>/dev/null; then
+                            git stash -q 2>/dev/null && STASHED=true
                         fi
-                    done
 
-                    if [ "$HAS_CONTENT" = true ]; then
-                        git add -A 2>/dev/null
-                        git commit -m "Auto sync: $(date "+%Y-%m-%d %H:%M")" 2>/dev/null
-                        if git push origin source --quiet 2>/dev/null; then
-                            echo "[$(date "+%m-%d %H:%M")] ⬆️ 已推送: $(echo "$CHANGED" | head -3 | tr "\n" ", ")" >> .sync.log
+                        # 拉取
+                        if git pull origin source --quiet 2>/dev/null; then
+                            echo "[$(date "+%m-%d %H:%M")] ⬇️ 已拉取远程更新" >> .sync.log
                         else
-                            echo "[$(date "+%m-%d %H:%M")] ❌ 推送失败" >> .sync.log
+                            echo "[$(date "+%m-%d %H:%M")] ⚠️ 拉取失败，可能有冲突" >> .sync.log
                         fi
-                    else
-                        echo "[$(date "+%m-%d %H:%M")] ⏸️ 跳过空文件推送" >> .sync.log
-                    fi
-                fi
-            done
 
-            # 标记进程名（部分系统支持）
-            echo "auto-sync-loop" > /proc/self/comm 2>/dev/null || true
+                        # 恢复暂存；失败时改动保留在 stash，跳过本轮推送以免提交冲突标记
+                        if [ "$STASHED" = true ] && ! git stash pop -q 2>/dev/null; then
+                            echo "[$(date "+%m-%d %H:%M")] ⚠️ stash pop 失败！本地改动保留在 stash（用 git stash list 查看），跳过本轮推送" >> .sync.log
+                            exit 0
+                        fi
+                    fi
+
+                    # 3. 推送本地改动
+                    UNTRACKED=$(git ls-files --others --exclude-standard 2>/dev/null)
+                    if ! git diff-index --quiet HEAD -- 2>/dev/null || [ -n "$UNTRACKED" ]; then
+                        # 获取改动文件列表（含新建未追踪文件）
+                        CHANGED=$(git diff --name-only HEAD 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null)
+
+                        # 检查是否有实际内容（排除空文件）
+                        HAS_CONTENT=false
+                        for f in $CHANGED; do
+                            if [ -f "$f" ]; then
+                                # markdown 文件检查是否有实际内容
+                                if [[ "$f" == *.md ]]; then
+                                    # 检查文件大小和是否只有 front matter
+                                    SIZE=$(wc -c < "$f" 2>/dev/null || echo 0)
+                                    if [ "$SIZE" -gt 50 ]; then
+                                        # 检查是否有正文内容（front matter 后面有非空行）
+                                        BODY=$(sed -n "/^---$/,/^---$/p" "$f" | wc -l)
+                                        TOTAL=$(wc -l < "$f")
+                                        if [ "$TOTAL" -gt "$BODY" ]; then
+                                            HAS_CONTENT=true
+                                            break
+                                        fi
+                                    fi
+                                else
+                                    # 非 markdown 文件，有改动就推送
+                                    HAS_CONTENT=true
+                                    break
+                                fi
+                            fi
+                        done
+
+                        if [ "$HAS_CONTENT" = true ]; then
+                            git add -A 2>/dev/null
+                            git commit -m "Auto sync: $(date "+%Y-%m-%d %H:%M")" 2>/dev/null
+                            if git push origin source --quiet 2>/dev/null; then
+                                echo "[$(date "+%m-%d %H:%M")] ⬆️ 已推送: $(echo "$CHANGED" | head -3 | tr "\n" ", ")" >> .sync.log
+                            else
+                                echo "[$(date "+%m-%d %H:%M")] ❌ 推送失败" >> .sync.log
+                            fi
+                        else
+                            echo "[$(date "+%m-%d %H:%M")] ⏸️ 跳过空文件推送" >> .sync.log
+                        fi
+                    fi
+                ) 9>/tmp/blog-sync.lock
+            done
         ' > /dev/null 2>&1 &
 
         # 记录 PID

@@ -9,6 +9,12 @@ BLOG_DIR="/home/jopus/Blog"
 LOG_FILE="/home/jopus/Blog/.sync-cron.log"
 ENV_FILE="/home/jopus/Blog/.env"
 
+# 与 auto-push.sh / daily-rebuild-and-deploy.sh 共用同一把锁，避免并发 git/构建操作
+if [ -z "$BLOG_SYNC_LOCKED" ]; then
+    export BLOG_SYNC_LOCKED=1
+    exec flock -w 600 /tmp/blog-sync.lock "$0" "$@"
+fi
+
 # 加载环境变量
 if [ -f "$ENV_FILE" ]; then
     source "$ENV_FILE"

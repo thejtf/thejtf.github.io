@@ -4,12 +4,16 @@
 const https = require('https');
 
 const WEREAD_API_URL = 'i.weread.qq.com';
-const WEREAD_API_KEY = process.env.WEREAD_API_KEY || 'wrk-2z5vCC4zQ9GNOxb3mrkVKAAA';
+const WEREAD_API_KEY = process.env.WEREAD_API_KEY || '';
 const SKILL_VERSION = '1.0.3';
 
 // 调用微信读书 Gateway
 function wereadApi(apiName, params = {}) {
   return new Promise((resolve, reject) => {
+    if (!WEREAD_API_KEY) {
+      reject(new Error('缺少 WEREAD_API_KEY 环境变量，请在 .env 中配置后再运行同步'));
+      return;
+    }
     const body = JSON.stringify({
       api_name: apiName,
       skill_version: SKILL_VERSION,

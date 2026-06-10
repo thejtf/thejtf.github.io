@@ -30,7 +30,7 @@ top: false
 
 `;
 
-  const filename = title.replace(/[^a-zA-Z0-9一-龥]/g, '-') + '.md';
+  const filename = (title.replace(/[^a-zA-Z0-9一-龥]/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '') || 'untitled') + '.md';
   const notesDir = path.join(hexo.source_dir, '_notes');
   const filePath = path.join(notesDir, filename);
 

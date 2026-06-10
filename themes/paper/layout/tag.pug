@@ -28,7 +28,8 @@ block content
                     span.post__date #{date(post.date, date_format)}
           else
             //- 普通标签页面
-            each post in page.posts.toArray()
-              +postItem(post)
+            if page.posts && page.posts.toArray
+              each post in page.posts.toArray()
+                +postItem(post)
         include includes/sidebar.pug
   

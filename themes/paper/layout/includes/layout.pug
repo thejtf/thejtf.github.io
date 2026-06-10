@@ -11,13 +11,21 @@
 -      pageTitle += ' - ' + siteTitle
 -     return pageTitle
 - }
+- let getPageDescription = function() {
+-     if (page.description) return page.description
+-     if (page.excerpt) return strip_html(page.excerpt).replace(/\s+/g, ' ').trim().substring(0, 150)
+-     if (config.description) return config.description
+-     return getPageTitle()
+- }
+- let canonicalUrl = full_url_for(page.path || '').replace(/index\.html$/, '')
+- let ogImage = Array.isArray(page.photos) ? page.photos[0] : (typeof page.photos === 'string' && page.photos ? page.photos : null)
 
 doctype html
 html(lang=config.language)
   head
     meta(charset='UTF-8')
     meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=0")
-    meta(name="description" content=getPageTitle())
+    meta(name="description" content=getPageDescription())
     //- customize chrome tab color
     -
       let colorMap = {
@@ -32,6 +40,14 @@ html(lang=config.language)
       }
     meta(name="theme-color" content=colorMap[theme.main_color] || colorMap.default)
     title=getPageTitle()
+    link(rel="canonical" href=canonicalUrl)
+    meta(property="og:title" content=getPageTitle())
+    meta(property="og:description" content=getPageDescription())
+    meta(property="og:url" content=canonicalUrl)
+    meta(property="og:type" content=is_post() ? "article" : "website")
+    meta(property="og:site_name" content=config.title)
+    if ogImage
+      meta(property="og:image" content=ogImage)
 
     //- 字体优化加载：使用 Google Fonts（测试显示在你的网络环境下最快）
     link(rel="preconnect" href="https://fonts.googleapis.com")

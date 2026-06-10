@@ -13,7 +13,7 @@
     "server:original": "hexo server",
     "dev": "./start.sh",
     "sync:status": "git fetch && git status",
-    "sync:stop": "pkill -f 'auto-sync-daemon'"
+    "sync:stop": "./auto-push.sh stop"
   },
   "hexo": {
     "version": "6.3.0"

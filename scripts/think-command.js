@@ -31,7 +31,7 @@ top: false
 
 `;
 
-  const filename = title.replace(/[^a-zA-Z0-9一-龥]/g, '-') + '.md';
+  const filename = (title.replace(/[^a-zA-Z0-9一-龥]/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '') || 'untitled') + '.md';
   const thinksDir = path.join(hexo.source_dir, '_thinks');
   const filePath = path.join(thinksDir, filename);
 

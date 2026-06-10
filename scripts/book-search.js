@@ -53,7 +53,7 @@ function similarity(a, b) {
 // 改进的书籍搜索函数
 // 参数：bookTitle (Kindle 原书名), author (可选)
 async function searchBookAccurate(bookTitle, author = '') {
-  // 等略 1：检查是否标记为"不在微信读书"
+  // 策略 1：检查是否标记为"不在微信读书"
   if (NOT_ON_WEREAD[bookTitle]) {
     console.log(`  📖 已知信息: "${bookTitle}" 不在微信读书上`);
     return {
@@ -65,7 +65,7 @@ async function searchBookAccurate(bookTitle, author = '') {
     };
   }
 
-  // 等略 2：bookId 精确匹配（最可靠）
+  // 策略 2：bookId 精确匹配（最可靠）
   const bookId = BOOK_ID_MAPPING[bookTitle];
   if (bookId) {
     console.log(`  🔍 用 bookId 精确匹配: ${bookId}`);
@@ -83,7 +83,7 @@ async function searchBookAccurate(bookTitle, author = '') {
     }
   }
 
-  // 等略 3：书名搜索 + 多结果比对
+  // 策略 3：书名搜索 + 多结果比对
   console.log(`  🔍 用书名搜索: "${bookTitle}"`);
   try {
     // 注意：scope=10 有 bug，会返回错误结果；用 scope=1 只搜索书名
@@ -123,7 +123,7 @@ async function searchBookAccurate(bookTitle, author = '') {
       }
     }
 
-    // 等略 4：置信度阈值检查（>=70 才接受）
+    // 策略 4：置信度阈值检查（>=70 才接受）
     if (bestMatch && bestScore >= 70) {
       const bookInfo = await wereadApi.getBookInfo(bestMatch.bookId);
       console.log(`  ✅ 选中: "${bestMatch.title}" (置信度: ${bestScore.toFixed(0)}%)`);
@@ -135,7 +135,7 @@ async function searchBookAccurate(bookTitle, author = '') {
       };
     }
 
-    // 等略 5：置信度过低，保留原书名
+    // 策略 5：置信度过低，保留原书名
     console.log(`  ⚠️ 匹配度过低 (最高 ${bestScore.toFixed(0)}%)，保留原书名`);
     return {
       summary: '待补充',

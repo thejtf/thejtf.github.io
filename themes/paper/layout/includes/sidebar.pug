@@ -1,9 +1,9 @@
 .sidebar
   //- 默认参数 true，note/read/think 页面不显示 Toc
-  if !page.posts && page.type !== 'note' && page.type !== 'read' && page.type !== 'think' && (theme.toc === undefind || theme.toc === true)
+  if !page.posts && page.type !== 'note' && page.type !== 'read' && page.type !== 'think' && (theme.toc === undefined || theme.toc === true)
     include ./toc
 
-  if theme.link === undefind || theme.link === true
+  if theme.link === undefined || theme.link === true
     h2 Index
     .sidebar__link
       if theme.social
@@ -21,7 +21,7 @@
   //- 判断是否为 think 相关页面
   - var _isThinkPage = page.type === 'think' || page._think || page._thinkCategory || page._thinkTag || page._thinkArchive
 
-  if theme.archives === undefind || theme.archives === true
+  if theme.archives === undefined || theme.archives === true
     h2 Archives
     .sidebar__archives
       if _isNotePage
@@ -49,7 +49,7 @@
         //- 普通页面只显示 posts 的归档
         != list_archives({type:"yearly", format: "YYYY", show_count: false})
 
-  if theme.categories === undefind || theme.categories === true
+  if theme.categories === undefined || theme.categories === true
     h2 Categories
     .sidebar__categories
       if _isNotePage
@@ -77,7 +77,7 @@
         //- 普通页面只显示 posts 的分类
         != list_categories({show_count: false})
 
-  if theme.tags === undefind || theme.tags === true
+  if theme.tags === undefined || theme.tags === true
     h2 Tags
     .sidebar__tags
       if _isNotePage

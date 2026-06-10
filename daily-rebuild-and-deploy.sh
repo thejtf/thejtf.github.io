@@ -13,6 +13,12 @@ export NVM_DIR="/home/jopus/.nvm"
 BLOG_DIR="/home/jopus/Blog"
 LOG_FILE="/home/jopus/Blog/daily-rebuild-deploy.log"
 
+# 与 auto-push.sh / local-sync-cron.sh 共用同一把锁，避免并发 git/构建操作
+if [ -z "$BLOG_SYNC_LOCKED" ]; then
+    export BLOG_SYNC_LOCKED=1
+    exec flock -w 600 /tmp/blog-sync.lock "$0" "$@"
+fi
+
 # 进入博客目录
 cd "$BLOG_DIR" || exit 1
 
