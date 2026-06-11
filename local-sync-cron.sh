@@ -15,9 +15,11 @@ if [ -z "$BLOG_SYNC_LOCKED" ]; then
     exec flock -w 600 /tmp/blog-sync.lock "$0" "$@"
 fi
 
-# 加载环境变量
+# 加载环境变量（set -a 让 source 的变量自动 export 到子进程）
 if [ -f "$ENV_FILE" ]; then
+    set -a
     source "$ENV_FILE"
+    set +a
 fi
 
 cd "$BLOG_DIR"
