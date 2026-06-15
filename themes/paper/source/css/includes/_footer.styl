@@ -1,10 +1,59 @@
 .footer
   text-align: center
-  padding: 3rem 0
+  padding: 2rem 0
   background: var(--color-main)
-  font-size: 1.6rem
-  line-height: 2.3rem
+
+.footer-ai
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.6rem
+
+.footer-ai__label
+  font-size: 1.2rem
+  line-height: 1
+  color: rgba(0,0,0,0.5)
+
+.footer-ai__icons
+  display: flex
+  align-items: center
+  gap: 0.2rem
+
+.footer-ai__btn
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 2.8rem
+  height: 2.8rem
+  border-radius: 0.4rem
+  color: rgba(0,0,0,0.45)
+  cursor: pointer
+  transition: color 0.2s, background 0.2s
+  &:hover
+    color: rgba(0,0,0,0.7)
+    background: rgba(0,0,0,0.08)
+
+.footer-ai__toast
+  position: fixed
+  bottom: 2rem
+  left: 50%
+  transform: translateX(-50%)
+  background: rgba(0,0,0,0.75)
+  color: #fff
+  padding: 0.8rem 1.6rem
+  border-radius: 0.6rem
+  font-size: 1.3rem
+  white-space: nowrap
+  opacity: 0
+  transition: opacity 0.3s
+  pointer-events: none
+  z-index: 9999
+  &.show
+    opacity: 1
 
 @media screen and (max-width: $S)
-  .footer
-    font-size: 10px;
+  .footer-ai__label
+    font-size: 10px
+  .footer-ai__btn
+    width: 2.4rem
+    height: 2.4rem
