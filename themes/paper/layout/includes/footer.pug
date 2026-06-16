@@ -3,6 +3,8 @@
 - let aiPrompt = ''
 - if (is_post() || page._note || page._think || page._read) {
 -   aiPrompt = '请帮我总结一下这篇文章《' + aiPromptTitle + '》的内容，链接：' + aiPromptUrl
+- } else if (aiPromptTitle) {
+-   aiPrompt = '请帮我总结一下这个页面《' + aiPromptTitle + '》的内容，链接：' + aiPromptUrl
 - } else {
 -   aiPrompt = '请帮我总结一下 jopus.cn 这个博客的内容，包括博主写了哪些话题、有什么特色等'
 - }
