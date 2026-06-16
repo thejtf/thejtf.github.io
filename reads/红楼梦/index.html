@@ -186,18 +186,36 @@ if (!isLocalhost) {
   var container = document.querySelector('.footer-ai');
   var toast = document.querySelector('.footer-ai__toast');
   var prompt = container.getAttribute('data-prompt');
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function() { return true; }).catch(function() { return fallbackCopy(text); });
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function showToast() {
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2000);
+  }
   container.addEventListener('click', function(e) {
     var btn = e.target.closest('.footer-ai__btn');
     if (!btn) return;
     e.preventDefault();
     var url = btn.getAttribute('data-url');
     var fullUrl = url + (url.indexOf('?') === -1 ? '?' : '&') + 'q=' + encodeURIComponent(prompt);
-    navigator.clipboard.writeText(prompt).then(function() {
-      toast.classList.add('show');
-      setTimeout(function() {
-        toast.classList.remove('show');
-      }, 2000);
-    }).catch(function() {}).then(function() {
+    copyText(prompt).then(function(ok) {
+      if (ok) showToast();
       window.open(fullUrl, '_blank');
     });
   });
