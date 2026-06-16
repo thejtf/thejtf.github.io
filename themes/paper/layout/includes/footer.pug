@@ -40,12 +40,13 @@
         e.preventDefault();
         var url = btn.getAttribute('data-url');
         var fullUrl = url + (url.indexOf('?') === -1 ? '?' : '&') + 'q=' + encodeURIComponent(prompt);
-        window.open(fullUrl, '_blank');
         navigator.clipboard.writeText(prompt).then(function() {
           toast.classList.add('show');
           setTimeout(function() {
             toast.classList.remove('show');
           }, 2000);
+        }).catch(function() {}).then(function() {
+          window.open(fullUrl, '_blank');
         });
       });
     })();
