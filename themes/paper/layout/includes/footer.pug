@@ -37,14 +37,9 @@
         e.preventDefault();
         var url = btn.getAttribute('data-url');
         var fullUrl = url + (url.indexOf('?') === -1 ? '?' : '&') + 'q=' + encodeURIComponent(prompt);
-        navigator.clipboard.writeText(prompt).then(function() {
-          toast.classList.add('show');
-          setTimeout(function() {
-            toast.classList.remove('show');
-          }, 2000);
-          window.open(fullUrl, '_blank');
-        }).catch(function() {
-          window.open(fullUrl, '_blank');
-        });
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 2000);
+        try { navigator.clipboard.writeText(prompt); } catch(e) {}
+        setTimeout(function() { window.open(fullUrl, '_blank'); }, 300);
       });
     })();
