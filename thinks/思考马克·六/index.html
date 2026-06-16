@@ -206,12 +206,13 @@ if (!isLocalhost) {
     e.preventDefault();
     var url = btn.getAttribute('data-url');
     var fullUrl = url + (url.indexOf('?') === -1 ? '?' : '&') + 'q=' + encodeURIComponent(prompt);
-    window.open(fullUrl, '_blank');
     navigator.clipboard.writeText(prompt).then(function() {
       toast.classList.add('show');
       setTimeout(function() {
         toast.classList.remove('show');
       }, 2000);
+    }).catch(function() {}).then(function() {
+      window.open(fullUrl, '_blank');
     });
   });
 })();</script></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>
